@@ -1,0 +1,136 @@
+---
+title: "Bucles"
+author: enidev911
+date: 2024-01-07
+categories: [Python, Básico]
+mermaid: true
+---
+
+Por lo general, el código en Python se ejecuta de manera secuencial, es decir, empieza por la primera línea, pasa a la segunda y así sucesivamente. Sin embargo, existen casos, cuando se necesita un fragmento de código que se repita. Python y en general el mundo de la programación cuentan con las herramientas llamadas bucles (*loops*) para facilitar esta tarea. Los bucles permiten cambiar el flujo lineal del programa para repetir una parte del código tantas veces como sea necesario.
+
+
+```mermaid
+---
+title: Programa lineal vs control de flujo
+---
+flowchart TB
+    subgraph lineal
+    	direction TB
+    	inicio([Inicio])
+      -->a1[a1]
+      a1 --> a2[a2]
+      a2 --> a3[a3]
+      a3 --> fin([fin])
+    end
+    subgraph "con bucle"
+    	direction TB
+    	b1([inicio])
+    	-->b2{Es verdadero?}
+    	b2 --> |Si| c2[Ok]
+    	c2 --> d2[Repetir]
+    	d2 --> b2
+    end
+```
+
+## Bucle While
+
+Una forma de iteración en Python es la sentencia `while` que permite repitir la ejecución de un bloque de código siempre y cuando la expresión condicional del bucle sea verdadera.
+
+{% tabs ej_while_python %}
+{% tab ej_while_python código %}
+```py
+i = 5
+while i > 0:
+  print(i)
+  i -= 1
+
+print("¡Booom!")
+```
+{: .nolineno }
+{% endtab %}
+{% tab ej_while_python explicación %}
+Lo que ocurre a la hora de hacer funcionar este código es lo siguiente:
+
+- Antes de entrar en el **bucle** `while`, se inicializa la variable `i` en `0`.
+- Antes de realizar la primera **iteración** del bucle, **comprobamos la condición**.
+- Si la **condición es verdadera**, hacemos lo que está dentro del bucle.
+- Mostramos por pantalla el valor de `i` y luego
+**incrementamos el valor** actual de `i` en `1`.
+- Volvemos al **inicio del bucle** para hacer **una nueva iteración**. Comprobamos de nuevo la condición del bucle.
+- Cuando **la condición sea falsa**, salimos del bucle y continuamos el programa.
+{% endtab %}
+{% endtabs %}
+
+
+> La operación `x -= 1` es lo que suele llamar un decremento de una variable. Es equivalente a `x = x - 1` y por ende es muy común simplificarlo, aunque hace exactamente lo mismo.
+{: .prompt-info }
+
+```
+5
+4
+3
+2
+1
+¡Booom!
+```
+{: .nolineno .noheader }
+
+Un **bucle** `while` es muy simple, pero requiere que declaremos una variable previamente para evaluar y evitar que el programa se quede colgado en un **bucle infinito** por olvidarnos de este factor y además dentro debemos recordar **incrementar** o **decrementar** el valor de la variable.
+
+---
+
+## Bucle For
+
+El bucle `for` es quizás una de las estructuras de control más utilizada en el mundo de la programación. El bucle `for` a diferencia del `while` es una iteración que recorre los elementos de una secuencia ordenadas como en el caso de una *lista*, *tupla*, *string*, aunque también puede ser cualquier otro objeto que sea *iterable*.
+
+### Ejemplos bucle for
+
+Podemos imprimir el valor de la variable de control utilizando el bucle:
+
+```py
+for i in [1, 2, 3, 4, 5]:
+	print("Valor de i:", i)
+```
+
+```py
+Valor de i: 1
+Valor de i: 2
+Valor de i: 3
+Valor de i: 4
+Valor de i: 5
+```
+{: .nolineno .noheader }
+
+Si la variable de control no se va a utilizar en el cuerpo del bucle, como en el ejemplo anterior, se puede utilizar un guión bajo (`_`) en vez de un nombre:
+
+```py
+for _ in [1, 2, 3, 4, 5]:
+	print("Hola")
+```
+
+```py
+Hola
+Hola
+Hola
+Hola
+Hola
+```
+{: .nolineno .noheader }
+
+> El `_` es solo una notación que no tiene ninguna consecuencia con respecto al funcionamiento del programa, pero sirve de ayuda a la persona que esté leyendo el código fuente, que sabe así que los valores no se van a utilizar
+{: .prompt-info }
+
+
+En los ejemplos anteriores, la variable de control no se le a dado un uso relevante aparte de mostrar su valor, pero en muchos casos sí se utiliza para realizar alguna otra operación. Cuando se utiliza, hay que tener en cuenta de que la variable de control va cambiando según su posición en el conjunto. Por ejemplo, elevar al cuadrado cada valor dentro de la lista sería de la siguiente manera:
+
+```py
+for i in [3, 4, 5]:
+	print(f"Hola. Ahora i vale {i} y su cuadrado es {i ** 2}")
+```
+
+```
+Hola. Ahora i vale 3 y su cuadrado es 9
+Hola. Ahora i vale 4 y su cuadrado es 16
+Hola. Ahora i vale 5 y su cuadrado es 25
+```
+{: .nolineno .noheader }
