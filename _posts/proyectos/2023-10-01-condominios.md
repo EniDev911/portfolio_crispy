@@ -4,7 +4,7 @@ author: enidev911
 categories: [Proyectos, Web]
 tags: [Proyecto]
 image:
-  path: /assets/img/proyectos/codominio.png
+  path: /assets/img/proyectos/condominio.png
   alt: captura de la web
 pin: true
 ---

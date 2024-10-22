@@ -1,0 +1,12 @@
+projects:
+  - title: "Website"
+    description: "Condominio espacio uno 3"
+    url: "https://condominioespaciouno3.cl/"
+    image: "/assets/img/proyectos/condominio.png"
+
+  - title: "Website"
+    description: "Fullstack Python"
+    url: "https://enidev911.github.io/fullstack-python"
+    image: "/assets/img/proyectos/fullstack-python.png"
+
+
