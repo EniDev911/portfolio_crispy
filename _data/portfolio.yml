@@ -9,6 +9,11 @@ projects:
     url: "https://enidev911.github.io/fullstack-python"
     image: "/assets/img/proyectos/fs-python.png"
 
+  - title: "Lading Page"
+    description: "Alejandra Bravo"
+    url: "https://alejandrabravo.cl/"
+    image: "/assets/img/proyectos/jbravo.png"
+
 certificates:
   - title: "HackerRank"
     descripcion: "SQL Basic"
