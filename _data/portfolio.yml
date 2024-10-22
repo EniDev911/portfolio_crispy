@@ -20,4 +20,7 @@ certificates:
     url: "https://www.hackerrank.com/certificates/48cc94118f93"
     image: "/assets/img/certificados/sql-basic.png"
 
-
+  - title: "Talento Digital"
+    descripcion: "Fullstack Ruby On Rails"
+    url: "https://www.acreditta.com/credential/9000349f-4634-4d06-a26b-9af13d6ac952"
+    image: "/assets/img/certificados/ror-inforcap.png"
