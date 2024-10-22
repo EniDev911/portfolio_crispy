@@ -7,6 +7,12 @@ projects:
   - title: "Website"
     description: "Fullstack Python"
     url: "https://enidev911.github.io/fullstack-python"
-    image: "/assets/img/proyectos/fullstack-python.png"
+    image: "/assets/img/proyectos/fs-python.png"
+
+certificates:
+  - title: "HackerRank"
+    descripcion: "SQL Basic"
+    url: "https://www.hackerrank.com/certificates/48cc94118f93"
+    image: "/assets/img/certificados/sql-basic.png"
 
 
