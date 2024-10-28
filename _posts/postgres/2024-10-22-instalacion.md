@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL 🐘 : Instalación"
 author: enidev911
-categories: [Bases de Datos Relacionales, Postres]
+categories: [Bases de Datos Relacionales, Postgres]
 mermaid: true
 tags: [Bases de Datos]
 ---

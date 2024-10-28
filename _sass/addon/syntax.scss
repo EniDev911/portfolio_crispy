@@ -84,7 +84,6 @@ html {
       }
     }
   }
-
   .lineno {
     text-align: right;
     color: var(--highlight-lineno-color);
@@ -275,11 +274,11 @@ html {
           width: $code-dot-size;
           height: $code-dot-size;
           border-radius: 50%;
-          background-color: var(--code-header-muted-color);
+          background-color: var(--code-header-muted-color-1);
           box-shadow: ($code-dot-size + $code-dot-gap) 0 0
-          var(--code-header-muted-color),
+          var(--code-header-muted-color-2),
           ($code-dot-size + $code-dot-gap) * 2 0 0
-          var(--code-header-muted-color);
+          var(--code-header-muted-color-3);
         }
 
         span {
