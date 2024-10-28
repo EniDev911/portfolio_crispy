@@ -166,7 +166,8 @@ html {
     &.nolineno,
     &.language-plaintext,
     &.language-console,
-    &.language-terminal {
+    &.language-terminal,
+    &.language-psql {
       td:first-child {
         padding: 0 !important;
         margin-right: 0;
@@ -174,6 +175,11 @@ html {
         .lineno {
           display: none;
         }
+      }
+    }
+    &.pre-wrap {
+      pre {
+        white-space: pre-wrap;
       }
     }
   }
