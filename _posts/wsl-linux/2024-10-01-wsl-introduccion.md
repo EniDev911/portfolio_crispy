@@ -160,9 +160,32 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 Añadimos el plugin a la lista para que Oh My Zsh lo cargue (dentro de `~/.zshrc`):
 
+```terminal
+sed -i '/^plugins=(/ s/)/ zsh-autosuggestions)/' ~/.zshrc
+```
+
+**Explicación del comando:**
+
+- `sed -i`: Edita el archivo en el lugar (in-place).
+- `'/^plugins=(/'`: Busca la línea que comienza con plugins=(.
+- `s/)/ git)/`: Reemplaza el paréntesis de cierre `)` por `zsh-autosuggestions)` (agrega el plugin a la lista antes de cerrarlo).
+
 ![agregar plugin zsh-autosuggestions](/assets/img/wsl/agregar-plugin-zsh-autosuggestions-light.png){: .light }
 ![agregar plugin zsh-autosuggestions](/assets/img/wsl/agregar-plugin-zsh-autosuggestions-dark.png){: .dark }
 
+Ahora refrescamos las configuraciones para que surtan efecto: `source ~/.zshrc`.
+
+### Desinstalar distribuciones
+
+Para desinstalar una distribución de Linux en Windows, se puede ejecutar el siguiente comando:
+
+```terminal
+wsl --unregister <distroName>
+```
+Donde **<<distroName>>** es el nombre que tiene la distribución existente, que se puede ver en la lista del `comando wsl -l`. 
+
+>En el ejemplo que tenemos al principio instalamos debian, por ende para desinstalarlo debemos ejecutar `wsl --unregister debian`
+{: .prompt-info }
 
 ### Recursos Adicionales
 
