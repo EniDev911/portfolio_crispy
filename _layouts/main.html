@@ -428,6 +428,10 @@ layout: default
   }
 }
 
+  #hero-animation path {
+          stroke: #888; /* Negro en modo claro */
+          fill: #fff;   /* Blanco de fondo */
+    }
   @media (prefers-color-scheme: light) {
       #hero-animation path {
           stroke: #888; /* Negro en modo claro */
@@ -438,8 +442,8 @@ layout: default
   /* Trazo en modo oscuro */
   @media (prefers-color-scheme: dark) {
       #hero-animation path {
-          stroke: #fff; /* Blanco en modo oscuro */
-          fill: #000;   /* Negro de fondo */
+          stroke: #ccc; /* Blanco en modo oscuro */
+          fill: #1f1f1f;   /* Negro de fondo */
       }
   }
 
