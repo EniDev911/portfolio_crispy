@@ -428,29 +428,34 @@ layout: default
   }
 }
 
-  #hero-animation path {
-          stroke: #888; /* Negro en modo claro */
-          fill: #fff;   /* Blanco de fondo */
-    }
+
   @media (prefers-color-scheme: light) {
-      #hero-animation path {
-          stroke: #888; /* Negro en modo claro */
-          fill: #fff;   /* Blanco de fondo */
+      html:not([data-mode]),
+      html[data-mode='light'] #hero-animation path {
+        stroke: #888; /* Negro en modo claro */
+        fill: #fff;   /* Blanco de fondo */
       }
+
+      html[data-mode="dark"] #hero-animation path {
+          stroke: #ccc; /* Blanco en modo oscuro */
+          fill: #1f1f1f;   /* Negro de fondo */
+      }
+
   }
 
   /* Trazo en modo oscuro */
   @media (prefers-color-scheme: dark) {
-      #hero-animation path {
+      html:not([data-mode]),
+      html[data-mode="dark"] #hero-animation path {
           stroke: #ccc; /* Blanco en modo oscuro */
           fill: #1f1f1f;   /* Negro de fondo */
       }
+      html[data-mode='light'] #hero-animation path {
+        stroke: #888; /* Negro en modo claro */
+        fill: #fff;   /* Blanco de fondo */
+      }
   }
 
-  html[data-mode="dark"] #hero-animation path {
-          stroke: #ccc; /* Blanco en modo oscuro */
-          fill: #1f1f1f;   /* Negro de fondo */
-  }
 </style>
 <header>
     <h1>Bienvenido a mi Blog Personal y Portafolio</h1>
