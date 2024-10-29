@@ -430,7 +430,7 @@ layout: default
 
 
   @media (prefers-color-scheme: light) {
-      html:not([data-mode]),
+      html:not([data-mode])  #hero-animation path,
       html[data-mode='light'] #hero-animation path {
         stroke: #888; /* Negro en modo claro */
         fill: #fff;   /* Blanco de fondo */
@@ -445,7 +445,7 @@ layout: default
 
   /* Trazo en modo oscuro */
   @media (prefers-color-scheme: dark) {
-      html:not([data-mode]),
+      html:not([data-mode])  #hero-animation path,
       html[data-mode="dark"] #hero-animation path {
           stroke: #ccc; /* Blanco en modo oscuro */
           fill: #1f1f1f;   /* Negro de fondo */
