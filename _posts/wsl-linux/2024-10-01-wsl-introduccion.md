@@ -187,6 +187,13 @@ Donde **<<distroName>>** es el nombre que tiene la distribución existente, que 
 >En el ejemplo que tenemos al principio instalamos debian, por ende para desinstalarlo debemos ejecutar `wsl --unregister debian`
 {: .prompt-info }
 
+
+### Exportar máquinas WSL
+
+Exportar una distribución de WSL te permite crear una copia de seguridad completa de de tu entorno, incluyendo todas las configuraciones de herramientas, bibliotecas específicas que no queremos perder.
+
+
+
 ### Recursos Adicionales
 
 Para aprender más sobre WSL y cómo aprovecharlo al máximo, considera los siguientes recursos:

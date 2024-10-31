@@ -195,7 +195,7 @@ html {
         padding: 0 10px;
         left: 0; /* Alineación a la izquierda */
         top: 0; /* Alineación en la parte superior */
-        background: #ff93;
+        background: var(--code-hl);
       }
     }
   }
