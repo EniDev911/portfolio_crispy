@@ -16,11 +16,26 @@ projects:
 
 certificates:
   - title: "HackerRank"
-    descripcion: "SQL Basic"
+    description: "Python Basic"
+    url: "https://www.hackerrank.com/certificates/c390e81818ed"
+    image: "/assets/img/certificados/python-basic.png"
+
+  - title: "HackerRank"
+    description: "SQL Basic"
     url: "https://www.hackerrank.com/certificates/48cc94118f93"
     image: "/assets/img/certificados/sql-basic.png"
 
+  - title: "HackerRank"
+    description: "SQL Intermediate"
+    url: "https://www.hackerrank.com/certificates/5cfa03104d31"
+    image: "/assets/img/certificados/sql-intermediate.png"
+
+  - title: "Desafío Latam"
+    description: "Fullstack JavaScript"
+    url: "/assets/img/certificados/fullstack-js.png"
+    image: "/assets/img/certificados/fullstack-js.png"
+
   - title: "Talento Digital"
-    descripcion: "Fullstack Ruby On Rails"
+    description: "Fullstack Ruby On Rails"
     url: "https://www.acreditta.com/credential/9000349f-4634-4d06-a26b-9af13d6ac952"
     image: "/assets/img/certificados/ror-inforcap.png"

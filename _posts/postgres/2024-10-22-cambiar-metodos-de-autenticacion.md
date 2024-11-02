@@ -6,7 +6,7 @@ tags: [Bases de Datos]
 ---
 
 
-### Localizar el archivo de configuración pg_hba.conf:
+## Localizar el archivo de configuración pg_hba.conf:
 
 Por lo general, el archivo `pg_hba.conf` se encuentra en el directorio de datos de PostgreSQL. La ubicación más común es: `/etc/postgresql/<version>/main/pg_hba.conf`{: .filepath}.
 
@@ -122,14 +122,36 @@ host    all             all             127.0.0.1/32            md5
 - **Dirección**: `127.0.0.1/32` permite conexiones desde el localhost.
 - **Método de autenticación**: En este ejemplo, se utiliza `md5`, que requiere una contraseña encriptada.
 
-### Cambiar el Método de Autenticación
+### Cambiar el Método de Autenticación para el Super Usuario Postgres
+
+Antes de cambiar el método de autenticación para el superusuario `postgres`, necesitamos establecer una contraseña primero.
+
+#### 1. Acceder a PostgreSQL sin contraseña
+
+Dado que el método actual es `peer`, podemos conectarnos a PostgreSQL sin necesidad de una contraseña desde el terminal:
+
+```terminal
+sudo -u postgres psql
+```
+
+#### 2. Establecer una contraseña para el usuario postgres
+
+Una vez dentro del prompt de `psql`, establecemos una contraseña con el siguiente comando:
+
+```sql
+ALTER USER postgres WITH PASSWORD 'nueva_password';
+```
+{: .nolineno }
+
+Luego salimos del prompt de psql escribiendo `\q`.
+
+#### 3. Cambiar el método en el archivo pg_hba.conf
 
 Abrimos el archivo `pg_hba.conf` con el editor de preferencia:
 
 ```terminal
 sudo nano /etc/postgresql/15/main/pg_hba.conf
 ```
-
 Aquí, modificamos las líneas que especifican el método de autenticación. Por ejemplo, cambiar de `peer` en la sección de usuario administrativo con algunos de los valores que mencionamos:
 
 ![ejemplo de pg_hba.conf](/assets/img/postgres/pg_hba-method-sample-light.png){: .light }
@@ -141,6 +163,12 @@ Luego guardamos los cambios, y reiniciamos el servicio:
 sudo service postgresql restart
 ```
 
+#### 4. Probar la conexión con el superusuario
 
+Ahora ya podemos conectarnos utilizando la contraseña establecida:
+
+```terminal
+psql -U postgres -d postgres -W
+```
 
 

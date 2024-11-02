@@ -188,11 +188,35 @@ Donde **<<distroName>>** es el nombre que tiene la distribución existente, que 
 {: .prompt-info }
 
 
-### Exportar máquinas WSL
+### Exportar distribuciones WSL
 
 Exportar una distribución de WSL te permite crear una copia de seguridad completa de de tu entorno, incluyendo todas las configuraciones de herramientas, bibliotecas específicas que no queremos perder.
 
+Para exportar una distribución WSL, tenemos que ejecutar el siguiente comando:
 
+```terminal
+wsl --export <NombreDeLaDistribucion> <RutaDeDestino>\distro_exportada.tar
+```
+
+Remplazando `<NombreDeLaDistribucion>` por el nombre de la distribución que se desea exportar y `<RutaDeDestino>` por la ruta donde se quiere guardar el archivo `.tar`. Ejemplo exportando la distribución Debian:
+
+```terminal
+wsl --export Debian %UserProfile%\desktop\wsl_debian.tar
+```
+
+### Importar la distribución en WSL 2
+
+Para especificar que deseamos usar WSL 2 durante la importación. Podemos hacerlo con el siguiente comando:
+
+```terminal
+wsl --import <NombreDistribucion> <RutaInstalacion> <RutaArchivo>.tar --version 2
+```
+
+Ejemplo importando la distribución de Debian que exportamos anteriormente:
+
+```terminal
+wsl --import DebianDev C:\WSL\Debian wsl_debian.tar --version 2
+```
 
 ### Recursos Adicionales
 
@@ -201,6 +225,6 @@ Para aprender más sobre WSL y cómo aprovecharlo al máximo, considera los sigu
 - [Documentación Oficial de WSL](https://docs.microsoft.com/en-us/windows/wsl/)
 - [Foros y Comunidades](https://stackoverflow.com/questions/tagged/wsl)
 
-### Conclusión
+### En Resumen
 
 WSL es una herramienta poderosa que permite a los usuarios de Windows disfrutar de las ventajas de un entorno Linux sin complicaciones. Ya seas un desarrollador, un administrador de sistemas o simplemente un entusiasta de la tecnología, WSL te ofrece un mundo de posibilidades. ¡Empieza a explorar y potencia tu flujo de trabajo!

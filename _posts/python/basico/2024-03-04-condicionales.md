@@ -5,13 +5,13 @@ categories: [Python, Básico]
 mermaid: true
 ---
 
-Los condicionales son una piedra angular en la programación, permitiendo que tu código tome decisiones basadas en ciertas condiciones. En Python, los condicionales te permiten controlar el flujo de ejecución de tu programa al decidir qué bloques de código se deben ejecutar bajo determinadas circunstancias. En este artículo, exploraremos en detalle cómo funcionan los condicionales en Python, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
+Los condicionales son fundamentales y la piedra angular en la programación, permitiendo que tu código tome decisiones basadas en ciertas condiciones. En Python, los condicionales te permiten controlar el flujo de ejecución de tu programa al decidir qué bloques de código se deben ejecutar bajo determinadas circunstancias. En este post, exploraremos en detalle cómo funcionan los condicionales en Python, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
 
 ## ¿Qué son los Condicionales?
 
 Los condicionales son estructuras que permiten que un programa ejecute ciertas partes del código solo si se cumple una condición específica. Estas condiciones se evalúan como `True` (verdadero) o `False` (falso). En Python, se utilizan principalmente las declaraciones `if`, `elif` y `else` para gestionar el flujo del programa basado en estas condiciones.
 
-A continuación vemos un diagrama de flujo que ilustra cómo funcionan los condicionales en Python. Este diagrama muestra un flujo de decisión básico usando una estructura `if`, `elif`, y `else`.
+A continuación tenemos un diagrama de flujo que ilustra cómo funcionan los condicionales en Python. Este diagrama muestra un flujo de decisión básico usando una estructura `if`, `elif`, y `else`.
 
 ```mermaid
 graph TD
@@ -37,6 +37,7 @@ elif otra_condición:
 else:
     # Bloque de código a ejecutar si ninguna de las condiciones anteriores es verdadera
 ```
+{: .nolineno }
 
 ### Ejemplo Simple
 
@@ -50,10 +51,10 @@ if edad >= 18:
 else:
     print("Eres menor de edad.")
 ```
+{: .nolineno }
 
-En este ejemplo, se evalúa si la variable `edad` es mayor o igual a 18. Si la condición es verdadera, se imprime "Eres un adulto."; de lo contrario, se imprime "Eres menor de edad."
 
-### Explicación del Código:
+#### Explicación del Código:
 
 1. **Declaración `if`:** `if edad >= 18:` verifica si el valor de `edad` es mayor o igual a 18.
 2. **Bloque de Código:** El bloque de código indentado que sigue a la declaración `if` se ejecuta si la condición es verdadera.
@@ -73,8 +74,10 @@ elif nota >= 70:
 else:
     print("Reprobado")
 ```
+{: .nolineno }
 
-En este ejemplo:
+#### Explicación del Código:
+
 
 1. **Primera Condición (`if`):** Verifica si `nota` es mayor o igual a 90.
 2. **Segunda Condición (`elif`):** Si la primera condición no se cumple, verifica si `nota` es mayor o igual a 70.
@@ -93,8 +96,9 @@ if edad >= 18 and tiene_licencia:
 else:
     print("No puedes conducir.")
 ```
+{: .nolineno }
 
-En este ejemplo:
+#### Explicación del Código:
 
 - La condición `edad >= 18 and tiene_licencia` se evalúa como verdadera solo si ambas sub-condiciones son verdaderas.
 
@@ -120,6 +124,7 @@ else:
     else:
         print("Eres menor de edad y no tienes permiso.")
 ```
+{: .nolineno }
 
 Aquí, si la primera condición `edad >= 18` es falsa, se evalúa una segunda condición dentro del bloque `else`.
 
@@ -135,12 +140,6 @@ print(mensaje)
 
 En esta expresión condicional, el valor de `mensaje` depende de la condición `edad >= 18`.
 
-### Conclusión
+### En Resumen
 
 Los condicionales son herramientas poderosas en Python que permiten que tu programa tome decisiones basadas en condiciones específicas. Comprender cómo usar `if`, `elif`, y `else` te permitirá controlar el flujo de tu programa y gestionar diferentes escenarios de manera efectiva. Además, los operadores lógicos, condicionales anidados y expresiones condicionales te ofrecen flexibilidad para abordar problemas más complejos.
-
-Con estos conocimientos, estarás bien equipado para escribir código que responda a diversas condiciones y realice operaciones condicionales de manera eficiente. ¡Feliz codificación!
-
----
-
-Espero que este artículo te haya proporcionado una comprensión clara de cómo funcionan los condicionales en Python y te inspire a seguir explorando y aplicando estos conceptos en tus propios proyectos de programación.
