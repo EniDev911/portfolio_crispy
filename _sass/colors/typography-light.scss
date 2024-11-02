@@ -96,6 +96,10 @@
     --link-underline-color: rgb(219, 216, 216);
   }
 
+  .custom-tooltip {
+    --bs-tooltip-bg: var(--mask-bg);
+    --bs-tooltip-color: var( --text-color);
+  }
   .dark {
     display: none;
   }

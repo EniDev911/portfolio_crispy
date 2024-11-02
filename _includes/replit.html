@@ -1,0 +1,30 @@
+<div class="output"></div>
+<button id="run">Ejecutar</button>
+
+<script>
+    let outputDiv = document.querySelector(".output");
+    function outf(text) {
+        outputDiv.innerHTML += text + "<br/>";
+        outputDiv.scrollTop = outputDiv.scrollHeight; // Desplazar hacia abajo
+    }
+
+    function runPython() {
+        outputDiv.innerHTML = '';
+        const code = document.querySelector(".rouge-code").textContent;
+        Sk.configure({
+            output: outf,
+            read: function(x) {
+                return Sk.builtinFiles === undefined ? undefined : Sk.builtinFiles["files"][x];
+            }
+        });
+        Sk.misceval.asyncToPromise(function() {
+            return Sk.importMainWithBody("<stdin>", false, code, true);
+        }).then(function(mod) {
+            outf("Ejecutado con éxito.");
+        }, function(err) {
+            outf("Error: " + err.toString());
+        });
+    }
+
+    document.getElementById("run").addEventListener("click", ()  => runPython());
+</script>
