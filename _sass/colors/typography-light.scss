@@ -103,7 +103,9 @@
   .dark {
     display: none;
   }
-
+  .thl {
+    color:  var(--prompt-warning-icon-color);
+  }
   /* Categories */
   --categories-border: rgba(0, 0, 0, 0.125);
   --categories-hover-bg: var(--btn-border-color);
