@@ -5,6 +5,14 @@
 @import 'colors/syntax-light';
 @import 'colors/syntax-dark';
 
+@font-face{
+  font-family:'Victor Mono NF';
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+  src:url(/assets/fonts/VictorMonoNFMedium.ttf) format('truetype')
+}
+
 html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),
@@ -81,6 +89,7 @@ html {
       pre {
         overflow: visible; /* Fixed iOS safari overflow-x */
         word-break: normal; /* Fixed iOS safari linenos code break */
+        font-family: 'Victor Mono NF', consolas;
       }
     }
   }
@@ -132,7 +141,6 @@ html {
 
   td.rouge-code {
     @extend %code-snippet-padding;
-
   /*
     Prevent some browser extends from
     changing the URL string of code block.
