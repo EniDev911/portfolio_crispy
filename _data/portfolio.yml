@@ -14,6 +14,11 @@ projects:
     url: "https://alejandrabravo.cl/"
     image: "/assets/img/proyectos/jbravo.png"
 
+  - title: "Lading Page"
+    description: "Soto Jaques Abogados"
+    url: "https://sotojaquesabogados.cl/"
+    image: "/assets/img/proyectos/sja.png"
+
 certificates:
   - title: "HackerRank"
     description: "Python Basic"
@@ -32,10 +37,15 @@ certificates:
 
   - title: "Desafío Latam"
     description: "Fullstack JavaScript"
-    url: "/assets/img/certificados/fullstack-js.png"
+    url: "https://empieza.desafiolatam.com/v/vUqDaYBDwVtBhBFKJgoV15wT"
     image: "/assets/img/certificados/fullstack-js.png"
+
+  - title: "Talento Digital"
+    description: "Fullstack Python"
+    url: "https://www.acreditta.com/credential/2f22e2e2-e049-409a-a77c-1226898d8deb?utm_source=copy&resource_type=badge&resource=2f22e2e2-e049-409a-a77c-1226898d8deb"
+    image: "/assets/img/certificados/td-fullstack-python.png"
 
   - title: "Talento Digital"
     description: "Fullstack Ruby On Rails"
     url: "https://www.acreditta.com/credential/9000349f-4634-4d06-a26b-9af13d6ac952"
-    image: "/assets/img/certificados/ror-inforcap.png"
+    image: "/assets/img/certificados/td-ruby-on-rails.png"

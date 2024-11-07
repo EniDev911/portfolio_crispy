@@ -13,6 +13,10 @@ La siguiente tabla contiene algunas de las funciones de fecha y hora que soporta
 |Nombre|Descripción|
 |:-----|:----------|
 |[`ADDDATE()`](#adddate)|Agrega valores de tiempo (intervalos) a un valor de fecha.|
+|[`ADDTIME()`](#addtime)|Agrega tiempo.|
+|[`DATE()`](#date)|Extrae la parte de la fecha de una expresión de fecha o fecha y hora.|
+|[`DATE_FORMAT()`](#date_format)|Formatear a una fecha de acuerdo a un formato especificado.|
+
 
 
 ### ADDDATE
@@ -34,7 +38,6 @@ SELECT CURDATE();
 
 #### Ejemplo Insertar en una Tabla usando la función CURDATE()
 
-
 ```sql
 /* Considerando tener la siguiente tabla */
 CREATE TABLE `users`(
@@ -47,5 +50,27 @@ CREATE TABLE `users`(
 /* Usamos la función CURDATE() en el campo up: */
 INSERT INTO `users` (`user_id`, `username`, `up`, `status`)
 VALUES (1010010101, 'Jhon Doe', CURDATE(), 1);
+```
+{: .nolineno }
+
+
+### DATE_FORMAT
+
+> `DATE_FORMAT()` solo cambia la forma en que se muestra la fecha, no altera el valor subyacente a la fecha en la base de datos.
+{: .prompt-info }
+
+#### Ejemplos de uso
+
+**1**. Formatear una fecha en formato `DD/MM/YYYY`:
+
+```sql
+SELECT DATE_FORMAT('2024-11-07', '%d/%m/%Y');
+```
+{: .nolineno }
+
+**2**. Obtener el nombre del mes y del día:
+
+```sql
+SELECT DATE_FORMAT('2024-11-07', '%W, %M %d, %Y');
 ```
 {: .nolineno }
