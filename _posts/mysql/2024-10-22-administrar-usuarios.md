@@ -3,6 +3,7 @@ title: "MySQL 🐬 : Administrar Usuarios"
 author: enidev911
 categories: [Bases de Datos Relacionales, MySQL]
 tags: [Bases de Datos]
+pin: true
 image:
     path: /assets/img/posters/mysql-administrar-usuarios.png
     alt: "Administrar Usuarios y Permisos en MySQL"
