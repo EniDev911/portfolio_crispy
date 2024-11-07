@@ -70,6 +70,7 @@ SELECT DATE_FORMAT('2024-11-07', '%d/%m/%Y');
 
 **2**. Obtener el nombre del mes y del día:
 
+{% include playground.html  %}
 ```sql
 SELECT DATE_FORMAT('2024-11-07', '%W, %M %d, %Y');
 ```

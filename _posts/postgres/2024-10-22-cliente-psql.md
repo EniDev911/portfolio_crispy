@@ -42,15 +42,15 @@ Type "help" for help.
 
 Una vez conectados a un servidor podemos realizar consultas. Por ejemplo, para obtener el listado de las bases de datos alojadas usamos el metacomando `\l`:
 
-![listar bases de datos](/assets/img/postgres/psql-list-databases-dark.png){: .dark }
-![listar bases de datos](/assets/img/postgres/psql-list-databases-light.png){: .light }
+![listar bases de datos](postgres/psql-list-databases-dark.png){: .dark }
+![listar bases de datos](postgres/psql-list-databases-light.png){: .light }
 
 ### Listar a los usuarios
 
 El metacomando `\du` se utiliza para mostrar la lista de todos los roles (usuarios y grupos) existentes en el servidor de PostgreSQL:
 
-![listar roles](/assets/img/postgres/psql-list-users-dark.png){: .dark }
-![listar roles](/assets/img/postgres/psql-list-users-light.png){: .light }
+![listar roles](postgres/psql-list-users-dark.png){: .dark }
+![listar roles](postgres/psql-list-users-light.png){: .light }
 
 ### Información de la conexión
 
