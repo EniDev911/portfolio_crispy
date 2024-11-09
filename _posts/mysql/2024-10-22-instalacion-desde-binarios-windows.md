@@ -126,3 +126,16 @@ mysqladmin -u root shutdown
 ```console
 mysqld --install "MySQL8"
 ```
+
+### Establecer una nueva contraseña
+
+Una vez ya podemos acceder a nuestro servidor, lo primero que debemos hacer es cambiar la contraseña generada al momento de inicializar las bases de datos del servidor. Para eso tenemos el comando `ALTER USER` que fue introducido en versiones de MySQL 5.7 en adelante.
+
+- Ejecutamos el siguiente comando para cambiar la contraseña del usuario conectado (root):
+
+```sql
+ALTER USER user() IDENTIFIED BY '<new-password>';
+```
+{: .nolineno }
+
+Este sería un ejemplo, que explica de forma ordenada de cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. ¡Espero que te sirva!

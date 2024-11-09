@@ -33,8 +33,8 @@ wsl --install
 
 Esto instalará la última versión de WSL y la distribución de Linux predeterminada (normalmente Ubuntu). Si ya se encuentra instalada nos muestra las distribuciones disponibles:
 
-![comando de instalación wsl](/assets/img/wsl/comando-instalacion-wsl-dark.png){: .dark }
-![comando de instalación wsl](/assets/img/wsl/comando-instalacion-wsl-light.png){: .light }
+![comando de instalación wsl](wsl/comando-instalacion-wsl-dark.png){: .dark }
+![comando de instalación wsl](wsl/comando-instalacion-wsl-light.png){: .light }
 
 #### Elegir una Distribución de Linux
 
@@ -48,8 +48,8 @@ wsl --install -d Debian
 
 Cuando se termina de instalar la nueva distribución de WSL, se le pedirá que cree un nombre de usuario y una contraseña para la distribución de Linux:
 
-![comando de instalación wsl](/assets/img/wsl/instalacion-wsl-debian-dark.png){: .dark }
-![comando de instalación wsl](/assets/img/wsl/instalacion-wsl-debian-light.png){: .light }
+![comando de instalación wsl](wsl/instalacion-wsl-debian-dark.png){: .dark }
+![comando de instalación wsl](wsl/instalacion-wsl-debian-light.png){: .light }
 
 > Recuerda que esta cuenta se considerará el administrador de Linux y tendrá la capacidad de ejecutar comandos administrativos sudo (es decir, de superusuario).
 {: .prompt-info }
@@ -93,8 +93,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 > Si al ejecutar el comando te sale el mensaje "zsh: command not found: curl", simplemente instalamos curl: `sudo apt install curl`.<br>Y si luego al ejecutar el comando te aparece el mensaje "Error: git is not installed", simplemente instalamos git: `sudo apt install git`. 
 {: .prompt-info }
 
-![instalación zsh en wsl](/assets/img/wsl/instalacion-zsh-en-wsl-light.png){: .light }
-![instalación zsh en wsl](/assets/img/wsl/instalacion-zsh-en-wsl-dark.png){: .dark }
+![instalación zsh en wsl](wsl/instalacion-zsh-en-wsl-light.png){: .light }
+![instalación zsh en wsl](wsl/instalacion-zsh-en-wsl-dark.png){: .dark }
 
 Este script instalará Oh My Zsh y cambiará tu configuración de Zsh automáticamente. A partir de aquí en adelante podemos personalizar la configuración editando el archivo `~/.zshrc`.
 
