@@ -1,6 +1,22 @@
 <div class="resource mb-4 position-relative">
+  <button id="fullscreenBtn" class="btn btn-secondary mb-2">Pantalla Completa</button>
   {% if include.target %}
   <a class="mb-4 d-inline-block fs-6" target="_blank" href="{{ include.src }}">Abrir en una nueva ventana</a>
   {% endif %}
-  <iframe allowfullscreen src="{{ include.src | relative-url }}" style="width: 100%; min-height: 450px; overflow: hidden; border-radius: 8px" frameborder="0" id="ifr"></iframe>
+  <iframe src="{{ include.src | relative-url }}" style="width: 100%; min-height: 450px; overflow: hidden; border-radius: 8px" frameborder="0" id="ifr" allowfullscreen></iframe>
 </div>
+
+<script>
+  document.getElementById('fullscreenBtn').addEventListener('click', function () {
+    var iframe = document.getElementById('ifr');
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+    }
+});
+</script>

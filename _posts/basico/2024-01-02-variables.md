@@ -3,7 +3,7 @@ title: Variables en Python
 author: enidev911
 categories: [Python, Básico]
 tags: [variables en python]
-mermaid: true
+mermaid: tru
 ---
 
 
@@ -51,26 +51,32 @@ En el ejemplo anterior:
 
 En Python, existen algunas reglas y convenciones para nombrar variables:
 
-1. **Empieza con una letra o un guion bajo**: Los nombres de las variables deben comenzar con una letra (a-z, A-Z) o un guion bajo (_). No pueden comenzar con un número.
-   ```python
-   _variable = "valor"
-   variable1 = "valor"
-   ```
+1. **Empieza con una letra o un guion bajo**: Los nombres de las variables deben comenzar con una letra (a-z, A-Z) o un guion bajo (`_`). No pueden comenzar con un número.
+
+```python
+_variable = "valor"
+variable1 = "valor"
+```
+{: .nolineno }
 
 2. **Usa solo caracteres alfanuméricos y guiones bajos**: Después del primer carácter, puedes usar letras, números y guiones bajos.
-   ```python
-   mi_variable = "valor"
-   variable_2 = "valor"
-   ```
+
+```python
+mi_variable = "valor"
+variable_2 = "valor"
+```
+{: .nolineno }
+
 
 3. **No uses palabras reservadas**: Evita usar palabras que son reservadas por Python (como `if`, `for`, `while`, etc.) como nombres de variables.
 
 4. **Usa nombres descriptivos**: Es una buena práctica usar nombres de variables que sean descriptivos para hacer que tu código sea más legible.
-   ```python
-   usuario = 'john_doe'
-   autenticado = False
-   creditos = 99.0
-   ```
+
+```python
+usuario = 'john_doe'
+autenticado = False
+creditos = 99.0
+```
 
 ### Tipos de Datos y Conversiones
 
