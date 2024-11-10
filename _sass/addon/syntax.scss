@@ -8,7 +8,6 @@
 @font-face{
   font-family:'Victor Mono NF';
   font-style:normal;
-  font-weight:500;
   font-display:swap;
   src:url(/assets/fonts/VictorMonoNFMedium.ttf) format('truetype')
 }
@@ -90,6 +89,7 @@ html {
         overflow: visible; /* Fixed iOS safari overflow-x */
         word-break: normal; /* Fixed iOS safari linenos code break */
         font-family: 'Victor Mono NF', consolas;
+        font-weight: 500;
       }
     }
   }
