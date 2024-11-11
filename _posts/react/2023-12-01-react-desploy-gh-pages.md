@@ -64,8 +64,13 @@ $ gh repo clone --public -s=. -r=origin
 {% endtab %}
 {% endtabs %}
 
+- Preparamos los archivos y subimos al repositorio remoto creado:
 
-
+```terminal
+git add .
+git commit -m "f commit"
+git push -u origin main
+```
 
 ---
 
@@ -119,6 +124,8 @@ Es fácil detectar el problema que sucede, basta con abrir la consola con <kbd>F
 
 ![Mensajes de la consola](desarrollo-web/not-found-resource-light.png){: .light }
 ![Mensajes de la consola](desarrollo-web/not-found-resource-dark.png){: .dark }
+
+Como podemos observar el mensaje "**Failed to load resource**" que aparece en la consola, indica que el navegador no pudo cargar un archivo o recurso en a página para funcionar correctamente. Este error puede ocurrir por diversas razones, podemos tener problemas con la red, errores en la ruta de los archivos (lo que es más común), permisos incorrectos, o recursos que ya no existen en el servidor.
 
 ### Configurar vite.config.ts
 
