@@ -3,7 +3,22 @@ title: 🚀 Deplegando Aplicación Vite + React en Gh Pages
 author: enidev911
 categories: [Desarrollo Web, React]
 tags: [desarrollo web, react]
+image: posters/deploy-react-vite-gh-pages.png
+pin: true
 ---
+
+## Cómo desplegar una aplicación de React con Vite
+
+Si has creado una aplicación de React usando Vite y quieres desplegarla en GitHub Pages, este tutorial te guiará paso a paso para hacerlo de forma sencilla. GitHub Pages es una excelente opción para alojar proyectos frontend estáticos de manera gratuita. A continuación te muestro cómo hacerlo.
+
+### Herramientas necesarias
+
+Doy por hecho que ya cuentas con las siguientes herramientas instaladas en tu sistema:
+
+- [Node.js](https://nodejs.org/en/){:target='_blank'}: Necesitarás **Node.js 14.18.0** o superior para este tutorial. Vite requiere al menos esta versión.
+- [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}, si prefieres usarlo como gestor de paquetes): Herramienta para instalar y gestionar dependencias.
+- [Git](https://git-scm.com/){: target='_blank' }: Para manejar el control de versiones de tu proyecto y poder subirlo a GitHub.
+- [Cuenta en GitHub](https://github.com/){: target='_blank'}: Para crear un repositorio y desplegar tu aplicación en GitHub Pages.
 
 ### Crear la Aplicación de React
 
@@ -118,19 +133,18 @@ Para subir los archivos generados y servirlo a Github Pages, utilizamos el coman
 npm run deploy
 ```
 
-Y que pasa ahora, nos encontramos una gran sorpresa al ir a visitar nuestra página:
+Y que pasa ahora, nos encontramos una gran sorpresa. Cuando vamos a visitar nuestra página en la url `https://<usuario>.github.io/<repo>`, encontraremos que nose visualiza como debería la aplicación.
 
 Es fácil detectar el problema que sucede, basta con abrir la consola con <kbd>F12</kbd> y ver los mensajes en la consola:
 
 ![Mensajes de la consola](desarrollo-web/not-found-resource-light.png){: .light }
 ![Mensajes de la consola](desarrollo-web/not-found-resource-dark.png){: .dark }
 
-Como podemos observar el mensaje "**Failed to load resource**" que aparece en la consola, indica que el navegador no pudo cargar un archivo o recurso en a página para funcionar correctamente. Este error puede ocurrir por diversas razones, podemos tener problemas con la red, errores en la ruta de los archivos (lo que es más común), permisos incorrectos, o recursos que ya no existen en el servidor.
+Como podemos observar el mensaje "**Failed to load resource**" que aparece en la consola, indica que el navegador no pudo cargar un archivo o recurso en a página para funcionar correctamente. Este error puede ocurrir por diversas razones, podemos tener problemas con la red, errores en la ruta de los archivos (lo que es más común), permisos incorrectos, o recursos que ya no existen en el servidor. Para solucionarlo debemos configurar Vite.
 
-### Configurar vite.config.ts
+### Configurar vite para Gh Pages
 
-En este paso, configuraremos `Vite` para que funcione bien en GiHub Pages, ya que GitHub Pages sirve la aplicación desde un subdirectorio. Esto significa que tenemos que ajustar las rutas base en la configuración de Vite. Abrimos el archivo `vite.config.ts` en la raíz de nuestro proyecto, y configura el `base` de la siguiente manera:
-
+En este paso, configuraremos `Vite` para que funcione bien en GiHub Pages, ya que GitHub Pages sirve la aplicación desde un subdirectorio. Esto significa que tenemos que ajustar las rutas base en la configuración de Vite. Abrimos el archivo `vite.config.js` en la raíz de nuestro proyecto, y configura el `base` de la siguiente manera:
 
 ```ts
 import { defineConfig } from 'vite';
@@ -143,5 +157,13 @@ export default defineConfig({
 ```
 {: .nolineno file="vite.config.js" }
 
----
+Una vez realizado el cambio, realiza nuevamente los pasos para el deploy:
 
+```terminal
+npm run build
+npm run deploy
+```
+
+Abre la URL en tu navegador para asegurarte de que todo está funcionando correctamente. En la siguiente URL podemos ver el resultado de este ejemplo: [https://enidev911.github.io/react-vite-gh-pages/](https://enidev911.github.io/react-vite-gh-pages/){: target='_blank'}.
+
+¡Y eso es todo! Ahora tienes una aplicación de React desplegada en GitHub Pages utilizando Vite. Este proceso es rápido, fácil y eficiente, aprovechando las características de Vite para crear aplicaciones modernas y rápidas. Además, **GitHub Pages** ofrece una forma gratuita de alojar tus proyectos frontend.
