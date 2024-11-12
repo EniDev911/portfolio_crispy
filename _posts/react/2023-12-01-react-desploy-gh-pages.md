@@ -22,7 +22,7 @@ Doy por hecho que ya cuentas con las siguientes herramientas instaladas en tu si
 
 ### Crear la Aplicación de React
 
-Para crear una aplicación de React configurada con TypeScript utilizando [Vite](https://vite.dev/){: target='_blank'}, puedes usar el siguiente comando:
+Para crear una aplicación de React utilizando [Vite](https://vite.dev/){: target='_blank'}, puedes usar el siguiente comando:
 
 ```terminal
 npm create vite@latest react-vite-gh-pages -- --template react
