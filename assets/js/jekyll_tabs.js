@@ -3,3 +3,58 @@
 window.addEventListener('load', function () {
   jekyllTabs.init();
 });
+
+// Función para expandir o contraer el bloque de código
+document.addEventListener('DOMContentLoaded', function () {
+  // Seleccionamos todos los contenedores de código
+  const codeContainers = document.querySelectorAll('.code-container');
+
+  codeContainers.forEach(function (container) {
+
+    const expandBtn = container.querySelector('.expand-btn');  // Botón de expandir
+    // Agregar un listener al botón para expandir o contraer
+    expandBtn.addEventListener('click', function () {
+
+  // Si el navegador soporta la API de pantalla completa
+  if (document.documentElement.requestFullscreen) {
+    // Si el bloque de código ya está en pantalla completa, lo sacamos
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      // Si no está en pantalla completa, lo ponemos en pantalla completa
+      container.requestFullscreen();
+    }
+  }
+  // Si el navegador soporta el prefijo para Safari
+  else if (document.documentElement.mozRequestFullScreen) { // Firefox
+    if (document.mozFullScreenElement) {
+      document.exitFullscreen();
+    } else {
+      container.mozRequestFullScreen();
+    }
+  }
+  // Si el navegador soporta el prefijo para Chrome
+  else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari
+    if (document.webkitFullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      container.webkitRequestFullscreen();
+    }
+  }
+  // Si el navegador soporta el prefijo para IE
+  else if (document.documentElement.msRequestFullscreen) { // IE
+    if (document.msFullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      container.msRequestFullscreen();
+    }
+  }
+      // Cambiamos el icono del botón dependiendo del estado
+      // if (container.classList.contains('expanded')) {
+      //   expandBtn.textContent = 'Contraer';  // Cambia el texto a 'Contraer'
+      // } else {
+      //   expandBtn.textContent = 'Expandir';  // Cambia el texto a 'Expandir'
+      // }
+    });
+  });
+});

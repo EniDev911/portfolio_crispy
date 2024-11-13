@@ -6,6 +6,7 @@ tags: [desarrollo web, react]
 image: posters/react-axios-api.png
 ---
 
+En este artículo, aprenderemos a consumir una API usando React especificamente la API de Rick and Morty. Esta API es excelente para practicar, ya que es una API púiblica que devuelve datos de personajes, episodios y ubicaciones de la serie animada.
 
 ### Crear el Proyecto con Vite
 
@@ -148,6 +149,14 @@ const CharacterList: React.FC = () => {
   return (
     <div>
       <h1>Rick and Morty Characters</h1>
+      <div className="pagination">
+        <button onClick={handlePrevPage} disabled={page <= 1}>
+          Anterior
+        </button>
+        <button onClick={handleNextPage}>
+          Siguiente
+        </button>
+      </div>
       <div className="character-list">
         {characters.map((character) => (
           <div key={character.id} className="character-card">
@@ -156,12 +165,6 @@ const CharacterList: React.FC = () => {
             <p>{character.species}</p>
           </div>
         ))}
-      </div>
-      <div className="pagination">
-        <button onClick={handlePrevPage} disabled={page <= 1}>
-          Prev
-        </button>
-        <button onClick={handleNextPage}>Next</button>
       </div>
     </div>
   );
@@ -172,49 +175,24 @@ export default CharacterList;
 {: .nolineno file="CharacterList.tsx" }
 {% endraw %}
 
----
+Resumiendo el código anterior, tenemos lo siguiente:
 
-{% raw %}
-```tsx
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import './assets/styles.css';
-import App from './App';
-import { ThemeProvider } from './context/ThemeContext';
+**URL Dependiente del Estado page**
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </StrictMode>
-);
-```
-{: .nolineno file="main.tsx" }
-{% endraw %}
+- La URL que pasamos al hook `useRickAndMortyAPI` ahora incluye la variable `page`, lo que hace que la URL cambie cada vez que el valor de `page` cambie.
+- Como `page` está controlado con `useState` y el `useEffect` en el hook depende de la URL, el hook se ejecutará cada vez que el estado `page` cambie.
 
+**Actualización de la Páginación**:
 
+- Cuando haces clic en el botón <kbd>Anterior</kbd> o <kbd>Siguiente</kbd>, decrementamos o incrementamos el valor de `page`, lo que también cambia la URl y hace que el hook se ejecute de nuevo.
 
 ---
 
 ### Agregar Estilos Básicos
 
-Para mejorar la apariencia de nuestra aplicación, podemos agregar algo de CSS. En el archivo `src/App.css` aplica los siguientes estilos:
+Para mejorar la apariencia de nuestra aplicación, podemos agregar algunos estilos. Vamos a agregar o remplazar los estilos en `src/App.css` con los siguientes estilos:
 
 ```css
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  text-align: center;
-  margin-top: 20px;
-}
-
 .character-list {
   display: flex;
   flex-wrap: wrap;
@@ -268,3 +246,22 @@ h1 {
 }
 ```
 {: .nolineno file="App.css" }
+
+---
+
+### Importar el Componente en App.tsx
+
+Finalmente, integramos todo en el componente `App.tsx` para mostrar la lista de personajes:
+
+{% raw %}
+```tsx
+import CharacterList from "./components/CharacterList";
+
+function App() {
+  return <CharacterList />
+}
+
+export default App;
+```
+{: .nolineno file="App.tsx" }
+{% endraw %}

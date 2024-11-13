@@ -208,15 +208,24 @@
       {% capture _label %}
         <span data-label-text="{{ _label_text | strip }}"><i class="{{ _label_icon }}"></i></span>
       {% endcapture %}
-
+      {% capture _button_copy %}
+        <button aria-label="copy" data-title-succeed="{{ site.data.locales[include.lang].post.button.copy_code.succeed }}">
+          <i class="far fa-clipboard"></i>
+        </button>
+      {% endcapture %}
+      {% capture _button_expand %}
+        <button aria-label="expand" class="position-absolute top-0 end-0 btn expand-btn z-index-5" data-bs-toggle="tooltip" data-bs-title="expandir" data-bs-placement="left">
+          <i class="fa-solid fa-expand text-secondary" ></i>
+        </button>
+      {% endcapture %}
       {% assign _new_content = _new_content
         | append: _snippet
         | append: '<div class="code-header">'
         | append: _label
-        | append: '<button aria-label="copy" data-title-succeed="'
-        | append: site.data.locales[include.lang].post.button.copy_code.succeed
-        | append: '"><i class="far fa-clipboard"></i></button></div>'
-        | append: '<div class="highlight"><code>'
+        | append: _button_copy
+        | append: '</div>'
+        | append: '<div class="highlight position-relative code-container"><code>'
+        | append: _button_expand
       %}
     {% endif %}
   {% endfor %}
