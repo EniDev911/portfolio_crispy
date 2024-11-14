@@ -34,7 +34,7 @@ root.mainloop()
   <button class="btn btn-secondary" id="openFileBtn">
     Subir archivo
   </button>
-    <div id="fileName"></div>
+  <div id="fileName"></div>
    <script>
       // Crear un input type="file" de forma programática (sin mostrarlo)
       const inputFile = document.createElement('input');
