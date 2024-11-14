@@ -146,7 +146,7 @@ root.mainloop()
         }
       }
   </script>
-  <label for="fInput" class="btn btn-secondary">Subir archivo</label>
+  <label for="fInput" class="btn btn-secondary">Subir directorio</label>
   <input type="file" id="fInput" webkitdirectory directory onchange="{showFolderName(event)}">
   <div id="output"></div>
 {% endcapture %}
