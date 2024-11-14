@@ -1,0 +1,12 @@
+- nombre: "`bg`, `background`"
+  "descripción": El color de fondo del widget.
+- nombre: "`fg`, `foreground`"
+  "descripción": El color del texto o los elementos dentro del widget.
+- nombre: "`font`"
+  "descripción": Especifica la fuente del texto (puede incluir el tipo de fuente, tamaño, y estilo).
+- nombre: "`cursor`"
+  "descripción": "El cursor que aparecerá cuando el mouse pase por encima"
+- nombre: "`state`"
+  "descripción": "El estado del widget: [`normal`, `readonly`, `disabled`]"
+- nombre: "`relief`"
+  "descripción": "Efecto que se genera alrededor del borde: [`sunken`, `raised`. `groove`, `flat`]"

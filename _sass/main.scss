@@ -5,12 +5,15 @@
 @import 'addon/module';
 @import 'addon/syntax';
 @import 'addon/commons';
+@import 'colors/syntax-light'; // optional
+@import 'colors/syntax-dark'; // optional
 @import 'layout/home';
 @import 'layout/post';
 @import 'layout/tags';
 @import 'layout/archives';
 @import 'layout/categories';
 @import 'layout/category-tag';
+
 
 em {
 	margin: 0 0.30rem;
@@ -29,10 +32,7 @@ em.type {
   overflow: hidden;
 }
 
-
-
 .noheader {
-
 	overflow: hidden;
 	padding-top: 10px;
 
@@ -41,6 +41,42 @@ em.type {
  }
 }
 
+.window {
+  display: flex;
+  border: 1px solid #ccc6;
+  border-radius: 0.8rem;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.75rem;
+    padding-right: 0.25rem;
+    border-bottom: 1px solid #ccc6;
+    /* the label block */
+    background: var(--window-header-bg);
+    &-title {
+      margin: auto;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      // margin-right: 5px;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background-color: var(--code-header-muted-color-1);
+      box-shadow: (0.75rem + 0.5rem) 0 0
+      var(--code-header-muted-color-2),
+      (0.75rem +  0.5rem) * 2 0 0
+      var(--code-header-muted-color-3);
+    }
+  }
+  &__body {
+    padding: 25px;
+  }
+}
 
 svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
 

@@ -1,27 +1,23 @@
 ---
 title: Manejo de Filedialog en Tkinter
 author: enidev911
-categories: [Tkinter, Widget]
-tags: [Widgets]
-img_path: /assets/img/
+categories: [Python, Tkinter]
 ---
 
 ## Abrir archivos en Tkinter
 
-Para abrir el archivo en Tkinter, un método integrado que se llama `askopenfilename` en Python. Aceptará dos parámetros `title` y `filetypes`
+Para abrir el archivo en Tkinter, un método que se llama `askopenfilename` y aceptará dos parámetros `title` y `filetypes`
 
 ## Ejemplo
 
-{% tabs filedialog %}
-{% tab filedialog main.py %}
 ```py
 import tkinter as tk
 from tkinter import filedialog
 
 def upload_file():
   file_path = filedialog.askopenfilename(
-      title="Selecciona un archivo", 
-      filetypes=[("Text File", "*.txt"), ("All files", "*.*")])
+    title="Selecciona un archivo", 
+    filetypes=[("Text File", "*.txt"), ("All files", "*.*")])
   print("Seleccionaster el archivo:", file_path)
 
 root = tk.Tk()
@@ -29,8 +25,7 @@ open_bottom = tk.Button(root, text="Subir archivo", command=upload_file)
 open_bottom.pack(pady=20)
 root.mainloop()
 ```
-{% endtab %}
-{% endtabs %}
+{: .nolineno }
 
 ---
 
@@ -38,8 +33,6 @@ root.mainloop()
 
 Para guardar el archivo existe una función llamada `asksaveasfilename` en Python. Esta función acepta tres argumentos, que son `title`, `defaultextension` y `filetypes`.
 
-{% tabs asksavefilename %}
-{% tab asksavefilename main.py %}
 ```py
 import tkinter as tk
 from tkinter import filedialog
@@ -67,5 +60,4 @@ save_button.pack(pady=20)
 
 root.mainloop()
 ```
-{% endtab %}
-{% endtabs %}
+{: .nolineno }

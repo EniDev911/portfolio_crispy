@@ -1,9 +1,7 @@
 ---
 title: Option Menu Widget
 author: enidev911
-categories: [Tkinter, Widget]
-tags: [Widgets]
-img_path: /assets/img/
+categories: [Python, Tkinter]
 ---
 
 # Menu de opciones en Python Tkinter

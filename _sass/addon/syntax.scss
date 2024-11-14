@@ -12,6 +12,14 @@
   src:url(/assets/fonts/VictorMonoNFMedium.ttf) format('truetype')
 }
 
+@font-face{
+  font-family:'Victor Mono';
+  font-style:normal;
+  font-display:swap;
+  src:url(/assets/fonts/VictorMono.ttf) format('truetype')
+}
+
+
 html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),
@@ -88,8 +96,8 @@ html {
       pre {
         overflow: visible; /* Fixed iOS safari overflow-x */
         word-break: normal; /* Fixed iOS safari linenos code break */
-        font-family: 'Victor Mono NF', consolas;
-        font-weight: 500;
+        font-family: 'Victor Mono', consolas;
+        font-weight: medium;
       }
     }
   }

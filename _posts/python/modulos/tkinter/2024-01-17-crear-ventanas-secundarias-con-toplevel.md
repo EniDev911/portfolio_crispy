@@ -1,9 +1,7 @@
 ---
 title: Crear ventanas secundarias con Toplevel
 author: enidev911
-categories: [Tkinter, Widget]
-tags: [Widgets]
-img_path: /assets/img/
+categories: [Python, Tkinter]
 ---
 
 

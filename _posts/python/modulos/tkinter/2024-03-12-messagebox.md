@@ -1,9 +1,8 @@
 ---
 title: Tkinter Messagebox
 author: enidev911
-categories: [Tkinter, Widget]
+categories: [Python, Tkinter]
 tags: [Widgets]
-img_path: /assets/img/tkinter/messagebox/
 ---
 
 
@@ -131,3 +130,4 @@ Cada uno de estos métodos incluye un icono específico que ayuda a transmitir e
 ### Conclusión
 
 El módulo `messagebox` de Tkinter es una herramienta poderosa para mejorar la interacción con los usuarios en las aplicaciones. Ya sea que necesitemos mostrar mensajes de información, advertencias, errores, o solicitar confirmaciones, `messagebox` proporciona una forma fácil y efectiva de hacerlo.
+ 
