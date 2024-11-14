@@ -56,9 +56,9 @@ root.mainloop()
 
 ---
 
-## Guardar archivos con Tkinter
+### Guardar un archivo: asksavefilename
 
-Para guardar el archivo existe una función llamada `asksaveasfilename` en Python. Esta función acepta tres argumentos, que son `title`, `defaultextension` y `filetypes`.
+Para guardar un archivo, existe una función llamada `asksaveasfilename()`. Esta función acepta tres argumentos, que son `title`, `defaultextension` y `filetypes`.
 
 ```py
 import tkinter as tk
@@ -68,23 +68,87 @@ def save_file():
   file_path = filedialog.asksaveasfilename(
       title="Guardar como",
       defaultextension=".txt",
-      filetypes=[("Text files", ".txt"), ("All files", "*.*")])
+      filetypes=[("Text files", ".txt"), ("All files", "*.*")]
+  )
 
   if file_path:
-    content = "¡Hola Mundo!"
-
     try:
       with open(file_path, 'w') as file:
-        file.write(content)
+        file.write("¡Hola Mundo!")
       print("Archivo guardado exitosamente en :", file_path)
     except Exception as e:
       print("Error guardando el archivo: ", e)
 
 root = tk.Tk()
-
 save_button = tk.Button(root, text="Guardar Archivo", command=save_file)
 save_button.pack(pady=20)
-
 root.mainloop()
 ```
 {: .nolineno }
+
+{% capture save_file %}
+  <script>
+    function downloadFile(event) {
+        const fileContent = "¡Hola Mundo!!";
+        // Crear un Blob (objeto que representa los datos del archivo)
+        const blob = new Blob([fileContent], { type: 'text/plain' });
+        // Crear un enlace (a) para descargar el archivo
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'mi_archivo.txt'; // Nombre del archivo a descargar
+        // Simular un clic en el enlace para iniciar la descarga
+        link.click();
+      }
+  </script>
+  <button class="btn btn-secondary" onclick="{downloadFile(event)}">Guardar Archivo</button>
+{% endcapture %}
+{% include window-wrapper.html content_html=save_file %}
+
+---
+
+### Seleccionar un directorio: askopendirectory
+
+La función `askopendirectory()` abre un cuadro de diálogo que permite seleccionar un directorio, y devuelve la ruta del directorio elegido:
+
+
+```py
+import tkinter as tk
+from tkinter import filedialog
+
+def upload_folder():
+  directory = filedialog.askopenfilename(title="Selecciona directorio")
+  if directory:
+    print("Directorio seleccionado:", directory)
+
+root = tk.Tk()
+open_bottom = tk.Button(root, text="Subir directorio", command=upload_folder)
+open_bottom.pack(pady=20)
+root.mainloop()
+```
+{: .nolineno }
+
+{% capture open_folder %}
+<style>
+      #fInput {
+        display: none; /* Ocultamos el input original */
+    }
+</style>
+  <script>
+    function showFolderName(event) {
+      const output = document.getElementById('output');
+       const folder = event.target.files[0];
+        if (folder) {
+            const firstFilePath = folder.webkitRelativePath;
+            const folderName = firstFilePath.split('/')[0];
+          output.textContent = `Directorio seleccionado: ${folderName}`;
+        } else {
+          output.textContent = 'No seleccionaste directorio.';
+        }
+      }
+  </script>
+  <label for="fInput" class="btn btn-secondary">Subir archivo</label>
+  <input type="file" id="fInput" webkitdirectory directory onchange="{showFolderName(event)}">
+  <div id="output"></div>
+{% endcapture %}
+
+{% include window-wrapper.html content_html=open_folder %}
