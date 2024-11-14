@@ -101,7 +101,7 @@ ventana.state("zoomed")
 
 Veríamos la ventana maximizada como a continuación:
 
-{% include window-wrapper.html title="Mi Aplicación"  %}
+{% include window-wrapper.html title="Mi Aplicación" height="300px" %}
 
 #### Método mainloop
 
@@ -141,6 +141,18 @@ Puedes establecer un icono personalizado para la ventana utilizando el método `
 ```python
 ventana.iconbitmap("icono.ico")
 ```
+{: .nolineno }
+
+{% capture icon %}
+<span class="d-flex align-items-center">
+  <i class="fa-solid fa-right-long fs-3 text-danger"></i>
+  <i class="ms-2 fa-regular fa-face-smile"></i>
+</span>
+{% endcapture %}
+
+Cuando ejecutas el programa, la ventana de la aplicación tendrá un ícono específico en la parte superior:
+
+{% include window-wrapper.html icon=icon  %}
 
 #### Ajustes de Ventana
 
@@ -150,6 +162,7 @@ Configura el tamaño mínimo de la ventana y desactiva el redimensionamiento si 
 ventana.minsize(300, 200)
 ventana.resizable(False, False)
 ```
+{: .nolineno }
 
 #### Conclusión
 

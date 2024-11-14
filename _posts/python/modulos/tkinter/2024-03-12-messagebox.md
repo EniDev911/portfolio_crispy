@@ -5,7 +5,6 @@ categories: [Python, Tkinter]
 tags: [Widgets]
 ---
 
-
 ## ¿Qué es messagebox?
 
 El `messagebox` en Tkinter es un módulo que proporciona una serie de funciones para mostrar cuadros de mensaje simples. Estos cuadros de mensaje pueden contener texto, botones y, en algunos casos, iconos para indicar el tipo de mensaje (por ejemplo, información, advertencia o error).
@@ -17,6 +16,7 @@ Antes de comenzar a usar `messagebox`, necesitas importarlo desde Tkinter. Aquí
 ```python
 from tkinter import Tk, messagebox
 ```
+{: .nolineno }
 
 ## Crear una Ventana de Aplicación Básica
 
@@ -61,7 +61,7 @@ messagebox.showinfo("Título del Mensaje", "Este es un mensaje de información."
 - **Propósito**: Mostrar información general.
 - **Botones**: OK
 
-![img]({{ 'showinfo.png' }}){:style="height: 190px"}
+![img](tkinter/messagebox/showinfo.png){:style="height: 160px"}
 
 ### 2. Mensaje de Advertencia
 
