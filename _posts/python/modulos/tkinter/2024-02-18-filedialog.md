@@ -36,26 +36,20 @@ root.mainloop()
         display: none; /* Ocultamos el input original */
     }
 </style>
-  <label id="fileLabel" for="fileInput" class="btn btn-secondary">Subir archivo</label>
-  <input type="file" id="fileInput">
-  <div id="fileName"></div>
   <script>
-          // Obtener los elementos HTML
-      const fileInput = document.getElementById('fileInput');
+    function showFileName(event) {
       const fileNameDisplay = document.getElementById('fileName');
- 
-      // Cuando el usuario selecciona un archivo
-      fileInput.addEventListener('change', function(event) {
-          const file = event.target.files[0]; // Obtener el archivo seleccionado
-          if (file) {
-              // Mostrar el nombre del archivo seleccionado
-              fileNameDisplay.textContent = `Seleccionaste el archivo: ${file.name}`;
-          } else {
-              // Si no se seleccionó ningún archivo
-              fileNameDisplay.textContent = 'No seleccionaste ningún archivo.';
-          }
-      });
+       const file = event.target.files[0];
+        if (file) {
+          fileNameDisplay.textContent = `Seleccionaste el archivo: ${file.name}`;
+        } else {
+          fileNameDisplay.textContent = 'No seleccionaste ningún archivo.';
+        }
+      }
   </script>
+  <label id="fileLabel" for="fileInput" class="btn btn-secondary">Subir archivo</label>
+  <input type="file" id="fileInput" onchange="{showFileName(event)}">
+  <div id="fileName"></div>
 {% endcapture %}
 
 {% include window-wrapper.html content_html=open_file %}
