@@ -31,45 +31,41 @@ root.mainloop()
 {: .nolineno }
 
 {% capture open_file %}
-  <button class="btn btn-secondary" id="openFileBtn">
-    Subir archivo
-  </button>
+<style>
+      #fileInput {
+        display: none; /* Ocultamos el input original */
+    }
+</style>
+  <button id="uploadBtn" class="btn btn-secondary">Subir archivo</button>
+  <input type="file" id="fileInput">
+
   <div id="fileName"></div>
+  <script>
+          // Obtener los elementos HTML
+      const uploadBtn = document.getElementById('uploadBtn');
+      const fileInput = document.getElementById('fileInput');
+      const fileNameDisplay = document.getElementById('fileName');
+
+      // Cuando se hace clic en el botón, se simula un clic en el input de archivo
+      uploadBtn.addEventListener('click', function() {
+          fileInput.click();  // Simula el clic en el input de tipo file
+      });
+
+      // Cuando el usuario selecciona un archivo
+      fileInput.addEventListener('change', function(event) {
+          const file = event.target.files[0]; // Obtener el archivo seleccionado
+          if (file) {
+              // Mostrar el nombre del archivo seleccionado
+              fileNameDisplay.textContent = `Seleccionaste el archivo: ${file.name}`;
+          } else {
+              // Si no se seleccionó ningún archivo
+              fileNameDisplay.textContent = 'No seleccionaste ningún archivo.';
+          }
+      });
+  </script>
 {% endcapture %}
 
 {% include window-wrapper.html content_html=open_file %}
-
-<script>
-  // Crear un input type="file" de forma programática (sin mostrarlo)
-  const inputFile = document.createElement('input');
-  inputFile.type = 'file';
-  inputFile.style.display = 'none'; // Ocultar el input
-
-  // Agregar un evento para cuando se seleccione un archivo
-  inputFile.addEventListener('change', function(event) {
-      const file = event.target.files[0];
-      if (file) {
-          document.getElementById('fileName').textContent = `Archivo seleccionado: ${file.name}`;
-      } else {
-          document.getElementById('fileName').textContent = 'No se seleccionó ningún archivo.';
-      }
-  });
-   // Agregar un evento para cuando se seleccione un archivo
-    inputFile.addEventListener('change', function(event) {
-        const file = event.target.files[0]; // Obtener el primer archivo seleccionado
-        if (file) {
-            // Si se selecciona un archivo, mostramos su nombre
-            document.getElementById('fileName').textContent = `Seleccionaste el archivo: ${file.name}`;
-        } else {
-            // Si no se selecciona nada, mostramos este mensaje
-            document.getElementById('fileName').textContent = 'No se seleccionó ningún archivo.';
-        }
-    });
-  // Abrir el explorador de archivos al hacer clic en el botón
-  document.getElementById('openFileBtn').addEventListener('click', function() {
-      const file = inputFile.click();  // Simula el clic en el input type="file"
-  });
-</script>
 
 ---
 
