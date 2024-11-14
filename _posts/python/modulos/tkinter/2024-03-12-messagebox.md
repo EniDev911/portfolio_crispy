@@ -110,7 +110,7 @@ messagebox.showwarning("Título de Advertencia", "Este es un mensaje de adverten
 
 ![img](tkinter/messagebox/showwarning.png){:style="height: 160px"}
 
-### 3. Mensaje de Error
+### Mensaje de Error
 
 ```python
 messagebox.showerror("Título de Error", "Este es un mensaje de error.")
@@ -122,10 +122,14 @@ messagebox.showerror("Título de Error", "Este es un mensaje de error.")
 
 ![img](tkinter/messagebox/showerror.png){:style="height: 160px"}
 
-### 4. Mensaje de Confirmación
+### Mensaje de Confirmación
 
 ```python
-respuesta = messagebox.askyesno("Confirmación", "¿Estás seguro de que deseas continuar?")
+respuesta = messagebox.askyesno(
+  "Confirmación",
+  "¿Estás seguro de que deseas continuar?"
+)
+
 if respuesta:
     print("El usuario seleccionó Sí.")
 else:
@@ -137,16 +141,21 @@ else:
 - **Botones**: Sí, No
 - **Valor de Retorno**: `True` o `False`, según la elección del usuario.
 
-#### **5. Mensaje de Pregunta**
+### Mensaje de Pregunta
 
 
 ```python
-respuesta = messagebox.askquestion("Pregunta", "¿Deseas guardar los cambios?")
+respuesta = messagebox.askquestion(
+  "Pregunta",
+  "¿Deseas guardar los cambios?"
+)
+
 if respuesta == 'yes':
     print("El usuario seleccionó Sí.")
 else:
     print("El usuario seleccionó No.")
 ```
+{: .nolineno }
 
 - **Propósito**: Hacer una pregunta al usuario y obtener una respuesta.
 - **Botones**: Sí, No
