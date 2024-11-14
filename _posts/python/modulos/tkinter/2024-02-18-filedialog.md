@@ -36,21 +36,14 @@ root.mainloop()
         display: none; /* Ocultamos el input original */
     }
 </style>
-  <button id="uploadBtn" class="btn btn-secondary">Subir archivo</button>
+  <label id="fileLabel" for="fileInput" class="btn btn-secondary">Subir archivo</label>
   <input type="file" id="fileInput">
-
   <div id="fileName"></div>
   <script>
           // Obtener los elementos HTML
-      const uploadBtn = document.getElementById('uploadBtn');
       const fileInput = document.getElementById('fileInput');
       const fileNameDisplay = document.getElementById('fileName');
-
-      // Cuando se hace clic en el botón, se simula un clic en el input de archivo
-      uploadBtn.addEventListener('click', function() {
-          fileInput.click();  // Simula el clic en el input de tipo file
-      });
-
+ 
       // Cuando el usuario selecciona un archivo
       fileInput.addEventListener('change', function(event) {
           const file = event.target.files[0]; // Obtener el archivo seleccionado
