@@ -34,7 +34,8 @@ const imageContext = require.context(
 console.log(imageContext.keys()) // Devuelve un array con las rutas de los archivos
 
 imageContext.keys().forEach((imagePath) => {
-  const imageUrl = imageContext(imageContext); // URL del archivo
+  // imagePath =>  URL del archivo
+  const imageUrl = imageContext(imagePath);
   const img = document.createElement("img");
   img.src = imageUrl;
   img.alt = imagePath;
@@ -42,8 +43,6 @@ imageContext.keys().forEach((imagePath) => {
 })
 ```
 {: .nolineno }
-
-
 
 En resumen `require.context()` permite:
 
