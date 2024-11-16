@@ -66,7 +66,7 @@ module.exports = {
 En este ejemplo, Webpack tomará el archivo `index.js` en la carpeta `src`, lo procesará y generará un archivo `bundle.js` en la carpeta `dist`. Además, usa un *loader* para procesar archivos `CSS`.
 
 
-### Ejecutar Webpack
+#### Ejecutar Webpack
 
 Podemos ejecutar Webpack, abriendo la terminal y ejecutar el siguiente comando:
 
@@ -83,3 +83,86 @@ Para facilitar la ejecución de Webpack desde la terminal, podemos agregar algun
 },
 ```
 {: .nolineno file="package.json" }
+
+---
+
+### Loaders
+
+Podemos usar cargadores *loaders* para indicarle a webpack que cargue archivos CSS, primero debemos instalar el cargador que necesitamos:
+
+```terminal
+npm i -D css-loader style-loader
+```
+Cuando usamos `style-loader` en combinación de `css-loader`, Webpack primero procesa el archivo CSS con `css-loader` (que resuelve las importaciones y las dependencias CSS), y luego utiliza `style-loader` para inyectar ese CSS procesado dentro de la etiqueta `<style>` del documento HTML en tiempo de ejecución.
+
+Explicado lo anterior, es importante saber que los cargadores se evalúan de derecha a izquierda. En el siguiente ejemplo, la ejecución comienza con `css-loader` y termina con `style-loader`, lo que tiene lógica ya que primero se debe **procesar** y luego **inyectar** los estilos.
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' }, // 👈 se carga después
+          { loader: 'css-loader' } // 👈 se carga primero
+        ]
+      }
+    ]
+  }
+}
+```
+{: .nolineno file="webpack.config.js" }
+
+> `style-loader` es útil principalmente durante el desarrollo, ya que facilita la recarga dinámica de los estilos sin tener que recargar la página.
+{: .prompt-info }
+
+Desde Webpack 5, no necesitas instalar un loader para archivos estáticos, ya que la configuración de los **assets modules** permite manejar imágenes, fuentes y otros recursos estáticos de manera más sencilla.
+
+Un ejemplo de configuración de Webpack con **assets modules**:
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg?g|gif|svg)$/i,
+        type: 'asset/resource', // Le indicamos que use assets module
+      }
+    ]
+  }
+}
+```
+{: .nolineno file="webpack.config.js" }
+
+
+---
+
+### Plugins
+
+Los plugins permiten realizar tareas avanzadas como optimización del código, inyección de archivos HTML, etc. Un plugin común en Webpack es el [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin){: target='_blank' }, lo que hace es crear un archivo `index.html` y lo vincula al archivo `bundle.js`:
+
+```terminal
+npm install -D html-webpack-plugin
+```
+
+Y luego para agregar su configuración en el `webpack.config.js`:
+
+```js
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+  ]
+}
+```
+{: .nolineno file="webpack.config.js"}
