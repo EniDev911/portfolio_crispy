@@ -40,7 +40,7 @@ npm i -D webpack webpack-cli
 
 Creamos un archivo `webpack.config.js` en el directorio raíz del proyecto. Este archivo contiene todas las reglas y configuraciones para que Webpack empaquete los archivos de la manera que necesites.
 
-Un archivo `webpack.config.js` básico puede lurcir de la siguiente manera:
+Un archivo `webpack.config.js` básico puede lucir de la siguiente manera:
 
 ```js
 const path = require("path");

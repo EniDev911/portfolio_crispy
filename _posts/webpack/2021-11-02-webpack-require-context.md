@@ -20,9 +20,25 @@ require.context(directory, recursive, pattern);
 - `recursive`: Un valor booleano (`true` o `false`) que indica si Webpack debe buscar en las subcarpetas dentro de `directory`.
 - `pattern`: Una expresión regular que define los archivos que deben ser incluidos (por ejemplo, `\.js$` para todos los archivos JavaScript).
 
-#### Ejemplo básico de require context
+### Ejemplo básico para imágenes
 
-Vamos a suponer que tenemos una carpeta llamada `assets/images` con varios archivos de imagen y quieres cargarlos dinámicamente en la aplicación:
+Vamos a suponer que tenemos una carpeta llamada `assets/images` con varios archivos de imagen y quieres cargarlos dinámicamente en la aplicación.
+
+#### Estructura de directorios
+
+```
+/src
+  /assets
+    /images
+      html.png
+      css.jpg
+      js.svg
+      webpack.png
+  index.js
+```
+{: .nolineno .noheader }
+
+#### Cargar las imágenes con require context
 
 ```js
 const imageContext = require.context(
@@ -34,15 +50,15 @@ const imageContext = require.context(
 console.log(imageContext.keys()) // Devuelve un array con las rutas de los archivos
 
 imageContext.keys().forEach((imagePath) => {
-  // imagePath =>  URL del archivo
-  const imageUrl = imageContext(imagePath);
   const img = document.createElement("img");
-  img.src = imageUrl;
-  img.alt = imagePath;
+  img.src = imagePath;
   imageContainer.appendChild(img);
 })
 ```
-{: .nolineno }
+{: .nolineno file="index.js" }
+
+
+####
 
 En resumen `require.context()` permite:
 
