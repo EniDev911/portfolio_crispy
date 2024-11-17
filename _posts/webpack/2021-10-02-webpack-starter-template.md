@@ -14,8 +14,10 @@ Un repositorio template en Github es un repositorio que podemos usar como planti
 ### Crear un Repositorio en Github
 
 - **Iniciamos sesión en Github** y nos dirigimos a nuestro perfil.
-- Haz clic en el botón verde <kbd style="background: green; color: white">New</kbd> para crear un nuevo repositorio.
-- Le damos un nombre al repositorio (Ej: `webpack5-template`).
+- Hacemos clic al botón verde <kbd style="background: green; color: white">New</kbd> para crear un nuevo repositorio.
+- Le damos un nombre al repositorio (Ej: `webpack5-starter-template`).
+- Dejamos marcada la opción de **public**.
+- Bajamos hasta encontrar el botón <kbd style="background: green; color: white">Create Repository</kbd>
 - Hacemos clic en el botón **Settings** en la parte superior del repositorio.
 - Marcamos la casilla **Template repository**
 
@@ -37,7 +39,6 @@ Procedamos a instalar Webpack y sus herramientas de línea de comandos
 ```terminal
 npm install -D webpack webpack-cli webpack-dev-server
 ```
-
 
 ### Instalar Cargadores y Plugins Comunes
 
@@ -75,6 +76,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource' //  asset/resource genera la URL del archivo
       }
     ]
   },
@@ -99,6 +104,8 @@ Esta configuración establece el punto de entrada de la aplicación en `src/inde
 
 Para facilitar la ejecución de Webpack, agregamos los siguientes scripts al `package.json`:
 
+{% tabs packagejson %}
+{% tab packagejson scripts %}
 ```json
 "scripts": {
   "build": "webpack --mode production",
@@ -106,7 +113,53 @@ Para facilitar la ejecución de Webpack, agregamos los siguientes scripts al `pa
 }
 ```
 {: .nolineno file="package.json" }
+{% endtab %}
+{% tab packagejson package.json %}
+```json
+{
+  "name": "webpack5-starter-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
+}
+```
+{: file="package.json" }
+{% endtab %}
+{% endtabs %}
 
+#### Estructura de Archivos del Template
+
+Para el template terminamos creando la siguiente estructura:
+
+```
+📂 webpack5-starter-template/
+├─ 📂 src/
+│  ├─ 📂 assets/
+│  │   └─ webpack-logo.svg
+│  ├─ index.html
+│  └─ index.js
+├─ package.json
+└─ webpack.config.js
+```
+{: .nolineno .noheader }
 
 #### Subimos el proyecto a Github
 
