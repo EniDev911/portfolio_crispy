@@ -226,6 +226,60 @@ Para facilitar la ejecución de Webpack, agregamos los siguientes scripts al `pa
 {% endtab %}
 {% endtabs %}
 
+#### Crear un Flujo de Github Action para Desplegar
+
+Para desplegar automáticamente la aplicación en **Github Pages** cada vez que hagamos un push a la rama `main`, vamos a a configurar un flujo de trabajo en un archivo llamado `deploy.yml` dentro de la siguiente ubicación `.github/workflows`. Este flujo se encaragará de ejecutar los pasos necesarios para desplegar el build de la aplicación en Github Pages.
+
+Lo primero es poner lo siguiente en el archivo:
+
+```yml
+name: Deploy to Guthub Pages
+
+on:
+  push:
+    branches:
+      - main
+```
+{: .nolineno file="deploy.yml" }
+
+`name: Deploy to GitHub Pages`
+: Aquí se le da un nombre a este workflow. En este caso es "**Deploy to Github Pages**". Este nombre aparecerá en la interfaz de usuario de Github Actions.
+
+`on`
+: Define el **evento** que va a activar este workflow. En este caso, el evento es **push** a una rama específica. Es decir, cada vez que se haga un **push** a la rama que se indica más abajo, se ejecutará este workflow.
+
+`push`
+: Este es el tipo de evento que desencadena la ejecución del workflow lo que significa que el workflow se ejecutará cuando alguien haga push a la rama que se especifican en `branches`.
+
+`branches`
+: Especifica en qué ramas debe ejecutarse el workflow cuando se haga un push. En este caso solo se ejecutará cuando alguien haga push a la rama `main`.
+
+Una vez definido el evento del workflow, ahora tenemos que añadir los **jobs**:
+
+```yml
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+```
+{: .nolineno file="deploy.yml" }
+
+
+`jobs`
+: Esta clave define los "**trabajos**" que se ejecutarán como parte del workflow. Un worflow puede tener varios trabajos, y cada uno se ejecuta de manera independiente (aunque pueden depender entre sí).
+
+`deploy`
+: Este es el nombre del trabajo. En este caso se llama `deploy`, lo que hace entender que es el trabajo que se encargará de realizar el despliegue.
+
+`steps`
+: Los steps ("**pasos**") son una lista de acciones que se ejecutarán en orden dentro de un trabajo. Cada step representa una tarea que se realiza durante el trabajo.
+
+`actions/checkout@v2`
+Aquí se usa una acción predefinida de GitHub, en este caso esta acción se encarga de clonar el código del repositorio en el entorno que se ejecuta el job. Es esencial porque permite que los siguientes pasos trabajen con el código que está en el repositorio.
+
 #### Estructura de Archivos del Template
 
 Finalmente la estructura que terminamos creando para el template es la siguiente:
