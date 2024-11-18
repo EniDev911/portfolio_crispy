@@ -17,12 +17,19 @@ Un repositorio template en Github es un repositorio que podemos usar como planti
 - Hacemos clic al botón verde <kbd style="background: green; color: white">New</kbd> para crear un nuevo repositorio.
 - Le damos un nombre al repositorio (Ej: `webpack5-starter-template`).
 - Dejamos marcada la opción de **public**.
+- Marcamos la opción de **Add Readme**.
 - Bajamos hasta encontrar el botón <kbd style="background: green; color: white">Create Repository</kbd>
 - Hacemos clic en el botón **Settings** en la parte superior del repositorio.
 - Marcamos la casilla **Template repository**
 
 ![settings repository](template-option-repository-light.png){: .light }
 ![settings repository](template-option-repository-dark.png){: .dark }
+
+- Clonamos el repositorio creado ya sea por SSH, HTTP o GitHub CLI (En mi caso).
+
+```terminal
+gh repo clone mc-herrera-90/webpack5-starter-template
+```
 
 ### Iniciar un Proyecto con Node
 
@@ -37,7 +44,7 @@ npm init -y
 Procedamos a instalar Webpack y sus herramientas de línea de comandos
 
 ```terminal
-npm install -D webpack webpack-cli webpack-dev-server
+npm install -D webpack webpack-cli webpack-dev-server webpack-merge
 ```
 
 ### Instalar Cargadores y Plugins Comunes
@@ -45,7 +52,7 @@ npm install -D webpack webpack-cli webpack-dev-server
 Dependiendo de cada proyecto se instalan ciertos cargadores, en esta starter template vamos a instalar los más comunes:
 
 ```terminal
-npm install -D babel-loader @babel/core @babel/preset-env style-loader css-loader html-webpack-plugin
+npm install -D babel-loader @babel/core @babel/preset-env style-loader css-loader html-webpack-plugin mini-css-extract-plugin
 ```
 
 Estos paquetes son necesarios, para la la transpilación de código JavaScript (Babel), el manejo de archivo CSS, y la generación de un archivo HTML que incluye el bundle de JavaScript.
@@ -53,52 +60,123 @@ Estos paquetes son necesarios, para la la transpilación de código JavaScript (
 
 ### Configurar Webpack
 
-Creamos un archivo `webpack.config.js` en el directorio raíz del proyecto. Este archivo contiene todas las reglas y configuraciones para que Webpack empaquete los archivos de la manera que se necesita:
+Vamos a dividir la configuración de Webpack en varios archivos para tener una configuración para un entorno común, uno de desarrollo y otro de producción ya que es una buena práctica mantener el código y permitir configuraciones específicas para cada entorno. En Webpack, podemos tener los siguientes archivos:
 
+- `webpack.common.js`: Para definir configuraciones comunes entre los entornos.
+- `webpack.dev.js`: Para definir configuraciones específicas de desarrollo.
+- `webpack.prod.js`: Para definir las configuraciones específicas de producción.
+
+> Todos los archivos de configuración estarán dentro de una carpeta llamada `config`.
+{: .prompt-info }
+
+{% tabs config %}
+{% tab config common %}
+Este archivo contiene las configuraciones que son comunes en todos los entornos, como entrada (`entry`), la salida (`output`), las reglas de los módulos, los loaders y cualquier otra configuración que sea igual para desarrollo y producción:
 
 ```js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, '../dist'),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: '../src/index.html',
+    })
+  ],
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        type: 'asset/resource',
+      }
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.json'],
+  }
+}
+```
+{: file="webpack.common.js" }
+{% endtab %}
+{% tab config dev %}
+En el entorno de desarrollo, habilitamos las características como **hot reloading** y el **sourcemaps** para facilitar la depuración:
+```js
+const { merge } = require('webpack-merge');
+const path = require('path');
+const common = require('./webpack.common');
+
+module.exports = merge(common, {
+  mode: 'development',
+  devtool: 'eval-source-map', // Generar sourcemaps para la depuración
+  module: {
+    rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader']
       },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource' //  asset/resource genera la URL del archivo
-      }
-    ]
+    ],
+  },
+  devServer: {
+    hot: true,
+    port: 4000,
+    open: true, // Abrir el navegador automáticamente
+  },
+});
+```
+{: file="webpack.dev.js" }
+{% endtab %}
+{% tab config prod %}
+En producción, se deben habilitar las optimizaciones, como la minimización de código, la optimización de imágenes y la eliminación de código muerto (tree-shaking).
+```js
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Extraer el CSS en un archivo separado
+
+module.exports = merge(common, {
+  mode: 'production',
+  devtool: 'source-map',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(), // Minimiza el código JavaScript
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css', // Extraer CSS a un archivo separado con hash con el nombre
     }),
   ],
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 4000,
-  },
-  mode: 'development'
-}
+})
+```
+{: file="webpack.prod.js" }
+{% endtab %}
+{% endtabs %}
+
+
+Ahora creamos un archivo `webpack.config.js` en el directorio raíz del proyecto. Este archivo es el punto de entrada para la configuración de Webpack. Usará la librería `webpack-merge` para combinar las configuraciones comunes y específicas de cada entorno. Aquí se importarán los archivos `webpack.dev.js` y `webpack.prod.js` según el entorno.
+
+
+```js
+// Determinamos el entorno y cargamos la configuración correspindiente
+const envs = { development: 'dev', production: 'prod' };
+const env = envs[process.env.NODE_ENV || 'development'];
+const config = require(`./config/webpack.${env}.js`);
+
+module.exports = config;
 ```
 {: .nolineno file="webpack.config.js" }
 
-Esta configuración establece el punto de entrada de la aplicación en `src/index.js`, y la salida se generará en `dist/bundle.js`, y configuraciones para procesar JavaScript y CSS. También incluye el plugin `HtmlWebpackPlugin` para generar automáticamente un archivo `index.html` optimizado.
 
 #### Agregar Script al package.json
 
@@ -108,7 +186,7 @@ Para facilitar la ejecución de Webpack, agregamos los siguientes scripts al `pa
 {% tab packagejson scripts %}
 ```json
 "scripts": {
-  "build": "webpack --mode production",
+  "build": "cross-env NODE_ENV=production webpack",
   "dev": "webpack serve"
 }
 ```
@@ -121,8 +199,8 @@ Para facilitar la ejecución de Webpack, agregamos los siguientes scripts al `pa
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack serve --open"
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "webpack serve"
   },
   "keywords": [],
   "author": "",
@@ -132,12 +210,15 @@ Para facilitar la ejecución de Webpack, agregamos los siguientes scripts al `pa
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "babel-loader": "^9.2.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
     "style-loader": "^4.0.0",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
+    "webpack-dev-server": "^5.1.0",
+    "webpack-merge": "^6.0.1"
   }
 }
 ```
@@ -147,10 +228,14 @@ Para facilitar la ejecución de Webpack, agregamos los siguientes scripts al `pa
 
 #### Estructura de Archivos del Template
 
-Para el template terminamos creando la siguiente estructura:
+Finalmente la estructura que terminamos creando para el template es la siguiente:
 
 ```
 📂 webpack5-starter-template/
+├─ 📂 config/
+│  ├─ webpack.common.js
+│  ├─ webpack.dev.js
+│  └─ webpack.prod.js
 ├─ 📂 src/
 │  ├─ 📂 assets/
 │  │   └─ webpack-logo.svg
@@ -184,6 +269,7 @@ Para usar este repositorio como base para futuros proyectos o como un recurso de
 - Ir a la página del repositorio en Github.
 - Hacer clic en el botón <kbd style="background: green; color: white">Use this template ▼</kbd>
 - Crear un nuevo repositorio a partir de la plantilla.
+
 
 
 
