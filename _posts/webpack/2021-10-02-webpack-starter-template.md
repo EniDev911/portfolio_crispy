@@ -261,9 +261,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install
 ```
 {: .nolineno file="deploy.yml" }
 
@@ -274,11 +285,27 @@ jobs:
 `deploy`
 : Este es el nombre del trabajo. En este caso se llama `deploy`, lo que hace entender que es el trabajo que se encargará de realizar el despliegue.
 
+`runs-on: ubuntu-latest`
+: Especifica el sistema operativo o entorno donde se ejecutará este trabajo. En este caso `ubuntu-latest` indica que el trabajo se ejecutará en una máquina virtual que tenga una instalación reciente de ubuntu.
+
+`permissions`
+: En GitHub Actions, la clave `permissions` se utiliza para **controlar los permisos de acceso de las acciones de un flujo de trabajo** a los recursos del repositorio. Esto fue introducido por GitHub a partir de finales del 2022 para un control más granular sobre los permisos de los **tokens de autenticación** utilizados en los flujos de trabajo (principalmente el `GITHUB_TOKEN`), lo que permite definir explícitamente qué tipo de acceso tendrá el token al ejecutar las acciones en un flujo de trabajo.
+
+`contents: write`
+: Significa que el flujo de trabajo tiene **permiso para hacer push**, modificar o escribir en los contenidos del repositorio. Esto incluye tareas como:
+- Subir archivos al repositorio (por ejemplo, hacer `git push`).
+- Crear nuevas ramas (como en nuestro caso que creará la rama `gh-pages`).
+- Modificar los archivos dentro de la carpetas del repositorio.
+
+
 `steps`
 : Los steps ("**pasos**") son una lista de acciones que se ejecutarán en orden dentro de un trabajo. Cada step representa una tarea que se realiza durante el trabajo.
 
-`actions/checkout@v2`
+`actions/checkout@v3`
 Aquí se usa una acción predefinida de GitHub, en este caso esta acción se encarga de clonar el código del repositorio en el entorno que se ejecuta el job. Es esencial porque permite que los siguientes pasos trabajen con el código que está en el repositorio.
+
+`uses: action/setup-node@v3`
+: Aqui estamos usando otra acción preexistente. En este caso, se está usando la acción `setup-node` de GitHub que se utiliza para instalar y configurar una versión específica de Node.js. Esto es esencial para poder ejecutar cualquier comando que depende de Node.js, como `npm install`, `npm run build`, etc.
 
 #### Estructura de Archivos del Template
 
@@ -286,13 +313,16 @@ Finalmente la estructura que terminamos creando para el template es la siguiente
 
 ```
 📂 webpack5-starter-template/
+├─ 📂 .github/
+│  └─ 📂 workflows/
+│     └─ deploy.yml
 ├─ 📂 config/
 │  ├─ webpack.common.js
 │  ├─ webpack.dev.js
 │  └─ webpack.prod.js
 ├─ 📂 src/
 │  ├─ 📂 assets/
-│  │   └─ webpack-logo.svg
+│  │  └─ webpack-logo.svg
 │  ├─ index.html
 │  └─ index.js
 ├─ package.json
