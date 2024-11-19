@@ -20,23 +20,26 @@ require.context(directory, recursive, pattern);
 - `recursive`: Un valor booleano (`true` o `false`) que indica si Webpack debe buscar en las subcarpetas dentro de `directory`.
 - `pattern`: Una expresión regular que define los archivos que deben ser incluidos (por ejemplo, `\.js$` para todos los archivos JavaScript).
 
-### Ejemplo básico para imágenes
+### Ejemplo Básico de Uso con Imágenes
 
-Vamos a suponer que tenemos una carpeta llamada `assets/images` con varios archivos de imagen y quieres cargarlos dinámicamente en la aplicación.
+Para ello vamos utilizar un template que ya tengo preparado con la configuración básica de webpack: <a href="https://github.com/new?template_name=webpack5-starter-template&template_owner=mc-herrera-90" class="border-0" target="_blank">
+  <kbd style="background: green; color: white;">Use this template</kbd>
+</a>
 
-#### Estructura de directorios
+Una vez creado el nuevo repositorio lo clonamos y procedemos a instalar las dependencias:
 
+```terminal
+npm install
 ```
-/src
-  /assets
-    /images
-      html.png
-      css.jpg
-      js.svg
-      webpack.png
-  index.js
+
+Finalizada la instalación, corremos el servidor de desarrollo:
+
+```terminal
+npm run dev
 ```
-{: .nolineno .noheader }
+
+En nuestro template tenemos la carpeta `assets` dentro de `src` en cuya carpeta para efectos prácticos puedes agregar las imágenes que desees.
+
 
 #### Cargar las imágenes con require context
 
