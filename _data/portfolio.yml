@@ -19,6 +19,11 @@ projects:
     url: "https://sotojaquesabogados.cl/"
     image: "/assets/img/proyectos/sja.png"
 
+  - title: "Website"
+    description: "Django Doc"
+    url: "https://enidev911.github.io/doc_django/"
+    image: "/assets/img/proyectos/django-doc.png"
+
 certificates:
   - title: "HackerRank"
     description: "Python Basic"
