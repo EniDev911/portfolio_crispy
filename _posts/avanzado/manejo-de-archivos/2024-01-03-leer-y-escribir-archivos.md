@@ -3,8 +3,6 @@ title: Leer y escribir archivos de texto
 author: enidev911
 categories: [Python, Manejo de Archivos en Python]
 tags: [trabajar con archivos]
-pin: true
-img_path: '/posts/20180809'
 ---
 
 En este capítulo, vamos a comenzar a trabajar con la *Memoria Secundaria* (o archivos).

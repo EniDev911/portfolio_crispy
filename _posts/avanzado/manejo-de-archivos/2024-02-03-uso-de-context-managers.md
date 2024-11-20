@@ -3,8 +3,6 @@ title: Uso de context managers (with statement) para manejar archivos
 author: enidev911
 categories: [Python, Manejo de Archivos en Python]
 tags: [trabajar con archivos]
-pin: true
-img_path: '/posts/20180809'
 ---
 
 El uso de context managers en Python, con la declaración `with`, es una práctica recomendada para manejar archivos y otros recursos que necesitan ser limpiados o liberados después de su uso. Los context managers aseguran que los recursos se gestionen de manera adecuada, evitando problemas como fugas de memoria o archivos que queden abiertos inadvertidamente.

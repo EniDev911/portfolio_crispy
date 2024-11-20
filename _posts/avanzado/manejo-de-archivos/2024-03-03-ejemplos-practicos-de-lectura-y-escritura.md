@@ -3,8 +3,6 @@ title: Ejemplos prácticos de lectura y escritura de archivos
 author: enidev911
 categories: [Python, Manejo de Archivos en Python]
 tags: [trabajar con archivos]
-pin: true
-img_path: '/posts/20180809'
 ---
 
 ## 1. Leer el Contenido de un Archivo
