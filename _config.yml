@@ -73,7 +73,7 @@ theme_mode: # [light|dark]
 #img_cdn: https://enidev911.github.io/assets/
 
 # the avatar on sidebar, support local or CORS resources
-avatar: assets/img/perfil.png
+avatar: https://primsoft.cl/mch-perfil.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true

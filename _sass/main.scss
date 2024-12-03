@@ -77,6 +77,9 @@ em.type {
     padding: 25px;
   }
 }
+.highlight pre {
+  font-family: 'Victor Mono', consolas;
+}
 
 svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
 
