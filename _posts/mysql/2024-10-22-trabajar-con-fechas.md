@@ -13,7 +13,7 @@ La siguiente tabla contiene algunas de las funciones de fecha y hora que soporta
 |Nombre|Descripción|
 |:-----|:----------|
 |[`ADDDATE()`](#adddate)|Agrega valores de tiempo (intervalos) a un valor de fecha.|
-|[`ADDTIME()`](#addtime)|Agrega tiempo.|
+|[`CURDATE()`](#curdate)|Obtiene la fecha actual sin la parte de la hora.|
 |[`DATE()`](#date)|Extrae la parte de la fecha de una expresión de fecha o fecha y hora.|
 |[`DATE_FORMAT()`](#date_format)|Formatear a una fecha de acuerdo a un formato especificado.|
 
@@ -72,7 +72,7 @@ SELECT CURDATE();
 
 **Ejemplo de uso**
 
-1. Insertar en una Tabla usando la función `CURDATE()`
+1. Insertar en una Tabla usando la función `CURDATE()`:
 
 ```sql
 /* Considerando tener la siguiente tabla */
@@ -100,6 +100,32 @@ Al hacer un `select` a la tabla `users`, obtenemos el registro guardado anterior
 ```
 {: .noheader .nolineno }  
 
+### DATE
+
+Extrae la parte de la fecha en una expresión de fecha y hora.
+
+**Ejemplo de uso**
+
+1. Extraer la fecha de un campo fecha y hora:
+
+```sql
+CREATE TABLE `users`(
+  `user_id` INT(11) NOT NULL,
+  `username` VARCHAR(10) NOT NULL,
+  `birthday` DATE NOT NULL,
+  `up` DATETIME NOT NULL,
+  `status` BOOLEAN
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/* Insertar valores usando la función CURRENT_TIMESTAMP en el campo up */
+INSERT INTO `users` (`user_id`, `username`, `birthday`, `up`, `status`)
+VALUES (1010010101, 'Jhon Doe', '1990-11-05', CURRENT_TIMESTAMP(), 1);
+
+/* Mostrar solo la fecha del campo up */
+SELECT username, DATE_FORMAT(birthday, '%W %M %Y') as birthday,
+DATE(up) as up FROM users;
+```
+{: .nolineno }
 
 ### DATE_FORMAT
 
@@ -134,14 +160,27 @@ Supongamos que tenemos una tabla `eventos` con una columna `fecha_evento` de tip
 
 ```sql
 SELECT * FROM eventos
-WHERE fecha_evento BETWEEN '2022-01-01' AND '2022-12-31';
+WHERE fecha_evento BETWEEN '2023-01-01' AND '2023-12-31';
 ```
 {: .nolineno }
 
-Esta sentencia devolverá todos los eventos donde la columna `fecha_evento` esté dentro del rango **1 de enero del 2022** al **31 de diciembre de 2024**.
+Esta sentencia devolverá todos los eventos donde la columna `fecha_evento` esté dentro del rango **1 de enero del 2023** al **31 de diciembre de 2023**.
 
 > La cláusula `BETWEEN` es inclusiva, lo que significa que las fechas inicial y final también se incluyen en el resultado.
 {: .prompt-info }
+
+### Buscar registros después de una fecha específica
+
+Si solo quisieramos obtener los eventos que ocurren después de una fecha específica, podemos usar el operador mayor que (`>`):
+
+```sql
+SELECT * FROM eventos
+WHERE fecha_evento > '2023-06-01';
+```
+{: .nolineno }
+
+Esta sentencia te devolverá todos los eventos que ocurren después del **1 de junio de 2023**.
+
 
 ### Buscar registros anteriores a una fecha específica
 
@@ -152,3 +191,22 @@ SELECT * FROM eventos
 WHERE fecha_evento < '2023-06-01';
 ```
 {: .nolineno }
+
+Esta sentencia devolverá todos los eventos que ocurren **antes del 1 de junio del 2023**.
+
+### Filtrar eventos del mes actual
+
+Si queremos obtener todos los eventos que ocurren en el mes actual, podemos usar la función `MONTH()` y `YEAR()` para extraer el mes y el año de la fecha:
+
+```sql
+SELECT * FROM eventos
+WHERE MONTH(fecha_evento) = MONTH(CURDATE())
+AND YEAR(fecha_evento) = YEAR(CURDATE());
+```
+{: .nolineno }
+
+Esta sentencia te devuelve todos los eventos donde la columna `fecha_evento` corresponda al **mes** y **año** actual.
+
+## Notas Finales
+
+Estos ejercicios prácticos nos ayudan a familiarizarnos con las funciones y operadores relacionados con fechas en MySQL. Desde realizar búsquedas entre fechas hasta trabajar con funciones de manipulación de fechas, estas habilidades son esenciales para cualquiera que trabaje con datos temporales en bases de datos.
