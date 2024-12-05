@@ -18,6 +18,7 @@ La siguiente tabla contiene algunas de las funciones de fecha y hora que soporta
 |[`ADDDATE()`](#adddate)|Agrega valores de tiempo (intervalos) a un valor de fecha.|
 |[`CURDATE()`](#curdate)|Obtiene la fecha actual sin la parte de la hora.|
 |[`DATE()`](#date)|Extrae la parte de la fecha de una expresión de fecha o fecha y hora.|
+|[`DATEDIFF()`](#datediff)|Resta dos fechas.|
 |[`DATE_FORMAT()`](#date_format)|Formatear a una fecha de acuerdo a un formato especificado.|
 
 
@@ -129,6 +130,38 @@ SELECT username, DATE_FORMAT(birthday, '%W %M %Y') as birthday,
 DATE(up) as up FROM users;
 ```
 {: .nolineno }
+
+
+### DATEDIFF
+
+La función `DATEDIFF()` en MySQL se utiliza para calcular la diferencia en días entre dos fechas, devuelve el valor entero que indica el número de días entre dos fechas, donde el primer argumento es la **fecha de inicio** y el segundo argumento es la **fecha de finalización**.
+
+**Ejemplo de uso**
+
+1. Calcular el número de días entre el **1 de enero de 2023** y el **5 de diciembre de 2023**:
+
+```sql
+SELECT DATEDIFF('2024-12-05', '2024-01-01'); /* 339 */
+```
+{: .nolineno }
+
+Esta sentencia retornará el número **339** que es la diferencia entre las dos fechas indicadas.
+
+> La función no tiene en cuenta la hora, minutos o segundos, solo las fechas. Si alguna de las fechas es `NULL`, el resultado será `NULL`.
+{: .prompt-info }
+
+{: start="2" }
+2. Filtrar registros basados en la diferencia de fechas
+
+Si tenemos una tabla con registros de usuarios y sus fechas de inscripción, y queremos obtener solo los usuarios que se registraron hace más de 30 días:
+
+```sql
+SELECT * FROM usuarios
+WHERE DATEDIFF(NOW(), fecha_inscripcion) > 30;
+```
+{: .nolineno }
+
+Esta sentencia devolverá todos los usuarios donde la columna `fecha_inscripcion` es anterior a hace más de 30 días respecto a la fecha actual.
 
 ### DATE_FORMAT
 
