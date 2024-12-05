@@ -3,6 +3,9 @@ title: "MySQL 🐬 : Trabajar con fechas"
 author: enidev911
 categories: [Bases de Datos Relacionales, MySQL]
 tags: [Bases de Datos]
+image:
+    path: posters/mysql-trabajar-con-fechas.png
+    alt: "Trabajar con funciones de fechas en MySQL"
 ---
 
 MySQL cuando almacena una fecha lo hace de acuerdo a la norma ISO_8601 lo que quiere decir en el formato `YYYY-mm-dd`.
