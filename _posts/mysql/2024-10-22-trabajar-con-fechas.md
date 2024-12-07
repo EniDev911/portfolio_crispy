@@ -17,10 +17,11 @@ La siguiente tabla contiene algunas de las funciones de fecha y hora que soporta
 |:-----|:----------|
 |[`ADDDATE()`](#adddate)|Agrega valores de tiempo (intervalos) a un valor de fecha.|
 |[`CURDATE()`](#curdate)|Obtiene la fecha actual sin la parte de la hora.|
+|[`CURRENT_DATE`, `CURRENT_DATE()`](#curdate)|Son sínonimos de `CURDATE()`|
 |[`DATE()`](#date)|Extrae la parte de la fecha de una expresión de fecha o fecha y hora.|
 |[`DATEDIFF()`](#datediff)|Resta dos fechas.|
 |[`DATE_FORMAT()`](#date_format)|Formatear a una fecha de acuerdo a un formato especificado.|
-
+|[`EXTRACT()`](#extract)|Extraer parte de una fecha.|
 
 
 ### ADDDATE
@@ -185,6 +186,48 @@ SELECT DATE_FORMAT('2024-11-07', '%W, %M %d, %Y');
 ```
 {: .nolineno }
 
+
+### EXTRACT
+
+La función `EXTRACT()` utiliza los mismos argumentos que la función `DATE_ADD()` o `DATE_SUB()`, pero extrae partes de la fecha en lugar de realizar operaciones ariméticas de fechas.
+
+**Sintaxis de `EXTRACT()`**
+
+```sql
+EXTRACT(unidad FROM fecha)
+```
+{: .nolineno }
+
+- **unidad**: El tipo de unidad, como `DAY`, `MONTH`, `YEAR`, `HOUR`, `MINUTE`, `SECOND`, entre otros.
+- **fecha**: La fecha a la que le vamos extraer la unidad especificada.
+
+**Ejemplos**
+
+```sql
+SELECT EXTRACT(YEAR FROM '2022-03-02');
+SELECT EXTRACT(MONTH FROM CURDATE());
+SELECT EXTRACT(MINUTE FROM CURDATE());
+```
+{: .nolineno }
+
+### GET_FORMAT
+
+Devuelve una cadena de formato. Esta función `GET_FORMART()` es útil en combinación con `DATE_FORMAT()` y `STR_TO_DATE()`. Los valores posibles para el primer argumento dan como resultado varias cadenas de formato posibles.
+
+**Tabla de especificadores**
+
+|Llamada de función|Resultado|Ejemplo|
+|:-----------------|:--------|:------|
+|`GET_FORMAT(DATE, 'USA')`|`'%m.%d.%Y'`|`'12.30.2021'`|
+|`GET_FORMAT(DATE, 'JIS')`|`'%Y-%m-%d'`|`'2021-12-30'`|
+|`GET_FORMAT(DATE, 'ISO')`|`'%Y-%m-%d'`|`'2021-12-30'`|
+|`GET_FORMAT(DATE, 'EUR')`|`'%d.%m.%Y'`|`'30.12.2021'`|
+|`GET_FORMAT(DATE, 'INTERNAL')`|`%Y%m%d'`|`20211230`|
+|`GET_FORMAT(DATETIME, 'USA')`|`'%Y-%m-%d %H.%i.%s'`|`'2021-12-30 07.45.14'`|
+|`GET_FORMAT(DATETIME, 'JIS')`|`'%Y-%m-%d %H:%i:%s'`|`2021-12-30 07:45:14`|
+|`GET_FORMAT(DATETIME, 'ISO')`|`'%Y-%m-%d %H:%i:%s'`|`2021-12-30 07:45:14`|
+|`GET_FORMAT(DATETIME, 'EUR')`|`'%Y-%m-%d %H.%i.%s'`|`2021-12-30 07.45.14`|
+|`GET_FORMAT(DATETIME, 'INTERNAL')`|`'%Y%m%d%H%i%s'`|`20211230074514`|
 
 ---
 
