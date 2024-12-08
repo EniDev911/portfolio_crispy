@@ -2,7 +2,7 @@
 
 - type: github
   icon: "fab fa-github"
-  url: https://github.com/enidev911
+  url: https://github.com/mc-herrera-90
 
 - type: linkedin
   icon: "fa-brands fa-linkedin-in"
@@ -15,6 +15,16 @@
 - type: rss
   icon: "fas fa-rss"
   noblank: true
+
+- type: hackerrank
+  icon: "fa-brands fa-hackerrank"
+  url: https://www.hackerrank.com/profile/enidev911
+
+- type: apoyar
+  icon: "fa fa-buymeacoffee"
+  url: https://buymeacoffee.com/9111592
+
+
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon

@@ -17,8 +17,12 @@ Instalar MySQL en Windows desde los binarios es una buena opción si deseamos un
   - **Windows (x86, 32-bit), ZIP archive**: Si estás usando una versión de 32 bits de Windows.
 - Clic en **Download** y luego clic en **No thank, just start my download** para evitar registrarse y comenzar la descarga directamente.
 
+> Si prefieres, puedes ir directo a la descarga de [Mysql 8.0.28 para 64 bit](https://dev.mysql.com/downloads/file/?id=509736)
+{: .prompt-tip }
+
 ![descarga de los binarios](mysql/download-binary-mysql-light.png){: .light }
 ![descarga de los binarios](mysql/download-binary-mysql-dark.png){: .dark }
+
 
 ### Extraer el contenido
 
@@ -64,12 +68,12 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 - Navegamos hasta la carpeta de los binarios con el comando `cd`. Ejemplo:
 
 ```console
-cd C:\mysql
+cd C:\mysql\bin
 ```
 - Ahora, ejecutamos el siguiente comando para inicializar el directorio de datos de MySQL:
 
 ```console
-bin\mysqld --initialize --console
+mysqld --initialize --console
 ```
 
 - El comando anterior realiza lo siguiente:
@@ -124,8 +128,70 @@ mysqladmin -u root shutdown
 - El siguiente comando registra MySQL como servicio (ejecutar con privilegios de administrador):
 
 ```console
-mysqld --install "MySQL8"
+mysqld --install "mysql"
 ```
+
+Ahora podemos iniciar o detener el servicio desde la línea de comandos. Para ello podemos abrir una nueva **CMD** como administrador y realizar alguna de las siguientes operaciones:
+
+1. Iniciar el servicio con el comando:
+
+```console
+net start mysql
+```
+
+{: start="2" }
+2. Detener el servicio
+
+```console
+net stop mysql
+```
+
+> La herramienta [`net`](https://ss64.com/nt/net-service.html) se utiliza para administrar redes y servicios.
+{: .prompt-info }
+
+
+{: start="3" }
+3. Consultar el estado del servicio
+
+```console
+sc qc mysql
+```
+
+Lo anterior nos mosntraía un mensaje similar al siguiente:
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="CMD"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">&gt; sc qc mysql</span>
+[SC] QueryServiceConfig CORRECTO
+
+NOMBRE_SERVICIO: mysql
+        TIPO               : 10  WIN32_OWN_PROCESS
+        TIPO_INICIO        : 2   AUTO_START
+        CONTROL_ERROR      : 1   NORMAL
+<span class="hl">        NOMBRE_RUTA_BINARIO: C:\mysql\bin\mysqld mysql</span>
+        GRUPO_ORDEN_CARGA  :
+        ETIQUETA           : 0
+        NOMBRE_MOSTRAR     : mysql
+        DEPENDENCIAS       :
+        NOMBRE_INICIO_SERVICIO: LocalSystem
+</pre></code>
+</div>
+</div>
+
+{: start="4" }
+4. Eliminar el servicio
+
+```console
+sc delete mysql
+```
+
+> La herramienta [`sc`](https://learn.microsoft.com/es-es/windows-server/administration/windows-commands/sc-query) es más avanzada y proporciona un control más detallado sobre los servicios de windows.
+{: .prompt-info }
 
 ### Establecer una nueva contraseña
 
@@ -138,4 +204,6 @@ ALTER USER user() IDENTIFIED BY '<new-password>';
 ```
 {: .nolineno }
 
-Este sería un ejemplo, que explica de forma ordenada de cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. ¡Espero que te sirva!
+Este sería un ejemplo, que explica de forma ordenada de cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. ¡Espero que te sirva! 
+
+
