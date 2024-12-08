@@ -3,6 +3,9 @@ title: "MySQL 🐬 : Instalar y Configurar desde los Binarios en Windows"
 author: enidev911
 categories: [Bases de Datos Relacionales, MySQL]
 tags: [Bases de Datos]
+image:
+    path: posters/mysql-instalacion-windows-zip.png
+    alt: "Instalar MySQL desde los binarios de Windows"
 ---
 
 Instalar MySQL en Windows desde los binarios es una buena opción si deseamos una instalación limpia y controlada de MySQL.
