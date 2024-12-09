@@ -1,5 +1,5 @@
 ---
-title: "PHP : Instalción desde Binarios en Windows"
+title: "PHP : Instalación desde Binarios en Windows"
 author: enidev911
 categories: [Desarrollo Web, PHP]
 tags: [desarrollo web, php]
