@@ -75,8 +75,6 @@ sudo service mariadb status
 sudo service mariadb start
 ```
 
-
-
 ### 4. Instalar PHP
 
 PHP es el lenguaje de programación que usamos para crear aplicaciones web dinámicas. También es necesario instalar algunos módulos para que funcione correctamente con **Apache** y **MySQL**.
