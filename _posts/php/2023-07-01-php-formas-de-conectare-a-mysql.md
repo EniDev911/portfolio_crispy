@@ -7,10 +7,39 @@ tags: [desarrollo web, php]
 
 Conectarse a una base de datos MySQL desde PHP es una de las tareas más comunes cuando desarrollas aplicaciones web que requieren almacenamiento de datos. En este post, exploraremos **tres formas principales** de realizar esta conexión: usando [mysqli](https://www.php.net/manual/es/book.mysqli.php){:target='_blank'} (con orientación a objetos y estilo procedural) y [PDO](https://www.php.net/manual/es/book.pdo.php){: target='_blank' }. Cada uno tiene sus ventajas y usos específicos, y daremos contexto para entenderlo e implementarlos correctamente.
 
+Antes de comenzar vamos a realizar unos pasos previo a los ejemplos de conexión. Primero, crearemos una base de datos llamada `testdb`. Abrimos el cliente **mysql** desde la línea de comandos:
+
+```terminal
+mysql -u root -p
+```
+
+Y ejecutamos el siguiente comando SQL para crearla:
+
+```sql
+CREATE DATABASE testdb;
+```
+{: .nolineno }
+
+Una vez creada la base de datos, la seleccionamos con el siguiente comando:
+
+```sql
+USE testdb;
+```
+{: .nolineno }
+
+Ahora creamos una tabla de ejemplo llamada `usuarios` con dos columnas: `id`, `nombre`. La columna `id` será de tipo entero `INTEGER` y será la clave primaria, y la columna `nombre` será de tipo `VARCHAR` para almacenar cadenas de textos.
+
+```sql
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL
+);
+```
+{: .nolineno }
 
 ## 1. Conectar a MySQL con mysqli
 
-El `mysqli` es una extensión de PHP que proporiciona una intefaz mejorada para interactuar con MySQL. Soporta tanto la programación orientada a objetos como la programación procedural.
+El `mysqli` es una extensión de PHP que proporiciona una interfaz mejorada para interactuar con MySQL. Soporta tanto la programación orientada a objetos como la programación procedural.
 
 ### 1.1 Conexión con MySQL usando mysqli (Estilo Procedural)
 
@@ -20,8 +49,8 @@ Este es el estilo más sencillo de usar para quienes vienen de un entorno más p
 <?php
 $host = 'localhost';
 $usuario = 'root';
-$contraseña = 'root';
-$base_de_datos = 'mysql';
+$contraseña = '';
+$base_de_datos = 'testdb';
 
 // Crear conexión
 $conexion = mysqli_connect($host, $usuario, $contraseña, $base_de_datos);
@@ -36,6 +65,8 @@ echo "Conexión exitosa!";
 ```
 {: file="conexion.php"}
 
+> Con esto, PHP se conecta al servidor de base de datos MySQL, tienes que seleccionar una base de datos a la que el usuario tenga acceso. En el caso anterior `testdb` debe existir y el usuario debe tener privilegios sobre ella.
+{: .prompt-info }
 
 ### 1.2 Conexión con MySQL usando mysqli (Estilo Orientado a Objetos)
 
@@ -45,8 +76,8 @@ El estilo orientado a objetos es más estructurado y recomendado para proyectos 
 <?php
 $host = 'localhost';
 $usuario = 'root';
-$contraseña = 'root';
-$base_de_datos = 'mysql';
+$contraseña = '';
+$base_de_datos = 'testdb';
 
 try {
   // Crear una nueva conexión
@@ -67,9 +98,13 @@ try {
 
 ### 1.3 Ejecutar Consultas con mysqli
 
-Una vez establecida la conexión, podemos ejecutar consultas SQL. Ejemplo consultas `SELECT`. En un archivo de ejemplo llamado `query.php`, podemos importar la conexión y usarla para ejecutar la consulta.
+Una vez establecida la conexión, podemos ejecutar consultas SQL. Ejemplo consultas `SELECT`, en un archivo de ejemplo llamado `query.php`, podemos importar la conexión y usarla para ejecutar la consulta.
 
-Para mantener la coherencia y evitar errores, debemos usar uno de los dos estilos (procedural o orientado a objetos) en los ejemplos.
+> Para mantener la coherencia y evitar errores, debemos usar uno de los dos estilos (procedural o orientado a objetos) en los ejemplos.
+{: .prompt-info }
+
+
+**Ejemplo (Estilo Orientado a Objeto):**
 
 ```php
 <?php
@@ -77,13 +112,13 @@ Para mantener la coherencia y evitar errores, debemos usar uno de los dos estilo
 require_once 'conexion.php';
 
 // Ahora podemos disponer de la variable $conexion para ejecutar consultas
-$sql = "SELECT user FROM user";
+$sql = "SELECT nombre FROM usuarios";
 $resultado = $conexion->query($sql);
 
 // Verificar si hay resultados
 if ($resultado->num_rows > 0) {
   while($fila = $resultado->fetch_assoc()) {
-    echo "Usuario: " . $fila['user'] . "<br>";
+    echo "Usuario: " . $fila['nombre'] . "<br>";
   }
 } else {
   echo "0 Resultados";
