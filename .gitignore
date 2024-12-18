@@ -3,6 +3,9 @@
 vendor
 Gemfile.lock
 
+
+*:Zone.Identifier
+
 # Jekyll cache
 .jekyll-cache
 _site
