@@ -1,7 +1,7 @@
 ---
 title: "Debian 🐧 : Configurar un LAMP"
 author: enidev911
-categories: [Sistemas Operativos, Debian]
+categories: [Sistemas Operativos, Linux]
 tags: [Sistemas Operativos, MySQL, PHP]
 ---
 
