@@ -91,36 +91,6 @@ echo $PWD
 {% endtab %}
 {% endtabs %}
 
-### Variable $0
-
-La variable `$0` contiene el nombre del script o comando que se está ejecutando. En un script, te permite saber cómo fue invocado el propio script.
-
-**Ejemplo**
-
-{% tabs ex_var0 %}
-{% tab ex_var0 script %}
-```terminal
-#!/bin/bash
-echo "Este script se ejecutó como: $0"
-```
-{: file="my_script.sh" }
-{% endtab %}
-{% tab ex_var0 salida %}
-<div class="language-plaintext highlighter-rouge">
-<div class="code-header">
-  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
-  <span class="m-4"></span>
-</div>
-<div class="highlight p-2">
-<code><pre style="overflow: inherit;">
-<span class="hl">$ bash ./my_script.sh</span>
-Este script se ejecutó como: ./my_script.sh
-</pre></code>
-</div>
-</div>
-{% endtab %}
-{% endtabs %}
-
 ---
 
 ## Otras Variables Importantes
@@ -161,6 +131,36 @@ Estamos en la línea número 4
 Estamos en la línea número 5
 Estamos en la línea número 6
 Estamos en la línea número 7
+</pre></code>
+</div>
+</div>
+{% endtab %}
+{% endtabs %}
+
+### Variable $0
+
+La variable `$0` contiene el nombre del script o comando que se está ejecutando. En un script, te permite saber cómo fue invocado el propio script.
+
+**Ejemplo**
+
+{% tabs ex_var0 %}
+{% tab ex_var0 script %}
+```terminal
+#!/bin/bash
+echo "Este script se ejecutó como: $0"
+```
+{: file="my_script.sh" }
+{% endtab %}
+{% tab ex_var0 salida %}
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">$ bash ./my_script.sh</span>
+Este script se ejecutó como: ./my_script.sh
 </pre></code>
 </div>
 </div>
