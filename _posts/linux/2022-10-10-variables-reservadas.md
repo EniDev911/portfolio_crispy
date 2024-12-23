@@ -21,4 +21,64 @@ echo $USER
 
 La variable `$HOME` define el directorio home del usuario actual
 
+**Ejemplo**
 
+```terminal
+echo $HOME
+```
+
+### Variable $PATH
+
+Esta variable `$PATH` especifica una lista de directorios en los que el sistema busca ejecutables cuando se escribe un comando.
+
+**Ejemplo**
+
+```terminal
+echo $PATH
+```
+
+**Ejemplo de cómo añadir un directorio al $PATH**
+
+
+```terminal
+export PATH=$PATH:/home/usuario/mis_scripts
+```
+
+### Varaiable $RANDOM
+
+Esta variable `$RANDOM` genera un número aleatorio entre 0 y 32767 cada vez que se usa.
+
+**Ejemplo**
+
+{% tabs ex_random %}
+{% tab ex_random comando %}
+```terminal
+echo $RANDOM
+```
+{% endtab %}
+{% tab ex_random salida %}
+```terminal
+14408
+```
+{% endtab %}
+{% endtabs %}
+
+### Variable PWD
+
+Esta variable contiene la ruta del directorio actual. Es útil para saber en qué carpeta estás trabajando.
+
+**Ejemplo**
+
+
+{% tabs pwd_ex %}
+{% tab pwd_ex comando %}
+```terminal
+echo $PWD
+```
+{% endtab %}
+{% tab pwd_ex salida %}
+```terminal
+/home/user
+```
+{% endtab %}
+{% endtabs %}
