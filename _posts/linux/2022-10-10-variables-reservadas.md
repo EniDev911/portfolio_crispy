@@ -19,13 +19,22 @@ echo $USER
 
 ### Variable $HOME
 
-La variable `$HOME` define el directorio home del usuario actual
+La variable `$HOME` define el directorio home del usuario actual. Es utilizada por el sistema para acceder rápidamente a los archivos y configuraciones del usuario sin necesidad de especificar la ruta completa. Cada usuario tiene su propio directorio home, como `/home/usuario`.
 
 **Ejemplo**
 
+{% tabs ex_home %}
+{% tab ex_home comando %}
 ```terminal
 echo $HOME
 ```
+{% endtab %}
+{% tab ex_home salida %}
+```terminal
+/home/marco
+```
+{% endtab %}
+{% endtabs %}
 
 ### Variable $PATH
 
@@ -69,7 +78,6 @@ Esta variable contiene la ruta del directorio actual. Es útil para saber en qu�
 
 **Ejemplo**
 
-
 {% tabs pwd_ex %}
 {% tab pwd_ex comando %}
 ```terminal
@@ -80,5 +88,81 @@ echo $PWD
 ```terminal
 /home/user
 ```
+{% endtab %}
+{% endtabs %}
+
+### Variable $0
+
+La variable `$0` contiene el nombre del script o comando que se está ejecutando. En un script, te permite saber cómo fue invocado el propio script.
+
+**Ejemplo**
+
+{% tabs ex_var0 %}
+{% tab ex_var0 script %}
+```terminal
+#!/bin/bash
+echo "Este script se ejecutó como: $0"
+```
+{: file="my_script.sh" }
+{% endtab %}
+{% tab ex_var0 salida %}
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">$ bash ./my_script.sh</span>
+Este script se ejecutó como: ./my_script.sh
+</pre></code>
+</div>
+</div>
+{% endtab %}
+{% endtabs %}
+
+---
+
+## Otras Variables Importantes
+
+
+### Variable $LINENO
+
+Esta variable contiene el número de línea en la que se encuentra el script que se está ejecutando. Es útil para hacer depuración.
+
+
+**Ejemplo de uso en scripts**
+
+{% tabs ex_lineno %}
+{% tab ex_lineno script %}
+```bash
+#!/bin/bash
+echo "Estamos en la línea número $LINENO"
+echo "Estamos en la línea número $LINENO"
+echo "Estamos en la línea número $LINENO"
+echo "Estamos en la línea número $LINENO"
+echo "Estamos en la línea número $LINENO"
+echo "Estamos en la línea número $LINENO"
+```
+{: file="my_script.sh" }
+{% endtab %}
+{% tab ex_lineno salida %}
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">$ bash my_script.sh</span>
+Estamos en la línea número 2
+Estamos en la línea número 3
+Estamos en la línea número 4
+Estamos en la línea número 5
+Estamos en la línea número 6
+Estamos en la línea número 7
+</pre></code>
+</div>
+</div>
 {% endtab %}
 {% endtabs %}
