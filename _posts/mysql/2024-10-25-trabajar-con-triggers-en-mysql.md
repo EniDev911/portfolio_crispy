@@ -8,7 +8,7 @@ image:
     alt: "Trabajar con Triggers en MySQL"
 ---
 
-Los **triggers** (disparadores) en MySQL son una podersoa herramienta que nos permite ejecutar automáticamente ciertas acciones en respuesta a eventos específicos en la base de datos. En otras palabras, un trigger se asocia a una tabla y se ejecuta automáticamente cuando ocurre un evento de modificación de datos (`INSERT`, `UPDATE`, `DELETE`) en esa tabla.
+Los **triggers** (disparadores) en MySQL son una poderosa herramienta que nos permite ejecutar automáticamente ciertas acciones en respuesta a eventos específicos en la base de datos. En otras palabras, un trigger se asocia a una tabla y se ejecuta automáticamente cuando ocurre un evento de modificación de datos (`INSERT`, `UPDATE`, `DELETE`) en esa tabla.
 
 Vamos a ver varios ejemplos prácticos de como usar triggers en **MySQL 5.7** y versiones superiores.
 
