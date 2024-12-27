@@ -1,5 +1,5 @@
 ---
-title: "MySQL 🐬 : Trabajar con Trigger en MySQL"
+title: "MySQL 🐬 : Trabajar con Trigger"
 author: enidev911
 categories: [Bases de Datos Relacionales, MySQL]
 tags: [Bases de Datos]
@@ -52,7 +52,7 @@ Supongamos que tenemos una tabla llamada **`productos`** y queremos llevar un re
 
 ### **Paso 1: Crear la Base de Datos y Seleccionarla**
 
-Para ello vamos a crear una base de datos llamada **`bd_tienda`** para trabajar:
+Para ello vamos a crear una base de datos llamada **`bd_tienda`** para trabajar y la seleccionamos:
 
 ```sql
 CREATE DATABASE `bd_tienda`;
@@ -101,6 +101,8 @@ DELIMITER ;
 ```
 {: .nolineno }
 
+Aquí tenemos algunas palabras claves que no se explican en la sintaxis básica pero se utilizan para lo siguiente:
+
 - `NEW`: En un trigger, `NEW` hace referencia a los valores que se estàn insertando o modificando. En este caso, estamos utilizando los valores recién insertados en la tabla `productos`.
 - `JSON_OBJECT`: Esta función crea un objeto JSON con los datos del producto insertado.
 
@@ -117,6 +119,27 @@ SELECT * FROM productos_auditoria;
 {: .nolineno }
 
 Esto debería registrar una fila en la tabla `productos_auditoria` con la acción `'INSERT'` y los datos del nuevo producto.
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="MySQL"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">mysql&gt; INSERT INTO productos (nombre, precio, stock) VALUES ('Camiseta', 14990, 100);</span>
+Query OK, 1 row affected (0.03 sec)
+<span class="hl">mysql&gt; SELECT * FROM productos_auditoria;</span>
++----+-------------+--------+---------------------+-------------------------------------------------------+
+| id | producto_id | accion | fecha               | datos_anterior                                        |
++----+-------------+--------+---------------------+-------------------------------------------------------+
+|  1 |           1 | INSERT | 2024-10-25 18:08:35 | {"stock": 100, "nombre": "Camiseta", "precio": 14990} |
++----+-------------+--------+---------------------+-------------------------------------------------------+
+1 row in set (0.00 sec)
+</pre></code>
+</div>
+</div>
+
 
 ### **Trigger Para evitar la Eliminación de Productos con Stock**
 
@@ -140,6 +163,13 @@ DELIMITER ;
 ```
 {: .nolineno }
 
+Aquí tenemos algunas palabras claves que no se explican en la sintaxis básica pero se utilizan para lo siguiente:
+
+- `OLD`: Hace referencia a los valores de la fila antes de la operación (`DELETE`), en este caso, el valor de `stock` antes de eliminar el producto.
+- `SIGNAL SQLSTATE`: Genera una señal de error personalizado, interrumpiendo la operación.
+- `SQLSTATE '45000'`: Código de error definido por el usuario para lanzar una excepción personalizada.
+- `SET MESSAGE_TEXT = '...'`: Define el mensaje de error que se muestra cuando se activa la señal.
+
 ### **Paso 2: Probar el Trigger**
 
 Eliminamos un producto existente que tenga `stock > 0` y verificamos que se dispare el trigger:
@@ -149,6 +179,20 @@ DELETE FROM productos WHERE nombre = 'Camiseta';
 ```
 {: .nolineno }
 
+Esto debería desencadenar el evento y disparar el trigger `before_delete_producto` mostrando el mensaje de la excepción:
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="MySQL"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+mysql&gt; DELETE FROM productos WHERE nombre = 'Camiseta';
+<span class="hl">ERROR 1644 (45000): No se puede eliminar el producto con stock disponible</span>
+</pre></code>
+</div>
+</div>
 
 ### **Consideraciones sobre los Trigger**
 
