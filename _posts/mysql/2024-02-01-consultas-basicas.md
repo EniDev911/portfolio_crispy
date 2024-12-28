@@ -8,7 +8,7 @@ tags: [Bases de Datos]
 
 Como sabemos **SQL** (Structured Query Language) es un lenguaje estándar para gestionar bases de datos. Sin embargo, SQL es un conjunto de comandos que se organizan en diferentes **sublenguajes** que cumplen roles específicos.
 
-A continución tenemos un diagrama que nos muestra esos **sublenguajes**:
+A continuación tenemos un diagrama que nos muestra esos **sublenguajes**:
 
 ```mermaid
 ---
@@ -130,3 +130,26 @@ La cláusula `WHERE` nos permite filtrar los resultados según una condición es
 SELECT nombre, puesto FROM empleados WHERE puesto = 'Desarrollador';
 ```
 {: .nolineno }
+
+### **3. Actualizar datos**
+
+Ahora supongamos que queremos actualizar el puesto de **Juan Pérez** para que en vez de de **Desarrollador** sea **Programador**. La consulta sería la siguiente:
+
+```sql
+UPDATE empleados 
+SET puesto = 'Programador'
+WHERE nombre = 'Juan Pérez';
+```
+{: .nolineno }
+
+### **4. Eliminar Datos**
+
+Si necesitamos eliminar a **Juan Pérez** de la tabla, sería con el comando `delete`, usaríamos la siguiente consulta:
+
+```sql
+DELETE FROM empleados WHERE nombre = 'Juan Pérez';
+```
+{: .nolineno }
+
+> Nunca olvides el `where` en este tipo de operaciones
+{: .prompt-danger }
