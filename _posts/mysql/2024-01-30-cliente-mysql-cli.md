@@ -39,7 +39,7 @@ Cuando iniciamos una sesión interactiva desde el cliente de terminal **mysql**,
 </div>
 <div class="highlight p-2">
 <code><pre style="overflow: inherit;">
-<span class="hl">mysql&gt; help</span>
+<span class="hl">mysql&gt; HELP</span>
 
 Lista de todos los comandos de MySQL:  
 Tenga en cuenta que todos los comandos de texto deben estar al principio de la línea y terminar con ';'
@@ -69,7 +69,7 @@ Para obtener ayuda del lado del servidor, escriba `help contents`
 </div>
 </div>
 
-> Según el sistema operativo que estemos utilizando, el listado puede variar, mostrando comandos más o comandos menos.
+> Según el sistema operativo que estemos utilizando, el listado puede variar, mostrando comandos más o comandos menos. El idioma del servidor por defecto es en inglés pero lo podemos cambiar para que los mensajes se muestren español (que veremos más adelante).
 {: .prompt-info }
 
 **Ejemplo para ejecutar un comando del sistema**
@@ -79,7 +79,7 @@ Para obtener ayuda del lado del servidor, escriba `help contents`
 ```
 {: .nolineno }
 
-El comando anterior, nos imprimirá los directorio y archivos en la ubicación como se muestra el siguiente bloque:
+El comando anterior, nos imprimirá los directorio y archivos en la ubicación como lo muestra el siguiente bloque:
 
 <div class="language-plaintext highlighter-rouge">
 <div class="code-header">
@@ -102,3 +102,90 @@ mysql&gt;
 </pre></code>
 </div>
 </div>
+
+
+**Ejemplo para ver la información del servidor**
+
+```
+\! status
+```
+{: .nolineno }
+
+Al ejecutar el comando anterior, se imprimirá el estado y la información del servidor como lo muestra el siguiente bloque:
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">mysql&gt; \status</span>
+--------------
+mysql  Ver 8.4.3 for macos14 on x86_64 (MySQL Community Server - GPL)
+
+Connection id:		11
+Current database:	
+Current user:		root@localhost
+SSL:			Not in use
+Current pager:		less
+Using outfile:		''
+Using delimiter:	;
+Server version:		8.4.3 MySQL Community Server - GPL
+Protocol version:	10
+Connection:		Localhost via UNIX socket
+Server characterset:	utf8mb4
+Db     characterset:	utf8mb4
+Client characterset:	utf8mb4
+Conn.  characterset:	utf8mb4
+UNIX socket:		/tmp/mysql.sock
+Binary data as:		Hexadecimal
+Uptime:			1 hour 55 min 53 sec
+
+Threads: 2  Questions: 18  Slow queries: 0  Opens: 139  Flush tables: 3  Open tables: 60  Queries per second avg: 0.002
+--------------
+</pre></code>
+</div>
+</div>
+
+### **Mostrar información de Comandos**
+
+El comando `HELP` también es una herramienta muy útil para obtener información sobre los comandos disponibles en el intérprete de MySQL. Cuando ejecutas el comando `HELP` seguido del comando que quieres obtener información, se despliega un listado sobre las opciones que puedes utilizar.
+
+**Ejemplo para ver todos los comandos disponibles**
+
+Para ver el listado completo sobre el comando `SHOW`:
+
+```
+HELP SHOW
+```
+{: .nolineno }
+
+Al ejecutar el comando anterior, se despliega todo el listado como lo muestra en parte el siguiente bloque:
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">mysql&gt; HELP SHOW</span>
+Name: 'SHOW'
+Description:
+SHOW has many forms that provide information about databases, tables,
+columns, or status information about the server. This section describes
+those following:
+
+SHOW BINARY LOG STATUS
+SHOW BINARY LOGS
+SHOW BINLOG EVENTS [IN 'log_name'] [FROM pos] [LIMIT [offset,] row_count]
+SHOW {CHARACTER SET | CHARSET} [like_or_where]
+SHOW COLLATION [like_or_where]
+SHOW [FULL] COLUMNS FROM tbl_name [FROM db_name] [like_or_where]
+SHOW CREATE DATABASE db_name
+...
+</pre></code>
+</div>
+</div>
+
