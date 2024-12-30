@@ -3,6 +3,9 @@ title: "MySQL 🐬 : Cliente de línea de Comandos"
 author: enidev911
 categories: [Bases de Datos Relacionales, MySQL]
 tags: [Bases de Datos]
+image:
+    path: posters/cliente-mysql-terminal.png
+    alt: "Cliente de la Terminal"
 ---
 
 Cuando instalamos MySQL, dentro del paquete de instalación contiene un programa para conectarnos al servidor mediante la línea de comandos, el programa se llama **mysql** y nos permite abrir una sesión como cliente para ejecutar sentencias **SQL** con capacidades de edición.
@@ -25,7 +28,7 @@ Estos parámetros son sencillos, aunque dependiendo del método de autenticació
 {: .prompt-tip }
 
 
-### **Opciones de mysql**
+### **Comandos que interpreta mysql**
 
 Cuando iniciamos una sesión interactiva desde el cliente de terminal **mysql**, podemos ver un listado de comandos que realizan diferentes tareas, para ello debemos ejecutar el comando `help`:
 
@@ -68,3 +71,34 @@ Para obtener ayuda del lado del servidor, escriba `help contents`
 
 > Según el sistema operativo que estemos utilizando, el listado puede variar, mostrando comandos más o comandos menos.
 {: .prompt-info }
+
+**Ejemplo para ejecutar un comando del sistema**
+
+```
+\! ls
+```
+{: .nolineno }
+
+El comando anterior, nos imprimirá los directorio y archivos en la ubicación como se muestra el siguiente bloque:
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">mysql&gt; \! ls</span>
+Applications
+Desktop
+Documents
+Downloads
+Library
+Movies
+Music
+Pictures
+Public
+mysql&gt;
+</pre></code>
+</div>
+</div>
