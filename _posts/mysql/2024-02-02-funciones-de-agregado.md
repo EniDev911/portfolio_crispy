@@ -8,23 +8,7 @@ tags: [Bases de Datos]
 
 Las principales funciones de agregación de SQL son las siguientes:
 
-```mermaid
----
-title: PRINCIPALES FUNCIONES DE AGREGADO
----
-graph TD
-    A[Funciones de Agregado en SQL]
-    A1(SUM())
-    A2(AVG())
-    A3(COUNT())
-    A4(MAX())
-    A5(MIN())
-    A --> A1
-    A --> A2
-    A --> A3
-    A --> A4
-    A --> A5
-```
+...
 
 En MySQL, las funciones de agregado se utilizan para realizar cálculos en un conjunto de registros y devolver un único valor basado en esos datos. Son herramientas poderosas cuando se necesita resumir, contar o analizar grandes volúmenes de datos. Este tipo de funciones se utilizan principalmente en consultas con las cláusulas `SELECT`, `GROUP BY`, `HAVING`.
 
