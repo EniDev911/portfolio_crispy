@@ -53,15 +53,11 @@ shareBtn.addEventListener('click', (event) => {
 
 <script>
 const shareBtn = document.getElementById('btn-share');
-
 shareBtn.addEventListener('click', (event) => {
-
 	if ("share" in navigator) {
 		navigator
 			.share({
-				// título para la ventana compartir
 				title: "Comparte este recurso en tus plataformas",
-				// Si queremos compartir el recurso actual
 				url: window.location.href
 			})
 			.then(() => {
@@ -82,3 +78,38 @@ La **Web Share API** permite compartir diferentes tipos de datos:
 - **URL** (`url`): Un enlace a una página web.
 - **Título** (`title`): Un título descriptivo del contenido que se está compartiendo.
 - **Archivos** (`files`): En dispositivos que lo soportan, puedes compartir archivos (por ejemplo, imágenes, documentos).
+
+Ahora veamos un ejemplo para compartir un documento con la **Web Share API**.
+
+**Ejemplo para compartir un documento**
+
+```javascript
+shareButton.onclick = async () => {
+  const response = await fetch("https://example.com/files/hello.pdf");
+  const buffer = await response.arrayBuffer();
+
+  const pdf = new File([buffer], "hello.pdf", { type: "application/pdf" });
+  const files = [pdf];
+
+  // Si el navegador tiene soporte para recursos compartidos
+  if (navigator.canShare({ files })) await navigator.share({ files });
+};
+```
+{: .nolineno }
+
+
+<button id="btn-share-2" class="btn btn-secondary">Compartir este documento</button>
+
+<script>
+const shareBtn_ = document.getElementById('btn-share-2');
+shareButton_.onclick = async () => {
+  const response = await fetch("https://example.com/files/hello.pdf");
+  const buffer = await response.arrayBuffer();
+
+  const pdf = new File([buffer], "hello.pdf", { type: "application/pdf" });
+  const files = [pdf];
+
+  // Si el navegador tiene soporte para recursos compartidos
+  if (navigator.canShare({ files })) await navigator.share({ files });
+};
+</script>
