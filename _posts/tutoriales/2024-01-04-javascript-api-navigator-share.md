@@ -49,6 +49,8 @@ shareBtn.addEventListener('click', (event) => {
 ```
 {: .nolineno }
 
+El resultado lo podemos probar usando el siguiente botón:
+
 <button id="btn-share" class="btn btn-secondary">Compartir este enlace</button>
 
 <script>
@@ -70,7 +72,7 @@ shareBtn.addEventListener('click', (event) => {
 });
 </script>
 
-### ¿Qué se puede compartir con la Web Share API?
+### **¿Qué se puede compartir con la Web Share API?**
 
 La **Web Share API** permite compartir diferentes tipos de datos:
 
@@ -79,7 +81,9 @@ La **Web Share API** permite compartir diferentes tipos de datos:
 - **Título** (`title`): Un título descriptivo del contenido que se está compartiendo.
 - **Archivos** (`files`): En dispositivos que lo soportan, puedes compartir archivos (por ejemplo, imágenes, documentos).
 
-Ahora veamos un ejemplo para compartir un documento con la **Web Share API**.
+### **Compartir Documentos**
+
+Ahora veamos un ejemplo para compartir un documento con la **Web Share API**. Para ello primero, debes asegurarte que el archivo esté en una carpeta que pueda ser servida públicamente por un servidor web. En la mayoría de las aplicaciones web, la carpeta
 
 **Ejemplo para compartir un documento**
 
@@ -96,6 +100,7 @@ shareButton.onclick = async () => {
 };
 ```
 {: .nolineno }
+
 
 
 <button id="btn-share-2" class="btn btn-secondary">Compartir este documento</button>
