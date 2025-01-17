@@ -1,11 +1,11 @@
 ---
-title: Leer y Escribir archivos en Node.js
+title: Leer y Escribir archivos JSON en Node.js
 author: enidev911
-categories: [Desarrollo Web, nodejs]
+categories: [Desarrollo Web, "Node.js"]
 tags: [desarrollo web, nodejs]
 ---
 
-Para leer datos JSON, **Node.js** tiene el módulo **fs**. Hay 2 funciones disponibles en este módulo que podemos usar para leer archivos del sistema **readFile** y **readFileSync**. La función `readFileSync` lee los datos de un archivo de forma **síncrona**, lo que significa que esta función **bloquea la ejecución del resto del código hasta que se leen todos los datos de un archivo**, esta función es particularmente útil cuando se requiere que la aplicación cargue ajustes de configuración antes de poder realizar cualquier otra tarea.
+Para leer archivos **JSON**, **Node.js** tiene el módulo **fs**. Hay 2 funciones disponibles en este módulo que podemos usar para leer archivos del sistema **readFile** y **readFileSync**. La función `readFileSync` lee los datos de un archivo de forma **síncrona**, lo que significa que esta función **bloquea la ejecución del resto del código hasta que se leen todos los datos de un archivo**, esta función es particularmente útil cuando se requiere que la aplicación cargue ajustes de configuración antes de poder realizar cualquier otra tarea.
 
 **Ejemplo**
 
