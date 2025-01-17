@@ -175,3 +175,51 @@ Este instalador incluye los siguientes programas:
 - `StackBuilder`: herramienta gráfica para administrar paquetes que se puede utilizar para descargar e instalar herramientas adicionales.
 
 Este instalador puede ejecutarse en modo gráfico, por la línea de comandos o de instalación silenciosa.
+
+### **Instalar con Homebrew**
+
+Si no tienes [**Homebrew**](https://brew.sh/){: target='_blank' } instalado en tu sistema, debes instalarlo primero. Homebrew es un gestor de paquetes para macOS que facilita la instalación de software.
+
+1. Abrimos una terminal.
+2. Ejecutamos el siguiente comando:
+
+```terminal
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+{: start="3"}
+3. Sigue las instrucciones que aparecen en pantalla para completar la instalación.
+
+Una vez instalado Homebrew, realizamos los siguientes pasos para instalar PostgreSQL.
+
+Primero, asegúrate de que Homebrew esté actualizado:
+
+```terminal
+brew update
+```
+
+Luego, instalamos PostgreSQL con el siguiente comando:
+
+```terminal
+brew install postgresql
+```
+
+Homebrew descargará e instalará PostgreSQL en el sistema. Este proceso puede tardar algunos minitos dependiendo de la conexión a Internet.
+
+#### **Iniciar PostgreSQL**
+
+Una vez instalado, podemos iniciar PostgreSQL usando `brew services`:
+
+```terminal
+brew services start postgresql
+```
+
+Esto iniciará el servidor PostgreSQL y lo hará correr en segundo plano como un servicio del sistema.
+
+#### **Acceder a PostgreSQL con el cliente psql**
+
+Con PostgreSQL en ejecución, podemos interactuar con la base de datos a través del cliente de línea de comandos `psql`. Para conectarte a la base de datos predeterminada `postgres`, usamos el siguiente comando:
+
+```terminal
+psql postgres
+```
