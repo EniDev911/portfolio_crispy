@@ -90,7 +90,7 @@ Podemos ver más opciones adicionales de esta herramienta **`createuser`**:
 man createuser
 ```
 
-### **Crear nueva base de datos**
+#### **Crear nueva base de datos**
 
 Otra susposición que el sistema de autenticación de Postgres realiza por defecto es que para cualquier rol creado para que pueda iniciar sesión deberá existir una base de datos con el mismo nombre del rol.
 
@@ -122,7 +122,7 @@ Nos pedirá la constraseña que establecimos anteriormente, iniciada la sesión 
 psql
 ```
 
-### **Cambiar el método de autenticación**
+#### **Cambiar el método de autenticación**
 
 PostgreSQL admite múltiples métodos de autenticación de clientes. En ubuntu, `peer` es el método de autenticación por defecto que se usa para conexiones locales (*local*), mientras que `scram-sha-256` (esto solía ser `md5` hasta Ubuntu 21.10) es el predeterminado para las conexiones **host** (conexiones realizadas mediante **TCP/IP**).
 
