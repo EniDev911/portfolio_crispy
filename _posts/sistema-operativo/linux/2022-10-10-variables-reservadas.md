@@ -17,7 +17,7 @@ La variable `$USER` contiene el nombre de usuario del usuario que está actualme
 echo $USER
 ```
 
-### Variable $HOME
+### **Variable $HOME**
 
 La variable `$HOME` define el directorio home del usuario actual. Es utilizada por el sistema para acceder rápidamente a los archivos y configuraciones del usuario sin necesidad de especificar la ruta completa. Cada usuario tiene su propio directorio home, como `/home/usuario`.
 
@@ -30,30 +30,42 @@ echo $HOME
 ```
 {% endtab %}
 {% tab ex_home salida %}
-```terminal
+```
 /home/marco
 ```
+{: .nolineno .noheader }
 {% endtab %}
 {% endtabs %}
 
-### Variable $PATH
+### **Variable $PATH**
 
 Esta variable `$PATH` especifica una lista de directorios en los que el sistema busca ejecutables cuando se escribe un comando.
 
 **Ejemplo**
 
+
+{% tabs ex_path %}
+{% tab ex_path comando %}
 ```terminal
 echo $PATH
 ```
+{% endtab %}
+{% tab ex_path salida %}
+```
+/home/.nvm/versions/node/v22.13.0/bin:/home/.rbenv/shims:/home/.rbenv/bin
+```
+{: .nolineno .noheader }
+{% endtab %}
+{% endtabs %}
+
 
 **Ejemplo de cómo añadir un directorio al $PATH**
-
 
 ```terminal
 export PATH=$PATH:/home/usuario/mis_scripts
 ```
 
-### Varaiable $RANDOM
+### **Varaiable $RANDOM**
 
 Esta variable `$RANDOM` genera un número aleatorio entre 0 y 32767 cada vez que se usa.
 
@@ -66,13 +78,14 @@ echo $RANDOM
 ```
 {% endtab %}
 {% tab ex_random salida %}
-```terminal
+```
 14408
 ```
+{: .nolineno .noheader }
 {% endtab %}
 {% endtabs %}
 
-### Variable PWD
+### **Variable PWD**
 
 Esta variable contiene la ruta del directorio actual. Es útil para saber en qué carpeta estás trabajando.
 
@@ -85,18 +98,18 @@ echo $PWD
 ```
 {% endtab %}
 {% tab pwd_ex salida %}
-```terminal
+```
 /home/user
 ```
+{: .nolineno .noheader }
 {% endtab %}
 {% endtabs %}
 
 ---
 
-## Otras Variables Importantes
+## **Otras Variables Importantes**
 
-
-### Variable $LINENO
+### **Variable $LINENO**
 
 Esta variable contiene el número de línea en la que se encuentra el script que se está ejecutando. Es útil para hacer depuración.
 
@@ -137,7 +150,7 @@ Estamos en la línea número 7
 {% endtab %}
 {% endtabs %}
 
-### Variable $0
+### **Variable $0**
 
 La variable `$0` contiene el nombre del script o comando que se está ejecutando. En un script, te permite saber cómo fue invocado el propio script.
 
@@ -145,7 +158,7 @@ La variable `$0` contiene el nombre del script o comando que se está ejecutando
 
 {% tabs ex_var0 %}
 {% tab ex_var0 script %}
-```terminal
+```bash
 #!/bin/bash
 echo "Este script se ejecutó como: $0"
 ```
