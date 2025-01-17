@@ -3,6 +3,9 @@ title: "PostgreSQL 🐘 : Instalación"
 author: enidev911
 categories: [Bases de Datos Relacionales, Postgres]
 tags: [Bases de Datos]
+image:
+    path: posters/postgres-instalacion.png
+    alt: "Instalar PostgreSQL"
 ---
 
 En este post veremos cómo instalar **PostgreSQL** en los diferentes sistemas operativos más comunes: **Linux (Ubuntu, Debian), Windows** y **macOS**. PostgreSQL es una de las bases de datos más robustas y populares, y es crucial tener una instalación correcta para empezar a trabajar con bases de datos relacionales.
