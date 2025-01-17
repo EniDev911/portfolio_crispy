@@ -1,5 +1,5 @@
 ---
-title: "PostgreSQL 🐘 : Instalación"
+title: "PostgreSQL 🐘 : Instalación de PostgreSQL"
 author: enidev911
 categories: [Bases de Datos Relacionales, Postgres]
 tags: [Bases de Datos]
@@ -52,7 +52,6 @@ Para comenzar a usar PostgreSQL, podemos iniciar sesión con esa cuenta predeter
 
 {% include embed/video.html src="postgres_install_ubuntu.mp4" %}
 
-
 #### **Cambiar a la cuenta de postgres**
 
 Primero podemos invocar un shell con con inicio de sesión usando simplemente `sudo -i -u` especificando el usuario en este caso tenemos al usuario **postgres** que se crea automáticamente concluida la instalación del paquete (como lo muestra el video anterior):
@@ -91,7 +90,7 @@ Podemos ver más opciones adicionales de esta herramienta **`createuser`**:
 man createuser
 ```
 
-### Crear nueva base de datos
+### **Crear nueva base de datos**
 
 Otra susposición que el sistema de autenticación de Postgres realiza por defecto es que para cualquier rol creado para que pueda iniciar sesión deberá existir una base de datos con el mismo nombre del rol.
 
@@ -99,35 +98,31 @@ Esto significa que, si el usuario que desea acceder a Postgres con un rol llamad
 
 Podemos crear la base de datos apropiada usando la herramienta **`createdb`**.
 
-```bash
+```terminal
 createdb boba-feet
 ```
-{: .nolineno }
 
 Para iniciar sesión con la **autenticación** basada en **ident**, necesitaremos un usuario de Linux con el mismo nombre del rol y su base de datos de Postgres.
 
 Podemos crear un usuario en Linux con el comando `adduser`,  Debe tener privilegios **sudo** para ejecutar el comando: 
 
-```bash
+```terminal
 sudo adduser boba-fett
 ```
-{: .nolineno }
 
 Ahora nos deberá solicitar crear un password para el nuevo usuario, una vez se establece podemos iniciar sesión usando el siguiente comando:
 
-```bash
+```terminal
 su boba-fett
 ```
-{: .nolineno }
 
 Nos pedirá la constraseña que establecimos anteriormente, iniciada la sesión ahora simplemente podemos invocar a **psql**:
 
-```bash
+```terminal
 psql
 ```
-{: .nolineno }
 
-### Cambiar el método de autenticación
+### **Cambiar el método de autenticación**
 
 PostgreSQL admite múltiples métodos de autenticación de clientes. En ubuntu, `peer` es el método de autenticación por defecto que se usa para conexiones locales (*local*), mientras que `scram-sha-256` (esto solía ser `md5` hasta Ubuntu 21.10) es el predeterminado para las conexiones **host** (conexiones realizadas mediante **TCP/IP**).
 
@@ -147,7 +142,6 @@ Ahora que podemos conectarnos a nuestro servidor PostgreSQL, el siguiente paso e
 sudo -u postgres psql template1
 ```
 {: .nolineno }
-
 
 El comando anterior se conecta a la base de datos `template1` con el usuario `postgres`. Una vez se conecta al servidor PostgreSQL, aparecerá un mensaje en el prompt que nos solicita cambiar el password. Podemos ejecutar el siguiente comando SQL para establecer la contraseña para el usuario `postgres`:
 
