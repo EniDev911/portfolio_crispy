@@ -154,8 +154,8 @@ sudo nano /etc/postgresql/15/main/pg_hba.conf
 ```
 Aquí, modificamos las líneas que especifican el método de autenticación. Por ejemplo, cambiar de `peer` en la sección de usuario administrativo con algunos de los valores que mencionamos:
 
-![ejemplo de pg_hba.conf](/assets/img/postgres/pg_hba-method-sample-light.png){: .light }
-![ejemplo de pg_hba.conf](/assets/img/postgres/pg_hba-method-sample-dark.png){: .dark }
+![ejemplo de pg_hba.conf](postgres/pg_hba-method-sample-light.png){: .light }
+![ejemplo de pg_hba.conf](postgres/pg_hba-method-sample-dark.png){: .dark }
 
 Luego guardamos los cambios, y reiniciamos el servicio:
 

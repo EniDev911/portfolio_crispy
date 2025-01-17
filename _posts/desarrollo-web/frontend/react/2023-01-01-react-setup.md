@@ -19,7 +19,7 @@ Antes de comenzar, debemos tener instaladas las siguierntes herramientas en nues
 
 Existen varias maneras de crear y configurar un proyecto de React, sin embargo la forma más tradicional y en su momento era la forma más sencilla es usando el paquete oficial `create-react-app`, que configura todo automáticamente.
 
-### **Usando create-react-app**
+### **Usando create-react-app** (No recomendado actualmente)
 
 1. Para ello abrimos una terminal y ejecutamos el siguiente comando:
 
@@ -43,14 +43,15 @@ cd nombre-proyecto
 npm start
 ```
 
-Esto iniciará el servidor de desarrollo y abrirá automáticamente la aplicación en el navegador en <http://localhost:3000>.
+Esto iniciará el servidor de desarrollo y abrirá automáticamente la aplicación en el navegador en <http://localhost:3000>. Ahora podrás ver los cambios en tiempo real al modificar archivos del proyecto.
 
-> Ahora podrás ver los cambios en tiempo real al modificar archivos del proyecto.
-{: .prompt-info }
+> El comando `create-react-app` fue un proyecto increíblemente útil en su momento, ya que configuraba automáticamente un entorno de desarrollo completo, pero **ha quedado en desuso** de facto para algunas versiones recientes de Node.js, y a menudo tiene problemas de compatibilidad con sus dependencias.
+{: .prompt-warning }
+
 
 ---
 
-### **Usando Vite**
+### **Usando Vite** (Recomendado)
 
 [**Vite**](https://vite.dev/){: target='_blank' } es una herramienta de desarrollo moderna y rápida que se utiliza para crear proyectos de front-end, y es ideal para trabajar con React debido a su rápida configuración y **hot-reloading** eficiente. Una vez teniendo los [**requsitos previos**](#-requisitos-previos) en nuestro equipo, iremos al directorio donde queramos ubicar nuestro proyecto y realizamos los siguientes pasos:
 

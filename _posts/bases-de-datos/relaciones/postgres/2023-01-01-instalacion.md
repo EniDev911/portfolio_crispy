@@ -5,97 +5,88 @@ categories: [Bases de Datos Relacionales, Postgres]
 tags: [Bases de Datos]
 ---
 
+En este post veremos cómo instalar **PostgreSQL** en los diferentes sistemas operativos más comunes: **Linux (Ubuntu, Debian), Windows** y **macOS**. PostgreSQL es una de las bases de datos más robustas y populares, y es crucial tener una instalación correcta para empezar a trabajar con bases de datos relacionales.
 
-## PostgreSQL en Windows
+## **PostgreSQL en Windows**
 
-### Usando el instalador
+### **🛠️ Usando el instalador**
+
+En Windows, la forma más fácil de instalar PostgreSQL es utilizando el **instalador oficial de EnterpriseDB**, que incluye PostgreSQL, pgAdmin (una interfaz gráfica para administrar bases de datos) y otras herramientas.
 
 1. Descarga el archivo ejecutable de instalación de la versión más reciente y compatible con tu sistema operativo desde la [página de descarga](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads){:target='_blank'}.
 2. Ejecuta el archivo ejecutable descargado y sigue el asistente de instalación.
 
-<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/b6bb4e64292b471f8972039297a2bd05" title="postgres-instalacion-windows.pdf" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
+<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/b6bb4e64292b471f8972039297a2bd05" title="postgres-instalacion-windows.pdf" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
 
-{: start="3" }
-3. Comprobamos que tanto Postgres y Pgadmin estén instalados correctamente.
+
+> Por último comprobamos que tanto **PostgreSQL** y **Pgadmin** estén instalados correctamente.
+{: .prompt-info }
 
 ---
 
-## PostgreSQL en Ubuntu
+## **PostgreSQL en Linux 🐧**
 
-### Instalar paquetes
+### **Instalación en Ubuntu**
 
-Instalar los paquetes de PostgreSQL desde los repositorios predeterminados de Ubuntu. Para ello es necesario actualizar el índice de paquete:  
+1. Actualizar el índice de paquete:  
 
-```bash
+```terminal
 sudo apt update
 ```
-{: .nolineno }
 
-Luego, podemos instalar el paquete de Postgres junto al paquete **postgresql-contrib**, que agrega algunas utilidades y funcionalidades adicionales:
+{: start="2" }
+2. Instalar el paquete de Postgres junto al paquete **postgresql-contrib**, que agrega algunas utilidades y funcionalidades adicionales:
 
-```bash
+```terminal
 sudo apt install postgresql postgresql-contrib
 ```
-{: .nolineno }
 
-Ahora que tenemos el software instalado, podemos analizar su funcionamiento. Por defecto, Postgres utiliza el concepto de **roles** para gestionar la autenticación y la autorización. Este aspecto es similar a las cuentas normales de estilo Unix, pero Postgres no distingue entre los usuarios y los grupos, y es por ello que prefiere usar el término más flexible como lo es **rol**.
+Ahora que tenemos el software instalado, podemos comprobar su funcionamiento. Por defecto, PostgreSQL utiliza el concepto de **roles** para gestionar la autenticación y la autorización. Esto significa que PostgreSQL no distingue entre los usuarios y los grupos, y es por ello que prefiere usar el término más flexible como lo es **rol**.
 
-Postgres se configura por defecto para usar la **autenticación ident**. Esto significa que asocia los roles de Postgres con una cuenta de sistema Unix o Linux correspondiente. 
+Postgres se configura por defecto para usar la **autenticación ident**. Esto significa que asocia los roles de Postgres con una cuenta de sistema Unix o Linux correspondiente. En el proceso de instalación PostgreSQL creó una cuenta de usuario llamada `postgres`, que se asocia con el rol predeterminado.
 
-En el proceso de instalación Postgres creó una cuenta de usuario llamada **postgres, que se asocia con el rol predeterminado de Postgres**. Para comenzar a usar Postgres, podemos iniciar sesión en esa cuenta. Existen varias maneras de usar esta cuenta para acceder a Postgres.
+Para comenzar a usar PostgreSQL, podemos iniciar sesión con esa cuenta predeterminada, veamos la siguiente demostración:
 
-### Cambiar a la cuenta de postgres
+{% include embed/video.html src="postgres_install_ubuntu.mp4" %}
 
-Primero podemos invocar un shell con con inicio de sesión usando simplemente `sudo -i -u` especificando el usuario en este caso tenemos al usuario **postgres** que se crea automáticamente concluida la instalación del paquete anterior:
 
-```bash
+#### **Cambiar a la cuenta de postgres**
+
+Primero podemos invocar un shell con con inicio de sesión usando simplemente `sudo -i -u` especificando el usuario en este caso tenemos al usuario **postgres** que se crea automáticamente concluida la instalación del paquete (como lo muestra el video anterior):
+
+```terminal
 sudo -i -u postgres
 ```
-{: .nolineno }
 
-Ahora, podemos acceder al servidor de Postgres invocando al cliente de línea de comandos **psql**: 
+Ahora, podemos acceder al servidor de Postgres invocando al cliente de línea de comandos **`psql`**: 
 
-```bash
+```terminal
 psql
 ```
-{: .nolineno }
 
-También se puede ejecutar el comando con la cuenta de **Postgres** de forma directa a través de **sudo**:  
+También se puede ejecutar el comando con la cuenta de **Postgres** de forma directa (como lo muestra el video anterior):  
 
-```bash
+```terminal
 sudo -u postgres psql
 ```
-{: .nolineno }
 
 Esto nos permitirá iniciar sesión de forma directa en Postgres sin el shell **bash** intermediario entre ellos.
 
-Para salir de la sesión interactiva de Postgres, ejecutamos el meta comando `\q`.
+Para salir de la sesión interactiva de Postgres, ejecutamos el meta comando `\q`. En la siguiente sección vamos a ver como crear nuevos **roles**.
 
+#### **Crear un rol**
 
-### Crear un rol
+En este momento, solo tenemos el rol de **`postgres`** configurado dentro de la base de datos. Podemos crear nuevos roles a partir desde la línea de comandos usando la herramienta de línea de comando incluido en la instalación de postgres como por ejemplo `createuser` y le indicamos la opción `--interactive` para que nos solicite el nombre del nuevo rol y también nos preguntará si debería tener **permisos de superusuario**.
 
-En este momento, solo tenemos el rol de **postgres** configurado dentro de la base de datos. Podemos crear nuevos roles a partir desde la línea de comandos usando la herramienta de línea de comando incluido en la instalación de postgres como por ejemplo `createuser` y le indicamos la opción `--interactive` para que nos solicite el nombre del nuevo rol y también nos preguntará si debería tener **permisos de superusuario**.
-
-```bash
-createuser --interactive
-```
-{: .nolineno }
-
-Si, como alternativa podemos usar **sudo** para cada comando sin dejar de usar nuestra cuenta normal:  
-
-```bash
+```terminal
 sudo -u postgres createuser --interactive
 ```
-{: .nolineno }
-
 
 Podemos ver más opciones adicionales de esta herramienta **`createuser`**:
 
-```bash
+```terminal
 man createuser
 ```
-{: .nolineno }
-
 
 ### Crear nueva base de datos
 
@@ -166,9 +157,13 @@ ALTER USER postgres with encrypted password 'my_password';
 
 ---
 
-## PostgreSQL en macOS
+## **PostgreSQL en macOS 🖥️**
 
-### Instalador interactivo EDB
+### **Instalador interactivo EDB**
+
+Este **instalador EDB** está diseñado para ser una forma sencilla y rápida de comenzar a utilizar PostgreSQL en macOS.
+
+Para comenzar con la descarga tenemos que ir la [página de descarga del instalador](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads){: target='_blank' }
 
 Este instalador incluye los siguientes programas:
 
@@ -177,10 +172,3 @@ Este instalador incluye los siguientes programas:
 - `StackBuilder`: herramienta gráfica para administrar paquetes que se puede utilizar para descargar e instalar herramientas adicionales.
 
 Este instalador puede ejecutarse en modo gráfico, por la línea de comandos o de instalación silenciosa.
-
-### Consideraciones
-
-Este **instalador EDB** está diseñado para ser una forma sencilla y rápida de comenzar a utilizar PostgreSQL en macOS.
-
-Para comenzar con la descarga tenemos que ir la [página de descarga del instalador](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads){: target='_blank' }
-
