@@ -2,8 +2,8 @@
 title: Usando entrada estándar
 author: enidev911
 date: 2024-01-02 20:55:00 +0800
-categories: [Python, Básico]
-tags: [básico]
+categories: [Python, "01. Básico"]
+tags: [python]
 pin: true
 img_path: 'python'
 image:

@@ -5,7 +5,7 @@ categories: [Python, Manejo de Archivos en Python]
 tags: [trabajar con archivos]
 ---
 
-En este capítulo, vamos a comenzar a trabajar con la *Memoria Secundaria* (o archivos).
+En este post, vamos a comenzar a trabajar con la *Memoria Secundaria* (o archivos).
 
 Nos vamos enfocar principalmente en leer y escribir archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
 

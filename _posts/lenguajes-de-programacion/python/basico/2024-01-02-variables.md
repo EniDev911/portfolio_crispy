@@ -1,7 +1,7 @@
 ---
 title: Variables en Python
 author: enidev911
-categories: [Python, Básico]
+categories: [Python, "01. Básico"]
 tags: [variables en python]
 mermaid: tru
 ---
@@ -9,7 +9,7 @@ mermaid: tru
 
 En el mundo de la programación, las variables son conceptos fundamentales que actúan como contenedores para almacenar datos. En Python, las variables son sencillas de usar y entender, lo que hace que sea un lenguaje amigable para quienes están comenzando a programar. En este artículo, exploraremos qué son las variables en Python, cómo se usan, y algunas de las características más interesantes que ofrece el lenguaje.
 
-## ¿Qué es una Variable?
+## **¿Qué es una Variable?**
 
 En términos simples, una variable es un nombre que se asocia a un valor en la memoria de tu computadora. Este valor puede ser cualquier cosa: un número, una cadena de texto, una lista, y mucho más. Piensa en las variables como etiquetas que le das a los datos para que puedas referenciarlos y manipularlos fácilmente en tu código.
 
@@ -31,7 +31,7 @@ graph TD
     D --> |"Área = π * radio^2"| E
 ```
 
-## Declaración y Asignación de Variables
+## **Declaración y Asignación de Variables**
 
 En Python, puedes declarar una variable simplemente asignándole un valor. No necesitas especificar el tipo de dato de la variable, ya que Python lo infiere automáticamente. Esto hace que la sintaxis sea muy sencilla.
 
@@ -47,7 +47,7 @@ En el ejemplo anterior:
 - `nombre` almacena una cadena de texto.
 - `altura` almacena un número de punto flotante.
 
-### Reglas para Nombrar Variables
+### **Reglas para Nombrar Variables**
 
 En Python, existen algunas reglas y convenciones para nombrar variables:
 
@@ -59,6 +59,7 @@ variable1 = "valor"
 ```
 {: .nolineno }
 
+{: start="2" }
 2. **Usa solo caracteres alfanuméricos y guiones bajos**: Después del primer carácter, puedes usar letras, números y guiones bajos.
 
 ```python
@@ -67,9 +68,10 @@ variable_2 = "valor"
 ```
 {: .nolineno }
 
-
+{: start="3" }
 3. **No uses palabras reservadas**: Evita usar palabras que son reservadas por Python (como `if`, `for`, `while`, etc.) como nombres de variables.
 
+{: start="4" }
 4. **Usa nombres descriptivos**: Es una buena práctica usar nombres de variables que sean descriptivos para hacer que tu código sea más legible.
 
 ```python
@@ -77,23 +79,26 @@ usuario = 'john_doe'
 autenticado = False
 creditos = 99.0
 ```
+{: .nolineno }
 
-### Tipos de Datos y Conversiones
+### **Tipos de Datos y Conversiones**
 
 Python maneja varios tipos de datos básicos que puedes almacenar en variables. Algunos de los tipos de datos más comunes incluyen:
 
-- **Números Enteros (`int`)**: `5`, `42`, `1000`
-- **Números de Punto Flotante (`float`)**: `3.14`, `0.99`, `1.0`
-- **Cadenas de Texto (`str`)**: `"Hola"`, `"Python"`, `"123"`
-- **Booleanos (`bool`)**: `True`, `False` (En contextos booleanos, Python también trata `1` como `True` y `0` como `False`)
+- **`int` (Números Enteros)**: `5`, `42`, `1000`
+- **`float` (Números de Punto Flotante)**: `3.14`, `0.99`, `1.0`
+- **`str` (Cadenas de Texto)**: `"Hola"`, `"Python"`, `"123"`
+- **`bool` (Booleanos)**: `True`, `False` (En contextos booleanos, Python también trata `1` como `True` y `0` como `False`)
 
 Puedes convertir entre estos tipos de datos usando funciones integradas como `int()`, `float()`, y `str()`.
 ```python
 numero = 5
 texto = str(numero)  # Convierte el número 5 a la cadena "5"
 ```
+{: .nolineno }
 
-### Actualización y Eliminación de Variables
+
+### **Actualización y Eliminación de Variables**
 
 Una vez que una variable ha sido creada, puedes actualizar su valor simplemente asignándole un nuevo valor.
 ```python
@@ -131,12 +136,7 @@ NameError: name 'variable_local' is not defined
 ```
 {: .nolineno .noheader }
 
-### **Conclusión**
 
 Las variables son la base de la programación en Python. Son simples pero poderosas, permitiéndote almacenar y manipular datos de manera eficiente. Entender cómo funcionan las variables y cómo usarlas correctamente es esencial para escribir código limpio y funcional.
 
 ¡Ahora que conoces lo básico sobre las variables en Python, estás listo para comenzar a experimentar y a desarrollar tus propios programas! Sigue explorando y practicando, y verás cómo estas pequeñas herramientas se convierten en grandes aliados en tu camino.
-
----
-
-Espero que este artículo te ayude a comprender mejor el concepto de variables en Python y te inspire a seguir aprendiendo. ¡Feliz codificación!

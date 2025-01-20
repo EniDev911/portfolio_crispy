@@ -2,7 +2,7 @@
 title: "Bucles"
 author: enidev911
 date: 2024-01-07
-categories: [Python, Básico]
+categories: [Python, "01. Básico"]
 mermaid: true
 ---
 
