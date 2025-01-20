@@ -1,17 +1,37 @@
 ---
-title: Variables en Python
+title: Variables y Tipos de Datos en Python
 author: enidev911
 categories: [Python, "01. Básico"]
 tags: [variables en python]
-mermaid: tru
+mermaid: true
 ---
 
 
-En el mundo de la programación, las variables son conceptos fundamentales que actúan como contenedores para almacenar datos. En Python, las variables son sencillas de usar y entender, lo que hace que sea un lenguaje amigable para quienes están comenzando a programar. En este artículo, exploraremos qué son las variables en Python, cómo se usan, y algunas de las características más interesantes que ofrece el lenguaje.
+En el mundo de la programación, las variables son conceptos fundamentales que actúan como contenedores para almacenar datos. En Python, las variables son sencillas de usar y entender, lo que hace que sea un lenguaje amigable para quienes están comenzando a programar. En este artículo, exploraremos qué son las variables en Python, cómo se usan, y algunas de las características más interesantes sobre las variables.
 
 ## **¿Qué es una Variable?**
 
-En términos simples, una variable es un nombre que se asocia a un valor en la memoria de tu computadora. Este valor puede ser cualquier cosa: un número, una cadena de texto, una lista, y mucho más. Piensa en las variables como etiquetas que le das a los datos para que puedas referenciarlos y manipularlos fácilmente en tu código.
+En términos simples, una variable es un nombre que se asocia a un valor en la memoria de tu computadora. Este valor puede ser cualquier cosa: un **número**, una **cadena de texto**, una **lista**, y cualquier tipo de dato que sea válido en Python. Piensa en las variables como etiquetas que le das a los datos para que puedas referenciarlos y manipularlos fácilmente en tu código.
+
+![Variables Python](python/variables-python-light.png){: .light }
+![Variables Python](python/variables-python-dark.png){: .dark }
+
+## **Tipos de Datos**
+
+Python maneja varios tipos de datos básicos que puedes almacenar en variables. Algunos de los tipos de datos más comunes incluyen:
+
+- **`int` (Números Enteros)**: `5`, `42`, `1000`
+- **`float` (Números de Punto Flotante)**: `3.14`, `0.99`, `1.0`
+- **`str` (Cadenas de Texto)**: `"Hola"`, `"Python"`, `"123"`
+- **`bool` (Booleanos)**: `True`, `False` (En contextos booleanos, Python también trata `1` como `True` y `0` como `False`)
+
+Puedes convertir entre estos tipos de datos usando funciones integradas como `int()`, `float()`, y `str()`.
+```python
+numero = 5
+texto = str(numero)  # Convierte el número 5 a la cadena "5"
+```
+{: .nolineno }
+
 
 El siguiente diagrama de flujo ilustra cómo se define una variable, se realiza un cálculo usando esa variable, y luego se muestra el resultado.
 
@@ -81,21 +101,6 @@ creditos = 99.0
 ```
 {: .nolineno }
 
-### **Tipos de Datos y Conversiones**
-
-Python maneja varios tipos de datos básicos que puedes almacenar en variables. Algunos de los tipos de datos más comunes incluyen:
-
-- **`int` (Números Enteros)**: `5`, `42`, `1000`
-- **`float` (Números de Punto Flotante)**: `3.14`, `0.99`, `1.0`
-- **`str` (Cadenas de Texto)**: `"Hola"`, `"Python"`, `"123"`
-- **`bool` (Booleanos)**: `True`, `False` (En contextos booleanos, Python también trata `1` como `True` y `0` como `False`)
-
-Puedes convertir entre estos tipos de datos usando funciones integradas como `int()`, `float()`, y `str()`.
-```python
-numero = 5
-texto = str(numero)  # Convierte el número 5 a la cadena "5"
-```
-{: .nolineno }
 
 
 ### **Actualización y Eliminación de Variables**
@@ -127,6 +132,7 @@ mi_funcion()
 print(variable_global)  # Funciona
 print(variable_local)   # Esto causará un error, ya que variable_local no está definida fuera de la función
 ```
+{: .nolineno }
 
 ```py
 Traceback (most recent call last):
