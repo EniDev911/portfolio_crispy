@@ -1,19 +1,29 @@
 ---
-title: "Condicionales en Python"
+title: "Python 🐍 : Estructuras de control (IF, ELSE, ELIF)"
 author: enidev911
-categories: [Python, Básico]
+categories: [Python, "01. Básico"]
 mermaid: true
 ---
 
-Los condicionales son fundamentales y la piedra angular en la programación, permitiendo que tu código tome decisiones basadas en ciertas condiciones. En Python, los condicionales te permiten controlar el flujo de ejecución de tu programa al decidir qué bloques de código se deben ejecutar bajo determinadas circunstancias. En este post, exploraremos en detalle cómo funcionan los condicionales en Python, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
+En cualquier lenguaje de programación, las **estructuras de control** son fundamentales. Son las que permiten que un programa tome decisiones, ejecutando diferentes bloques de código según ciertas condiciones. En Python, las **estructuras de control** más comunes son **`if`**, **`else`** y **`elif`**. En este post, exploraremos en detalle cómo funcionan estas estructuras de control en Python, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
 
-## ¿Qué son los Condicionales?
+## **¿Qué es una estructura de control?**
 
-Los condicionales son estructuras que permiten que un programa ejecute ciertas partes del código solo si se cumple una condición específica. Estas condiciones se evalúan como `True` (verdadero) o `False` (falso). En Python, se utilizan principalmente las declaraciones `if`, `elif` y `else` para gestionar el flujo del programa basado en estas condiciones.
+Como les decía las estructuras de control son instrucciones que le dicen al programa qué hacer en función de una condición. Dependiendo si la condición es **`True`** (verdadera) o **`False`** (falso), el flujo de ejecución del programa cambia.
 
-A continuación tenemos un diagrama de flujo que ilustra cómo funcionan los condicionales en Python. Este diagrama muestra un flujo de decisión básico usando una estructura `if`, `elif`, y `else`.
+En Python, se utilizan principalmente las declaraciones `if`, `elif` y `else` para gestionar el flujo del programa basado en estas condiciones. Para ello debemos saber que hace cada una de estas instrucciones:
+
+- **`if`**: Evalúa una condición y ejecuta el bloque de código asociado si la condición es **verdadera**.
+- **`else`**: Se ejecuta si la condición del `if` es **false**
+- **`elif`**: Se usa para verificar múltiples condiciones, y se ejecuta cuando una de ellas es **verdadera**.
+
+
+A continuación tenemos un diagrama de flujo que ilustra cómo funcionan las estructuras de control. Este diagrama muestra un flujo de decisión básico usando una estructura `if`, `elif`, y `else`.
 
 ```mermaid
+---
+title: Estructuras de Control en Python
+---
 graph TD
     A([Inicio]) --> B[Evaluar Condición]
     B -->|Condición Verdadera| C[Ejecutar Bloque If]
@@ -25,21 +35,21 @@ graph TD
     F --> G
 ```
 
-### Sintaxis Básica de los Condicionales
+## **Sintaxis Básica de estructuras de control**
 
 La sintaxis básica de una declaración condicional en Python es la siguiente:
 
 ```python
-if condición:
+if expresion_condicional:
     # Bloque de código a ejecutar si la condición es verdadera
-elif otra_condición:
+elif otra_expresion_condicional:
     # Bloque de código a ejecutar si la otra condición es verdadera
 else:
-    # Bloque de código a ejecutar si ninguna de las condiciones anteriores es verdadera
+    # Bloque de código a ejecutar si ninguna condición es verdadera
 ```
 {: .nolineno }
 
-### Ejemplo Simple
+**Ejemplo básico**
 
 Vamos a comenzar con un ejemplo básico para ilustrar el uso de condicionales en Python:
 
@@ -53,14 +63,13 @@ else:
 ```
 {: .nolineno }
 
-
-#### Explicación del Código:
+**Explicación del Código:**
 
 1. **Declaración `if`:** `if edad >= 18:` verifica si el valor de `edad` es mayor o igual a 18.
 2. **Bloque de Código:** El bloque de código indentado que sigue a la declaración `if` se ejecuta si la condición es verdadera.
 3. **Declaración `else`:** Si la condición `if` es falsa, se ejecuta el bloque de código indentado bajo `else`.
 
-### Uso de elif para Múltiples Condiciones
+### **Uso de elif para Múltiples Condiciones**
 
 Puedes usar `elif` para verificar múltiples condiciones. Aquí tienes un ejemplo:
 
@@ -76,14 +85,14 @@ else:
 ```
 {: .nolineno }
 
-#### Explicación del Código:
+**Explicación del Código:**
 
 
 1. **Primera Condición (`if`):** Verifica si `nota` es mayor o igual a 90.
 2. **Segunda Condición (`elif`):** Si la primera condición no se cumple, verifica si `nota` es mayor o igual a 70.
 3. **Condición Final (`else`):** Si ninguna de las condiciones anteriores es verdadera, se ejecuta el bloque bajo `else`.
 
-### Condiciones Complejas
+### **Condiciones Complejas**
 
 Puedes combinar múltiples condiciones usando operadores lógicos como `and`, `or` y `not`:
 
@@ -98,17 +107,17 @@ else:
 ```
 {: .nolineno }
 
-#### Explicación del Código:
+**Explicación del Código:**
 
 - La condición `edad >= 18 and tiene_licencia` se evalúa como verdadera solo si ambas sub-condiciones son verdaderas.
 
-### Operadores Lógicos:
+### **Operadores Lógicos**
 
 - **`and`:** Ambas condiciones deben ser verdaderas.
 - **`or`:** Al menos una de las condiciones debe ser verdadera.
 - **`not`:** Invierte el valor de verdad de la condición.
 
-### Condicionales Anidados
+### **Condicionales Anidados**
 
 Los condicionales también pueden ser anidados, es decir, tener una estructura `if` dentro de otra:
 
@@ -128,7 +137,7 @@ else:
 
 Aquí, si la primera condición `edad >= 18` es falsa, se evalúa una segunda condición dentro del bloque `else`.
 
-### Expresiones Condicionales (Ternarias)
+### **Expresiones Condicionales (Ternarias)**
 
 Python permite usar expresiones condicionales en una sola línea para casos simples:
 
@@ -137,9 +146,10 @@ edad = 20
 mensaje = "Eres un adulto." if edad >= 18 else "Eres menor de edad."
 print(mensaje)
 ```
+{: .nolineno }
 
 En esta expresión condicional, el valor de `mensaje` depende de la condición `edad >= 18`.
 
-### En Resumen
+## **Conclusión**
 
 Los condicionales son herramientas poderosas en Python que permiten que tu programa tome decisiones basadas en condiciones específicas. Comprender cómo usar `if`, `elif`, y `else` te permitirá controlar el flujo de tu programa y gestionar diferentes escenarios de manera efectiva. Además, los operadores lógicos, condicionales anidados y expresiones condicionales te ofrecen flexibilidad para abordar problemas más complejos.

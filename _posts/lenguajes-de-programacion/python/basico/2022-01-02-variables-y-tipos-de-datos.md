@@ -1,8 +1,8 @@
 ---
-title: Variables y Tipos de Datos en Python
+title: "Python 🐍 : Variables y Tipos de Datos"
 author: enidev911
 categories: [Python, "01. Básico"]
-tags: [variables en python]
+tags: [python]
 mermaid: true
 math: true
 image:

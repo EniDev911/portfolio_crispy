@@ -1,7 +1,7 @@
 ---
 title: Entornos virtuales de Python
 author: enidev911
-categories: [Python, Avanzado]
+categories: [Python, "03. Avanzado"]
 tags: [entornos virtuales en python]
 mermaid: true
 image: 
