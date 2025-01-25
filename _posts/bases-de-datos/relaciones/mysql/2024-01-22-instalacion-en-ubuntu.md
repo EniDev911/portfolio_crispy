@@ -4,63 +4,60 @@ author: enidev911
 categories: [Bases de Datos Relacionales, MySQL]
 tags: [Bases de Datos]
 image:
-  path: posters/mysql-en-ubuntu.png
+  path: posters/mysql-en-ubuntu.webp
+  lqip: data:image/webp;base64,UklGRqQAAABXRUJQVlA4WAoAAAAQAAAAEwAACQAAQUxQSCcAAAABL2AgbRv/lrf9sRERgQDDEBQ1KWQQyyKcv0zfA4jo/wR0rZeBywgAVlA4IFYAAACwAwCdASoUAAoAPzmEuVOvKKWisAgB4CcJZAAAWp+zrp5N706UoAD+0yzGH55omUGTA1lboMfXjsGi2Ix/W5CFQKGoOFGcb4v9/EHv/E2nEamNObwAAA==
+pin: true
 ---
 
 
-
-### Requisitos Previos
+## **Requisitos Previos**
 
 Antes de comenzar, asegurate de tener lo siguiente:
 
 - Una instalación de **Ubuntu** (esta guía es aplicable a versiones recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
 - Acceso a una cuenta con privilegios **sudo**.
 
-### Comenzar Instalación
+## **Comenzar Instalación**
 
-#### 1. Actualizar el Sistema
+### **1. Actualizar el Sistema**
 
 Siempre es importante que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que tienes los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
 
 - Abre una nueva terminal y actualizar el índice de paquetes apt con el siguiente comando:
-
-```terminal
-sudo apt update
-```
+  ```terminal
+  sudo apt update
+  ```
 
 - Luego, actualizamos todos los paquetes instalados con el siguiente comando:
+  ```terminal
+  sudo apt upgrade -y
+  ```
 
-```terminal
-sudo apt upgrade -y
-```
-
-#### 2. Instalar MySQL
+### **2. Instalar MySQL**
 
 Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados.
 
-Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
-
-```terminal
-sudo apt install mysql-server
-```
+- Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
+  ```terminal
+  sudo apt install mysql-server
+  ```
 
 ![Paso 1](mysql/mysql-ubuntu-paso1.png)
+_Instalar mysql en ubuntu_
 
-Concluida la instalación, el demonio de MySQL se iniciará automáticamente. Para verificar si esta ejecutandose el servidor usamos el siguiente comando:
+- Concluida la instalación, el demonio de MySQL se iniciará automáticamente. Para verificar si esta ejecutandose el servidor usamos el siguiente comando:
 
-```terminal
-sudo systemctl status mysql
-```
+  ```terminal
+  sudo systemctl status mysql
+  ```
 
-![](../assets/png/ub/status\_mysql.png)
+- Con el siguiente comando podemos ver en que puerto está corriendo MySQL:
 
-Con el siguiente comando podemos ver en que puerto está corriendo MySQL:
+  ```terminal
+  cat /etc/services | grep mysql
+  ```
 
-```terminal
-cat /etc/services | grep mysql
-```
-
-#### 3. Instalación Segura
+### **3. Instalación Segura**
 
 En Debian y derivados, el paquete mysql-server incluye el script Perl **mysql\_secure\_installation**, el cual permite mejorar la seguridad de la instalación por defecto. Es recomendable correr este script en todas las instalaciones de servidores MySQL para sistemas en producción. En resumen nos permite:
 
@@ -96,7 +93,7 @@ Luego nos pregunta si queremos recargar la tabla de privilegios. Pondremos si (Y
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-5.png)
 
 
-#### 4. Ajustes de Autenticación y Privilegios de Usuarios
+### **4. Ajustes de Autenticación y Privilegios de Usuarios**
 
 En los sistemas Ubuntu con MySQL 5.7 (y versiones posteriores), el usuario **root** de MySQL se configura para la autenticación usando el complemento **auth\_socket** de manera predeterminada en lugar de una contraseña. Esto en muchos casos proporciona mayor seguridad y utilidad, pero también puede generar complicaciones cuando deba permitir que un programa externo (como phpMyAdmin) acceda al usuario.
 
@@ -124,42 +121,57 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password
 
 O realizar el cambio en dos pasos:
 
-1. Cambiamos solo el complemento.
-
-```sql
+- **Primero** cambiamos solo el complemento:
+  ```sql
   ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password;
-```
-{: .nolineno }
+  ```
+  {: .nolineno }
 
-{: start="2" }
-1. Cambiamos el password. (La función **`user()`** devuelve al usuario en sessión)
-
-```sql
+- **Segundo** cambiamos el password (La función **`user()`** devuelve al usuario en sessión):
+  ```sql
   ALTER USER user() IDENTIFIED BY 'Strong_Password;
-```
-{: .nolineno }
+  ```
+  {: .nolineno }
 
+- Y por último recargamos la tabla de permisos:
+  ```sql
+  FLUSH PRIVILEGES;
+  ```
+  {: .nolineno }
 
-Y por último recargamos la tabla de permisos:
-
-```sql
-FLUSH PRIVILEGES;
-```
-{: .nolineno }
+### **5. Ajustes de Autenticación y Privilegios de Usuarios**
 
 Otra opción recomendada es crear un nuevo usuario administrativo con todos los privilegios y acceso a todas las bases de datos:
 
 ```sql
-GRANT ALL PRIVILEGES ON *.* TO 'admin_user'@'localhost' IDENTIFIED BY 'very_strong_password';
+GRANT ALL PRIVILEGES ON *.* TO 'admin_user'@'localhost'
+IDENTIFIED BY 'very_strong_password';
 ```
 {: .nolineno }
 
-Para desinstalar MySQL con:
 
+## **Desinstalar MySQL**
 
-### Desinstalar MySQL
+Para desinstalar MySQL en Ubuntu, puedes seguir estos pasos:
 
-```bash
-sudo apt-get remove --purge mysql-server mysql-client mysql-common
-```
-{: .nolineno }
+### **1. Detén el servicio de MySQL**
+
+- Primero, debemos detener el servicio de MySQL si está en ejecución:
+  ```terminal
+  sudo systemctl stop mysql
+  ```
+
+### **2. Desinstalar los paquetes de MySQL**
+
+- Ahora, eliminamos los paquetes de MySQL con el siguiente comando para hacerlo:
+  ```terminal
+  sudo apt-get remove --purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+  ```
+
+### **3. Eliminar dependencias y archivos residuales**
+
+- Luego, eliminamos los paquetes no necesarios que podrían quedar después de la desinstalación:
+  ```terminal
+  sudo apt-get autoremove
+  sudo apt-get autoclean
+  ```
