@@ -2,6 +2,9 @@
 title: "Python 🐍 : Estructuras de control (IF, ELSE, ELIF)"
 author: enidev911
 categories: [Python, "01. Básico"]
+image:
+    path: "posters/python-estructuras-de-control.webp"
+    lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAAoAPzmGuVOvKSWisAgB4CcJZACdGuAASSZYBA8/WAAA+efo2Lj0+h6Eu1vzDvatqCvqbP6Vxfy+2qxTsfQ/IQaSSivOCg0Z+GlZmHP7qgL9uZ+0u0KARMbullj5aoUAAA==
 mermaid: true
 ---
 
