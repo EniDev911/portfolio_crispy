@@ -1,5 +1,5 @@
 ---
-title: "Bucles"
+title: "Python 🐍 : Bucles (FOR y WHILE)"
 author: enidev911
 date: 2024-01-07
 categories: [Python, "01. Básico"]
@@ -32,7 +32,7 @@ flowchart TB
     end
 ```
 
-## Bucle While
+## **Bucle WHILE**
 
 Una forma de iteración en Python es la sentencia `while` que permite repitir la ejecución de un bloque de código siempre y cuando la expresión condicional del bucle sea verdadera.
 
@@ -49,37 +49,43 @@ print("¡Booom!")
 {: .nolineno }
 {% endtab %}
 {% tab ej_while_python explicación %}
-Lo que ocurre a la hora de hacer funcionar este código es lo siguiente:
-
-- Antes de entrar en el **bucle** `while`, se inicializa la variable `i` en `0`.
-- Antes de realizar la primera **iteración** del bucle, **comprobamos la condición**.
-- Si la **condición es verdadera**, hacemos lo que está dentro del bucle.
-- Mostramos por pantalla el valor de `i` y luego
-**incrementamos el valor** actual de `i` en `1`.
-- Volvemos al **inicio del bucle** para hacer **una nueva iteración**. Comprobamos de nuevo la condición del bucle.
-- Cuando **la condición sea falsa**, salimos del bucle y continuamos el programa.
-{% endtab %}
-{% endtabs %}
-
-
-> La operación `x -= 1` es lo que suele llamar un decremento de una variable. Es equivalente a `x = x - 1` y por ende es muy común simplificarlo, aunque hace exactamente lo mismo.
-{: .prompt-info }
-
-```
+{% capture resultado_while %}
+&gt;&gt;&gt; i = 5
+... <span class="hl">while i > 0:</span>
+...   print(i)
+...   i -= 1
+... <span class="hl">print("¡Booom!")</span>
+... 
 5
 4
 3
 2
 1
 ¡Booom!
-```
-{: .nolineno .noheader }
+{% endcapture %}
+{% include terminal-wrapper.html content=resultado_while %}
+{% endtab %}
+{% endtabs %}
+
+
+
+> La operación `i -= 1` es lo que suele llamar un **decremento de una variable^^. Es equivalente a `i = i - 1` y por ende es muy común simplificarlo, aunque hace exactamente lo mismo.
+{: .prompt-info }
+
+Lo que ocurre a la hora de hacer funcionar este código es lo siguiente:
+
+- Antes de entrar en el **bucle** `while`, se inicializa la variable `i` en `5`.
+- Antes de realizar la primera **iteración** del bucle, **comprobamos la condición**.
+- Si la **condición es verdadera**, hacemos lo que está dentro del bucle.
+- Mostramos por pantalla el valor de `i` y luego
+**decrementamos el valor** actual de `i` en `1`.
+- Volvemos al **inicio del bucle** para hacer **una nueva iteración**. Comprobamos de nuevo la condición del bucle.
+- Cuando **la condición sea falsa**, salimos del bucle y se muestra por pantalla **¡Boom!**.
 
 Un **bucle** `while` es muy simple, pero requiere que declaremos una variable previamente para evaluar y evitar que el programa se quede colgado en un **bucle infinito** por olvidarnos de este factor y además dentro debemos recordar **incrementar** o **decrementar** el valor de la variable.
 
----
 
-## Bucle For
+## **Bucle FOR**
 
 El bucle `for` es quizás una de las estructuras de control más utilizada en el mundo de la programación. El bucle `for` a diferencia del `while` es una iteración que recorre los elementos de una secuencia ordenadas como en el caso de una *lista*, *tupla*, *string*, aunque también puede ser cualquier otro objeto que sea *iterable*.
 
@@ -127,6 +133,7 @@ En los ejemplos anteriores, la variable de control no se le a dado un uso releva
 for i in [3, 4, 5]:
 	print(f"Hola. Ahora i vale {i} y su cuadrado es {i ** 2}")
 ```
+{: .nolineno }
 
 ```
 Hola. Ahora i vale 3 y su cuadrado es 9

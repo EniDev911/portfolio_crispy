@@ -1,14 +1,13 @@
 ---
-title: Funciones en Python
+title: "Python 🐍 : Funciones"
 author: enidev911
-date: 2019-08-09 20:55:00 +0800
-categories: [Python, Funciones]
-tags: [funciones en python]
+categories: [Python, "01. Básico"]
+tags: [python, funciones]
 image: https://enidev911.github.io/fullstack-python/assets/img/python-funciones-card.png
 pin: true
 ---
 
-## Funciones en Python
+## **Funciones en Python**
 
 Anteriormente hemos visto funciones nativas que vienen con Python como `len()` para calcular la longitud de una lista, pero al igual que en otros lenguajes de programación, también podemos definir **nuestras propias funciones**. Para ello tenemos que usar la palabra reservada `def`.
 
@@ -27,16 +26,16 @@ Cualquier función tendrá un **nombre**, opcionalmente podrá recibir **paráme
 ```py
 def elevar_al_cuadrado(numero):
 	return numero ** 2
-```x
+```
 
 ---
 
-## Parámetros y argumentos
+## **Parámetros y argumentos**
 
 En la definición de una función los valores que se reciben se denominan **parámetros**, pero durante la llamada a cuyas funciones, los valores que se envían se denominan **argumentos**.
 
 
-### Argumentos por posición
+### **Argumentos por posición**
 
 Cuando enviamos argumentos a una función, estos se reciben en orden según los parámetros definidos. En esos casos podemos decir que se trata de argumentos por posición:
 
@@ -52,7 +51,7 @@ print(resta(50, 10))
 40
 ```
 
-### Argumentos por nombre
+### **Argumentos por nombre**
 
 Sin embargo es posible evadir el orden de los parámetros, si indicamos en la llamada a la función que valor tiene cada parámetro a partir de su nombre:
 
@@ -69,7 +68,7 @@ print(resta(b=50, a=10))
 {: .nolineno .noheader }
 
 
-### Llamada sin argumentos
+### **Llamada sin argumentos**
 
 Al llamar a una función que tiene definidos parámetros, si no le enviamos los argumentos correctamente lanzará un error:
 
@@ -87,7 +86,7 @@ TypeError: resta() missing 2 required positional arguments: 'a' and 'b'
 {: .nolineno .noheader }
 
 
-### Parámetros por defecto
+### **Parámetros por defecto**
 
 Para evitar un error como en el caso anterior, podemos asignar valores por defecto, de esa forma podríamos hacer una comprobación antes de ejecutar el código de la función:
 
@@ -99,6 +98,7 @@ def resta(a=None, b=None):
 
 print(resta())
 ```
+{: .nolineno }
 
 ```py
 Error, debes enviar dos números a la función para operar
