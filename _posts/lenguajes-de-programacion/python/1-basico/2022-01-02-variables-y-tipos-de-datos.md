@@ -3,7 +3,7 @@ title: "Python 🐍 : Variables y Tipos de Datos"
 description: "Las **variables** en Python almacenan datos, y los **tipos** definen el formato de esos datos, como números, texto o colecciones."
 author: enidev911
 categories: [Python, "01. Básico"]
-tags: [python]
+tags: [python, "básico"]
 mermaid: true
 math: true
 image:

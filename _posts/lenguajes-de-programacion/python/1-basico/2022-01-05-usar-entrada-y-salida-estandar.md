@@ -24,6 +24,7 @@ La función `input()` se utiliza para leer los datos ingresados por el usuario d
 ```py
 input([prompt]) # Para Python en su versión 3.x
 ```
+{: .nolineno }
 
 > **prompt**: es un parámetro opcional y recibe como argumento una cadena de texto para mostrar al usuario.
 {: .prompt-tip }
