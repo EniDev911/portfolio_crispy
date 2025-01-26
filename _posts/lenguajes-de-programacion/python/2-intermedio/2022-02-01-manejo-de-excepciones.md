@@ -1,9 +1,13 @@
 ---
 title: "Python 🐍 : Manejo de Errores y Excepciones"
 author: enidev911
+description: "Controla los errores en tu código usando `try`, `except`, `else` y `finally` para hacer tu programa más robusto."
 categories: [Python, "02. Intermedio"]
 tags: [python, intermedio]
 mermaid: true
+image:
+    path: "posters/python-manejo-de-excepciones.webp"
+    lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAAoAPzmGuVOvKSWisAgB4CcJZACdGuAASSZYBA8/WAAA+efo2Lj0+h6Eu1vzDvatqCvqbP6Vxfy+2qxTsfQ/IQaSSivOCg0Z+GlZmHP7qgL9uZ+0u0KARMbullj5aoUAAA==
 ---
 
 El manejo de errores y excepciones es una parte fundamental en el desarrollo de cualquier software, y Python proporciona una manera eficiente y flexible de gestionar situaciones imprevistas que pueden surgir durante la ejecución de un programa. En este artículo, exploraremos cómo funcionan las excepciones en Python y cómo podemos usarlas para hacer que el código sea más robusto y fácil de depurar.
