@@ -1,13 +1,14 @@
 ---
 title: "Python 🐍 : Variables y Tipos de Datos"
+description: "Las **variables** en Python almacenan datos, y los **tipos** definen el formato de esos datos, como números, texto o colecciones."
 author: enidev911
 categories: [Python, "01. Básico"]
 tags: [python]
 mermaid: true
 math: true
 image:
-    path: "posters/python-variables.png"
-    alt: "Variables en Python"
+    path: "posters/python-variables.webp"
+    lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAAoAPzmGuVOvKSWisAgB4CcJZACdGuAASSZYBA8/WAAA+efo2Lj0+h6Eu1vzDvatqCvqbP6Vxfy+2qxTsfQ/IQaSSivOCg0Z+GlZmHP7qgL9uZ+0u0KARMbullj5aoUAAA==
 ---
 
 En el mundo de la programación, las variables son conceptos fundamentales que actúan como contenedores para almacenar datos. En Python, las variables son sencillas de usar y entender, lo que hace que sea un lenguaje amigable para quienes están comenzando a programar. En este artículo, exploraremos qué son las variables en Python, cómo se usan, y algunas de las características más interesantes sobre las variables.
@@ -26,16 +27,16 @@ En este caso, la variable `x` representa una cantidad desconocida pero de la que
 
 ### **Variables en Programación**
 
-En Programación también existe el concepto de "variable", parecido pero no idéntico al concepto matemático. En términos simples, una variable en programación es un nombre que se asocia a un valor y que se almacena en la memoria principal de tu computadora. Este valor puede ser cualquier cosa: un **número**, una **cadena de texto**, una **lista**, y cualquier tipo de dato que sea válido en el lenguaje de programación específico. En algunos lenguajes de programación, las variables se pueden entender como "cajas" en las que se guardan datos, pero cuando estamos aprendiendo Python es mejor pensar en las variables como si fueran "etiquetas" que le das a los datos para que puedas referenciarlos y que se guardan en "cajas" llamadas objetos.
+En Programación también existe el concepto de "variable", parecido pero no idéntico al concepto matemático. En términos simples, una variable en programación es un nombre que se asocia a un valor y que se almacena en la memoria principal (RAM) de tu computadora mientras el programa esté en ejecución. Este valor puede ser cualquier cosa: un **número**, una **cadena de texto**, una **colección**, y cualquier tipo de dato que sea válido en el lenguaje de programación específico. En algunos lenguajes de programación, las variables se pueden entender como "cajas" en las que se guardan datos, pero cuando estamos aprendiendo Python es mejor pensar en las variables como si fueran "etiquetas" que le das a los datos para que puedas referenciarlos y que se guardan en "cajas" llamadas objetos.
 
 ```mermaid
 ---
-title: VARIABLES
+title: VARIABLES Y TIPOS
 ---
 graph LR
-    A>"&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;"] --- B["&nbsp;&nbsp;10&nbsp;&nbsp;"]
-    C>"&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;&nbsp;"] --- D["&nbsp;&nbsp;20&nbsp;&nbsp;"]
-    E>"&nbsp;&nbsp;Z&nbsp;&nbsp;&nbsp;&nbsp;"] --- F["'hola'"]
+    A>"&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;"] -- &lt;class 'float'&gt; --- B["&nbsp;&nbsp;9.6&nbsp;&nbsp;"]
+    C>"&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;&nbsp;"] -- &lt;class 'int'&gt; --- D["&nbsp;&nbsp;10&nbsp;&nbsp;"]
+    E>"&nbsp;&nbsp;Z&nbsp;&nbsp;&nbsp;&nbsp;"] -- &lt;class 'str'&gt; --- F["'hola'"]
     style B stroke-width:2px,stroke-dasharray: 5 5
     style D stroke-width:2px,stroke-dasharray: 5 5
     style F stroke-width:2px,stroke-dasharray: 5 5
@@ -103,6 +104,25 @@ Traceback (most recent call last):
 <span class="hl">NameError: name 'Javier' is not defined</span>
 {% endcapture %}
 {% include terminal-wrapper.html content=code_str2 %}
+
+### **Uso de type()**
+
+En Python, existen **funciones integradas** como `type()` que permiten conocer el tipo de datos de una variable. Esto es útil en un lenguaje de tipado dinámico como Python, donde no es necesario declarar explícitamente el tipo de una variable. Además de `type()`, otras funciones como `isinstance()` permiten verificar si un objeto es una instancia de tipo específico, proporcionando mayor flexibilidad y control al trabajar con datos.
+
+**Ejemplo de usar `type()`:**
+
+{% capture uso_de_type %}
+&gt;&gt;&gt; x = 9.6
+<span class="hl">&gt;&gt;&gt; type(x)</span>
+&lt;class 'float'&gt;
+&gt;&gt;&gt; y = 10
+<span class="hl">&gt;&gt;&gt; type(y)</span>
+&lt;class 'int'&gt;
+&gt;&gt;&gt; z = 'hola'
+<span class="hl">&gt;&gt;&gt; type(z)</span>
+&lt;class 'str'&gt;
+{% endcapture %}
+{% include terminal-wrapper.html content=uso_de_type %}
 
 
 Puedes convertir entre estos tipos de datos usando funciones integradas como `int()`, `float()`, y `str()`.
@@ -175,7 +195,6 @@ Una vez que una variable ha sido creada, puedes actualizar su valor simplemente 
 {% endcapture %}
 {% include terminal-wrapper.html content=code_update_var %}
 
-
 Si necesitas eliminar una variable, puedes usar la instrucción `del` que borra completamente una variable.
 
 {% capture code_update_var %}
@@ -191,10 +210,15 @@ NameError: name 'edad' is not defined
 ```python
 del edad  # Elimina la variable edad
 ```
+{: .nolineno }
 
-### Variables Globales y Locales
+## **Variables Globales y Locales**
 
-En Python, una variable puede ser global o local. Las variables globales son accesibles desde cualquier parte del código, mientras que las variables locales solo son accesibles dentro de la función o bloque de código en el que se definen.
+En Python, una variable puede ser **global** o **local**. Las variables globales son accesibles desde cualquier parte del código, mientras que las variables locales solo son accesibles dentro de una función o bloque de código en el que se definen.
+
+> Los ejemplos son para demostrar la diferencias entre variables globales y locales, ya pronto veremos más sobre las **funciones**.
+{: .prompt-info }
+
 
 ```python
 variable_global = "Soy global"

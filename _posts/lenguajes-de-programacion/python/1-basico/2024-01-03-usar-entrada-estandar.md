@@ -1,7 +1,6 @@
 ---
-title: Usando entrada estándar
+title: "Python 🐍 : Entrada y Salida (I/O)"
 author: enidev911
-date: 2024-01-02 20:55:00 +0800
 categories: [Python, "01. Básico"]
 tags: [python]
 pin: true
@@ -11,29 +10,33 @@ image:
     alt: "input python"
 ---
 
-## Entrada de datos en Python - input
+## **Entrada de datos en Python (input)**
 
-Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuarios, ya sea para obtener datos o para proporcionar algún tipo de resultado. La mayoría de los programas actuales utilizan un cuadro de diálogo como una forma de pedirle al usuario que proporcione algún tipo de entrada (*input*). Mientras que Python una función incorporada para leer la entrada estándar desde el teclado.
+Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuarios, ya sea para obtener datos o para proporcionar algún tipo de resultado y mostrarlo por la consola. La mayoría de los programas actuales utilizan un cuadro de diálogo como una forma de pedirle al usuario que proporcione algún tipo de entrada. Mientras que Python una función incorporada para leer la entrada estándar desde el teclado.
 
-**Sintaxis**
 
-```
-input(prompt) # Para Python en su versión 3.x
+### **La función input()**
+
+La función `input()` se utiliza para leer los datos ingresados por el usuario desde el teclado. Esta función siempre devuelve los datos como una **cadena de texto** (string), incluso si el usuario ingresa un número. Si necesitas realizar operaciones con esos datos, es importante que los conviertas al tipo adecuado.
+
+**Sintaxis de `input()`**
+
+```py
+input([prompt]) # Para Python en su versión 3.x
 ```
 
 > **prompt**: es un parámetro opcional y recibe como argumento una cadena de texto para mostrar al usuario.
 {: .prompt-tip }
 
-### Como funciona internante input() en Python
+**Como funciona internante `input()` en Python**
 
-- [ ] Flujo
-  + [x] Primero se ejecuta la función `input()`, el flujo del programa se detendrá hasta que el usuario ingrese un valor o no y presione <kbd>Enter</kbd>.
-  + [x] El texto o mensaje que se ingreso para el parámetro `prompt` se muestra en la pantalla de salida para pedirle al usuario que ingrese un valor de entrada.
-  + [x] Se evalúa la expresión, lo que significa que Python identifica automáticamente si el usuario ingresó una cadena, un número, una lista, etc.Lo que sea que ingrese como entrada, la función `input()` lo convierte en una cadena _string_.
-  + [ ] Si la entrada proporcionada no es correcta, Python genera un error de sintaxis o una excepción como [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError).
++ [x] Primero se ejecuta la función `input()`, el flujo del programa se detendrá hasta que el usuario ingrese un valor o no y presione <kbd>Enter</kbd>.
++ [x] El texto o mensaje que se ingreso para el parámetro `prompt` se muestra en la pantalla de salida para pedirle al usuario que ingrese un valor de entrada.
++ [x] Se evalúa la expresión, lo que significa que Python identifica automáticamente si el usuario ingresó una cadena, un número, una lista, etc.Lo que sea que ingrese como entrada, la función `input()` lo convierte en una cadena de texto.
++ [x] Si la entrada proporcionada no es correcta, Python genera un error de sintaxis o una excepción como [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError).
 
 
-### Ejemplos con input
+### **Ejemplo básico con input()**
 
 Le pedimos al usuario que ingrese un valor desde el teclado:
 
@@ -44,11 +47,10 @@ print(val)
 print(type(val)) # <class 'str'>
 ```
 
-> Por defecto cualquier valor ingresado, Python lo almacena como una cadena
+> **Recuerda** que por defecto cualquier valor ingresado, Python lo almacena como una cadena
 {: .prompt-info }
 
 Si lo que queremos es que el usuario ingrese un número y representarlo como tal, tenemos que hacer la conversión de tipos, es decir, decirle a Python explícitamente que la variable que contiene a la función `input()` se convierta a número. Para ello Python nos proporciona algunas funciones integradas:
-
 
 ```py
 val = input("Ingresa un número: ")
@@ -66,7 +68,6 @@ print(flotante)
 > Las funciones `int()`, `float()` lanzan **excepciones** cuando el argumento pasado no puede ser representado como un número.
 {: .prompt-danger }
 
-
 ```py
 >>> int("diez")
 Traceback (most recent call last):
@@ -75,9 +76,24 @@ ValueError: invalid literal for int() with base 10: 'diez'
 ```
 {: .nolineno .noheader }
 
+## **Enviar datos a la salida estándar en Python (print)**
 
----
+### **La función print()**
 
+La función como ya te podrás imaginar se utiliza para mostrar texto o variables en la consola. Es una de las funciones más comunes en Python para salida de datos.
+
+**Sintaxis de `print()`**
+
+```py
+print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+```
+{: .nolineno }
+
+- **objects**: Los objetos que deseas imprimir. Puedes imprimir uno o más objetos separados por comas.
+- **sep**: El separador entre los objetos (por defecto es un espacio).
+- **end**: El final de la línea (por defecto es un salto de línea `\n`).
+- **file**: Permite especificar el archivo en el que escribir (por defecto es la consola).
+- **flush**: Controla si de debe forzar el vaciado del buffer (normalmente no es necesario).
 
 ## Tomando múltiples entradas del usuario en Python
 
@@ -99,7 +115,6 @@ Esta función nos puede ayudar a obtener múltiples entradas de los usuarios, ro
 
 ### Ejemplos usando split()
 
-
 ```py
 x, y = input('Ingresa dos valores: ').split()
 print('Eje x:', x)
@@ -109,7 +124,6 @@ a, b = input('Ingresa dos valores: ').split()
 print('Primer número {} y segundo número es {}'.format(a, b))
 ```
 
----
 
 ## Usando la comprensión de listas
 
@@ -138,9 +152,7 @@ x = [int(x) for x in input("Ingrese múltiples valores separados por coma: ").sp
 print("Numeros de la lista: ", x)
 ```
 
-
 ## Complementando para ocultar la información de entrada
-
 
 Otro aspecto que es importante son las contraseñas al momento de manejar entradas, debemos buscar la manera segura de ingresar esta información. Python propociona la función **getpass()** del módulo con el mismo nombre. Le solicita al usuario una contraseña sin hacer eco. El módulo **getpass** proporciona una forma segura de manejar las solicitudes de contraseña donde los programas interactúan con los usuarios a través del terminal. Este módulo proporciona dos funciones:
 
