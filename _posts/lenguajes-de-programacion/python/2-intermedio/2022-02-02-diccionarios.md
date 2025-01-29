@@ -1,11 +1,11 @@
 ---
-title: Diccionarios en Python
+title: "Python 🐍 : Diccionarios"
 author: enidev911
-categories: [Python, Tipos de Datos]
-tags: [tipos de datos python]
+categories: [Python, "02. Intermedio"]
+tags: [python, intermedio]
 ---
 
-En Python, el tipo de dato **Diccionario** (`dicts`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como javascript, podemos decir que los diccionarios son similares a los objetos **Objects**. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
+En Python, el tipo de dato **Diccionario** (`dicts`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los objetos **Objects**. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
 
 Un diccionario de Python tiene las siguientes características:
 
@@ -26,14 +26,14 @@ Un diccionario de Python tiene las siguientes características:
 
 ---
 
-## Creando diccionarios
+## **Creando diccionarios**
 
 Para crear un diccionario se deben usar las llaves `{}` de apertura y cierre. Cada item `clave:valor` en el diccionario debe estar separado de otro par `clave:valor` por comas `,`. 
 
 Veamos el siguiente código donde vamos almacenar en una variable el diccionario de Python:
 
 ```python
-car = { 'name': 'Audi', 'model': 2012, 'color': 'black' }
+car = { 'name': 'Audi', 'model': 'r8', 'color': 'negro' }
 ```
 {: .nolineno }
 
@@ -56,14 +56,13 @@ car2 = dict(name='honda', model=2019, color='blue')
 > Para crear un diccionario vacío, se suele recomendar el uso de `{}` frente a `dict()`, no sólo por ser más pitónico sino por tener (en promedio) un mejor rendimiento en tiempos de ejecución.
 {: .prompt-tip }
 
-
 ---
 
-## Operaciones comunes con Diccionarios
+## **Operaciones comunes con Diccionarios**
 
 Como ya sabemos como se crean los diccionarios, ahora veamos que podemos hacer con ellos.
 
-### Obetener elementos
+### **Obetener elementos**
 
 Para obtener un elemento basta con escribir la **clave** entre `[]`. Veamos el siguiente ejemplo:
 
@@ -133,7 +132,7 @@ user['country'] = 'Chile'
 {: .nolineno }
 
 
-### Obtener todas las claves de un diccionario
+### **Obtener todas las claves de un diccionario**
 
 Mediante el método `keys()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene las **clave** del diccionario en forma de **lista**:
 
@@ -142,7 +141,7 @@ user.keys() # dict_keys(['name', 'nickname', 'country'])
 ```
 {: .nolineno }
 
-### Obtener todas los valores de un diccionario
+### **Obtener todos los valores de un diccionario**
 
 De forma análoga con el método `values()` podemos retornar un objeto de vista. La vista de objetos contiene los **valores** del diccionario en forma de **lista**:
 
@@ -151,7 +150,7 @@ user.keys() # dict_keys(['Marco', 'Enidev911', 'Chile'])
 ```
 {: .nolineno }
 
-### Obtener todos los pares **clave-valor** de un diccionario
+### **Obtener todos los pares clave-valor de un diccionario**
 
 Mediante el método `items()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene tuplas como elementos conpuestas por pares **clave-valor** del diccionario en forma de vista:
 
@@ -167,7 +166,7 @@ dict_items([
 ```
 {: .nolineno }
 
-### Borrar elementos
+### **Borrar elementos**
 
 Python nos proporciona, al menos, tres formas de borrar elementos en un diccionario:
 
