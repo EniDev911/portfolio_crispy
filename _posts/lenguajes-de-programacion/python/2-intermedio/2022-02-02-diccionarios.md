@@ -3,9 +3,13 @@ title: "Python 🐍 : Diccionarios"
 author: enidev911
 categories: [Python, "02. Intermedio"]
 tags: [python, intermedio]
+image:
+    path: "posters/python-diccionarios.webp"
+    lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoUAAoAPzmEuVOvKKWisAgB4CcJZgCdGuAAVeISei2Ds94gwQAA+efmU7AgrJPxwct/taq2o7ktOODARNSHIwtKr3mjj+AuxqeB77LuLpoFVQulUgdC/mAA
+mermaid: true
 ---
 
-En Python, el tipo de dato **Diccionario** (`dicts`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los objetos **Objects**. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
+En Python, el tipo de dato **Diccionario** (`dict`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los objetos **Objects**. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
 
 Un diccionario de Python tiene las siguientes características:
 
@@ -56,13 +60,27 @@ car2 = dict(name='honda', model=2019, color='blue')
 > Para crear un diccionario vacío, se suele recomendar el uso de `{}` frente a `dict()`, no sólo por ser más pitónico sino por tener (en promedio) un mejor rendimiento en tiempos de ejecución.
 {: .prompt-tip }
 
+
 ---
+
 
 ## **Operaciones comunes con Diccionarios**
 
-Como ya sabemos como se crean los diccionarios, ahora veamos que podemos hacer con ellos.
+Como ya sabemos cómo se crean los diccionarios, recordemos que cada tipo de dato tiene sus propios métodos porque están diseñados para cumplir con necesidades específicas y proporcionar funcionalidad adecuada para el tipo de colección que representan. Python es un lenguaje orientado a objetos, lo que significa que cada tipo de dato (como listas, diccionarios, tuplas, conjuntos) es en realidad una **instancia de una clase**. Ahora veamos que métodos podemos aplicar sobre los diccionarios:
 
-### **Obetener elementos**
+```mermaid
+---
+title: "Diccionarios - Python"
+---
+graph LR
+    F["Operaciones Comunes"] --> F1["<code class="hl">my_dict.keys()</code>: Retorna todas las claves"]
+    F --> F2["<code class="hl">my_dict.values()</code>: Retorna todos los valores"]
+    F --> F3["<code class="hl">my_dict.items()</code>: Retorna pares clave-valor"]
+    F --> F4["<code class="hl">my_dict.clear()</code>: Elimina todos los elementos"]
+    F --> F5["<code class="hl">key in my_dict</code>: Verifica si una clave existe"]
+```
+
+### **Obtener elementos**
 
 Para obtener un elemento basta con escribir la **clave** entre `[]`. Veamos el siguiente ejemplo:
 
