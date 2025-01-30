@@ -152,28 +152,35 @@ Una tupla en Python es similar a una lista, pero con una diferencia clave: es **
 
 ### **Operaciones Comunes con Tuplas**
 
+Las operaciones sobre **tuplas** en Python son limitadas debido a que las tuplas son **inmutables**, es decir, no pueden modificarse después de ser creadas. Sin embargo, se pueden realizar varias operaciones comunes:
 
 ```mermaid
+---
+title: "Tuplas en Python"
+---
 graph LR;
-    A[Tupla en Python] --> B[Acceso a elementos]
+    A[Operaciones Comunes] --> B[Acceso a elementos]
     A --> C[Concatenación]
     A --> D[Repetición]
     A --> E[Longitud]
     A --> F[Verificación de pertenencia]
     A --> G[Desempaquetado]
     
-    B --> B1[Acceso por índice]
-    B --> B2["Acceso por rango (slice)"]
+    B -- "Por índice" --> B1["<code class='hl'>mi_tupla[index]</code>"]
+    B -- "Por rango" --> B2["<code class='hl'>mi_tupla[inicio:final]</code>"]
     
-    C --> C1[Unir tuplas]
+    C -- "Operador <code>+</code>" --> C1["<code class='hl'>tupla1 + tupla2</code>"]
     
-    D --> D1[Multiplicar tupla]
+    D -- "Operador <code>*</code>" --> D1["<code class='hl'>tupla1 * tupla2</code>"]
     
-    E --> E1["Usar len()"]
+    E -- "Usar <code>len()</code>" --> E1["<code class='hl'>len(mi_tupla)</code>"]
     
-    F --> F1[Usar in]
+    F -- "Usar <code>in</code>" --> F1["<code class='hl'>elemento in mi_tupla</code>"]
     
-    G --> G1[Desempaquetar en variables]
+    G -- "En variables" --> G1["<code class='hl'>a,b,c = mi_tupla</code>"]
+
+    classDef wStroke text-align:left,stroke-width:0;
+    class B1,B2,C1,D1,E1,F1,G1 wStroke;
 ```
 {: .nolineno }
 
