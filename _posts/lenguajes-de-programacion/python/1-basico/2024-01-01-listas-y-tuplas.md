@@ -31,9 +31,8 @@ Una lista de Python tiene las siguientes características:
 **No es única**
 : esencialmente, esto quiere decir que la lista puede contener elementos duplicados sin que nos arroje un error.
 
----
 
-## Crear listas
+## **Crear listas**
 
 Para crear una lista se deben usar los corchetes `[]` (*brackets*) de apertura y cierre. Cada item o elemento en la lista debe estar separado de otro por comas `,`. 
 
@@ -131,6 +130,21 @@ longitud = len(cars) # 6
 ```
 {: .nolineno }
 
-## Conclusiones
 
-Las listas son una parte fundamental de Python, ofreciendo flexibilidad de uso para manejar colecciones de datos de manera eficiente. Dominar sus métodos y funciones incorporadas para el manejo de listas de Python es sustancial.
+## **¿Qué es una Tupla?**
+
+Una tupla en Python es similar a una lista, pero con una diferencia clave: es **inmutable**, lo que significa que, una vez creada, no puedes modificar, agregar ni eliminar elementos. Esto las hace ideales para representar datos que no deben cambiar a lo largo de la ejecución del programa.
+
+### **Características de las Tuplas**
+
+**Ordenadas**
+: Los elementos en una tupla siguen un orden específico.
+
+**Inmutables**
+: Una vez que la tupla es creada, no puedes cambiar su contenido.
+
+**Permiten elementos duplicados**
+: Al igual que las listas, las tuplas pueden tener elementos repetidos.
+
+**Pueden contener diferentes tipos de datos**
+: Al igual que las listas, las tuplas pueden contener diferentes tipos de elementos.

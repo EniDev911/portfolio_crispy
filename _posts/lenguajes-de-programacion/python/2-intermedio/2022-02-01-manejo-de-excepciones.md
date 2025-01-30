@@ -21,7 +21,7 @@ Por ejemplo, si intentas dividir por cero, Python lanzará una excepción [`Zero
 
 ## **Estructura Básica de Manejo de Excepciones**
 
-En Python, el manejo de excepciones se realiza mediante las plabaras claves `try`, `except`, y opcionalmente `else` y `finally`. Y funciona de la siguiente manera:
+En Python, el manejo de excepciones se realiza mediante las palabras claves `try`, `except`, y opcionalmente `else` y `finally`. Y funciona de la siguiente manera:
 
 ```mermaid
 flowchart TD

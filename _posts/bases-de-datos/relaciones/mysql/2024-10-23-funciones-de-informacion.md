@@ -3,7 +3,6 @@ title: "MySQL 🐬 : Funciones de Información"
 author: enidev911
 categories: [Bases de Datos Relacionales, MySQL]
 tags: [Bases de Datos]
-pin: true
 ---
 
 MySQL provee una serie de **funciones de información** que son esenciales para obtener detalles sobre el servidor y estructuras de bases de datos, tablas, columnas y otros objetos, así como para consultar el estado y rendimiento del servidor. Estas funciones son útiles para conocer el contexto de la bse de datos en uso y del servidor.
