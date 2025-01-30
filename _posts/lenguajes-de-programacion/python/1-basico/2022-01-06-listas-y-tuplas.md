@@ -3,6 +3,7 @@ title: "Python 🐍 : Listas y Tuplas"
 author: enidev911
 categories: [Python, "01. Básico"]
 tags: [python]
+mermaid: true
 ---
 
 
@@ -54,13 +55,12 @@ cars = list(('Honda', 'Toyota', 'Audi', 'Ford', 'Susuki', 'Mercedez'))
 ```
 {: .nolineno }
 
----
 
-## Operaciones comunes con Listas
+## **Operaciones comunes con Listas**
 
 Como ya sabemos como se crean las listas, ahora veamos que podemos hacer con las listas.
 
-### Agregar elementos
+### **Agregar elementos**
 
 Para añadir un nuevo elemento al final de la lista tenemos el método `append()`:
 
@@ -78,7 +78,7 @@ cars.insert(0, "Hummer")
 {: .nolineno }
 
 
-### Eliminar elementos
+### **Eliminar elementos**
 
 Para eliminar el último elemento de la lista tenemos el método `pop()`:
 
@@ -101,7 +101,7 @@ cars.remove("Honda")
 ```
 {: .nolineno }
 
-### Extraer elementos
+### **Extraer elementos**
 
 Para extraer elementos de una lista indicando sus índeces, en un intervalo **slicing**:
 
@@ -148,3 +148,76 @@ Una tupla en Python es similar a una lista, pero con una diferencia clave: es **
 
 **Pueden contener diferentes tipos de datos**
 : Al igual que las listas, las tuplas pueden contener diferentes tipos de elementos.
+
+
+### **Operaciones Comunes con Tuplas**
+
+
+```mermaid
+graph LR;
+    A[Tupla en Python] --> B[Acceso a elementos]
+    A --> C[Concatenación]
+    A --> D[Repetición]
+    A --> E[Longitud]
+    A --> F[Verificación de pertenencia]
+    A --> G[Desempaquetado]
+    
+    B --> B1[Acceso por índice]
+    B --> B2["Acceso por rango (slice)"]
+    
+    C --> C1[Unir tuplas]
+    
+    D --> D1[Multiplicar tupla]
+    
+    E --> E1["Usar len()"]
+    
+    F --> F1[Usar in]
+    
+    G --> G1[Desempaquetar en variables]
+```
+{: .nolineno }
+
+#### **Acceder a un Elemento:**
+
+Al igual que las listas, se puede acceder a los elementos de una tupla mediante su índice:
+
+```py
+mi_tupla = (10, 20, 30, 40)
+print(mi_tupla[2])  # Imprime 30
+```
+{: .nolineno }
+
+#### **Concatenar y Repetir**
+
+Aunque no se puede modificar una tupla directamente, se puede **concatenar** tuplas o **repetir** tuplas para crear nuevas tuplas:
+
+```py
+tupla1 = (1, 2, 3)
+tupla2 = (4, 5, 6)
+tupla3 = tupla1 + tupla2  # Concatenación
+tupla4 = tupla1 * 2       # Repetición
+```
+{: .nolineno }
+
+#### **Comprobar la Existencia de un Elemento**
+
+Podemos verificar si un elemento está presente en una tupla usando el operador `in`:
+
+```py
+mi_tupla = (1, 2, 3, 4)
+print(3 in mi_tupla)  # Imprime True
+```
+{: .nolineno }
+
+
+### **Diferencias entre Listas y Tuplas**
+
+A pesar de que las listas y las tuplas comparten muchas similitudes, hay diferencias clave que debemos tener en cuenta al decidir cúal usar:
+
+|Característica|Listas|Tuplas|
+|:-------------|:-----|:-----|
+|**Mutabilidad**|Mutable (se pueden modificar)|Inmutable (no se pueden modificar)|
+|**Sintaxis**|Corchetes `[]`|Paréntesis `()`|
+|**Velocidad**|Más lentas debido a su mutabilidad|Más rápidas debido a su inmutabilidad|
+|**Uso**|Ideal cuando los datos necesitan cambiar|Ideal para datos constantes o clave-valor|
+|**Métodos**|Muchos métodos disponibles (`append`, `remove`, etc.)|Pocos métodos disponibles (`count`, `index`)|
