@@ -1,9 +1,14 @@
 ---
 title: "Python 🐍 : Listas y Tuplas"
 author: enidev911
+description: "Las **listas** y **tuplas** son estructuras de datos en Python que funcionan como cajas para guardar múltiples elementos."
 categories: [Python, "01. Básico"]
 tags: [python]
 mermaid: true
+pin: true
+image:
+    path: "posters/python-listas-y-tuplas.webp"
+    lqip: data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwBACdASoUAAoAPzmGuVOvKSWisAgB4CcJZgCdIExC4pjkLfNipFGuOUAA+efmVsPKa5z0AITJYMCEJkiYvF8YNJJCwQHJ6UeZ4PbW/Dx+gSUX8veF6WkPAjQAdujHxAAAAA==
 ---
 
 
@@ -33,7 +38,7 @@ Una lista de Python tiene las siguientes características:
 : esencialmente, esto quiere decir que la lista puede contener elementos duplicados sin que nos arroje un error.
 
 
-## **Crear listas**
+### **Crear listas**
 
 Para crear una lista se deben usar los corchetes `[]` (*brackets*) de apertura y cierre. Cada item o elemento en la lista debe estar separado de otro por comas `,`. 
 
@@ -56,11 +61,58 @@ cars = list(('Honda', 'Toyota', 'Audi', 'Ford', 'Susuki', 'Mercedez'))
 {: .nolineno }
 
 
-## **Operaciones comunes con Listas**
+### **Operaciones comunes con Listas**
 
-Como ya sabemos como se crean las listas, ahora veamos que podemos hacer con las listas.
+Las operaciones sobre **listas** en Python son variadas al tratarse de estructuras de datos **mutables**, lo que significa que sus elementos pueden ser modificados después de haber sido creados. Debido a su mutabilidad, las listas tienen más métodos disponibles, como `append()`, `remove()`, `sort()`, `reverse()`, entre otros, que permiten agregar, eliminar o cambiar los elementos de manera dinámica:
 
-### **Agregar elementos**
+```mermaid
+---
+title: "Listas en Python"
+---
+graph LR
+    A["Operaciones Comunes"] --> B["Acceder a elementos"]
+    A --> C["Agregar elementos"]
+    A --> D["Eliminar elementos"]
+    A --> E["Modificar elementos"]
+    A --> F["Concatenación y repetición"]
+    A --> G["Comprobar existencia"]
+    A --> H["Longitud de lista"]
+    A --> I["Ordenar lista"]
+    A --> J["Invertir lista"]
+
+    B -- "Por índice" --> K["mi_lista[index]"]
+    B -- "Por rango" --> L["mi_lista[inicio:final]"]
+
+    C -- "Al final" --> M["mi_lista.append(item)"]
+    C -- "Por posición" --> N["mi_lista.insert(pos, item)"]
+
+    D -- "Por valor" --> O["mi_lista.remove(valor)"]
+    D -- "El último" --> P["mi_lista.pop()"]
+    D -- "Por posición" --> P1["mi_lista.pop(pos)<br>del mi_lista[pos]"]
+
+    F -- "Operador <code>+</code>" --> R["lista1 + lista2"]
+    F -- "Operador <code>*</code>" --> S["lista1 * 2"]
+
+    G -- "Usar <code>in</code>" --> T["elemento in mi_lista"]
+
+    H -- "Usar <code>len()</code>" --> U["len(mi_tupla)"]
+
+    I -- "Ordena la lista original" --> V["mi_lista.sort()<br>mi_lista.sort(reverse=True)"]
+    I -- "Crea una nueva lista ordenada" --> V1["sorted(mi_lista)<br>sorted(mi_lista, reverse=True)"]
+
+    J -- "Invierte la lista original" --> W["mi_lista.reverse()"]
+
+    classDef wStroke fill:#fff,fill-opacity:0,text-align:left,stroke-width:0,background:#19191922,font-family:monospace,padding:3px,font-size:17px;
+    class K,L,M,N,O,P,P1,T,U,R,S,V,V1,W wStroke;
+```
+{: .nolineno }
+
+> Las **listas** son útiles cuando necesitas una colección de datos que pueda cambiar a lo largo del tiempo
+{: .prompt-info }
+
+Como ya sabemos las operaciones comunes que podemos realizar sobre las listas, ahora veamos algunos ejemplos.
+
+#### **Agregar elementos**
 
 Para añadir un nuevo elemento al final de la lista tenemos el método `append()`:
 
@@ -78,7 +130,7 @@ cars.insert(0, "Hummer")
 {: .nolineno }
 
 
-### **Eliminar elementos**
+#### **Eliminar elementos**
 
 Para eliminar el último elemento de la lista tenemos el método `pop()`:
 
@@ -101,10 +153,9 @@ cars.remove("Honda")
 ```
 {: .nolineno }
 
-### **Extraer elementos**
+#### **Extraer elementos**
 
 Para extraer elementos de una lista indicando sus índeces, en un intervalo **slicing**:
-
 
 ```python
 cars # ['Honda', 'Toyota', 'Audi', 'Ford', 'Susuki', 'Mercedez']
@@ -114,22 +165,42 @@ cars[2:4] # ['Audi', 'Ford']
 
 Como podemos observar, indicamos `[start:to]` donde el primer argumento `start` es el elemento inicial (incluido) y el segundo argumento `to` es el elemento final (excluido).
 
----
 
-## Funciones incorporadas
+### **Funciones útiles para Listas**
 
 Python también nos provee de funciones útiles para trabajar con listas como las siguientes:
 
-```python
-ordenada = sorted(cars) # ['Audi', 'Ford', 'Honda', 'Mercedez', 'Susuki', 'Toyota']
-ordenada_descendente = sorted(cars, reverse=True) # ['Toyota', 'Susuki', 'Mercedez', 'Honda', 'Ford', 'Audi']
-maximo = max(cars) # Audi
-minimo = min(cars) # Toyota
-sum_total = sum(cars) # TypeError solo funciona con números
-longitud = len(cars) # 6
+{% tabs ex_func_listas %}
+{% tab ex_func_listas Código %}
+```py
+lista_marca_autos = ['Audi', 'Ford', 'Honda', 'Mercedez', 'Susuki', 'Toyota']
+lista_ordenada = sorted(lista_marca_autos) 
+lista_ordenada_descendente = sorted(lista_marca_autos, reverse=True)
+maximo = max(lista_marca_autos)
+minimo = min(lista_marca_autos)
+lista_longitud = len(lista_marca_autos)
+
+print("Lista ordenada:", lista_ordenada)
+print("Lista ordenada (descendente):", lista_ordenada_descendente)
+print("El Máximo:", maximo)
+print("El Mínimo:", minimo)
+print("Longitud de la lista:", lista_longitud)
 ```
 {: .nolineno }
+{% endtab %}
+{% tab ex_func_listas Salida %}
+```
+Lista ordenada: ['Audi', 'Ford', 'Honda', 'Mercedez', 'Susuki', 'Toyota']
+Lista ordenada (descendente): ['Toyota', 'Susuki', 'Mercedez', 'Honda', 'Ford', 'Audi']
+El Máximo: Toyota
+El Mínimo: Audi
+Longitud de la lista: 6
+```
+{: .nolineno .noheader }
+{% endtab %}
+{% endtabs %}
 
+---
 
 ## **¿Qué es una Tupla?**
 
@@ -166,20 +237,20 @@ graph LR;
     A --> F[Verificación de pertenencia]
     A --> G[Desempaquetado]
     
-    B -- "Por índice" --> B1["<code class='hl'>mi_tupla[index]</code>"]
-    B -- "Por rango" --> B2["<code class='hl'>mi_tupla[inicio:final]</code>"]
+    B -- "Por índice" --> B1["mi_tupla[index]"]
+    B -- "Por rango" --> B2["mi_tupla[inicio:final]"]
     
-    C -- "Operador <code>+</code>" --> C1["<code class='hl'>tupla1 + tupla2</code>"]
+    C -- "Operador <code>+</code>" --> C1["tupla1 + tupla2"]
     
-    D -- "Operador <code>*</code>" --> D1["<code class='hl'>tupla1 * tupla2</code>"]
+    D -- "Operador <code>*</code>" --> D1["tupla1 * 2"]
     
-    E -- "Usar <code>len()</code>" --> E1["<code class='hl'>len(mi_tupla)</code>"]
+    E -- "Usar <code>len()</code>" --> E1["len(mi_tupla)"]
     
-    F -- "Usar <code>in</code>" --> F1["<code class='hl'>elemento in mi_tupla</code>"]
+    F -- "Usar <code>in</code>" --> F1["elemento in mi_tupla"]
     
-    G -- "En variables" --> G1["<code class='hl'>a,b,c = mi_tupla</code>"]
+    G -- "En variables" --> G1["a,b,c = mi_tupla"]
 
-    classDef wStroke text-align:left,stroke-width:0;
+    classDef wStroke fill:#fff,fill-opacity:0,text-align:left,stroke-width:0,background:#19191922,font-family:monospace,padding:3px,font-size:17px;
     class B1,B2,C1,D1,E1,F1,G1 wStroke;
 ```
 {: .nolineno }

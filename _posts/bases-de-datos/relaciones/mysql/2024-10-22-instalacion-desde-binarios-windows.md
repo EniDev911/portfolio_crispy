@@ -6,6 +6,7 @@ tags: [Bases de Datos]
 image:
     path: posters/mysql-instalacion-windows-zip.png
     alt: "Instalar MySQL desde los binarios de Windows"
+pin: true
 ---
 
 Instalar MySQL en Windows desde los binarios es una buena opción si deseamos una instalación limpia y controlada de MySQL.
