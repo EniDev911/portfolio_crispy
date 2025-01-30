@@ -1,18 +1,17 @@
 ---
-title: Leer y escribir archivos de texto
+title: "Python 🐍 : Manejo de Archivos"
 author: enidev911
-categories: [Python, Manejo de Archivos en Python]
+categories: [Python, "02. Intermedio"]
 tags: [trabajar con archivos]
 ---
 
-En este post, vamos a comenzar a trabajar con la *Memoria Secundaria* (o archivos).
+Uno de los aspectos más comunes al programar es el **manejo de archivos**. Python nos facilita la interacción con archivos mediante su módulo incorporado `open()`, el cual permite abrir archivos, leer su contenido, escribir datos e incluso modificar archivos existentes.
 
-Nos vamos enfocar principalmente en leer y escribir archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
+En este post, nos vamos a enfocar principalmente en **leer** y **escribir** archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
 
 Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos **abrir el archivo**. Al abrir el archivo nos comunicamos con el sistema operativo, el cual sabe dónde están almacenados los datos de cada archivo. Cuando abres un archivo, le estás pidiendo al sistema operativo que encuentre el archivo por su nombre y se asegure que existe.
 
-
-## Abrir archivos
+## **Abriendo archivos**
 
 > Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos.
 {: .prompt-warning }
@@ -190,7 +189,7 @@ manejador.closed # True
 
 ---
 
-## Utilizando la estructura with
+## **Utilizando la estructura with**
 
 La **estructura with** es una estructura de control, Python define a la estructura `with` como **un administrador de contexto** (*context manager*).
 
@@ -208,7 +207,7 @@ with open("ejemplo.txt", "r") as archivo:
 
 ---
 
-## Manejando excepciones usando with
+## **Manejando excepciones usando with**
 
 > Este apartado requiere haber estudiado sobre **Menejo de excepciones**
 {: .prompt-info }
@@ -230,10 +229,62 @@ except:
   # Se entra aquí si no pudo ser abierto
   print('No se pudo abrir')
 ```
+{: .nolineno }
 
 ---
 
-## Consideraciones adicionales
+## **Consideraciones adicionales**
 
-**Manejo de excepciones**
-: Siempre es buena práctica manejar posibles excepciones cuando se trabaja con archivos. Puedes usar `try` y `except` para capturar errores como `FileNotFoundError` o `IOError`.
+### **Manejo de excepciones**
+
+Siempre es buena práctica manejar posibles excepciones cuando se trabaja con archivos. Puedes usar `try` y `except` para capturar errores como `FileNotFoundError` o `IOError`.
+
+### **Codificación de archivos**
+
+Cuando trabajas con archivos de texto, es importante tener en cuenta la codificación de los datos. Python usa por defecto la codificación **UTF-8**, pero si el archivo está en otro formato, como **ISO-8859-1** (que abarca idiomas de Europa occidental) o **ASCII** (que solo abarcaba caracteres del inglés), debemos especificar la codificación al abrir el archivo:
+
+```py
+with open("archivo.txt", "r", encoding="utf-8") as archivo:
+    contenido = archivo.read()
+    print(contenido)
+```
+{: .nolineno }
+
+### **Verificación de la existencia del archivo**
+
+Antes de intentar abrir un archivo, especialmente si estás trabajando con archivos que podrían no existir, es recomendable verificar si el archivo existe primero. Esto evita posibles excepciones, como un `FileNotFoundError`:
+
+```py
+import os
+
+archivo = "archivo.txt"
+
+if os.path.exists(archivo): # Verificación con os.path:
+    with open(archivo, "r") as f:
+        contenido = f.read()
+        print(contenido)
+else:
+    print("El archivo no existe.")
+```
+{: .nolineno }
+
+> Esto también puede ser útil cuando estás realizando operaciones de escritura y no deseas sobrescribir un archivo accidentalmente.
+{: .prompt-tip }
+
+### **Permisos de Archivos**
+
+En sistemas operativos como **Linux** o **MacOS**, los archivos pueden tener permisos restrictivos. Por eso debemos estar seguros si ese archivo tiene los permisos adecuados para leer o escribir en él:
+
+```py
+import os
+
+archivo = "archivo.txt"
+
+if os.access(archivo, os.R_OK):  # Verifica si se puede leer
+    with open(archivo, "r") as f:
+        contenido = f.read()
+        print(contenido)
+else:
+    print("No tienes permiso para leer este archivo.")
+```
+{: .nolineno }
