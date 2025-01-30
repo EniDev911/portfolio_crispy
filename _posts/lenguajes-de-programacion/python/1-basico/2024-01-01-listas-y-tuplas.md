@@ -1,11 +1,21 @@
 ---
-title: Listas en Python
+title: "Python 🐍 : Listas y Tuplas"
 author: enidev911
-categories: [Python, Tipos de Datos]
-tags: [tipos de datos python]
+categories: [Python, "01. Básico"]
+tags: [python]
 ---
 
-En Python,  el tipo de dato **Lista** (`list`) es usado para almacenar una colección de valores. Si vienes de otros lenguajes de programación podemos decir que las listas son similares a los **Arrays**. Las listas de Python pueden almacenar valores de diferentes tipos.
+
+En Python, las **listas** y las **tuplas** son dos de los tipos de datos más fundamentales para almacenar colecciones de elementos. Aunque ambos permiten almacenar múltiples elementos en una sola variable, existen diferencias clave entre ellas que determinan cuándo usar una u otra. En este post, abarcaremos en detalle qué son las listas y tuplas, sus diferencias, y cómo utilizarlas de manera eficientes en nuestros programas.
+
+## **¿Qué es una Lista?**
+
+Una **lista** en Python es un tipo de dato que representa una colección ordenada y **mutable** (es decir, que se puede modificar) de elementos. Los elementos de una lista pueden ser de **diferentes tipos**, incluyendo números, cadenas de texto, otras listas, o incluso objetos personalizados.
+
+> El tipo de dato **Lista** (`list`) es usado para almacenar una colección de valores. Si vienes de otros lenguajes de programación podemos decir que las listas son similares a los **Arrays**. Las listas de Python pueden almacenar valores de diferentes tipos.
+{: .prompt-info }
+
+### **Características de las Listas**
 
 Una lista de Python tiene las siguientes características:
 

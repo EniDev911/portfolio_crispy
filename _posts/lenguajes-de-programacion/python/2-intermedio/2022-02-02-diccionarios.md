@@ -1,6 +1,7 @@
 ---
 title: "Python 🐍 : Diccionarios"
 author: enidev911
+description: "Los diccionarios en Python son estructuras de datos que almacenan pares de clave-valor. Son ideales para almacenar información que requiere acceso rápido mediante una clave única, permitiendo manipular y organizar datos de manera eficiente."
 categories: [Python, "02. Intermedio"]
 tags: [python, intermedio]
 image:
@@ -34,7 +35,7 @@ Un diccionario de Python tiene las siguientes características:
 
 Para crear un diccionario se deben usar las llaves `{}` de apertura y cierre. Cada item `clave:valor` en el diccionario debe estar separado de otro par `clave:valor` por comas `,`. 
 
-Veamos el siguiente código donde vamos almacenar en una variable el diccionario de Python:
+Veamos el siguiente código donde vamos a almacenar en una variable el diccionario de Python:
 
 ```python
 car = { 'name': 'Audi', 'model': 'r8', 'color': 'negro' }
