@@ -254,7 +254,7 @@ document.getElementById('btn-share-2').addEventListener('click', function() {
 					navigator.share({
 					title: 'Mira este archivo',
 					text: 'Te estoy compartiendo un archivo interesante.',
-					files: [file]  // El archivo como un array de archivos
+					files: [file]
 			})
 			.then(() => {
 				console.log('Archivo compartido exitosamente');
