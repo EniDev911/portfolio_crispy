@@ -1,9 +1,9 @@
 ---
-title: "POO : Herencia"
+title: "Python 🐍 : POO - Herencia"
 author: enidev911
-categories: [Python, Programación Orientada a Objetos]
+categories: [Python, "02. Intermedio"]
 mermaid: true
-tags: [programación orientada abjetos]
+tags: [python]
 image:
     path: "posters/python-poo-herencia.png"
     alt: "Python Poo Herencia"

@@ -42,7 +42,7 @@ Una lista de Python tiene las siguientes características:
 
 Para crear una lista se deben usar los corchetes `[]` (*brackets*) de apertura y cierre. Cada item o elemento en la lista debe estar separado de otro por comas `,`. 
 
-Veamos el siguiente código donde vamos almacenar en una variable la lista de Python:
+Veamos el siguiente código donde vamos a almacenar en una variable la lista de Python:
 
 ```python
 cars = ['Honda', 'Toyota', 'Audi', 'Ford', 'Susuki', 'Mercedez']

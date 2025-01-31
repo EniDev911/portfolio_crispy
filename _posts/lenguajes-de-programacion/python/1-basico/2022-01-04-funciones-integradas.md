@@ -1,30 +1,26 @@
 ---
-title: Funciones integradas
+title: "Python 🐍 : Funciones Integradas"
 author: enidev911
-date: 2019-08-09 20:55:00 +0800
-categories: [Python, Funciones]
+categories: [Python, "01. Básico"]
 tags: [funciones en python]
-pin: true
-img_path: '/posts/20180809'
 ---
 
-Python tiene una gran variedad de funciones que podemos utilizar sin necesidad de importar ningún módulo. En este artículo vamos a seleccionar algunas para revisar y dichas funciones estarán agrupadas en diferentes categorías en función de su utilidad, tal y como se puede ver en la tabla de contenido de este artículo.
+Python tiene una gran variedad de funciones que podemos utilizar sin necesidad de importar ningún módulo. En este post vamos a seleccionar algunas para revisar y agruparlas en diferentes categorías en función de su utilidad, tal y como se puede ver en la tabla de contenido de este post.
 
----
+## **Entrada - Salida**
 
-## Entrada - Salida
-
-### print()
+### **print()**
 
 Es sin duda la función más conocida de todas. Lo que hace `print()` es imprimir por la salida estándar la representación en un *string* de cualquier objeto. Además tiene varios parámetros de entrada opcionales que modifican su comportamiento.
 
-#### Sintaxis
+**Sintaxis**
 
-```
+```py
 print(object(s), sep=separator, end=end, file=file, flush=flush)
 ```
+{: .nolineno }
 
-#### Parámetros
+**Parámetros**
 
 - `object(s)` (*Opcional*) : Uno o más objetos, que serán convertidos en *string* para ser imprimidos.
 	- Predeterminado `\n` (salto de línea)
@@ -34,37 +30,26 @@ print(object(s), sep=separator, end=end, file=file, flush=flush)
 	- Predeterminado `\n` (salto de línea)
 
 
-#### Ejemplos
+#### **Ejemplos**
 
 ```python
 print("Hola Mundo!") # Hola Mundo!
 print([1, 2, 3, 4])  # [1, 2, 3, 4]
 print("Bienvenido", "al", "Mundo", "de", "Python", sep="\n")
-"""
-Bienvenido
-al
-Mundo
-de
-Python
-"""
 print("Python", "te", "saluda", sep="\n", end="\n*-*-*-\n")
-"""
-Python
-te
-saluda
-*-*-*-
-"""
 ```
+{: .nolineno }
 
-### input()
+### **input()**
 
 La función integrada `input()` toma datos de entrada por el teclado hasta que pulsamos <kbd>Enter</kbd>. Normalmente a menudo tenemos la necesidad de obtener un dato para proporcionar algún tipo de resultado.
 
-#### Sintaxis
+**Sintaxis**
 
-```
+```py
 input(prompt)
 ```
+{: .nolineno }
 
 #### Parámetros
 

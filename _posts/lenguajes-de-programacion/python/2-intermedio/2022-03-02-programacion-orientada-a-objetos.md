@@ -1,8 +1,8 @@
 ---
-title: Programación Orientada a Objetos
+title: "Python 🐍 : Programación Orientada a Objetos"
 author: enidev911
-categories: [Python, POO]
-tags: [programación orientada abjetos]
+categories: [Python, "02. Intermedio"]
+tags: [python]
 ---
 
 ## Clases y objetos
