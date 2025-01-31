@@ -1,7 +1,6 @@
 ---
 title: "Funciones Recursivas"
 author: enidev911
-date: 2024-01-06
 categories: [Python, Funciones]
 ---
 

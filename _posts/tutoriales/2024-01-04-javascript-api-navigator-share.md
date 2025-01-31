@@ -1,7 +1,8 @@
 ---
-title: "Tutorial: Como usar el Web Share API"
+title: "Tutorial: Cómo usar el Web Share API"
 pin: true
 categories: ["Tutoriales", "Web"]
+tags: [tutoriales, web]
 image:
   path: posters/tutorial-web-share-api.webp
   lqip: data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSDMAAAABR6CgbRuGP+L9mUZEhGWEgWratqI3CDyEhzBGkEwGGWR+/wKI6P8EnAufEDRF8R1fDTcAVlA4IDIAAACwAgCdASoUAAwAPzmEuVOvKKWisAgB4CcJYgAAeyAA/umzCIDNnnjebMD7m73QLAAAAA==
@@ -117,7 +118,7 @@ La **Web Share API** permite compartir diferentes tipos de datos:
 
 La **Web Share API** también permite compartir archivos como parte del objeto de datos, no solo URLs. Para lograr esto, el archivo PDF debe ser accesible como un **objeto Blob** o **File** (es decir, como un archivo binario en lugar de solo una URL).
 
-Ahora veamos un ejemplo para compartir un archivo (este método es compatible para cualquier tipo de archivo como imágenes) con la **Web Share API**. Para ello primero, debes asegurarte que el archivo esté en una carpeta que pueda ser servida públicamente por un servidor web.
+Ahora veamos un ejemplo para compartir un archivo (este método es compatible para cualquier tipo de archivo como imágenes, pdf, etc.) con la **Web Share API**. Para ello primero, debes asegurarte que el archivo esté en una carpeta que pueda ser servida públicamente por un servidor web.
 
 #### **Pasos**
 
