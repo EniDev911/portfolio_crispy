@@ -12,7 +12,7 @@ Cuando interactuamos con aplicaciones móviles y usamos los botones para compart
 
 ### ¿Qué es la Web Share API?
 
-La **Web Share API** es una interfaz que permite que las aplicaciones web acceder al sistema de compartir contenido que normalmente se encuentra disponible en aplicaciones nátivas de dispositivos móviles. Básicamente, permite a los usuarios compartir contenido (textos, enlaces, imágenes, etc.) con otras aplicaciones instaladas en su dispositivo sin tener que copiar y pegar el contenido.
+La **Web Share API** es una interfaz que permite a las aplicaciones web acceder al sistema de compartir contenido que normalmente se encuentra disponible en aplicaciones nátivas de dispositivos móviles. Básicamente, permite a los usuarios compartir contenido (textos, enlaces, imágenes, etc.) con otras aplicaciones instaladas en su dispositivo sin tener que copiar y pegar el contenido.
 
 ### ¿Cómo funciona la Web Share API?
 
