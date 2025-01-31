@@ -214,7 +214,7 @@ document.getElementById('share').addEventListener('click', function() {
 					navigator.share({
 					title: 'Mira este archivo',
 					text: 'Te estoy compartiendo un archivo interesante.',
-					files: [file]  // El archivo como un array de archivos
+					files: [file]
 			})
 			.then(() => {
 				console.log('Archivo compartido exitosamente');
@@ -230,7 +230,7 @@ document.getElementById('share').addEventListener('click', function() {
 ```
 {: file="index.js" }
 
-<button id="btn-share-2" class="btn btn-secondary">Compartir este archivo</button>
+<button onclick="shareFile('img/never-stop-learning.png')" class="btn btn-primary">Compartir este archivo PNG</button>
 
 <script>
 function loadFile(archivo) {
@@ -247,37 +247,37 @@ function loadFile(archivo) {
             .catch(error => console.error('Error al cargar el archivo:', error));
 }
 
-document.getElementById('btn-share-2').addEventListener('click', function() {
-    if (navigator.share && navigator.canShare) {
-		loadFile("img/never-stop-learning.png")
-			.then(file => {
-					navigator.share({
-					title: 'Mira este archivo',
-					text: 'Te estoy compartiendo un archivo interesante.',
-					files: [file]
-			})
-			.then(() => {
-				console.log('Archivo compartido exitosamente');
-			})
-			.catch((error) => {
-				console.error('Error al compartir el archivo:', error);
+function shareFile(archivo) {
+		if (navigator.share && navigator.canShare) {
+			loadFile(archivo)
+				.then(file => {
+						navigator.share({
+						title: 'Mira este archivo',
+						text: 'Te estoy compartiendo un archivo interesante.',
+						files: [file]
+				})
+				.then(() => {
+					console.log('Archivo compartido exitosamente');
+				})
+				.catch((error) => {
+					console.error('Error al compartir el archivo:', error);
+				});
 			});
-		});
-    } else {
-        alert('La Web Share API no es compatible o no puede compartir archivos en este dispositivo.');
-    }
-});
+		} else {
+			alert('La Web Share API no es compatible o no puede compartir archivos en este dispositivo.');
+		}
+}
 </script>
 
 
-**Otro enfoque**
+#### **Otro enfoque simplificado**
 
 ```javascript
 shareButton.onclick = async () => {
-  const response = await fetch("https://example.com/files/hello.pdf");
+  const response = await fetch(window.location.origin + "/assets/docs/documento.pdf");
   const buffer = await response.arrayBuffer();
 
-  const pdf = new File([buffer], "hello.pdf", { type: "application/pdf" });
+  const pdf = new File([buffer], "documento.pdf", { type: "application/pdf" });
   const files = [pdf];
 
   // Si el navegador tiene soporte para recursos compartidos
@@ -286,7 +286,34 @@ shareButton.onclick = async () => {
 ```
 {: .nolineno }
 
+<button id="share-button-pdf" class="btn btn-danger">Compartir este archivo PDF</button>
+
+<script>
+const shareButton = document.getElementById("share-button-pdf");
+
+shareButton.onclick = async () => {
+  const response = await fetch(window.location.origin + "/assets/docs/gh-cli-cheatsheet.pdf");
+  const buffer = await response.arrayBuffer();
+
+  const pdf = new File([buffer], "documento.pdf", { type: "application/pdf" });
+  const files = [pdf];
+
+  if (navigator.canShare({ files })) await navigator.share({ files });
+};
+</script>
+
 ### **Consideraciones**
+
+#### **Compatibilidad de la Web Share API**
+
+La Web Share API no está disponible en todos los navegadores, y su disponibilidad varía según el dispositivo y el sistema operativo. Por ejemplo:
+
+- **Móviles**: Está soportada principalmente en dispositivos Android con navegadores como Chrome y Edge.
+- **Escritorio**: Aunque algunos navegadores de escritorio como Chrome en Windows pueden soportar la API, otros (como Firefox y Safari) pueden no tener soporte completo para compartir archivos, o incluso para compartir en general.
+
+#### **Requiere un contexto seguro (HTTPS)**
+
+La Web Share API solo funciona en sitios servidos a través de HTTPS. Si tu web no está usando HTTPS, la API no podrá ejecutarse.
 
 #### **No funciona con archivos locales**
 

@@ -1,7 +1,9 @@
 @media print {
     span[data-label-text] {
-        margin: auto;
+        margin: 0 auto;
         text-align: center;
+        display: block;
+        width:fit-content;
     }
     .lineno {
         display: none;
@@ -13,16 +15,13 @@
             white-space: break-spaces;
         }
     }
+
     div.code-header {
-        text-align: center;
+        text-align: center !important;
         justify-content: center !important;
 
         &::before {
-            background-color: #ccc;
-            box-shadow: ($code-dot-size + $code-dot-gap) 0 0
-            #ccc,
-            ($code-dot-size + $code-dot-gap) * 2 0 0
-            #ccc;
+            content: none !important;
         }
     }
 
