@@ -1,0 +1,32 @@
+@media print {
+    span[data-label-text] {
+        margin: auto;
+        text-align: center;
+    }
+    .lineno {
+        display: none;
+    }
+
+    .highlight {
+        background: #fff;
+        & pre {
+            white-space: break-spaces;
+        }
+    }
+    div.code-header {
+        text-align: center;
+        justify-content: center !important;
+
+        &::before {
+            background-color: #ccc;
+            box-shadow: ($code-dot-size + $code-dot-gap) 0 0
+            #ccc,
+            ($code-dot-size + $code-dot-gap) * 2 0 0
+            #ccc;
+        }
+    }
+
+    button[aria-label="copy"] {
+        display: none;
+    }
+}
