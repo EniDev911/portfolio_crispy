@@ -10,11 +10,11 @@ pin: true
 
 Cuando interactuamos con aplicaciones móviles y usamos los botones para compartir, enviar enlaces, imágenes o textos a través de aplicaciones como WhatsApp, Facebook, o correo electrónico, es probable que ya hayas visto en acción la **Web Share API** de javaScript. Esta poderosa herramienta permite que las aplicaciones web compartan contenido de manera sencilla utilizando las funcionalidades nativas de los dispositivos.
 
-### ¿Qué es la Web Share API?
+### **¿Qué es la Web Share API?**
 
 La **Web Share API** es una interfaz que permite a las aplicaciones web acceder al sistema de compartir contenido que normalmente se encuentra disponible en aplicaciones nátivas de dispositivos móviles. Básicamente, permite a los usuarios compartir contenido (textos, enlaces, imágenes, etc.) con otras aplicaciones instaladas en su dispositivo sin tener que copiar y pegar el contenido.
 
-### ¿Cómo funciona la Web Share API?
+### **¿Cómo funciona la Web Share API?**
 
 Cuando se utiliza `navigator.share()`, el navegador muestra una interfaz nativa que permite al usuario elegir con qué aplicación desea compartir el contenido. Esta es la forma en que los usuarios normalmente comparten enlaces en aplicaciones móviles como WhatsAPP, Telegram, Twitter, etc.
 
@@ -25,7 +25,7 @@ Cuando se utiliza `navigator.share()`, el navegador muestra una interfaz nativa 
 + [x] El navegador muestra la interfaz de compartir nativa, permitiendo al usuario elegir con qué aplicación compartir el contenido.
 + [x] El contenido se comparte a través de la aplicación seleccionada.
 
-### ¿Cómo usar la Web Share API?
+### **¿Cómo usar la Web Share API?**
 
 Implementar la Web Share API en nuestras páginas web es bastante sencillo. Aquí tenemos un ejemplo de cómo hacerlo:
 
@@ -117,7 +117,7 @@ La **Web Share API** permite compartir diferentes tipos de datos:
 
 La **Web Share API** también permite compartir archivos como parte del objeto de datos, no solo URLs. Para lograr esto, el archivo PDF debe ser accesible como un **objeto Blob** o **File** (es decir, como un archivo binario en lugar de solo una URL).
 
-Ahora veamos un ejemplo para compartir un archivo PDF (este método es compatible para cualquier otro tipo de archivo como imágenes) con la **Web Share API**. Para ello primero, debes asegurarte que el archivo esté en una carpeta que pueda ser servida públicamente por un servidor web.
+Ahora veamos un ejemplo para compartir un archivo (este método es compatible para cualquier tipo de archivo como imágenes) con la **Web Share API**. Para ello primero, debes asegurarte que el archivo esté en una carpeta que pueda ser servida públicamente por un servidor web.
 
 #### **Pasos**
 
