@@ -119,17 +119,22 @@ Ahora veamos un ejemplo para compartir un archivo PDF (este método es compatibl
 
 **1. Cargar el archivo como un `Blob`**
 
-Para ello podemos definir una función que se encargará de realizar la carga del archivo (por ejemplo imágenes PNG):
+Para ello podemos definir una función que se encargará de realizar la carga del archivo (por ejemplo imágenes PNG, PDF, ETC):
 
 ```javascript
 // Función que carga el archivo desde el directorio de assets
 function loadFile(archivo) {
 	// Ruta relativa al archivo en tu servidor web (debe ser accesible)
 	const relativePath = `/assets/${archivo}`;  // Ruta relativa al archivo
+	const fileType = archivo.endsWith('.png') ? 'image/png' :
+					 archivo.endsWith('.jpg') || archivo.endsWith('.jpeg') ? 'image/jpeg' :
+					 archivo.endsWith('.gif') ? 'image/gif' :
+					 archivo.endsWith('.pdf') ? 'application/pdf' :
+					 'application/octet-stream';  // Default para otros tipos de archivo
 
 	return fetch(window.location.origin + relativePath)
             .then(response => response.blob()) // Convierte el archivo en un Blob
-            .then(blob => new File([blob], archivo, { type: 'image/png' })) // Convierte a Blob (Cambia según el tipo Ej: { type: 'application/pdf' })
+            .then(blob => new File([blob], archivo, { type: fileType })) // Convierte a Blob (Cambia según el tipo Ej: { type: 'application/pdf' })
             .catch(error => console.error('Error al cargar el archivo:', error));
 }
 ```
@@ -230,10 +235,15 @@ document.getElementById('share').addEventListener('click', function() {
 <script>
 function loadFile(archivo) {
 	const relativePath = `/assets/${archivo}`;
+	const fileType = archivo.endsWith('.png') ? 'image/png' :
+					 archivo.endsWith('.jpg') || archivo.endsWith('.jpeg') ? 'image/jpeg' :
+					 archivo.endsWith('.gif') ? 'image/gif' :
+					 archivo.endsWith('.pdf') ? 'application/pdf' :
+					 'application/octet-stream';
 
 	return fetch(window.location.origin + relativePath)
             .then(response => response.blob())
-            .then(blob => new File([blob], archivo))
+            .then(blob => new File([blob], archivo, { type: fileType }))
             .catch(error => console.error('Error al cargar el archivo:', error));
 }
 
