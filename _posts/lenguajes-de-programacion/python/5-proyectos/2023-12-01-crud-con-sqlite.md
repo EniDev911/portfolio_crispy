@@ -79,7 +79,7 @@ FILE = os.path.join(CURDIR, "db", FILENAME)
 
 - `CURDIR`: Utilizamos `os.path.abspath(__file__)` para obtener la ruta del archivo que se está ejecutando. Después, con `os.path.dirname()`, extraemos solo el directorio, sin incluir el nombre del archivo. Así obtenemos el **directorio donde se encuentra el script**. Esto es útil si queremos ubicar otros archivos en el mismo directorio o en subcarpetas sin depender de la ubicación desde la que ejecutemos el script.
 - `FILENAME`: Es el nombre del archivo SQL que contiene las instrucciones para crear las tablas y la estructura de la base de datos. En nuestro caso, llamamos a este archivo `schema.sql`.
-- `FILE`: Aquí estamos utilizando `os.path.join()` para generar la **ruta completa** del archivo `schema.sql` que se encuentra dentro de una subcarpeta llamada `db`. De esta forma, la ruta final será algo `/home/usuario/proyecto/db/schema.sql`. Usar `os.path.join()` asegura que las rutas se generen correctamente en cualquier sistema operativo, sin preocuparnos de las barras (`\` o `/`) que puedan variar.
+- `FILE`: Aquí estamos utilizando `os.path.join()` para generar la **ruta completa** del archivo `schema.sql` que se encuentra dentro de una subcarpeta llamada `db`. Usar `os.path.join()` asegura que las rutas se generen correctamente en cualquier sistema operativo, sin preocuparnos de las barras (`\` o `/`) que puedan variar.
 
 #### **Conectar a la Base de Datos**
 
@@ -92,6 +92,7 @@ def open_db() -> Optional[sqlite3.Connection]:
     try:
         con = sqlite3.connect('gestion_links.db')
         return con
+
     except Error as e:
         print('Error: ', e)
         return None
@@ -125,6 +126,7 @@ def run_query(sql: str = '', params: Optional[List[Any]] = None, multiple: bool 
                 if sql.strip().lower().startswith("select"):
                     return cursor
                 con.commit()
+
     except Error as e:
         print("Error al ejecutar la consulta:", e)
         raise
@@ -153,12 +155,8 @@ def create_schema() -> bool:
         print("Base de datos creada exitosamente.")
         return True
 
-    except FileNotFoundError:
-        print(f"Error: El archivo {FILE} no fue encontrado.")
-        return False
-
-    except Error as e:
-        print(f"Error al crear el esquema de la base de datos: {e}")
+    except (FileNotFoundError, IOError) as e:
+        print(f"Error al abrir o leer el archivo {FILE}: {e}")
         return False
 
     except Exception as e:
@@ -167,6 +165,11 @@ def create_schema() -> bool:
 ```
 {: .nolineno file="db.py" }
 
+- `with open(FILE, 'r') as sql_file`: Aquí utilizamos la función `open()` para abrir archivos dentro el **context manager** `with`, `FILE` es la constante que apunta a la ubicación del archivo SQL que contiene el esquema de la base de datos.
+- `sql_file.read()`: Lee completamente el archivo y se guarda en la variable `sql_script`.
+- `run_query(sql_script)`: La función que mencionamos antes y maneja las consultas SQL.
+- `(FileNotFoundError, IOError) as e`: Capturamos tanto los errores de "archivo no encontrado" (`FileNotFound`) como errores generales de entrada/salida (`IOError`).
+- `Exception as e`: Capturamos cualquier otro tipo de error.
 
 ### **Crear el script de arranque**
 
