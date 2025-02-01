@@ -1,7 +1,7 @@
 ---
 title: "Guía: Cómo generar PDFs con ReportLab"
 pin: true
-categories: ["Python", "Guía de Librerías de Python"]
+categories: ["Python", "Guía de Librerías"]
 tags: ["guías", python]
 ---
 
