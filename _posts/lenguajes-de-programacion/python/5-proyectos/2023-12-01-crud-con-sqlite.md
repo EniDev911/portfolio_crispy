@@ -1,13 +1,15 @@
 ---
-title: "Proyecto : CRUD Python - SQLite"
+title: "Proyecto : Gestor de Bookmarks"
 pin: true
 categories: ["Python", "05. Proyectos"]
 tags: ["guías", python]
 mermaid: true
 ---
 
+En este post, vamos a desarrollar una sencilla aplicación de consola en Python para gestionar **enlaces web** de una forma estructurada. De manera similar a los **bookmarks** de los navegadores, la aplicación permitirá realizar las operaciones básicas de un CRUD como **agregar**, **listar**, **actualizar** y **eliminar**, pero además realizar búsquedas y organizar los enlaces web en categorías, todo desde la terminal.
 
-Vamos a desarrollar una sencilla aplicación de consola para gestionar enlaces, con dos tablas. La aplicación permitirá **agregar**, **listar**, **actualizar** y **eliminar** categorías y enlaces en la base de datos. Podemos visualizar esa relación en el siguiente diagrama:
+La base de datos será SQLite y crearemos dos tablas que estarán relacionadas. Podemos visualizar esa relación en el siguiente diagrama:
+
 
 ```mermaid
 ---
@@ -18,24 +20,19 @@ erDiagram
         INTEGER id PK
         STRING name
     }
-    Link {
+    Bookmark {
         INTEGER id PK
         STRING url
         STRING description
         INTEGER category_id FK
     }
-    C["Almacenaremos las categorías disponibles para clasificar los enlaces."] {
 
-    }
-    
-    L["Almacenaremos la URL y la descripción del enlace"] {
-
-    }
-    
-    Category ||..|| C : ""
-    Link ||--|| L : ""
-    Link ||--o| Category : "tiene"
+    Bookmark ||--o| Category : "tiene"
 ```
+
+- `Category`: Almacenaremos las categorías disponibles para clasificar los enlaces.
+- `Bookmark`: Almacenaremos la URL, descripción y categoría que pertenece.
+
 
 ### **Conexión y configuración de la base de datos**
 
@@ -206,6 +203,78 @@ class Link:
         return f"Link(id={self.id}, url={self.url}, description={self.description}, category_id={self.category_id})"
 ```
 {: file="models.py" }
+
+### **Operaciones CRUD**
+
+En este módulo llamado `crud.py` realizaremos las **operaciones CRUD** (crear, leer, actualizar, eliminar) para ambas tablas (`bookmarks`, `categories`) y también métodos de búsquedas.
+
+>  Las clases para manejar las operaciones CRUD se deben centrar en la **lógica de negocio** de la base de datos, no en la validación o en el manejo de errores detallado. Para ello, tenemos otros módulos como `db.py` que maneja los errores relacionados con las consultas y las conexiones a la base de datos.
+{: .prompt-info }
+
+Aquí tienes el códido que corresponde a la clase **CategoryCRUD**:
+
+```py
+from db import run_query
+from models import Category, Link
+
+class CategoryCRUD:
+
+    @staticmethod
+    def create_category(name: str) -> Category:
+        sql = "INSERT INTO categories (name) VALUES (?)"
+        try:
+            run_query(sql, (name,))
+            return Category(id=CategoryCRUD.get_category_by_name(name), name=name)
+        except Exception as e:
+            pass
+
+    @staticmethod
+    def get_category_by_name(name: str) -> Category:
+        sql = "SELECT id, name FROM categories WHERE name = ?"
+        run_query(sql, (name,))
+
+    @staticmethod
+    def search_categories_by_name(text: str) -> list[Category]:
+        sql = "SELECT id, name FROM categories WHERE name LIKE ?"
+        cursor = run_query(sql, ('%' + text + '%',))
+        categories_data = cursor.fetchall()
+        if categories_data:
+            categories = [Category(*category_data) for category_data in categories_data]
+            return categories
+        return []
+```
+{: .nolineno file="crud.py" }
+
+
+Aquí tienes el códido que corresponde a la clase **BookmarkCRUD**:
+
+```py
+class BookmarkCRUD:
+
+    @staticmethod
+    def get_all_bookmarks() -> list[Bookmark]:
+        sql = "SELECT id, url, description, category_id FROM bookmarks"
+        cursor = run_query(sql)
+        bookmarks_data = cursor.fetchall()
+        bookmarks = [Bookmark(*bookmark_data) for bookmark_data in bookmarks_data]
+        if len(bookmarks) >= 1:
+            return bookmarks
+        return []
+
+    @staticmethod
+    def create_bookmark(url: str, description: str, category_id: int) -> Bookmark:
+        sql = "INSERT INTO bookmarks (url, url, category_id) VALUES (?, ?, ?)"
+        run_query(sql, (url, description, category_id))
+        return Bookmark(id=CategoryCRUD.get_category_id_by_name(name), name=name)
+
+    @staticmethod
+    def get_bookmark_id_by_description(description: str) -> int:
+        sql = "SELECT id FROM bookmarks WHERE description = ?"
+        cursor = run_query(sql, (description,))
+        bookmark_data = cursor.fetchone()
+        return bookmark_data[0] if bookmark_data else None
+```
+{: .nolineno file="crud.py" }
 
 ### **Crear el script de arranque**
 
