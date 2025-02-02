@@ -116,7 +116,7 @@ La **Web Share API** permite compartir diferentes tipos de datos:
 
 ### **Compartir Archivos**
 
-La **Web Share API** también permite compartir archivos como parte del objeto de datos, no solo URLs. Para lograr esto, el archivo PDF debe ser accesible como un **objeto Blob** o **File** (es decir, como un archivo binario en lugar de solo una URL).
+La **Web Share API** también permite compartir archivos como parte del objeto de datos, no solo URLs. Para lograr esto, el archivo debe ser accesible como un **objeto Blob** o **File** (es decir, como un archivo binario en lugar de solo una URL).
 
 Ahora veamos un ejemplo para compartir un archivo (este método es compatible para cualquier tipo de archivo como imágenes, pdf, etc.) con la **Web Share API**. Para ello primero, debes asegurarte que el archivo esté en una carpeta que pueda ser servida públicamente por un servidor web.
 
@@ -139,7 +139,7 @@ function loadFile(archivo) {
 
 	return fetch(window.location.origin + relativePath)
             .then(response => response.blob()) // Convierte el archivo en un Blob
-            .then(blob => new File([blob], archivo, { type: fileType })) // Convierte a Blob (Cambia según el tipo Ej: { type: 'application/pdf' })
+            .then(blob => new File([blob], archivo, { type: fileType })) // Convierte el archivo en un objeto File
             .catch(error => console.error('Error al cargar el archivo:', error));
 }
 ```
@@ -153,7 +153,7 @@ Para que funcione entonces debemos llamar a la función anterior y especificar e
 document.getElementById('share').addEventListener('click', function() {
 // Verifica si la Web Share API está disponible
     if (navigator.share && navigator.canShare) {
-		// Cargar el archivo PDF como un File
+		// Cargar el archivo como un File
 		loadFile("image.png")
 			.then(file => {
 				// Compartir el archivo

@@ -14,18 +14,27 @@ Vamos a desarrollar una sencilla aplicación de consola para gestionar enlaces, 
 title: "Diagrama Entidad Relación"
 ---
 erDiagram
-    Categoria {
+    Category {
         INTEGER id PK
-        STRING nombre
+        STRING name
     }
-    Enlace {
+    Link {
         INTEGER id PK
         STRING url
-        STRING descripcion
-        INTEGER categoria_id FK
+        STRING description
+        INTEGER category_id FK
+    }
+    C["Almacenaremos las categorías disponibles para clasificar los enlaces."] {
+
     }
     
-    Categoria ||--o| Enlace : "tiene"
+    L["Almacenaremos la URL y la descripción del enlace"] {
+
+    }
+    
+    Category ||..|| C : ""
+    Link ||--|| L : ""
+    Link ||--o| Category : "tiene"
 ```
 
 ### **Conexión y configuración de la base de datos**
@@ -54,9 +63,8 @@ El código que escribamos en este módulo tiene como objetivo **conectarse a la 
 Lo primero que necesitamos es importar las librerías que nos ayudarán a conectar con SQLite, gestionar las rutas de los archivos y utilidades para las anotaciones de los tipos:
 
 ```py
-import sqlite3
+import sqlite3, os
 from sqlite3 import Error
-import os
 from typing import Optional, List, Any
 ```
 {: .nolineno file="db.py" }
@@ -151,25 +159,53 @@ def create_schema() -> bool:
         with open(FILE, 'r') as sql_file:
             sql_script = sql_file.read() 
 
-        run_query(sql_script)
+        with open_db() as con:
+            con.executescript(sql_script)
+
         print("Base de datos creada exitosamente.")
         return True
 
     except (FileNotFoundError, IOError) as e:
         print(f"Error al abrir o leer el archivo {FILE}: {e}")
         return False
-
-    except Exception as e:
-        print(f"Error inesperado: {e}")
-        return False
 ```
 {: .nolineno file="db.py" }
 
 - `with open(FILE, 'r') as sql_file`: Aquí utilizamos la función `open()` para abrir archivos dentro el **context manager** `with`, `FILE` es la constante que apunta a la ubicación del archivo SQL que contiene el esquema de la base de datos.
 - `sql_file.read()`: Lee completamente el archivo y se guarda en la variable `sql_script`.
-- `run_query(sql_script)`: La función que mencionamos antes y maneja las consultas SQL.
+- `with open_db() as con`: La función que mencionamos antes que abre la conexión y las contenemos en la variable `con`.
+- `con.executescript(sql_script)`: Es un método de la conexión (`con`) en SQLite que se utiliza para ejecutar múltiples sentencias SQL.
 - `(FileNotFoundError, IOError) as e`: Capturamos tanto los errores de "archivo no encontrado" (`FileNotFound`) como errores generales de entrada/salida (`IOError`).
-- `Exception as e`: Capturamos cualquier otro tipo de error.
+
+
+### **Definición de Entidades**
+
+Aunque en SQLite no es estrictamente necesario usar clases de modelos como en un ORM, podemos hacer representaciones de nuestras tablas como clases para tener una estructura clara.
+
+Aquí tienes el código completo para nuestro módulo `models.py`:
+
+```py
+class Category:
+    """Modelo de la tabla Category."""
+    def __init__(self, id: int, name: str):
+        self.id = id
+        self.name = name
+
+    def __repr__(self):
+        return f"Category(id={self.id}, name={self.name})"
+
+class Link:
+    """Modelo de la tabla Link."""
+    def __init__(self, id: int, url: str, description: str, category_id: int):
+        self.id = id
+        self.url = url
+        self.description = description
+        self.category_id = category_id
+
+    def __repr__(self):
+        return f"Link(id={self.id}, url={self.url}, description={self.description}, category_id={self.category_id})"
+```
+{: file="models.py" }
 
 ### **Crear el script de arranque**
 
