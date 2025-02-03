@@ -177,13 +177,13 @@ def create_schema() -> bool:
 
 ### **Definición de Entidades**
 
-Aunque en SQLite no es estrictamente necesario usar clases de modelos como en un ORM, podemos hacer representaciones de nuestras tablas como clases para tener una estructura clara.
+Aunque en SQLite no es estrictamente necesario usar clases de modelos como en un ORM, podemos hacer representaciones de nuestras tablas como clases para tener una estructura clara y añadirle algunas funcionales como por ejemplo truncar las URLs que sean largas.
 
 Aquí tienes el código completo para nuestro módulo `models.py`:
 
 ```py
 class Category:
-    """Modelo de la tabla Category."""
+    """Modelo de la tabla categories."""
     def __init__(self, id: int, name: str):
         self.id = id
         self.name = name
@@ -191,16 +191,22 @@ class Category:
     def __repr__(self):
         return f"Category(id={self.id}, name={self.name})"
 
-class Link:
-    """Modelo de la tabla Link."""
-    def __init__(self, id: int, url: str, description: str, category_id: int):
+class Bookmark:
+    """Modelo de la tabla bookmarks."""
+    def __init__(self, id: int, name: str, url: str, category_id: int):
         self.id = id
+        self.name = name
         self.url = url
-        self.description = description
         self.category_id = category_id
 
+	def truncate_url(self, max_len=30) -> str:
+         """Método que trunca una URL, si su longitud es mayor a 30 caracteres."""
+		if len(self.url) > max_len:
+			return self.url[:max_len] + "..."
+		return self.url
+
     def __repr__(self):
-        return f"Link(id={self.id}, url={self.url}, description={self.description}, category_id={self.category_id})"
+        return f"Bookmark(id={self.id}, url={self.url}, description={self.description}, category_id={self.category_id})"
 ```
 {: file="models.py" }
 
