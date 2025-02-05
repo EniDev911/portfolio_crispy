@@ -33,6 +33,39 @@ erDiagram
 - `Category`: Almacenaremos las categorías disponibles para clasificar los enlaces.
 - `Bookmark`: Almacenaremos la URL, descripción y categoría que pertenece.
 
+### **Estructura del Proyecto**
+
+La estructura del proyecto será modular y se organizará de la siguiente manera para mantener claridad, la separación de responsabilidades y la facilidad de mantenimiento:
+
+
+```bash
+bookmarks-manager-consola/
+│
+├── db/
+│   ├── __init__.py      # Inicializador para el paquete db
+│   ├── db.py            # Conexión a la base de datos y función run_query
+├── crud/
+│   ├── __init__.py       # Inicializador para el paquete crud
+│   ├── crud.py           # Lógica CRUD para manejar bookmarks y categorías
+├── models/
+│   ├── __init__.py       # Inicializador para el paquete models
+│   ├── models.py         # Modelos para Bookmark y Category
+├── schema/
+│   └── schema.sql        # Esquema de la base de datos (SQL)
+├── gestor/
+│   ├── __init__.py       # Inicializador para el gestor de bookmarks
+│   ├── bookmark_manager.py  # Funcionalidades principales de gestión de bookmarks
+├── main.py               # Archivo principal para ejecutar la aplicación
+└── requirements.txt      # Dependencias del proyecto
+```
+{: .nolineno .noheader }
+
+- `db/`: Aquí estará el archivo de conexión con la base de datos y las funciones relacionadas con el manejo de las consultas.
+- `crud/`: Contiene la lógica para manejar las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para las entidades `Category` y `Boomark`.
+- `models/`: Aquí se definen los modelos de datos para `Category` y `Bookmark`, lo que proporciona una forma estructurada de interactuar con los datos.
+- `schema/`: Este directorio contiene el archivo SQL (`schema.sql`) que define la estructura de la base de datos.
+- `main.py`: Este archivo será el punto de entrada del programa donde se ejecutan las acciones del gestor de bookmarks.
+- `requirements.txt`: Listado de las dependencias necesarias, como `prettytable`.
 
 ### **Conexión y configuración de la base de datos**
 
@@ -281,6 +314,13 @@ class BookmarkCRUD:
         return bookmark_data[0] if bookmark_data else None
 ```
 {: .nolineno file="crud.py" }
+
+
+**Métodos de CategoryCRUD**
+
+- `create_category`: Inserta una categoría en la base de datos y devuelve un objeto `Category` con el ID generado.
+- `get_category_by_name`
+
 
 ### **Crear el script de arranque**
 
