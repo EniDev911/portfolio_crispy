@@ -64,7 +64,7 @@ Este proceso puede tardar entre 5 a 10 minutos, cuando la comprobación tenga é
 
 ### **3. Asignar DNS - Registros MX en Zoho**
 
-Para que los correos electrónicos lleguen a Zoho Mail en lugar de Google Workspace, tenemos que actualizar los registros MX en nuestro dominio. Esto a través del panel panel de control de nuestro proveedor de dominio. Zoho te proporcionará los registros MX específicos que debemos añadir, deberían ser los siguientes valores para los registros MX:
+Para que los correos electrónicos lleguen a Zoho Mail en lugar de Google Workspace, tenemos que actualizar los registros MX en nuestro dominio. Esto a través del panel de control de nuestro proveedor de dominio. Zoho te proporcionará los registros MX específicos que debemos añadir, deberían ser los siguientes valores para los registros MX:
 
 |**Record Type**|**Host**|**ªValor**|**Prioridad**|
 |:---|:---|:---|:---|
