@@ -3,7 +3,6 @@ title: "Instalar y Configurar PostgreSQL en EC2"
 categories: ["Tutoriales", "Devops"]
 ---
 
-
 ### 1. Instalar PostgreSQL en EC2
 
 Primero, necesitamos instalar PostgreSQL y sus herramientas de cliente en nuestra instancia EC2:
