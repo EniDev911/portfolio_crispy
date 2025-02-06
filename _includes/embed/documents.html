@@ -1,6 +1,5 @@
 <div class="resource mb-4 position-relative">
-  <button id="fullscreenBtn" class="btn btn-secondary mb-2">Pantalla Completa</button>
-  <button id="shareBtn" class="btn btn-outline-secondary mb-2">Compartir</button>
+  <button id="shareBtn" class="border-1 rounded mb-3"><i class="fa-solid fa-arrow-up-from-bracket"></i> Compartir</button>
   {% if include.target %}
   <a class="mb-4 d-inline-block fs-6" target="_blank" href="{{ include.src }}">Abrir en una nueva ventana</a>
   {% endif %}
@@ -8,19 +7,6 @@
 </div>
 
 <script>
-  document.getElementById('fullscreenBtn').addEventListener('click', function () {
-    const iframe = document.getElementById('ifr');
-    if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-    } else if (iframe.mozRequestFullScreen) { 
-        iframe.mozRequestFullScreen();
-    } else if (iframe.webkitRequestFullscreen) { 
-        iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) { 
-        iframe.msRequestFullscreen();
-    }
-});
-
 function loadFile(archivo) {
 
     const fileType = archivo.endsWith('.png') ? 'image/png' :

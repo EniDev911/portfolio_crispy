@@ -5,9 +5,9 @@ layout: page
 {% assign grouped_documents = site.documents | group_by: "category" %}
 
 {% for category in grouped_documents %}
-  <h2>{{ category.name }}</h2>
-  <div class="table--wrapper">
-  <table class="table">
+  <h2>{{ category.name | upcase }}</h2>
+  <div class="table-wrapper">
+  <table>
     <thead>
       <tr>
         <th>Título</th>
