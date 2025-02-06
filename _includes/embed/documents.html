@@ -1,9 +1,9 @@
 <div class="resource mb-4 position-relative">
-  <button id="shareBtn" class="border-1 rounded mb-3"><i class="fa-solid fa-arrow-up-from-bracket"></i> Compartir</button>
+  <button id="shareBtn" class="border-0 p-1 px-2 border border-3 rounded mb-3"><i class="fa-solid fa-arrow-up-from-bracket"></i> Compartir</button>
   {% if include.target %}
   <a class="mb-4 d-inline-block fs-6" target="_blank" href="{{ include.src }}">Abrir en una nueva ventana</a>
   {% endif %}
-  <iframe src="{{ include.src | relative-url }}" style="width: 100%; min-height: 600px; overflow: hidden; border-radius: 8px" frameborder="0" id="ifr" allowfullscreen></iframe>
+  <iframe src="{{ include.src | relative-url }}" style="width: 100%; min-height: 500px; overflow: hidden; border-radius: 8px" frameborder="0" id="ifr" allowfullscreen></iframe>
 </div>
 
 <script>
