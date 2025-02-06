@@ -131,6 +131,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  documents:
+    output: true
+    permalink: /documentos/:category/:title/
 
 defaults:
   - scope:

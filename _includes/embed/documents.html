@@ -1,9 +1,10 @@
 <div class="resource mb-4 position-relative">
   <button id="fullscreenBtn" class="btn btn-secondary mb-2">Pantalla Completa</button>
+  <button id="shareBtn" class="btn btn-outline-secondary mb-2">Compartir</button>
   {% if include.target %}
   <a class="mb-4 d-inline-block fs-6" target="_blank" href="{{ include.src }}">Abrir en una nueva ventana</a>
   {% endif %}
-  <iframe src="{{ include.src | relative-url }}" style="width: 100%; min-height: 450px; overflow: hidden; border-radius: 8px" frameborder="0" id="ifr" allowfullscreen></iframe>
+  <iframe src="{{ include.src | relative-url }}" style="width: 100%; min-height: 600px; overflow: hidden; border-radius: 8px" frameborder="0" id="ifr" allowfullscreen></iframe>
 </div>
 
 <script>
@@ -11,12 +12,44 @@
     var iframe = document.getElementById('ifr');
     if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
-    } else if (iframe.mozRequestFullScreen) { // Firefox
+    } else if (iframe.mozRequestFullScreen) { 
         iframe.mozRequestFullScreen();
-    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+    } else if (iframe.webkitRequestFullscreen) { 
         iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) { // IE/Edge
+    } else if (iframe.msRequestFullscreen) { 
         iframe.msRequestFullscreen();
+    }
+});
+
+function loadFile(archivo) {
+
+	return fetch(archivo)
+            .then(response => response.blob())
+            .then(blob => new File([blob], archivo))
+            .catch(error => console.error('Error al cargar el archivo:', error));
+}
+
+document.getElementById('shareBtn').addEventListener('click', function() {
+    const iframe = document.getElementById('ifr');
+    const src = iframe.src;
+
+    if (navigator.share && navigator.canShare) {
+		loadFile(src)
+			.then(file => {
+					navigator.share({
+					title: 'Mira este archivo',
+					text: 'Te estoy compartiendo un archivo interesante.',
+					files: [file]
+			})
+			.then(() => {
+				console.log('Archivo compartido exitosamente');
+			})
+			.catch((error) => {
+				console.error('Error al compartir el archivo:', error);
+			});
+		});
+    } else {
+        alert('La Web Share API no es compatible o no puede compartir archivos en este dispositivo.');
     }
 });
 </script>

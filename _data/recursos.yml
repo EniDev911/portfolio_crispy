@@ -1,0 +1,10 @@
+github:
+  - title: "GH CLI cheatsheet"
+    src: "/assets/docs/gh-cli-cheatsheet.pdf"
+  - title: "Configurar SSH"
+    src: "/assets/docs/github-configurar-ssh.pdf"
+python:
+  - title: "Python Listas"
+    src: "/assets/docs/python-listas.pdf"
+  - title: "Python Diccionarios"
+    src: "/assets/docs/python-diccionarios.pdf"

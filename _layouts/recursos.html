@@ -1,0 +1,26 @@
+---
+layout: page
+---
+
+
+{% for category in site.data.recursos %}
+  <h2>{{ category[0] | capitalize }}</h2>
+  <div class="table--wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Enlace</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in category[1] %}
+        <tr>
+          <td>{{ item.title }}</td>
+          <td><a href="/documentos/{{ category[0] | slugify}}/{{ item.title | slugify }}">Ver detalles</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
