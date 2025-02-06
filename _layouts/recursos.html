@@ -2,9 +2,10 @@
 layout: page
 ---
 
+{% assign grouped_documents = site.documents | group_by: "category" %}
 
-{% for category in site.data.recursos %}
-  <h2>{{ category[0] | capitalize }}</h2>
+{% for category in grouped_documents %}
+  <h2>{{ category.name }}</h2>
   <div class="table--wrapper">
   <table class="table">
     <thead>
@@ -14,10 +15,10 @@ layout: page
       </tr>
     </thead>
     <tbody>
-      {% for item in category[1] %}
+      {% for document in category.items %}
         <tr>
-          <td>{{ item.title }}</td>
-          <td><a href="/documentos/{{ category[0] | slugify}}/{{ item.title | slugify }}">Ver detalles</a></td>
+          <td>{{ document.title }}</td>
+          <td><a href="/documentos/{{ category.name | slugify}}/{{ document.title | slugify }}">Ver detalles</a></td>
         </tr>
       {% endfor %}
     </tbody>
