@@ -9,7 +9,7 @@
 
 <script>
   document.getElementById('fullscreenBtn').addEventListener('click', function () {
-    var iframe = document.getElementById('ifr');
+    const iframe = document.getElementById('ifr');
     if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
     } else if (iframe.mozRequestFullScreen) { 
@@ -23,15 +23,23 @@
 
 function loadFile(archivo) {
 
+    const fileType = archivo.endsWith('.png') ? 'image/png' :
+					 archivo.endsWith('.jpg') || archivo.endsWith('.jpeg') ? 'image/jpeg' :
+					 archivo.endsWith('.gif') ? 'image/gif' :
+					 archivo.endsWith('.pdf') ? 'application/pdf' :
+					 'application/octet-stream';
+
+    const fileName = archivo.split('/').pop();
+
 	return fetch(archivo)
             .then(response => response.blob())
-            .then(blob => new File([blob], archivo))
+            .then(blob => new File([blob], fileName, { type: fileType }))
             .catch(error => console.error('Error al cargar el archivo:', error));
 }
 
 document.getElementById('shareBtn').addEventListener('click', function() {
-    const iframe = document.getElementById('ifr');
-    const src = iframe.src;
+    const ifr = document.getElementById('ifr');
+    const src = ifr.src;
 
     if (navigator.share && navigator.canShare) {
 		loadFile(src)
