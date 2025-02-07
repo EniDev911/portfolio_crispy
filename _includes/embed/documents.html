@@ -7,6 +7,7 @@
 </div>
 
 <script>
+
 function loadFile(archivo) {
 
     const fileType = archivo.endsWith('.png') ? 'image/png' :
@@ -26,7 +27,7 @@ function loadFile(archivo) {
 document.getElementById('shareBtn').addEventListener('click', function() {
     const ifr = document.getElementById('ifr');
     const src = ifr.src;
-
+    
     if (navigator.share && navigator.canShare) {
 		loadFile(src)
 			.then(file => {
