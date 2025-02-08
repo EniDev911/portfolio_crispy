@@ -442,7 +442,6 @@ title: 'Inicio'
       stroke: #ccc; /* Blanco en modo oscuro */
       fill: #1f1f1f;   /* Negro de fondo */
     }
-
   }
 
   /* Trazo en modo oscuro */
@@ -455,6 +454,191 @@ title: 'Inicio'
     html[data-mode='light'] #hero-animation path {
       stroke: #888; /* Negro en modo claro */
       fill: #fff;   /* Blanco de fondo */
+    }
+  }
+
+/*
+* Animation styles
+*/
+#editor-window, #app-window
+{
+   opacity: 0;
+}
+
+.computer-screen, #MLID_162_ {
+  fill: none;
+}
+
+/*
+* SVG Styles
+*/
+.book-line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #888;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.st1 {
+  fill: none;
+}
+.st2 {
+  fill: none;
+}
+
+.st3 {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #888;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.st4 {
+  fill: none;
+}
+
+.st5 {
+  opacity: 0.28;
+  fill: #1f3969;
+  stroke: #1f3969;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  enable-background: new;
+}
+.st6 {
+  fill: none;
+}
+.st7 {
+  fill: none;
+}
+.st8 {
+  fill: none;
+}
+.st9 {
+  fill: none;
+}
+.st10 {
+  fill: #888;
+}
+.st11 {
+  fill: none;
+}
+
+.st13 {
+  fill: none;
+  stroke: #888;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+.st14 {
+  fill: none;
+  stroke: #888;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+.st15 {
+  fill: none;
+  stroke: #9169ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+.st16 {
+  fill: none;
+  stroke: #ffc47d;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+.st17 {
+  fill: none;
+  stroke: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.st19 {
+  opacity: 0.34;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  enable-background: new;
+}
+.st20 {
+  opacity: 0.34;
+}
+
+
+.st25 {
+  fill: none;
+  stroke: #888;
+  stroke-width: 3.9998;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 9.9996;
+}
+
+.st26 {
+  fill: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+    html:not([data-mode]) .st2,
+    html[data-mode='light'] .st2 {
+      fill: #1c1c1f;   /* Negro en modo claro */
+    }
+    html[data-mode="light"] .book-line {
+      stroke: #888;
+    }
+
+    html[data-mode="light"] .st3 {
+      fill: #fff;
+      stroke: #888;
+    }
+
+    html[data-mode="light"] .st26 {
+      fill: #fff;
+    }
+
+    html:not([data-mode]) .st0,
+    html:not([data-mode]) .st9,
+    html[data-mode='light'] .st0,
+    html[data-mode='light'] .st9 {
+      fill: #fff;
+    }
+    html[data-mode="dark"] .st2 {
+      fill: #ffffff;
+      /* stroke: #000; */
+    }
+
+    html[data-mode="dark"] .st3 {
+      fill: #1c1c1f;
+      stroke: #ccc;
+    }
+    
+    html[data-mode="dark"] .st26 {
+      fill: #1c1c1f;
+    }
+
+    html[data-mode="dark"] .book-line {
+      stroke: #ccc;
     }
   }
 
@@ -681,13 +865,173 @@ title: 'Inicio'
 <section>
   <h1 align="center" class="text-uppercase">Bienvenido</h1>
   <p>¡Hola! Soy Marco Contreras, un desarrollador <strong>full stack</strong> con una pasión infinita por la tecnología, el código <i class="fa fa-code"></i> y las soluciones innovadoras. Mi lema es "<strong>Nunca Pares de Aprender</strong>", porque creo que la clave para crecer y evolucionar en este campo es estar siempre en moviemiento, adaptándonos a las nuevas tendencias y desafíos en busca de aprender en cada momento cosas increíbles.</p>
+</section>
+<section>
   <h2 align="center" class="text-uppercase fw-bold">Blog</h2>
+
   <p>En mi <a href="/blog/">blog</a>  comparto artículos, tutoriales prácticos y nuevas herramientas que suelo recomendar. Mi objetivo es ofrecer contenido útil y relevante que te ayude a mantenerte actualizado, aprender algo nuevo o inspirarte a seguir creando.</p>
-  <p>Este sitio es el reflejo de mi viaje constante de descubrimiento y mejora. Aquí encontrarás proyectos que van desde lo simple hasta lo más complejo, siempre con un enfoque en la excelencia, la creatividad y, por supuesto, el aprendizaje continuo. Si eres de los que piensan que siempre hay algo nuevo que aprender, estás en el lugar correcto. ¡Acompáñame en esta aventura!</p>
 </section>
 <section>
   <h2 align="center" class="text-uppercase fw-bold">Recursos Adicionales</h2>
   <p>En el apartado de <a href="/recursos/">Recursos Adicionales</a> encontrarás una variedad de materiales diseñados especialmente para potenciar tu productividad como programador. Podrás descargar PDFs, presentaciones, guías, <em>cheatsheets</em> y otros recursos prácticos. Además, tendrás la posibilidad de compartir fácilmente estos recursos a través de las plataformas con el botón de <kbd>Compartir</kbd>.</p>
+</section>
+<section>
+  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 300 1000 370" xml:space="preserve">
+    <path id="desk" class="st3" d="M789.5,666.3H169.2c-5,0-9-4-9-9l0,0c0-5,4-9,9-9h620.3c5,0,9,4,9,9l0,0
+      C798.5,662.3,794.5,666.3,789.5,666.3z" />
+    <g id="top-book">
+      <path id="XMLID_178_" class="st1" d="M285.9,573.3c-9.6,0-17.3-7.8-17.3-17.3s7.8-17.3,17.3-17.3h98v34.7h-98V573.3z" />
+      <line id="XMLID_164_" class="book-line" x1="279.5" y1="550.6" x2="383.9" y2="550.6" />
+      <line id="XMLID_173_" class="book-line" x1="279.5" y1="561.2" x2="383.9" y2="561.2" />
+      <path id="XMLID_179_" class="book-line" d="M285.9,573.3c-9.6,0-17.3-7.8-17.3-17.3s7.8-17.3,17.3-17.3h98v34.7h-98V573.3z" />
+      <path id="XMLID_161_" class="st4" d="M285.9,573.3c-9.6,0-17.3-7.8-17.3-17.3s7.8-17.3,17.3-17.3h99.7l4-6H285.9
+                                           c-12.9,0-23.3,10.5-23.3,23.3l0,0c0,12.9,10.5,23.3,23.3,23.3h103.7l-4-6H285.9z" />
+      <path id="XMLID_182_" class="st3" d="M285.9,573.3c-9.6,0-17.3-7.8-17.3-17.3s7.8-17.3,17.3-17.3h99.7l4-6H285.9
+                                           c-12.9,0-23.3,10.5-23.3,23.3l0,0c0,12.9,10.5,23.3,23.3,23.3h103.7l-4-6H285.9z" />
+    </g>
+    <g id="middle-book">
+      <path id="XMLID_157_" class="st6" d="M378.9,617.8H189c-3.7,0-6.8-3-6.8-6.8v-25c0-3.7,3-6.8,6.8-6.8h189.9c3.7,0,6.8,3,6.8,6.8
+                                           v25C385.7,614.8,382.7,617.8,378.9,617.8z" />
+      <g>
+        <path class="st2" d="M240.3,599.8h-2.6v5.5H236V592h4.3c3.1,0,4.6,1.7,4.6,3.9C244.9,597.9,243.6,599.8,240.3,599.8z
+                             M240.3,598.3c2,0,2.8-0.9,2.8-2.4s-0.8-2.5-2.8-2.5h-2.6v4.9H240.3z" />
+        <path class="st2" d="M249.7,592h1.9l3.3,6.7l3.3-6.7h1.9l-4.3,8.3v5h-1.7v-5L249.7,592z" />
+        <path class="st2" d="M264.9,592h9v1.4h-3.6v11.9h-1.7v-11.9H265L264.9,592L264.9,592z" />
+        <path class="st2" d="M288.4,599.3h-6.8v6h-1.7V592h1.7v5.8h6.8V592h1.7v13.3h-1.7V599.3z" />
+        <path class="st2" d="M302.9,605.4c-3.7,0-6.7-2.8-6.7-6.8s2.9-6.8,6.7-6.8c3.8,0,6.7,2.8,6.7,6.8
+                             C309.5,602.6,306.6,605.4,302.9,605.4z M302.9,603.9c2.8,0,4.9-2,4.9-5.3s-2.1-5.3-4.9-5.3s-4.9,2-4.9,5.3
+                             S300.1,603.9,302.9,603.9z" />
+        <path class="st2" d="M326.1,592v13.3h-1.7l-7-10.6v10.6h-1.7V592h1.7l7,10.5V592H326.1z" />
+      </g>
+      <path id="XMLID_146_" class="book-line" d="M378.9,617.8H189c-3.7,0-6.8-3-6.8-6.8v-25c0-3.7,3-6.8,6.8-6.8h189.9c3.7,0,6.8,3,6.8,6.8
+                                           v25C385.7,614.8,382.7,617.8,378.9,617.8z" />
+    </g>
+    <g id="bottom-book">
+      <path id="XMLID_35_" class="st1" d="M432.4,625.6h-220c1.3,3.2,2,7.2,2,11.4s-0.7,8.1-2,11.4h219.9c-1.3-3.2-2-7.2-2-11.4
+                                          C430.4,632.7,431.1,628.8,432.4,625.6z" />
+      <rect id="XMLID_156_" x="206.5" y="619.5" class="st7" width="231.9" height="6" />
+      <rect id="XMLID_32_" x="206.5" y="619.5" class="st3" width="231.9" height="6" />
+      <rect id="XMLID_147_" x="206.5" y="648.3" class="st8" width="231.9" height="6" />
+      <rect id="XMLID_39_" x="206.5" y="648.3" class="st7" width="231.9" height="6" />
+      <rect id="XMLID_37_" x="206.5" y="648.3" class="st3" width="231.9" height="6" />
+      <line id="XMLID_145_" class="book-line" x1="214.9" y1="632.5" x2="430.4" y2="632.5" />
+      <line id="XMLID_151_" class="book-line" x1="214.9" y1="640.5" x2="430.4" y2="640.5" />
+      <path id="XMLID_158_" class="book-line" d="M432.4,625.6h-220c1.3,3.2,2,7.2,2,11.4s-0.7,8.1-2,11.4h219.9c-1.3-3.2-2-7.2-2-11.4
+                                           C430.4,632.7,431.1,628.8,432.4,625.6z" />
+    </g>
+    <g id="computer">
+      <path id="XMLID_69_" class="st9" d="M553.6,633l-3-33.7h-49.4l-3,33.7c-0.7,7.8-5.4,15.3-12.8,21.3v0.1h81v-0.1
+                                          C559,648.3,554.3,640.8,553.6,633z" />
+      <polygon id="XMLID_33_" class="st5" points="501.2,599.3 499.4,619.5 552.4,619.5 550.6,599.3 			" />
+      <path id="XMLID_10_" class="st3" d="M553.6,633l-3-33.7h-49.4l-3,33.7c-0.7,7.8-5.4,15.3-12.8,21.3v0.1h81v-0.1
+                                          C559,648.3,554.3,640.8,553.6,633z" />
+      <path id="XMLID_13_" class="st2" d="M683.9,604.3h-316c-6.6,0-12-5.4-12-12v-206c0-6.6,5.4-12,12-12h316c6.6,0,12,5.4,12,12v206
+                                          C695.9,599,690.5,604.3,683.9,604.3z" />
+      <path id="XMLID_63_" class="st9" d="M683.9,604.3h-316c-6.6,0-12-5.4-12-12v-206c0-6.6,5.4-12,12-12h316c6.6,0,12,5.4,12,12v206
+                                          C695.9,599,690.5,604.3,683.9,604.3z" />
+      <path id="XMLID_4_" class="st3" d="M683.9,604.3h-316c-6.6,0-12-5.4-12-12v-206c0-6.6,5.4-12,12-12h316c6.6,0,12,5.4,12,12v206
+                                         C695.9,599,690.5,604.3,683.9,604.3z" />
+      <rect id="XMLID_68_" x="373" y="391.3" class="computer-screen" width="306" height="174.6" />
+      <rect id="XMLID_11_" x="373" y="391.3" class="st3" width="306" height="174.6" />
+      <line id="XMLID_9_" class="st3" x1="512.5" y1="585" x2="539.4" y2="585" />
+    </g>
+    <g id="editor-window">
+      <path id="XMLID_15_" class="st10" d="M590,509.9H400.9c-4.4,0-8-3.6-8-8V353.7c0-4.4,3.6-8,8-8H590c4.4,0,8,3.6,8,8V502
+                                           C598,506.4,594.4,509.9,590,509.9z" />
+      <path id="XMLID_17_" class="st3" d="M598,365.1H392.9v-11.5c0-4.4,3.6-8,8-8H590c4.4,0,8,3.6,8,8V365.1z" />
+      <path id="XMLID_23_" class="st11" d="M598,368.9H392.9v-15.3c0-4.4,3.6-8,8-8H590c4.4,0,8,3.6,8,8V368.9z" />
+      <path id="XMLID_18_" class="st3" d="M598,368.9H392.9v-15.3c0-4.4,3.6-8,8-8H590c4.4,0,8,3.6,8,8V368.9z" />
+      <path id="XMLID_20_" class="st3" d="M598,368.9H392.9v-15.3c0-4.4,3.6-8,8-8H590c4.4,0,8,3.6,8,8V368.9z" />
+      <path id="XMLID_12_" class="st3" d="M590,509.9H400.9c-4.4,0-8-3.6-8-8V353.7c0-4.4,3.6-8,8-8H590c4.4,0,8,3.6,8,8V502
+                                          C598,506.4,594.4,509.9,590,509.9z" />
+      <path id="editor-window-shadow" class="st5" d="M383.9,374.3v138.6c0,4.4,3.6,8,8,8H581c4.4,0,8-3.6,8-8V374.3H383.9z" />
+      <circle id="XMLID_24_" class="st12" cx="413" cy="357.3" r="4" />
+      <circle id="XMLID_28_" class="st12" cx="426.9" cy="357.3" r="4" />
+      <circle id="XMLID_38_" class="st12" cx="440.8" cy="357.3" r="4" />
+      <g id="XMLID_61_">
+        <line id="XMLID_54_" class="st13" x1="510.7" y1="387.4" x2="523.7" y2="387.4" />
+        <line id="XMLID_66_" class="st14" x1="444.8" y1="387.4" x2="501.1" y2="387.4" />
+        <line id="XMLID_29_" class="st15" x1="417" y1="387.4" x2="436.8" y2="387.4" />
+      </g>
+      <g id="XMLID_42_">
+        <line id="XMLID_62_" class="st15" x1="442.8" y1="485.9" x2="485.8" y2="485.9" />
+        <line id="XMLID_30_" class="st14" x1="417" y1="485.9" x2="430.9" y2="485.9" />
+      </g>
+      <g id="XMLID_27_">
+        <line id="XMLID_60_" class="st13" x1="501.1" y1="399.7" x2="509.2" y2="399.7" />
+        <line id="XMLID_45_" class="st15" x1="464.3" y1="399.7" x2="491.5" y2="399.7" />
+        <line id="XMLID_47_" class="st16" x1="426.9" y1="399.7" x2="454.6" y2="399.7" />
+      </g>
+      <g id="XMLID_49_">
+        <line id="XMLID_59_" class="st13" x1="469.8" y1="412" x2="493.7" y2="412" />
+        <line id="XMLID_50_" class="st17" x1="439.8" y1="412" x2="462.3" y2="412" />
+      </g>
+      <g id="XMLID_65_">
+        <line id="XMLID_58_" class="st13" x1="473" y1="424.3" x2="477.9" y2="424.3" />
+        <line id="XMLID_70_" class="st15" x1="453.2" y1="424.3" x2="464.3" y2="424.3" />
+        <line id="XMLID_67_" class="st14" x1="426.9" y1="424.3" x2="444.8" y2="424.3" />
+      </g>
+      <g id="XMLID_73_">
+        <line id="XMLID_77_" class="st16" x1="465.3" y1="436.7" x2="497.2" y2="436.7" />
+        <line id="XMLID_74_" class="st17" x1="426.9" y1="436.7" x2="455.5" y2="436.7" />
+      </g>
+      <g id="XMLID_80_">
+        <line id="XMLID_64_" class="st15" x1="502.2" y1="449" x2="519.5" y2="449" />
+        <line id="XMLID_84_" class="st17" x1="465.3" y1="449" x2="493" y2="449" />
+        <line id="XMLID_81_" class="st14" x1="439.8" y1="449" x2="455.5" y2="449" />
+      </g>
+      <g id="XMLID_87_">
+        <line id="XMLID_95_" class="st13" x1="477.9" y1="461.3" x2="493" y2="461.3" />
+        <line id="XMLID_90_" class="st15" x1="439.8" y1="461.3" x2="467.5" y2="461.3" />
+      </g>
+      <g id="XMLID_98_">
+        <line id="XMLID_71_" class="st13" x1="517.2" y1="473.6" x2="534.5" y2="473.6" />
+        <line id="XMLID_102_" class="st16" x1="464.3" y1="473.6" x2="507.8" y2="473.6" />
+        <line id="XMLID_99_" class="st13" x1="426.9" y1="473.6" x2="454.6" y2="473.6" />
+      </g>
+    </g>
+    <g id="app-window">
+      <path id="app-window-shadow" class="st5" d="M688.7,545.3h-116c-4.4,0-8-3.6-8-8V414.4c0-4.4,3.6-8,8-8h116c4.4,0,8,3.6,8,8
+                                                  v122.9C696.7,541.8,693.1,545.3,688.7,545.3z" />
+      <path id="XMLID_16_" class="st18" d="M696.7,538.3h-116c-4.4,0-8-3.6-8-8V407.4c0-4.4,3.6-8,8-8h116c4.4,0,8,3.6,8,8v122.9
+                                           C704.7,534.8,701.1,538.3,696.7,538.3z" />
+      <path id="XMLID_14_" class="st3" d="M696.7,538.3h-116c-4.4,0-8-3.6-8-8V407.4c0-4.4,3.6-8,8-8h116c4.4,0,8,3.6,8,8v122.9
+                                          C704.7,534.8,701.1,538.3,696.7,538.3z" />
+      <path id="XMLID_75_" class="st19" d="M679.4,437.5h-81.6c-2.9,0-5.2-2.3-5.2-5.2v-7.8c0-2.9,2.3-5.2,5.2-5.2h81.6
+                                           c2.9,0,5.2,2.3,5.2,5.2v7.8C684.6,435.2,682.3,437.5,679.4,437.5z" />
+      <g id="XMLID_143_" class="st20">
+        <path id="XMLID_78_" class="st21" d="M643.6,466.8H598c-2.9,0-5.2-2.3-5.2-5.2v-7.8c0-2.9,2.3-5.2,5.2-5.2h45.6
+                                             c2.9,0,5.2,2.3,5.2,5.2v7.8C648.7,464.5,646.4,466.8,643.6,466.8z" />
+        <path id="XMLID_79_" class="st21" d="M679.5,466.8h-17.7c-2.9,0-5.2-2.3-5.2-5.2v-7.8c0-2.9,2.3-5.2,5.2-5.2h17.7
+                                             c2.9,0,5.2,2.3,5.2,5.2v7.8C684.7,464.5,682.4,466.8,679.5,466.8z" />
+      </g>
+      <g id="XMLID_76_">
+        <line id="XMLID_135_" class="st21" x1="592.7" y1="497.2" x2="684.6" y2="497.2" />
+        <line id="XMLID_136_" class="st21" x1="592.7" y1="508" x2="684.6" y2="508" />
+        <line id="XMLID_138_" class="st21" x1="592.7" y1="518.8" x2="648.7" y2="518.8" />
+      </g>
+    </g>
+    <g id="pencil2">
+  
+      <rect id="XMLID_177_" x="722.8" y="544.4" transform="matrix(0.9932 -0.1166 0.1166 0.9932 -62.7441 88.8106)" class="st26" width="9.8" height="72.6" />
+      <rect id="XMLID_22_" x="722.8" y="544.4" transform="matrix(0.9932 -0.1166 0.1166 0.9932 -62.7441 88.8106)" class="st3" width="9.8" height="72.6" />
+    </g>
+    <g id="pencil1">
+  
+      <rect id="XMLID_218_" x="709.9" y="589.5" transform="matrix(0.1081 -0.9941 0.9941 0.1081 74.6581 1272.0104)" class="st3" width="72.6" height="9.8" />
+  
+      <rect id="XMLID_214_" x="709.9" y="589.5" transform="matrix(0.1081 -0.9941 0.9941 0.1081 74.6581 1272.0104)" class="st3" width="72.6" height="9.8" />
+  
+      <rect id="XMLID_220_" x="746.1" y="557.1" transform="matrix(0.1081 -0.9941 0.9941 0.1081 110.0664 1246.6968)" class="st3" width="7.4" height="9.8" />
+  
+      <rect id="XMLID_211_" x="746.1" y="557.1" transform="matrix(0.1081 -0.9941 0.9941 0.1081 110.0664 1246.6968)" class="book-line" width="7.4" height="9.8" />
+    </g>
+    <g id="cup">
+      <polygon id="XMLID_26_" class="st26" points="761.1,654.6 721.8,654.6 715.4,594.4 767.5,594.4 			" />
+      <polygon id="XMLID_233_" class="st26" points="715.4,594.4 715.5,595.5 755.2,595.5 748.9,654.6 761.1,654.6 767.5,594.4 			" />
+      <polygon id="XMLID_21_" class="st3" points="761.1,654.6 721.8,654.6 715.4,594.4 767.5,594.4 			" />
+    </g>
+  </svg>
 </section>
 <section class="mt-5">
   <div align="center" style="height: 220px; background: url(/assets/img/never-stop-learning.png); background-size: contain; background-repeat: no-repeat; background-position: center;">
