@@ -11,7 +11,7 @@ tags: [Bases de Datos]
 ---
 
 
-Como sabemos **SQL** (Structured Query Language) es un lenguaje estándar para gestionar bases de datos. Existen diferentes **grupos de comandos** dentro **SQL** que se organizan en diferentes **sublenguajes** que cumplen roles específicos.
+Como sabemos, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para gestionar bases de datos. SQL permite realizar diversas operaciones sobre bases de datos, como la creación, manipulación, consulta y control de los datos. Existen diferentes **grupos de comandos** dentro SQL, los cuales se organizan en distintos **sub-lenguajes** que cumplen roles específicos y nos ayudan a realizar tareas de forma más eficiente. Cada sub-lenguaje tiene un próposito determinado, desde la definición de estructuras de bases de datos hasta la manipulación de datos y la gestión de transacciones.
 
 A continuación tenemos un diagrama que nos muestra esos **sublenguajes**:
 
@@ -28,7 +28,6 @@ graph TD
     D-->DD[CREATE<br />ALTER<br />DROP]
     E-->ED[GRANT<br />DENY<br />REVOKE]
 ```
-
 
 ## **Comandos de Definición de Datos (DDL)**
 
@@ -54,9 +53,11 @@ USE tienda;
 ```
 {: .nolineno }
 
-
-> Para que el **prompt de MySQL** muestre el nombre de la base de datos a la que estás conectado, puedes ejecutar el siguiente comando en el cliente mysql en la terminal `prompt \u@\h [\d]>\_`.
+> Para que el **prompt de MySQL** muestre el nombre de la base de datos a la que estás conectado, puedes ejecutar el siguiente comando en el cliente mysql (terminal): `prompt \u@\h [\d]>\_`.
 {: .prompt-tip }
+
+![set prompt mysql](mysql/mysql-set-prompt-light.png){: .light }
+![set prompt mysql](mysql/mysql-set-prompt-dark.png){: .dark }
 
 ### **Crear una Tabla**
 
@@ -77,6 +78,18 @@ Este comando crea una tabla llamada `productos` con las columnas `id`, `nombre`,
 **Nota sobre el Tipo de Dato para Precios**
 
 Si bien usamos `INT` para almacenar precios en este ejemplo, considerando que en **Chile** los valores monetarios se suelen manejar sin decimales porque es una manera más sencilla de representarlos (por ejemplo, representando $10.000 como 10000). Es importante tener en cuenta que, dependiendo del formato de la moneda en un país, podrías necesitar ajustar el tipo de datos. Por ejemplo el tipo de dato `DECIMAL(10, 2)` se usa para almacenar valores monetarios con dos decimales, lo cual es útil para la mayoría de las monedas que manejan centavos.
+
+**Ver la Estructura de una Tabla**
+
+Después de crear una tabla, es común querer revisar su estructura para asegurarte de que las columnas y tipos de datos estén correctos. Para ello, podemos utilizar el comando `DESCRIBE`. Este comando te muestra información detallada sobre la estructura de una tabla, incluyendo el nombre de las columnas, los tipos de datos y otros detalles importantes:
+
+```sql
+DESCRIBE productos
+```
+{: .nolineno }
+
+![mysql describe productos](mysql/mysql-describe-productos-light.png){: .light }
+![mysql describe productos](mysql/mysql-describe-productos-dark.png){: .dark }
 
 ### **Modificar una Tabla**
 
@@ -127,7 +140,7 @@ RENAME TABLE productos TO productos_nuevos;
 
 Este comando renombra la tabla `productos`a `productos_nuevos`.
 
-**ELiminar una Tabla**
+### **Eliminar una Tabla**
 
 Si necesitas eliminar una tabla que ya no se usa, puedes hacerlo con el comando `DROP TABLE`:
 
@@ -136,132 +149,82 @@ DROP TABLE productos;
 ```
 {: .nolineno }
 
-## **¿Qué son las operaciones CRUD?**
 
-Las operaciones **CRUD** son los cuatros pilares fundamentales en la gestión de datos en una base de datos. CRUD es un acrónimo de las siguientes acciones:
+## **Comandos de Manipulación de Datos (DML)**
 
-- **C**reate (Crear): Insertar nuevos datos en una tabla.
-- **R**ead (Leer): Consultar y obtener datos de una tabla.
-- **U**pdate (Actualizar): Modificar los datos existentes.
-- **D**elete (Eliminar): ELiminar datos de una tabla.
+Los comandos de manipulación de datos se utilizan para realizar operaciones sobre los datos que se encuentran dentro de las tablas de la base de datos. Las operaciones principales en este grupo son el **CRUD**, un acrónimo que representa:
 
-Antes de poder realizar cualquier operación CRUD, debemos crear una base de datos y definir la estructura de nuestras tablas.
+- **C**: Create (Crear): Insertar nuevos registros en la base de datos.
+- **R**: Read (Leer): Consultar los datos existentes en la base de datos.
+- **U**: Update (Actualizar): Modificar los datos existentes.
+- **D**: Delete (Eliminar): ELiminar datos de la base de datos.
 
-Para crear una base de datos, usamos el comando `CREATE DATABASE`. A continuación, se muestra el ejemplo:
+Estas operaciones permiten gestionar y manipular los datos almacenados en las tablas, desde agregar nuevos registros hasta modificarlos o eliminarlos según sea necesario.
 
-```sql
-CREATE DATABASE empresa;
-````
-{: .nolineno }
+### **Insertar Datos en una Tabla**
 
-Este comando crea una base de datos llamada `empresa`. Para comenzar a usarla, debemos **seleccionarla** con el comando `USE`:
+Para agregar información a una tabla, usamos el comando `INSERT INTO`:
 
 ```sql
-USE empresa;
+INSERT INTO productos (nombre, precio, cantidad)
+VALUES ('Camiseta', 19990, 100);
 ```
 {: .nolineno }
 
-> Para que el **prompt de MySQL** muestre el nombre de la base de datos a la que estás conectado, puedes ejecutar el siguiente comando en la terminal `prompt \u@\h [\d]>\_`.
-{: .prompt-tip }
+Este comando agrega un producto llamado `'Camiseta'` con un precio de `19990` (en el caso de que estemos usando un tipo `INT` para los precios) y una cantidad de `100` unidades en la tabla `productos`.
 
-Ahora que tenemos nuestra base de datos, podemos crear tablas dentro de ella. Vamos a crear una tabla de empleados, donde almacenaremos información como el nombre, puesto, fecha de ingreso y su estado:
+**Insertar Varios Registros de una Vez**
+
+En lugar de insertar registros uno a uno, podemos insertar múltiples registros al mismo tiempo:
 
 ```sql
-CREATE TABLE empleados (
-    id INT AUTO_INCREMENT PRIMARY KEY,  -- ID único para cada empleado (auto incrementable)
-    nombre VARCHAR(100) NOT NULL,       -- Nombre del empleado
-    puesto VARCHAR(50),                 -- Puesto o cargo
-    fecha_ingreso DATE,                 -- Fecha de ingreso del empleado
-    activo BOOLEAN DEFAULT TRUE         -- Estado del empleado (activo o no)
-);
+INSERT INTO productos (nombre, precio, cantidad)
+VALUES 
+    ('Polerón', 23990, 100),
+    ('Pantalón', 24990, 50),
+    ('Zapatos', 39990, 75);
 ```
 {: .nolineno }
 
-### **1. Crear Datos (Insertar Registros)**
+### **Consultar Datos de una Tabla**
 
-La operación de **crear** datos en MySQL se realiza mediante el comando `INSERT INTO`. A continuación, tenemos ejemplos de cómo insertar datos en la table `empleados` que creamos previamente.
-
-**Insertar un solo registro**
+Para leer los datos almacenados, usamos el comando `SELECT`. Podemos consultar todos los productos de la siguiente forma:
 
 ```sql
-INSERT INTO empleados (nombre, puesto, fecha_ingreso)
-VALUES ('Juan Pérez', 'Desarrollador', '2022-01-15');
+SELECT * FROM productos;
 ```
 {: .nolineno }
 
-En este caso, estamos insertando un registro en la tabla `empleados` con los siguientes valores:
+Este comando muestra todos los registros de la tabla `productos`, es decir, todos los productos con `id`, `nombre`, `precio` y `cantidad`.
 
-- **nombre**: Juan Pérez
-- **puesto**: Desarrollador
-- **fecha_ingreso**: 2022-01-15
+![mysql select productos](mysql/mysql-select-productos-light.png){: .light }
+![mysql select productos](mysql/mysql-select-productos-dark.png){: .dark }
 
-El campo `id` se autoincrementa automáticamente y el campo `activo` se establece en `TRUE` por defecto.
+### **Actualizar Información de Registros**
 
-**Insertar múltiples registros**
-
-También es posible insertar múltiples en una sola consulta:
+Para actualizar información de un producto o registro, podemos usar el comando `UPDATE`. Por ejemplo, para actualizar la cantidad de camisetas disponibles:
 
 ```sql
-INSERT INTO empleados (nombre, puesto, fecha_ingreso)
-VALUES
-  ('Ana Gómez', 'Gerente', '2019-03-22'),
-  ('Luis Díaz', 'Diseñador', '2021-07-10');
+UPDATE productos
+SET cantidad = 120
+WHERE id = 1;
 ```
 {: .nolineno }
 
-### **2. Leer Datos**
+Este comando cambia la cantidad del producto con `id` igual a `1` a `120`unidades.
 
-La operación de **leer** datos se realiza mediante el comando `SELECT`. Podemos usar este comando para consultar toda la tabla o solo una parte de los datos.
+**Nota importante: Tener Cuidado con el `WHERE`**
 
-**Consultar todos los registros**
+Es muy importante el uso de la cláusula `WHERE` al realizar una actualización en una tabla. Si olvidas incluir el `WHERE`, el comando **actualizará todos los registros de la tabla**.
 
-Si queremos ver todos los registros de la tabla `empleados`, podemos usar la siguiente consulta:
+### **Eliminar Datos de una Tabla**
+
+Si queremos eliminar un producto o registro, usamos el comando `DELETE`:
 
 ```sql
-SELECT * FROM empleados;
+DELETE FROM productos WHERE id = 1;
 ```
 {: .nolineno }
 
-> El (`*`) se utiliza para seleccionar todas las columnas de la tabla. El resultado incluirá todas las filas y columnas de la tabla `empleados`.
-{: .prompt-info }
-
-**Consultar columnas específicas**
-
-Si solo necesitamos algunos datos, como el nombre y el puesto de los empleados, podemos especificar las columnas que queremos en la consulta:
-
-```sql
-SELECT nombre, puesto FROM empleados;
-```
-{: .nolineno }
-
-**Filtrar resultados con WHERE**
-
-La cláusula `WHERE` nos permite filtrar los resultados según una condición específica. Por ejemplo, si queremos ver solo los empleados que tengas el puesto de "`Desarrollador`", para ello podemos hacer lo siguiente:
-
-```sql
-SELECT nombre, puesto FROM empleados WHERE puesto = 'Desarrollador';
-```
-{: .nolineno }
-
-### **3. Actualizar datos**
-
-Ahora supongamos que queremos actualizar el puesto de **Juan Pérez** para que en vez de de **Desarrollador** sea **Programador**. La consulta sería la siguiente:
-
-```sql
-UPDATE empleados 
-SET puesto = 'Programador'
-WHERE nombre = 'Juan Pérez';
-```
-{: .nolineno }
-
-### **4. Eliminar Datos**
-
-Si necesitamos eliminar a **Juan Pérez** de la tabla, sería con el comando `delete`, usaríamos la siguiente consulta:
-
-```sql
-DELETE FROM empleados WHERE nombre = 'Juan Pérez';
-```
-{: .nolineno }
-
-> Nunca olvides el `where` en este tipo de operaciones
+> Nunca olvides el `WHERE` en este tipo de operaciones.
 {: .prompt-danger }
