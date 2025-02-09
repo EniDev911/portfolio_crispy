@@ -6,11 +6,11 @@ categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 mermaid: true
 image:
   path: posters/mysql-comandos-basicos.webp
-  lqip: data:image/webp;base64,UklGRoIAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSCsAAAABN6CgbRuGP+L+jUZExJ//HlDURgq0CxawNvgXc7wQENH/CUjt/8ShgRoAAFZQOCAwAAAAMAMAnQEqFAALAD85hLlTryilorAIAeAnCWkAAF3wWUeoAAD+0zG3W+Qhm8rFcgAA
+  lqip: data:image/webp;base64,UklGRpAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4ICoAAACwAgCdASoUAAsAPzmGuVOvKSWisAgB4CcJaQAAeyAA/u3FTL7V/ahCwAA=
 tags: [Bases de Datos]
 ---
 
-Como sabemos, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para gestionar bases de datos. SQL permite realizar diversas operaciones sobre bases de datos, como la creación, manipulación, consulta y control de los datos. Existen diferentes **grupos de comandos** dentro SQL, los cuales se organizan en distintos **sub-lenguajes** que cumplen roles específicos y nos ayudan a realizar tareas de forma más eficiente. Cada sub-lenguaje tiene un próposito determinado, desde la definición de estructuras de bases de datos hasta la manipulación de datos y la gestión de transacciones.
+Como sabemos, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para gestionar bases de datos. SQL permite realizar diversas operaciones sobre bases de datos, como la creación, manipulación, consulta y control de los datos. Existen diferentes **grupos de comandos** dentro SQL, los cuales se organizan en distintos **sub-lenguajes** que cumplen roles específicos y nos ayudan a realizar tareas de forma más eficiente. Cada sub-lenguaje tiene un próposito determinado, desde la definición de estructuras de bases de datos hasta la manipulación de datos y la gestión de permisos.
 
 A continuación tenemos un diagrama que nos muestra esos **sublenguajes**:
 
@@ -139,7 +139,6 @@ RENAME TABLE productos TO productos_nuevos;
 
 Este comando renombra la tabla `productos`a `productos_nuevos`.
 
-
 ### **Eliminar una Tabla**
 
 Si necesitas eliminar una tabla que ya no se usa, puedes hacerlo con el comando `DROP TABLE`:
@@ -228,3 +227,79 @@ DELETE FROM productos WHERE id = 1;
 
 > Nunca olvides el `WHERE` en este tipo de operaciones.
 {: .prompt-danger }
+
+## **Comandos de Control de Datos (DCL)**
+
+Los comandos de control de datos se utilizan para gestionar los permisos de los usuarios y la seguridad de la base de datos. En MySQL, los permisos (privilegios) determinan qué operaciones puede realizar un usuario en una base de datos. Administrar correctamente los privilegios es esencial para un administrador de base datos (DBA).
+
+### **Conceder Privilegios a un Usuario**
+
+Antes de conceder privilegios, asegúrate de crear un usuario:
+
+```sql
+CREATE USER 'mcherrera'@'localhost' IDENTIFIED BY '_user123';
+```
+{: .nolineno }
+
+En MySQL, para ver los privilegios de un usuario, se puede ejecutar el siguiente comando:
+
+```sql
+SHOW GRANTS FOR 'mcherrera'@'localhost';
+```
+{: .nolineno }
+
+Para otorgar privilegios a un usuario, usamos el comando `GRANT`. Por ejemplo, para darle a un usuario acceso completo a la base de datos `tienda`, puedes ejecutar el siguiente comando:
+
+```sql
+GRANT ALL PRIVILEGES ON tienda.* TO 'mcherrera'@'localhost';
+```
+{: .nolineno }
+
+Este comando concede todos los privilegios sobre la base de datos `tienda` al usuario `mcherrera`.
+
+![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-dark.png){: .dark }
+![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-light.png){: .light }
+
+### **Revocar Permisos de un Usuario**
+
+Para revocar los privilegios de un usuario, se puede utilizar el comando `REVOKE` de la siguiente manera:
+
+```sql
+REVOKE ALL PRIVILEGES ON tienda.* FROM 'mcherrera'@'localhost';
+```
+{: .nolineno }
+
+### **Aplicar Cambios de Privilegios**
+
+Después de otorgar o revocar privilegios, es recomendable ejecutar el siguiente comando para que los cambios surtan efecto:
+
+```sql
+FLUSH PRIVILEGES;
+```
+{: .nolineno }
+
+Este comando recarga los privilegios y asegura que se apliquen correctamente.
+
+Si deseas eliminar al usuario y sus privilegios, usamos el comando `DROP USER`:
+
+```sql
+DROP USER 'mcherrera'@'localhost';
+```
+{: .nolineno }
+
+
+
+#### **Resumen de Comandos**
+
+| Acción|Comando SQL|
+|:------|:----------|
+|Crear usuario|`CREATE USER 'usuario'@'host' IDENTIFIED BY 'pass';`|
+|Ver privilegios de un usuario|`SHOW GRANTS FOR 'usuario'@'host';`|
+|Otorgar privilegios|`GRANT ALL PRIVILEGES ON base_de_datos.* TO 'usuario'@'host';`|
+|Revocar privilegios|`REVOKE SELECT ON base_de_datos.* FROM 'usuario'@'host';`|
+|Aplicar cambios|`FLUSH PRIVILEGES;` |
+|Eliminar usuario|`DROP USER 'usuario'@'host';`|
+
+---
+
+Administrar los privilegios de usuarios de manera eficiente en MySQL es crucial para mantener la seguridad y el buen funcionamiento de tu base de datos.
