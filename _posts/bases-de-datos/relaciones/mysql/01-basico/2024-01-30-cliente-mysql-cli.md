@@ -3,7 +3,7 @@ title: "MySQL 🐬 : Cliente de línea de Comandos"
 author: enidev911
 pin: true
 description: "El cliente MySQL es una herramienta de línea de comandos que permite ejecutar consultas y gestionar bases de datos MySQL directamente desde la terminal."
-categories: [Bases de Datos Relacionales, MySQL]
+categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 tags: [Bases de Datos]
 image:
     path: posters/cliente-mysql-terminal.webp

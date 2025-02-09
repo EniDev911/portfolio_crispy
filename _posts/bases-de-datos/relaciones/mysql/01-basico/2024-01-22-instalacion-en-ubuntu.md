@@ -1,7 +1,7 @@
 ---
 title: "MySQL 🐬 : Instalación en Ubuntu"
 author: enidev911
-categories: [Bases de Datos Relacionales, MySQL]
+categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 tags: [Bases de Datos]
 image:
   path: posters/mysql-en-ubuntu.webp

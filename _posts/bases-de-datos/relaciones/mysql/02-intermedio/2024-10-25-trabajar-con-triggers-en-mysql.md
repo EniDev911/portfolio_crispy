@@ -1,7 +1,7 @@
 ---
 title: "MySQL 🐬 : Trabajar con Trigger"
 author: enidev911
-categories: [Bases de Datos Relacionales, MySQL]
+categories: [Bases de Datos Relacionales, "MySQL - 02 Intermedio"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-triggers.png

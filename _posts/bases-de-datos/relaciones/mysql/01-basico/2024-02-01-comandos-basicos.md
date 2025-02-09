@@ -2,14 +2,13 @@
 title: "MySQL 🐬 : Comandos Básicos"
 author: enidev911
 description: "Los **comandos básicos de MySQL** son fundamentales para interactuar con las bases de datos y realizar operaciones"
-categories: [Bases de Datos Relacionales, "01. MySQL - Básico"]
+categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 mermaid: true
 image:
   path: posters/mysql-comandos-basicos.webp
   lqip: data:image/webp;base64,UklGRoIAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSCsAAAABN6CgbRuGP+L+jUZExJ//HlDURgq0CxawNvgXc7wQENH/CUjt/8ShgRoAAFZQOCAwAAAAMAMAnQEqFAALAD85hLlTryilorAIAeAnCWkAAF3wWUeoAAD+0zG3W+Qhm8rFcgAA
 tags: [Bases de Datos]
 ---
-
 
 Como sabemos, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para gestionar bases de datos. SQL permite realizar diversas operaciones sobre bases de datos, como la creación, manipulación, consulta y control de los datos. Existen diferentes **grupos de comandos** dentro SQL, los cuales se organizan en distintos **sub-lenguajes** que cumplen roles específicos y nos ayudan a realizar tareas de forma más eficiente. Cada sub-lenguaje tiene un próposito determinado, desde la definición de estructuras de bases de datos hasta la manipulación de datos y la gestión de transacciones.
 
@@ -140,7 +139,8 @@ RENAME TABLE productos TO productos_nuevos;
 
 Este comando renombra la tabla `productos`a `productos_nuevos`.
 
-### **Eliminar una Tabla**
+
+### **Eliminar una Tabla**
 
 Si necesitas eliminar una tabla que ya no se usa, puedes hacerlo con el comando `DROP TABLE`:
 
