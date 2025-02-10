@@ -56,7 +56,10 @@ layout: page
   {% for project in site.data.portfolio[page.key] %}
   <div class="gallery-item">
     <a href="{{ project.url }}" target="_blank">
-      <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+      <img 
+        src="data:image/webp;base64,{{ project.image_base64 }}"
+        data-src="{{ project.image | relative_url }}"
+        alt="{{ project.title }}">
       <div class="gallery-info">
         <h2>{{ project.title }}</h2>
         <p class="d-flex align-items-center">{{ project.description }} <i class="fa-solid fa-arrow-up-right-from-square fs-4 ms-auto"></i></p>
@@ -65,3 +68,16 @@ layout: page
   </div>
   {% endfor %}
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('img[data-src]');
+    images.forEach(img => {
+      const lowQualityImage = img.src;
+      const highQualityImage = img.getAttribute('data-src');
+
+      img.onload = () => img.src = highQualityImage;
+      img.src = lowQualityImage;
+    });
+  });
+</script>
