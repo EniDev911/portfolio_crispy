@@ -9,12 +9,13 @@ image:
 pin: true
 ---
 
+En este post, cubriremos cómo instalar MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
 
 ## **Requisitos Previos**
 
 Antes de comenzar, asegurate de tener lo siguiente:
 
-- Una instalación de **Ubuntu** (esta guía es aplicable a versiones recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
+- Una instalación de **Ubuntu** (esta guía es aplicable a versiones **Ubuntu 20.04.4 LTS** y versiones más recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
 - Acceso a una cuenta con privilegios **sudo**.
 
 ## **Comenzar Instalación**
@@ -42,8 +43,7 @@ Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus re
   sudo apt install mysql-server
   ```
 
-![Paso 1](mysql/mysql-ubuntu-paso1.png)
-_Instalar mysql en ubuntu_
+![Paso 1](mysql/mysql-ubuntu-install-step-1.png)
 
 - Concluida la instalación, el demonio de MySQL se iniciará automáticamente. Para verificar si esta ejecutandose el servidor usamos el siguiente comando:
 
