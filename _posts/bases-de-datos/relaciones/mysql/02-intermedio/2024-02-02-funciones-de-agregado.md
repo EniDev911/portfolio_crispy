@@ -1,16 +1,28 @@
 ---
-title: "MySQL 🐬 :Funciones de Agregado"
+title: "MySQL 🐬 : Funciones de Agregado"
 author: enidev911
-categories: [Bases de Datos Relacionales, MySQL]
+description: "Las funciones de agregado permiten realizar operaciones como **contar**, **sumar**, **promediar**, obtener **máximos** o **mínimos**, etc."
+categories: [Bases de Datos Relacionales, "MySQL - 02 Intermedio"]
 mermaid: true
 tags: [Bases de Datos]
 ---
 
-En MySQL, las funciones de agregado se utilizan para realizar cálculos en un conjunto de registros y devolver un único valor basado en esos datos. Son herramientas poderosas cuando se necesita resumir, contar o analizar grandes volúmenes de datos. Este tipo de funciones se utilizan principalmente en consultas con las cláusulas `SELECT`, `GROUP BY`, `HAVING`.
+En el mundo de las bases de datos, los datos no son solo números y texto; son **información valiosa** que se puede transformar y analizar para obtener respuestas a preguntas importantes. Ya sea para gestionar una tienda, analizando datos financieros o buscando patrones en grandes volúmenes de información.
 
-## **Funciones de Agregado**
+En MySQL, las funciones de agregado se utilizan para realizar cálculos en un conjunto de registros y devolver un único valor basado en esos datos. Son herramientas poderosas cuando se necesita resumir y analizar grandes volúmenes de datos. Este tipo de funciones se utilizan principalmente en consultas con las cláusulas `GROUP BY`.
 
-Primero que todo, debemos contar con una tabla y registros, para los siguientes ejemplos para explorar las funciones de agregado, vamos a tener una tabla de empleados y algunos registros:
+## **Preparar el Escenario**
+
+Para poder entender como funcionan las funciones de agregado, vamos a usar un escenario práctico. Probemos con una base de datos `empresa`, y dentro de esa base de datos, tenemos una tabla `empleados` que almacena información sobre los empleados.
+
+**Creamos la Base de datos**:
+
+```sql
+CREATE DATABASE empresa;
+```
+{: .nolineno }
+
+**Crear la Tabla Empleados**:
 
 ```sql
 -- Crear la tabla de empleados:
@@ -21,7 +33,12 @@ CREATE TABLE empleados (
     cargo VARCHAR(50) NOT NULL,
     salario INT NOT NULL
 );
+```
+{: .nolineno }
 
+**Insertar Datos en la Tabla**:
+
+```sql
 -- Insertar datos de ejemplo en la tabla:
 INSERT INTO empleados (nombre, apellidos, cargo, salario) VALUES
 ('Juan', 'Pérez', 'Gerente', 1350000),
