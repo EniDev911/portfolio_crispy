@@ -299,7 +299,3 @@ DROP USER 'mcherrera'@'localhost';
 |Revocar privilegios|`REVOKE SELECT ON base_de_datos.* FROM 'usuario'@'host';`|
 |Aplicar cambios|`FLUSH PRIVILEGES;` |
 |Eliminar usuario|`DROP USER 'usuario'@'host';`|
-
----
-
-Administrar los privilegios de usuarios de manera eficiente en MySQL es crucial para mantener la seguridad y el buen funcionamiento de tu base de datos.

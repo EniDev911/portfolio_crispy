@@ -152,7 +152,7 @@ ORDER BY precio ASC;
 - `ASC`: significa orden ascendente (de menor a mayor).
 - `DESC`: (si se usara) indica un orden descendente (de mayor a menor).
 
-**Ordenamiento por Múltiples Columnas**
+**b) Ordenamiento por Múltiples Columnas**
 
 Si deseas ordenar los productos por categoría y, dentro de cada categoría, por precio, podemos hacer lo siguiente:
 
@@ -167,65 +167,56 @@ Esto primero agrupa los productos por categoría y luego los ordena por precio d
 ![mysql order by productos](mysql/mysql-order-by-productos-1-light.png){: .light }
 ![mysql order by productos](mysql/mysql-order-by-productos-1-dark.png){: .dark }
 
+**C) Reabastecimiento de Accesorios**
 
+Identificar los productos de `'Accesorios'` que tienen menos de 20 unidades en `stock` y ordenarlos alfabéticamente por nombre:
 
 ```sql
-SHOW GRANTS FOR 'mcherrera'@'localhost';
+SELECT * FROM productos 
+WHERE categoria = 'Accesorios' 
+  AND stock < 20 
+ORDER BY nombre ASC;
 ```
 {: .nolineno }
 
-Para otorgar privilegios a un usuario, usamos el comando `GRANT`. Por ejemplo, para darle a un usuario acceso completo a la base de datos `tienda`, puedes ejecutar el siguiente comando:
+**Análisis del Query:**
+
+- **Filtrado:**
+    - `WHERE categoria = 'Accesorios'`: Selecciona los productos de la categoría `'Accesorios'`.
+    - `AND stock < 20`: Limita la consulta a productos con un stock reducido, priorizando aquellos que necesitan ser reabastecidos. 
+- **Ordenamiento:**
+    - `ORDER BY nombre ASC`: Organiza los productos alfabéticamente para facilitar una revisión rápida y comparativa.
+
+
+## **Consejos y Buenas Prácticas**
+
+**Usar Alias y Comentarios**
+
+En consultas más complejas, asignar alias a las tablas y comentar partes de la consulta puede facilitar la comprensión y el mantenimiento.
 
 ```sql
-GRANT ALL PRIVILEGES ON tienda.* TO 'mcherrera'@'localhost';
+SELECT p.id, p.nombre, p.precio -- Selecciona id, nombre y precio del producto
+FROM productos AS p
+WHERE p.categoria = 'Tecnología'
+ORDER BY p.precio DESC;
 ```
 {: .nolineno }
 
-Este comando concede todos los privilegios sobre la base de datos `tienda` al usuario `mcherrera`.
+**Optimiza con Índices**
 
-![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-dark.png){: .dark }
-![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-light.png){: .light }
-
-### **Revocar Permisos de un Usuario**
-
-Para revocar los privilegios de un usuario, se puede utilizar el comando `REVOKE` de la siguiente manera:
+Para optimizar el rendimiento de las consultas, puedes crear índices en las columnas que se usan con frecuencia en condiciones de filtrado y ordenamiento. Por ejemplo, si ejecutamos consultas como:
 
 ```sql
-REVOKE ALL PRIVILEGES ON tienda.* FROM 'mcherrera'@'localhost';
+SELECT * FROM productos 
+WHERE categoria = 'Tecnología' 
+ORDER BY precio ASC;
 ```
 {: .nolineno }
 
-### **Aplicar Cambios de Privilegios**
-
-Después de otorgar o revocar privilegios, es recomendable ejecutar el siguiente comando para que los cambios surtan efecto:
+Puedes crear un índice compuesto en las columnas `categoria`y `precio` para mejorar la eficiencia de la consulta. Aquí tienes un ejemplo:
 
 ```sql
-FLUSH PRIVILEGES;
+-- Crear un índice compuesto para las columnas 'categoria' y 'precio'
+CREATE INDEX idx_categoria_precio ON productos(categoria, precio);
 ```
 {: .nolineno }
-
-Este comando recarga los privilegios y asegura que se apliquen correctamente.
-
-Si deseas eliminar al usuario y sus privilegios, usamos el comando `DROP USER`:
-
-```sql
-DROP USER 'mcherrera'@'localhost';
-```
-{: .nolineno }
-
-
-
-#### **Resumen de Comandos**
-
-| Acción|Comando SQL|
-|:------|:----------|
-|Crear usuario|`CREATE USER 'usuario'@'host' IDENTIFIED BY 'pass';`|
-|Ver privilegios de un usuario|`SHOW GRANTS FOR 'usuario'@'host';`|
-|Otorgar privilegios|`GRANT ALL PRIVILEGES ON base_de_datos.* TO 'usuario'@'host';`|
-|Revocar privilegios|`REVOKE SELECT ON base_de_datos.* FROM 'usuario'@'host';`|
-|Aplicar cambios|`FLUSH PRIVILEGES;` |
-|Eliminar usuario|`DROP USER 'usuario'@'host';`|
-
----
-
-Administrar los privilegios de usuarios de manera eficiente en MySQL es crucial para mantener la seguridad y el buen funcionamiento de tu base de datos.
