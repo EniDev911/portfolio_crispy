@@ -24,38 +24,40 @@ Antes de comenzar, asegurate de tener lo siguiente:
 
 Siempre es importante que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que tienes los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
 
-- Abre una nueva terminal y actualizar el índice de paquetes apt con el siguiente comando:
-  ```terminal
-  sudo apt update
-  ```
+Abre una nueva terminal y actualizar el índice de paquetes apt con el siguiente comando:
+  
+```terminal
+sudo apt update
+```
 
-- Luego, actualizamos todos los paquetes instalados con el siguiente comando:
-  ```terminal
-  sudo apt upgrade -y
-  ```
+Luego, actualizamos todos los paquetes instalados con el siguiente comando:
+
+```terminal
+sudo apt upgrade -y
+```
 
 ### **2. Instalar MySQL**
 
-Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados.
-
-- Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
-  ```terminal
-  sudo apt install mysql-server
-  ```
+Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados. Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
+  
+```terminal
+sudo apt install mysql-server
+```
 
 ![Paso 1](mysql/mysql-ubuntu-install-step-1.png)
 
-- Concluida la instalación, el demonio de MySQL se iniciará automáticamente. Para verificar si esta ejecutandose el servidor usamos el siguiente comando:
 
-  ```terminal
-  sudo systemctl status mysql
-  ```
+Concluida la instalación, el demonio de MySQL se iniciará automáticamente. Para verificar si esta ejecutandose el servidor usamos el siguiente comando:
 
-- Con el siguiente comando podemos ver en que puerto está corriendo MySQL:
+```terminal
+sudo systemctl status mysql
+```
 
-  ```terminal
-  cat /etc/services | grep mysql
-  ```
+Con el siguiente comando podemos saber en que puerto está corriendo MySQL:
+
+```terminal
+cat /etc/services | grep mysql
+```
 
 ### **3. Instalación Segura**
 
@@ -95,9 +97,9 @@ Luego nos pregunta si queremos recargar la tabla de privilegios. Pondremos si (Y
 
 ### **4. Ajustes de Autenticación y Privilegios de Usuarios**
 
-En los sistemas Ubuntu con MySQL 5.7 (y versiones posteriores), el usuario **root** de MySQL se configura para la autenticación usando el complemento **auth\_socket** de manera predeterminada en lugar de una contraseña. Esto en muchos casos proporciona mayor seguridad y utilidad, pero también puede generar complicaciones cuando deba permitir que un programa externo (como phpMyAdmin) acceda al usuario.
+En los sistemas Ubuntu con MySQL 5.7 (y versiones posteriores), el usuario `root` de MySQL se configura para la autenticación usando el complemento `auth_socket` de manera predeterminada en lugar de una contraseña. Esto en muchos casos proporciona mayor seguridad y utilidad, pero también puede generar complicaciones cuando deba permitir que un programa externo (como phpMyAdmin) acceda al usuario.
 
-Para usar un password para conectar a MySQL como **root**, deberemos cambiar el método de autenticación de **auth\_socket** a otro complemento, como **caching\_sha2\_password** o **mysql\_native\_password**. Para hacer esto, abra la consola de MySQL desde su terminal:
+Para usar una contraseña para conectar a MySQL como `root`, es necesario cambiar el método de autenticación de `auth_socket` a `caching_sha2_password` o `mysql_native_password`. Para hacerlo, abra MySQL desde la terminal:
 
 ```terminal
 sudo mysql
@@ -112,7 +114,8 @@ SELECT user, authentication_string, plugin, host FROM mysql.user;
 
 ![query auth user](mysql/mysql-ubuntu-query-auth-user.png)
 
-Para cambiar el método de autenticación de **root** con una password, utilizaremos el comando **ALTER USER** para cambiar el complemento de autenticación. Lo podriamos hacer todo en una sola línea como lo siguiente:
+Para cambiar el método de autenticación de `root` a una contraseña, utilizamos el comando `ALTER USER` para modificar el complemento de autenticación. Esto se puede hacer en una sola línea, de la siguiente manera:
+
 
 ```sql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password';
@@ -121,23 +124,26 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password
 
 O realizar el cambio en dos pasos:
 
-- **Primero** cambiamos solo el complemento:
-  ```sql
-  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password;
-  ```
-  {: .nolineno }
+**Primero** cambiamos solo el complemento:
 
-- **Segundo** cambiamos el password (La función **`user()`** devuelve al usuario en sessión):
-  ```sql
-  ALTER USER user() IDENTIFIED BY 'Strong_Password;
-  ```
-  {: .nolineno }
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password;
+```
+{: .nolineno }
 
-- Y por último recargamos la tabla de permisos:
-  ```sql
-  FLUSH PRIVILEGES;
-  ```
-  {: .nolineno }
+**Segundo** cambiamos el password (La función **`user()`** devuelve al usuario en sessión):
+
+```sql
+ALTER USER user() IDENTIFIED BY 'Strong_Password;
+```
+{: .nolineno }
+
+Y por último recargamos la tabla de permisos:
+  
+```sql
+FLUSH PRIVILEGES;
+```
+{: .nolineno }
 
 ### **5. Ajustes de Autenticación y Privilegios de Usuarios**
 
@@ -156,22 +162,25 @@ Para desinstalar MySQL en Ubuntu, puedes seguir estos pasos:
 
 ### **1. Detén el servicio de MySQL**
 
-- Primero, debemos detener el servicio de MySQL si está en ejecución:
-  ```terminal
-  sudo systemctl stop mysql
-  ```
+**Primero**, debemos detener el servicio de MySQL si está en ejecución:
+
+```terminal
+sudo systemctl stop mysql
+```
 
 ### **2. Desinstalar los paquetes de MySQL**
 
-- Ahora, eliminamos los paquetes de MySQL con el siguiente comando para hacerlo:
-  ```terminal
-  sudo apt-get remove --purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
-  ```
+**Segundo**, eliminamos los paquetes de MySQL con el siguiente comando:
+
+```terminal
+sudo apt-get remove --purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+```
 
 ### **3. Eliminar dependencias y archivos residuales**
 
-- Luego, eliminamos los paquetes no necesarios que podrían quedar después de la desinstalación:
-  ```terminal
-  sudo apt-get autoremove
-  sudo apt-get autoclean
-  ```
+Ahora, eliminamos los paquetes no necesarios que podrían quedar después de la desinstalación:
+ 
+```terminal
+sudo apt-get autoremove
+sudo apt-get autoclean
+```

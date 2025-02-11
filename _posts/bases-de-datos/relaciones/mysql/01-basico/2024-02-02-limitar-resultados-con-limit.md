@@ -1,7 +1,7 @@
 ---
 title: "MySQL 🐬 : Uso de LIMIT y OFFSET para Limitar Resultados"
 author: enidev911
-description: "El comando `LIMIT` nos permite **controlar la cantidad de resultados** que obtienes de una consulta, ideal para mejorar el rendimiento."
+description: "Las cláusulas `LIMIT` y `OFFSET` nos permiten **controlar la cantidad de resultados** que obtienes de una consulta, ideal para mejorar el rendimiento."
 categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 image:
   path: posters/mysql-limit-y-offset.webp
@@ -177,3 +177,6 @@ LIMIT 3 OFFSET 2;
 3. **Consultas de Muestra:**
    Si necesitas revisar o probar algo rápidamente en la base de datos, puedes usar `LIMIT` para obtener solo un subconjunto de los registros.
 
+Para profundizar y ver más ejemplos prácticos, puede consultar el siguiente video:
+
+{% include embed/youtube.html id='9GXrYM3eDuU' %}
