@@ -1,12 +1,71 @@
 ---
 title: "MySQL 🐬 : Trabajar con fechas"
 author: enidev911
-categories: [Bases de Datos Relacionales, MySQL]
+categories: [Bases de Datos Relacionales, "MySQL - 02 Intermedio"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-trabajar-con-fechas.png
     alt: "Trabajar con funciones de fechas en MySQL"
 ---
+
+El manejo de fechas en MySQL es fundamental para casi cualquier aplicación que requiera la gestión de eventos, pedidos, reportes o registros históricos. En MySQL, contamos con una amplia variedad de funciones que nos permiten no solo obtener la fecha y hora actual, sino también formatear, sumar, restar y comparar fechas de manera precisa. En este post de nivel intermedio, profundizaremos en el uso de estas funciones y exploraremos ejemplos prácticos en un escenario de ecommerce.
+
+## **Escenario: Gestión de Pedidos en un Ecommerce**
+
+Imagina que gestionas una tienda en línea y necesitas analizar datos de pedidos para optimizar tiempos de entrega y generar reportes precisos. Contamos con una tabla llamada `pedidos` que almacena la información relevante.
+
+### **Crear la Base de Datos y la Tabla**
+
+Para empezar a trabajar, lo primero es crear la base de datos:
+
+```sql
+CREATE DATABASE ecommerceDB;
+```
+{: .nolineno }
+
+**Selecciona la Base de Datos**
+
+```sql
+USER ecommerceDB;
+```
+{: .nolineno }
+
+**Crear la Tabla `pedidos`**
+
+```sql
+CREATE TABLE IF NOT EXISTS pedidos (
+    id INT PRIMARY KEY,
+    cliente VARCHAR(100) NOT NULL,
+    fecha_pedido DATE NOT NULL,
+    fecha_entrega DATE NOT NULL
+);
+```
+{: .nolineno }
+
+**Los Datos de la Tabla `pedidos`**
+
+{% tabs data_pedidos %}
+{% tab data_pedidos datos %}
+|id|cliente|fecha_pedido|fecha_entrega|
+|:-|:-|:-|:-|
+|1|Cliente A|2025-02-10|2025-02-15|
+|2|Cliente B|2025-02-12|2025-02-20|
+|3|Cliente C|2025-02-15|2025-02-22|
+|4|Cliente D|2025-02-18|2025-02-25|
+|5|Cliente E|2025-02-20|2025-02-27|
+{% endtab %}
+{% tab data_pedidos sql %}
+```sql
+INSERT INTO pedidos (id, cliente, fecha_pedido, fecha_entrega) VALUES
+    (1, 'Cliente A', '2025-02-10', '2025-02-15'),
+    (2, 'Cliente B', '2025-02-12', '2025-02-20'),
+    (3, 'Cliente C', '2025-02-15', '2025-02-22'),
+    (4, 'Cliente D', '2025-02-18', '2025-02-25'),
+    (5, 'Cliente E', '2025-02-20', '2025-02-27');
+```
+{: .nolineno }
+{% endtab %}
+{% endtabs %}
 
 MySQL cuando almacena una fecha lo hace de acuerdo a la norma ISO_8601 lo que quiere decir en el formato `YYYY-mm-dd`.
 

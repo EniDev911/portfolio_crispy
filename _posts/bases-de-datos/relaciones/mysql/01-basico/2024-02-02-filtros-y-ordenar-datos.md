@@ -1,5 +1,5 @@
 ---
-title: "MySQL 🐬 : Filtrar y Ordenar Datos"
+title: "MySQL 🐬 : Uso de WHERE y ORDER BY para Filtrar y Ordenar Datos"
 author: enidev911
 description: "Las cláusulas `WHERE` y `ORDER BY` nos permiten **filtrar y ordenar** la información que obtienes de una consulta."
 categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
@@ -51,7 +51,7 @@ CREATE TABLE productos (
 ```
 {: .nolineno }
 
-**Los datos que tenemos en la tabla `productos`**
+**Los Datos de la Tabla `productos`**
 
 {% tabs data_porductos %}
 {% tab data_porductos datos %}

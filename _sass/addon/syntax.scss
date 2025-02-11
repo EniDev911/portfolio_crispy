@@ -165,9 +165,8 @@ html {
     @extend %code-snippet-bg;
     box-shadow: var(--language-border-color) 0 0 0 1px;
 
-    .content > & {
+    .content > &, & {
       @include ml-mr(-1rem);
-
       border-radius: 0;
     }
 
@@ -294,9 +293,9 @@ html {
 
   @media all and (min-width: 576px) {
     div[class^='language-'] {
-      .content > & {
-        @include ml-mr(0);
 
+      .content > &, & {
+        @include ml-mr(0);
         border-radius: $base-radius;
       }
 
