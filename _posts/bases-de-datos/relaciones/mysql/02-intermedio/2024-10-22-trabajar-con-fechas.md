@@ -164,7 +164,9 @@ ADDDATE(fecha, INTERVAL valor unidad)
 
 #### **Ejemplos de Uso**
 
-1. Agregar días a una fecha:
+**Agregar Días a una Fecha**
+
+Añadir **31 días** a una fecha:
 
 ```sql
 SELECT ADDDATE('2024-01-02', INTERVAL 31 DAY);
@@ -174,8 +176,9 @@ SELECT ADDDATE('2024-01-02', INTERVAL 31 DAY);
 - **Resultado**: `2024-02-02`
 - **Acción**: suma 31 días a la fecha `2024-12-01`
 
-{: start="2" }
-2. Agregar meses a una fecha:
+**Agregar Meses a una Fecha**
+
+Añadir 3 meses a una fecha:
 
 ```sql
 SELECT DATE_ADD('2020-12-01', INTERVAL 3 MONTH);
@@ -200,7 +203,9 @@ SELECT CURDATE();
 
 #### **Ejemplos de Uso**
 
-1. Insertar en una Tabla usando la función `CURDATE()`:
+**Insertar en una Tabla usando la función `CURDATE()`**
+
+Insertar en la tabla de usuarios la fecha en la que se registró cada usuario:
 
 ```sql
 /* Considerando tener la siguiente tabla */
@@ -234,7 +239,9 @@ Extrae la parte de la fecha en una expresión de fecha y hora.
 
 #### **Ejemplos de Uso**
 
-1. Extraer la fecha de un campo fecha y hora:
+**Extraer la Fecha de un Campo Fecha y Hora**
+
+Muestra la fecha de nacimiento en un formato amigable, y extrae la fecha del registro:
 
 ```sql
 CREATE TABLE `users`(
@@ -258,7 +265,7 @@ DATE(up) as up FROM users;
 
 ### **DATEDIFF**
 
-La función `DATEDIFF()` como ya sabemos, se utiliza para calcular la diferencia en días entre dos fechas, devuelve el valor entero que indica el número de días entre dos fechas, donde el primer argumento es la **fecha futura** y el segundo argumento es la **fecha a evaluar*.
+La función `DATEDIFF()` como ya sabemos, se utiliza para calcular la diferencia en días entre dos fechas, devuelve el valor entero que indica el número de días entre dos fechas, donde el primer argumento es la **fecha futura** y el segundo argumento es la **fecha a evaluar**.
 
 > Ten en cuenta que si inviertes el orden de las fechas, es decir, colocas la fecha a evaluar como primer argumento y la fecha futura como segundo argumento, el resultado será negativo, ya que la operación sería (`fecha_a_evaluar` - `fecha_futura`).
 {: .prompt-info }
@@ -309,7 +316,6 @@ SELECT DATE_FORMAT('2024-11-07', '%d/%m/%Y');
 SELECT DATE_FORMAT('2024-11-07', '%W, %M %d, %Y');
 ```
 {: .nolineno }
-
 
 ### **EXTRACT**
 
