@@ -1,11 +1,11 @@
 ---
-title: "MySQL 🐬 : Trabajar con fechas"
+title: "MySQL 🐬 : Manejo de Fechas y Tiempos"
 author: enidev911
 categories: [Bases de Datos Relacionales, "MySQL - 02 Intermedio"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-trabajar-con-fechas.png
-    alt: "Trabajar con funciones de fechas en MySQL"
+    lqip: data:image/webp;base64,UklGRpwAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4IDYAAADwAgCdASoUAAsAPzmGulQvKSWjMAgB4CcJZwAAetCIAAD+7Yd0zh+qer1kfKhiOlQMOTAAAAA=
 ---
 
 El manejo de fechas en MySQL es fundamental para casi cualquier aplicación que requiera la gestión de eventos, pedidos, reportes o registros históricos. En MySQL, contamos con una amplia variedad de funciones que nos permiten no solo obtener la fecha y hora actual, sino también formatear, sumar, restar y comparar fechas de manera precisa. En este post de nivel intermedio, profundizaremos en el uso de estas funciones y exploraremos ejemplos prácticos en un escenario de ecommerce.
@@ -26,7 +26,7 @@ CREATE DATABASE ecommerceDB;
 **Selecciona la Base de Datos**
 
 ```sql
-USER ecommerceDB;
+USE ecommerceDB;
 ```
 {: .nolineno }
 
@@ -67,8 +67,72 @@ INSERT INTO pedidos (id, cliente, fecha_pedido, fecha_entrega) VALUES
 {% endtab %}
 {% endtabs %}
 
-MySQL cuando almacena una fecha lo hace de acuerdo a la norma ISO_8601 lo que quiere decir en el formato `YYYY-mm-dd`.
+> MySQL cuando almacena una fecha lo hace de acuerdo a la norma [**ISO_8601**](https://es.wikipedia.org/wiki/ISO_8601){: target='_blank' } lo que quiere decir en el formato `YYYY-mm-dd`.
+{: .prompt-info }
 
+## **Consultas Basadas en Fechas**
+
+Determina la cantidad de días entre el pedido y la entrega:
+
+```sql
+SELECT 
+    id, 
+    cliente, 
+    fecha_pedido, 
+    fecha_entrega,
+    DATEDIFF(fecha_entrega, fecha_pedido) AS dias_entrega
+FROM pedidos;
+```
+{: .nolineno }
+
+**Identificar Pedidos con Retraso**
+
+Si el plazo de entrega estándar es de 5 días, filtra aquellos pedidos que se entregaron más tarde:
+
+```sql
+SELECT 
+    id, 
+    cliente, 
+    fecha_pedido, 
+    fecha_entrega,
+    DATEDIFF(fecha_entrega, fecha_pedido) AS dias_entrega
+FROM pedidos
+WHERE fecha_entrega > DATE_ADD(fecha_pedido, INTERVAL 5 DAY);
+```
+{: .nolineno }
+
+**Agrupar Pedidos por Semana**
+
+Generar un reporte semanal de pedidos, con la función `WEEK()` para agrupar:
+
+```sql
+SELECT
+    WEEK(fecha_pedido) AS semana,
+    COUNT(*) AS total_pedidos
+FROM pedidos
+GROUP BY WEEK(fecha_pedido)
+ORDER BY semana ASC;
+```
+{: .nolineno }
+
+**Verificar Pedidos Realizados en Fin se Semana**
+
+Identifica si un pedido se realizó en fin de semana usando la función `WEEKDAY()` (donde 5 corresponde a sábado y 6 a domingo):
+
+```sql
+SELECT
+    id,
+    cliente,
+    fecha_pedido,
+    CASE
+      WHEN WEEKDAY(fecha_pedido) IN (5, 6) THEN 'Fin de Semana'
+      ELSE 'Día Laboral'
+    END AS tipo_dia
+FROM pedidos;
+```
+{: .nolineno }
+
+## **Resumen**
 
 La siguiente tabla contiene algunas de las funciones de fecha y hora que soporta MySQL:
 
@@ -83,7 +147,7 @@ La siguiente tabla contiene algunas de las funciones de fecha y hora que soporta
 |[`EXTRACT()`](#extract)|Extraer parte de una fecha.|
 
 
-### ADDDATE
+### **ADDDATE**
 
 La función `ADDDATE()` es similar a `DATE_ADD()`, y se utiliza para agregar un intervalo de tiempo a una fecha. En términos de funcionalidad, ambas hacen lo mismo, pero la sintaxis es ligeramente diferente-
 
@@ -98,23 +162,23 @@ ADDDATE(fecha, INTERVAL valor unidad)
 - **valor**: La cantidad de unidades que deseamos agregar. 
 - **unidad**: El tipo de unidad, como `DAY`, `MONTH`, `YEAR`, `HOUR`, `MINUTE`, `SECOND`, entre otros.
 
-**Ejemplo de uso**
+#### **Ejemplos de Uso**
 
 1. Agregar días a una fecha:
 
 ```sql
-SELECT ADDDATE('2020-01-02', INTERVAL 31 DAY);
+SELECT ADDDATE('2024-01-02', INTERVAL 31 DAY);
 ```
 {: .nolineno }
 
-- Resultado: `2020-02-02`
-- Acción: suma 31 días a la fecha `2020-12-01`
+- **Resultado**: `2024-02-02`
+- **Acción**: suma 31 días a la fecha `2024-12-01`
 
 {: start="2" }
 2. Agregar meses a una fecha:
 
 ```sql
-SELECT ADDDATE('2020-12-01', INTERVAL 3 MONTH);
+SELECT DATE_ADD('2020-12-01', INTERVAL 3 MONTH);
 ```
 {: .nolineno }
 
@@ -125,7 +189,7 @@ SELECT ADDDATE('2020-12-01', INTERVAL 3 MONTH);
 {: .prompt-info }
 
 
-### CURDATE
+### **CURDATE**
 
 Devuelve el valor actual de la fecha en el formato `YYYY-MM-DD` o `YYYYMMDD` dependiendo si la función se usa en el contexto de cadena o numérico.
 
@@ -134,7 +198,7 @@ SELECT CURDATE();
 ```
 {: .nolineno }
 
-**Ejemplo de uso**
+#### **Ejemplos de Uso**
 
 1. Insertar en una Tabla usando la función `CURDATE()`:
 
@@ -153,7 +217,7 @@ VALUES (1010010101, 'Jhon Doe', CURDATE(), 1);
 ```
 {: .nolineno }
 
-Al hacer un `select` a la tabla `users`, obtenemos el registro guardado anteriormente y en el campo `up` muestra la fecha actual de ese momento en que se grabo en la base de datos el registro:
+Al hacer un `SELECT` a la tabla `users`, obtenemos el registro guardado anteriormente y en el campo `up` muestra la fecha actual de ese momento en que se grabo en la base de datos el registro:
 
 ```
 +------------+----------+------------+--------+
@@ -164,11 +228,11 @@ Al hacer un `select` a la tabla `users`, obtenemos el registro guardado anterior
 ```
 {: .noheader .nolineno }  
 
-### DATE
+### **DATE**
 
 Extrae la parte de la fecha en una expresión de fecha y hora.
 
-**Ejemplo de uso**
+#### **Ejemplos de Uso**
 
 1. Extraer la fecha de un campo fecha y hora:
 
@@ -192,11 +256,14 @@ DATE(up) as up FROM users;
 {: .nolineno }
 
 
-### DATEDIFF
+### **DATEDIFF**
 
-La función `DATEDIFF()` en MySQL se utiliza para calcular la diferencia en días entre dos fechas, devuelve el valor entero que indica el número de días entre dos fechas, donde el primer argumento es la **fecha de inicio** y el segundo argumento es la **fecha de finalización**.
+La función `DATEDIFF()` como ya sabemos, se utiliza para calcular la diferencia en días entre dos fechas, devuelve el valor entero que indica el número de días entre dos fechas, donde el primer argumento es la **fecha futura** y el segundo argumento es la **fecha a evaluar*.
 
-**Ejemplo de uso**
+> Ten en cuenta que si inviertes el orden de las fechas, es decir, colocas la fecha a evaluar como primer argumento y la fecha futura como segundo argumento, el resultado será negativo, ya que la operación sería (`fecha_a_evaluar` - `fecha_futura`).
+{: .prompt-info }
+
+#### **Ejemplo de uso**
 
 1. Calcular el número de días entre el **1 de enero de 2023** y el **5 de diciembre de 2023**:
 
@@ -223,12 +290,12 @@ WHERE DATEDIFF(NOW(), fecha_inscripcion) > 30;
 
 Esta sentencia devolverá todos los usuarios donde la columna `fecha_inscripcion` es anterior a hace más de 30 días respecto a la fecha actual.
 
-### DATE_FORMAT
+### **DATE_FORMAT**
 
 > `DATE_FORMAT()` solo cambia la forma en que se muestra la fecha, no altera el valor subyacente a la fecha en la base de datos.
 {: .prompt-info }
 
-**Ejemplos de uso**
+#### **Ejemplos de uso**
 
 1. Formatear una fecha en formato `DD/MM/YYYY`:
 
@@ -246,7 +313,7 @@ SELECT DATE_FORMAT('2024-11-07', '%W, %M %d, %Y');
 {: .nolineno }
 
 
-### EXTRACT
+### **EXTRACT**
 
 La función `EXTRACT()` utiliza los mismos argumentos que la función `DATE_ADD()` o `DATE_SUB()`, pero extrae partes de la fecha en lugar de realizar operaciones ariméticas de fechas.
 
@@ -260,7 +327,7 @@ EXTRACT(unidad FROM fecha)
 - **unidad**: El tipo de unidad, como `DAY`, `MONTH`, `YEAR`, `HOUR`, `MINUTE`, `SECOND`, entre otros.
 - **fecha**: La fecha a la que le vamos extraer la unidad especificada.
 
-**Ejemplos**
+#### **Ejemplos de Uso**
 
 ```sql
 SELECT EXTRACT(YEAR FROM '2022-03-02');
@@ -269,9 +336,9 @@ SELECT EXTRACT(MINUTE FROM CURDATE());
 ```
 {: .nolineno }
 
-### GET_FORMAT
+### **GET_FORMAT**
 
-Devuelve una cadena de formato. Esta función `GET_FORMART()` es útil en combinación con `DATE_FORMAT()` y `STR_TO_DATE()`. Los valores posibles para el primer argumento dan como resultado varias cadenas de formato posibles.
+Devuelve una cadena de formato. Esta función `GET_FORMAT()` es útil en combinación con `DATE_FORMAT()` y `STR_TO_DATE()`. Los valores posibles para el primer argumento dan como resultado varias cadenas de formato posibles.
 
 **Tabla de especificadores**
 
@@ -288,11 +355,10 @@ Devuelve una cadena de formato. Esta función `GET_FORMART()` es útil en combin
 |`GET_FORMAT(DATETIME, 'EUR')`|`'%Y-%m-%d %H.%i.%s'`|`2021-12-30 07.45.14`|
 |`GET_FORMAT(DATETIME, 'INTERNAL')`|`'%Y%m%d%H%i%s'`|`20211230074514`|
 
----
 
-## Ejercicios Prácticos
+## **Más Ejercicios Prácticos**
 
-### Buscar registros entre dos fechas
+### **Buscar Registros entre dos Fechas**
 
 Supongamos que tenemos una tabla `eventos` con una columna `fecha_evento` de tipo `DATE` y queremos obtener todos los eventos que ocurren entre dos fechas específicas. Podemos usar la cláusula `BETWEEN` para realizar la consulta:
 
@@ -307,7 +373,7 @@ Esta sentencia devolverá todos los eventos donde la columna `fecha_evento` est�
 > La cláusula `BETWEEN` es inclusiva, lo que significa que las fechas inicial y final también se incluyen en el resultado.
 {: .prompt-info }
 
-### Buscar registros después de una fecha específica
+### **Buscar Registros después de una Fecha Específica**
 
 Si solo quisieramos obtener los eventos que ocurren después de una fecha específica, podemos usar el operador mayor que (`>`):
 
@@ -320,7 +386,7 @@ WHERE fecha_evento > '2023-06-01';
 Esta sentencia te devolverá todos los eventos que ocurren después del **1 de junio de 2023**.
 
 
-### Buscar registros anteriores a una fecha específica
+### **Buscar Registros anteriores a una Fecha específica**
 
 De manera similar al ejercicio anterior, podemos buscar los eventos que ocurren antes de una fecha específica usando el operador de menor que (`<`):
 
@@ -332,7 +398,7 @@ WHERE fecha_evento < '2023-06-01';
 
 Esta sentencia devolverá todos los eventos que ocurren **antes del 1 de junio del 2023**.
 
-### Filtrar eventos del mes actual
+### **Filtrar Eventos del mes Actual**
 
 Si queremos obtener todos los eventos que ocurren en el mes actual, podemos usar la función `MONTH()` y `YEAR()` para extraer el mes y el año de la fecha:
 
@@ -345,6 +411,6 @@ AND YEAR(fecha_evento) = YEAR(CURDATE());
 
 Esta sentencia te devuelve todos los eventos donde la columna `fecha_evento` corresponda al **mes** y **año** actual.
 
-## Notas Finales
+## **Notas Finales**
 
 Estos ejercicios prácticos nos ayudan a familiarizarnos con las funciones y operadores relacionados con fechas en MySQL. Desde realizar búsquedas entre fechas hasta trabajar con funciones de manipulación de fechas, estas habilidades son esenciales para cualquiera que trabaje con datos temporales en bases de datos.
