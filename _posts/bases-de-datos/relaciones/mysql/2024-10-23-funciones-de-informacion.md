@@ -1,7 +1,7 @@
 ---
 title: "MySQL 🐬 : Funciones de Información"
 author: enidev911
-categories: [Bases de Datos Relacionales, MySQL]
+categories: [Bases de Datos Relacionales, "MySQL - Extras/Trucos"]
 tags: [Bases de Datos]
 ---
 

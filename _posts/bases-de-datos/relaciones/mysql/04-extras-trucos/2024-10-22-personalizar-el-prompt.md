@@ -1,15 +1,15 @@
 ---
 title: "MySQL 🐬 : Personalizar el prompt"
 author: enidev911
-categories: [Bases de Datos Relacionales, MySQL]
-tags: [Bases de Datos]
+categories: [Bases de Datos Relacionales, "MySQL - Extras/Trucos"]
+tags: [MySQL]
 ---
 
-## ¿Qué es el Prompt?
+## **¿Qué es el Prompt?**
 
 El **prompt** visualmente es el conjunto de caracteres que se muestra en la línea de comandos para indicar que está en la espera de órdenes. En todos los intérpretes de comandos esto suele variar y a su vez se puede configurar para dar información de interés.
 
-### El Prompt del Cliente MySQL
+### **El Prompt del Cliente MYSQL**
 
 El **prompt del programa cliente** de terminal llamado **mysql** se suele personalizar para ofrecer cierta información a simple vista. Lo podemos personalizar mediante la variable de entorno `MYSQL_PS1` o con el **comando** `prompt` dentro de la sesión interactiva.
 

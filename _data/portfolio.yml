@@ -5,6 +5,12 @@ projects:
     image: "/assets/img/proyectos/condominio.webp"
     image_base64: "UklGRjwAAABXRUJQVlA4IDAAAADwAgCdASoUAAoAPzmGuVOvKSWisAgB4CcJZwAAetCIAAD+7m0YPsto0TKbuKyAAAA="
 
+  - title: "CV WEB"
+    description: "Curriculum WEB"
+    url: "https://enidev911.github.io/curriculum/"
+    image: "/assets/img/proyectos/cv-web.webp"
+    image_base64: "UklGRrQAAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSDQAAAABX0AmbZsjUzUvuxYRcVSIATltraGIJYEAogggnRACqG18798AIvo/AW4o+7CH6mdLnYEKVlA4IFoAAACQAwCdASoUAA4APzmEuVOvKKWisAgB4CcJYwC7ABjHj/obexQAAP7nPn7eBUUOKpmQIEftaRR9qsJiOKGs9uj5Y+rQ46HyXPLukrDMuFi01NubB1GoX+gAAAA="
+
   - title: "Website"
     description: "Fullstack Python"
     url: "https://enidev911.github.io/fullstack-python"
