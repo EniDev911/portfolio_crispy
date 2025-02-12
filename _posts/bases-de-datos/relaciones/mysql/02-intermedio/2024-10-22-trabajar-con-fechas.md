@@ -265,7 +265,7 @@ La función `DATEDIFF()` como ya sabemos, se utiliza para calcular la diferencia
 
 #### **Ejemplo de uso**
 
-1. Calcular el número de días entre el **1 de enero de 2023** y el **5 de diciembre de 2023**:
+**1.** Calcular el número de días entre el **1 de enero de 2023** y el **5 de diciembre de 2023**:
 
 ```sql
 SELECT DATEDIFF('2024-12-05', '2024-01-01'); /* 339 */
@@ -277,8 +277,7 @@ Esta sentencia retornará el número **339** que es la diferencia entre las dos 
 > La función no tiene en cuenta la hora, minutos o segundos, solo las fechas. Si alguna de las fechas es `NULL`, el resultado será `NULL`.
 {: .prompt-info }
 
-{: start="2" }
-2. Filtrar registros basados en la diferencia de fechas
+**2.** Filtrar registros basados en la diferencia de fechas
 
 Si tenemos una tabla con registros de usuarios y sus fechas de inscripción, y queremos obtener solo los usuarios que se registraron hace más de 30 días:
 
@@ -297,15 +296,14 @@ Esta sentencia devolverá todos los usuarios donde la columna `fecha_inscripcion
 
 #### **Ejemplos de uso**
 
-1. Formatear una fecha en formato `DD/MM/YYYY`:
+**1.** Formatear una fecha en formato `DD/MM/YYYY`:
 
 ```sql
 SELECT DATE_FORMAT('2024-11-07', '%d/%m/%Y');
 ```
 {: .nolineno }
 
-{: start="2" }
-2. Obtener el nombre del mes y del día:
+**2.** Obtener el nombre del mes y del día:
 
 ```sql
 SELECT DATE_FORMAT('2024-11-07', '%W, %M %d, %Y');
