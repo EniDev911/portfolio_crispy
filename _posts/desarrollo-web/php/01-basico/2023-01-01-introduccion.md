@@ -44,7 +44,7 @@ PHP es un **lenguaje de programación interpretado**, ejecutado en el servidor, 
 ### **Innovación Moderna: PHP y Versiones Posteriores**
 
 **PHP 7 (2015)**
-Con mejoras dramáticas en el rendimiento, PHP 7 redujo el consumo de recursos y aceleró el procesamiento, lo que permitió desarrollar sitios web y aplicaciones de alto tráfico de manera más eficiente.
+: Con mejoras dramáticas en el rendimiento, PHP 7 redujo el consumo de recursos y aceleró el procesamiento, lo que permitió desarrollar sitios web y aplicaciones de alto tráfico de manera más eficiente.
 
 **Continuidad y Futuro**
 : Las versiones recientes han seguido incorporando mejoras en seguridad, tipado y optimización, desmotrando que PHP sigue adaptándose a las necesidades de la web moderna.
