@@ -1,7 +1,7 @@
 ---
 title: "PHP : Comenzando y conociendo PHP"
 author: enidev911
-categories: [Desarrollo Web, PHP]
+categories: [Desarrollo Web, "PHP 01. Básico"]
 tags: [desarrollo web, php]
 ---
 
