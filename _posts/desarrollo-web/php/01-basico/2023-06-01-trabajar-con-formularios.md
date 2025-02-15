@@ -1,29 +1,32 @@
 ---
-title: "PHP : Trabajar con Formularios"
+title: "PHP : Cómo Procesar Formularios HTML"
 author: enidev911
-categories: [Desarrollo Web, PHP]
+categories: [Desarrollo Web, "PHP 01. Básico"]
+image:
+  path: posters/php-procesar-formularios-html.webp
+  lqip: data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSDQAAAABT0CYbeTPegD7XTUiIoS+QE0kSdF9Ak7CRcSfFMRQKED5RBiI6P8E3IPPBDOo/+VUbeEGVlA4IFYAAAAQBACdASoUAAsAPzmEuVOvKKWisAgB4CcJYgC06CKeDweKajxg1MYTAAD2C0FtWhp5ezjINRAKr99ejzMXYg7YFAZPFfpqhHAl564aNUGqJExPrQAAAA==
 tags: [desarrollo web, php]
 ---
 
-Los formularios son una parte esencial de cualquier aplicación web que permite a los usuarios interactuar y enviar información al servidor. PHP es un lenguaje de programación ampliamente utilizado para procesar formularios en aplicaciones web. En este post, veremos cómo trabajar con formularios en PHP, incluyendo la diferencia entre método `GET` y `POST`, los diferentes elementos de entrada de datos, y cómo recuperar información y enviar archivos.
+Los formularios HTML son una parte esencial de cualquier aplicación web que permite a los usuarios interactuar y enviar información. PHP nos permite recopilar esa información para ser procesada en el servidor. En este post, veremos cómo trabajar con formularios en PHP, incluyendo la diferencia entre método `GET` y `POST`, los diferentes elementos de entrada de datos, y cómo recuperar información y enviar archivos.
 
-## Métodos para enviar Formularios GET y POST
+## **Métodos para enviar Formularios (GET, POST)**
 
-En PHP, los formularios pueden enviar datos al servidor utilizando métodos principales: `GET` y `POST`. Ambos métodos son utilizados para transmitir información desde el navegador del cliente al servidor, pero tienen diferencias importante:
+Los formularios pueden enviar datos al servidor utilizando los métodos principales: `GET` y `POST`. Ambos métodos son utilizados para transmitir información desde el navegador del cliente al servidor, pero tienen diferencias importante:
 
-### GET
+### **GET**
 
 1. Los datos se envían a través de la URL y son visibles en la barra de direcciones del navegador.
 2. Se utiliza principalmente para solicitudes que no modifican datos en el servidor, como búsquedas o filtros.
 3. La información se recupera en PHP utilizando la **superglobal** `$_GET`.
 
-### POST
+### **POST**
 
 1. Los datos se envían de manera más discreta y no son visibles en la URL.
 2. Se utiliza para enviar datos sensibles o para realizar cambios en el servidor, como enviar un formulario de registro.
 3. La información se recupera en PHP utilizando la **superglobal** `$_POST`.
 
-### Crear el formulario HTML
+### **Crear el formulario HTML**
 
 ```html
 <!DOCTYPE html>
@@ -52,7 +55,7 @@ En PHP, los formularios pueden enviar datos al servidor utilizando métodos prin
 ```
 {: file="index.html" }
 
-### Procesar el Formulario
+### **Procesar el Formulario**
 
 Una vez el formulario es enviado, necesitamos manejar los datos en el archivo PHP `procesar.php` se encarga de procesar los datos.
 
@@ -80,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 ```
+{: file="procesar.php" }
 
 - `$_POST['campo']`: PHP recoge los datos enviados desde el formulario usando la variable `$_POST`.
 - `htmlspecialchars()`: Es importante usar esta función para evitar ataques de inyección de código (XSS), transformando caracteres especiales en entidades HTML seguras.
