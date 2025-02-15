@@ -1,8 +1,8 @@
 ---
-title: "macOS  : Instalar MySQL"
+title: "MySQL 🐬 : Instalar en macOS "
 author: enidev911
-categories: [Sistemas Operativos, macOS]
-tags: [Sistemas Operativos, macOS, docker]
+categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
+tags: [Bases de Datos]
 ---
 
 Desde la página oficial descargamos la imagen de la versión comunitaria que está disponible [aquí](https://dev.mysql.com/downloads/mysql/){: target='_blank' } que contiene el instalador del paquete MySQL.
