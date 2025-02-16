@@ -11,7 +11,7 @@ Gemfile.lock
 _site
 
 # Imágenes Pesadas
-assets/img/posters/*.png
+assets/img/**/*.png
 
 # RubyGems
 *.gem

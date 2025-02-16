@@ -11,7 +11,7 @@ image:
 pin: true
 ---
 
-En este post, cubriremos la instalación MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
+En este post, cubriremos la instalación de MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
 
 ## **Requisitos Previos**
 
@@ -24,7 +24,7 @@ Antes de comenzar, asegurate de tener lo siguiente:
 
 ### **Paso 1: Actualizar el Sistema**
 
-Siempre es importante que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que tienes los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
+Es fundamental que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que cuentas con los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
 
 Abre una nueva terminal y actualizar el índice de paquetes apt con el siguiente comando:
   
@@ -32,7 +32,7 @@ Abre una nueva terminal y actualizar el índice de paquetes apt con el siguiente
 sudo apt update
 ```
 
-Luego, actualizamos todos los paquetes instalados con el siguiente comando:
+Después, actualiza todos los paquetes instalados con el siguiente comando:
 
 ```terminal
 sudo apt upgrade -y
@@ -82,7 +82,7 @@ La primera pregunta nos solicitará si queremos validar la contraseña para cone
 
 Después, según la opción que ingresemos, nos solicitará la contraseña para el usuario `root` (esto no tendrá efecto hasta que cambiemos el método de autenticación al usuario `root` de `auth_socket` a otro complemento). Una vez definida la contraseña, nos preguntará si deseamos **eliminar a los usuarios anónimos** que se crean por defecto durante la instalación de MySQL.
 
-> Lo recomendable es eliminar a los usuarios anónimos.
+> Lo recomendable es eliminar a los usuarios anónimos, ya que representan un riesgo de seguridad al permitir acceso sin necesidad de contraseña.
 {: .prompt-tip }
 
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-2.png)
