@@ -2,14 +2,16 @@
 title: "MySQL 🐬 : Instalación en Ubuntu"
 author: enidev911
 categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
+description: "Este artículo explicará cómo instalar MySQL versión 8 en una máquina Ubuntu 20.04"
 tags: [Bases de Datos]
 image:
-  path: posters/mysql-en-ubuntu.webp
-  lqip: data:image/webp;base64,UklGRqQAAABXRUJQVlA4WAoAAAAQAAAAEwAACQAAQUxQSCcAAAABL2AgbRv/lrf9sRERgQDDEBQ1KWQQyyKcv0zfA4jo/wR0rZeBywgAVlA4IFYAAACwAwCdASoUAAoAPzmEuVOvKKWisAgB4CcJZAAAWp+zrp5N706UoAD+0yzGH55omUGTA1lboMfXjsGi2Ix/W5CFQKGoOFGcb4v9/EHv/E2nEamNObwAAA==
+  path: posters/mysql-instalacion-ubuntu.webp
+  lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBhQBD37+nEsZBT2bIAA/uqLY7we9otIo6VE4hK5kLetUTtViPXpgpvzYttrY9gvIaDi5xEVH7zwYWp7jdhO+itEYAAA
+  alt: "Cómo Instalar MySQL en Ubuntu"
 pin: true
 ---
 
-En este post, cubriremos cómo instalar MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
+En este post, cubriremos la instalación MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
 
 ## **Requisitos Previos**
 
@@ -20,7 +22,7 @@ Antes de comenzar, asegurate de tener lo siguiente:
 
 ## **Comenzar Instalación**
 
-### **1. Actualizar el Sistema**
+### **Paso 1: Actualizar el Sistema**
 
 Siempre es importante que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que tienes los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
 
@@ -36,7 +38,7 @@ Luego, actualizamos todos los paquetes instalados con el siguiente comando:
 sudo apt upgrade -y
 ```
 
-### **2. Instalar MySQL**
+### **Paso 2: Instalar MySQL**
 
 Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados. Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
   
@@ -47,26 +49,26 @@ sudo apt install mysql-server
 ![Paso 1](mysql/mysql-ubuntu-install-step-1.png)
 
 
-Concluida la instalación, el demonio de MySQL se iniciará automáticamente. Para verificar si esta ejecutandose el servidor usamos el siguiente comando:
+Concluida la instalación, el [demonio](https://es.wikipedia.org/wiki/Daemon_(inform%C3%A1tica)){: target='_blank' } de MySQL se iniciará automáticamente. Para verificar si está ejecutándose el servidor, usamos el siguiente comando:
 
 ```terminal
 sudo systemctl status mysql
 ```
 
-Con el siguiente comando podemos saber en que puerto está corriendo MySQL:
+Con el siguiente comando podemos verificar en qué puerto está corriendo MySQL:
 
 ```terminal
 cat /etc/services | grep mysql
 ```
 
-### **3. Instalación Segura**
+### **Paso 3: Configurar MySQL**
 
-En Debian y derivados, el paquete mysql-server incluye el script Perl **mysql\_secure\_installation**, el cual permite mejorar la seguridad de la instalación por defecto. Es recomendable correr este script en todas las instalaciones de servidores MySQL para sistemas en producción. En resumen nos permite:
+En Debian y derivados, el paquete mysql-server incluye el script Perl **`mysql_secure_installation`**, el cual permite mejorar la seguridad de la instalación por defecto. Es recomendable correr este script en todas las instalaciones de servidores MySQL para sistemas en producción. En resumen nos permite:
 
-* Cambiar la contraseña del usuario "root".
-* Deshabilitar el acceso remoto para el usuario "root".
+* Cambiar la contraseña del usuario `root`.
+* Deshabilitar el acceso remoto para el usuario `root`.
 * Eliminar cuentas de usuario anónimas que pueden ingresar sin necesidad de una contraseña.
-* Eliminar la base de datos "test" (si existe), y todo privilegio que permita a cualquier usuario el acceso a bases de datos cuyos nombres comienzan con "test\_".
+* Eliminar la base de datos `test` (si existe), y todo privilegio que permita a cualquier usuario el acceso a bases de datos cuyos nombres comienzan con `test_`.
 
 Utilizar el script para una configuración segura:
 
@@ -74,11 +76,14 @@ Utilizar el script para una configuración segura:
 sudo mysql_secure_installation
 ```
 
-La primera pregunta nos solicitará si queremos validar password para conectarnos al servidor sea seguro, si lo deseamos al momento de crear un nuevo usuario en el sistema MySQL nos validará si el password cumple con las condiciones mínimas de seguridad. Si no queremos esto solamente ingresamos **`N`**
+La primera pregunta nos solicitará si queremos validar la contraseña para conectarnos al servidor, si lo deseamos al momento de crear un nuevo usuario en el sistema, MySQL nos validará si la contraseña cumple con las condiciones mínimas de seguridad. Si no queremos esto, simplemente presionamos la tecla <kbd>N</kbd> y luego <kbd>Enter</kbd>.
 
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-1.png)
 
-Luego de acuerdo a la opción que ingresemos nos solicitará ingresar el password para el usuario root (Ojo: esto no tendrá efecto hasta que cambiemos el método de autenticación al usuario root de **auth\_socket** a otro complemento). Una vez ingresamos nuestro password, nos preguntará si deseamos remover a los usuarios ánonimos que se crean por defecto junto a la instalación de MySQL, lo mejor es removerlos.
+Después, según la opción que ingresemos, nos solicitará la contraseña para el usuario `root` (esto no tendrá efecto hasta que cambiemos el método de autenticación al usuario `root` de `auth_socket` a otro complemento). Una vez definida la contraseña, nos preguntará si deseamos **eliminar a los usuarios anónimos** que se crean por defecto durante la instalación de MySQL.
+
+> Lo recomendable es eliminar a los usuarios anónimos.
+{: .prompt-tip }
 
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-2.png)
 
@@ -95,7 +100,7 @@ Luego nos pregunta si queremos recargar la tabla de privilegios. Pondremos si (Y
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-5.png)
 
 
-### **4. Ajustes de Autenticación y Privilegios de Usuarios**
+### **Paso 4: Configurar Métodos de Autenticación**
 
 En los sistemas Ubuntu con MySQL 5.7 (y versiones posteriores), el usuario `root` de MySQL se configura para la autenticación usando el complemento `auth_socket` de manera predeterminada en lugar de una contraseña. Esto en muchos casos proporciona mayor seguridad y utilidad, pero también puede generar complicaciones cuando deba permitir que un programa externo (como phpMyAdmin) acceda al usuario.
 
@@ -145,7 +150,7 @@ FLUSH PRIVILEGES;
 ```
 {: .nolineno }
 
-### **5. Ajustes de Autenticación y Privilegios de Usuarios**
+### **Paso 5: Privilegios de Usuarios**
 
 Otra opción recomendada es crear un nuevo usuario administrativo con todos los privilegios y acceso a todas las bases de datos:
 
@@ -160,15 +165,11 @@ IDENTIFIED BY 'very_strong_password';
 
 Para desinstalar MySQL en Ubuntu, puedes seguir estos pasos:
 
-### **1. Detén el servicio de MySQL**
-
 **Primero**, debemos detener el servicio de MySQL si está en ejecución:
 
 ```terminal
 sudo systemctl stop mysql
 ```
-
-### **2. Desinstalar los paquetes de MySQL**
 
 **Segundo**, eliminamos los paquetes de MySQL con el siguiente comando:
 
@@ -176,10 +177,8 @@ sudo systemctl stop mysql
 sudo apt-get remove --purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
 ```
 
-### **3. Eliminar dependencias y archivos residuales**
+**Tercero**, eliminamos dependencias y archivos residuales:
 
-Ahora, eliminamos los paquetes no necesarios que podrían quedar después de la desinstalación:
- 
 ```terminal
 sudo apt-get autoremove
 sudo apt-get autoclean

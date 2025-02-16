@@ -10,6 +10,9 @@ Gemfile.lock
 .jekyll-cache
 _site
 
+# Imágenes Pesadas
+assets/img/posters/*.png
+
 # RubyGems
 *.gem
 
