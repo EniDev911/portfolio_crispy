@@ -1,6 +1,6 @@
 ---
 layout: post
-Title: "Tutorial: Gestionar Documentos con Zoho Writer"
+title: "Tutorial: Gestionar Documentos con Zoho Writer"
 categories: ["Tutoriales", "Productividad"]
 image:
     path: posters/tutorial-zoho-writer.webp
@@ -16,9 +16,15 @@ Zoho Writer es un procesador de texto basado en la nube que forma parte de la su
 
 ## **Cómo Usar Zoho Writer**
 
-**Descargar Zoho Writer Desktop**
+**Online**
+: Puedes usar [**Zoho Writer de manera online**](https://www.zoho.com/es-xl/writer/){: target='_blank' } a través de su aplicación web, y te da la posibilidad de **administrar extensiones** para mejorar la experiencia, como integraciones con otras herramientas de Zoho o funciones adicionales de productividad.
 
-Además de la versión en línea, [**Zoho Writer Desktop**](https://www.zoho.com/es-xl/writer/desktop-app.html){: target='_blank' } te permite trabajar sin conexión y es multiplataforma:
+- [**Zoho Writer    online**](https://www.zoho.com/es-xl/writer/){: target='_blank' }
+
+**Versión de escritorio**
+: La versión de escritorio te permite acceder sin conexión para trabajar donde sea que te encuentres, pero la diferencia a tener en cuenta es que la versión de escritorio **no podrás administrar extensiones** como en la versión online. 
+
+- [**Descargar Zoho Writer Desktop**](https://www.zoho.com/es-xl/writer/desktop-app.html){: target='_blank' } es multiplataforma.
 
 ![web page](tutoriales/zoho-writer-desktop-download.png)
 [_**Descargar Zoho Writer Desktop**_](https://www.zoho.com/es-xl/writer/desktop-app.html){: target='_blank' }
@@ -88,12 +94,36 @@ Ahora en lugar de dejar los productos como simples marcadores de posición o cam
 
 Por ejemplo, en la categoría de Frutas, podrías tener un menú desplegable con las opciones más comunes.
 
-Para hacerlo, cambiamos nuevamente a la pestaña **"Campos"** y seleccionamos en **campos rellenables** y eliges el de **lista desplegable**:
+Para hacerlo, cambiamos nuevamente a la pestaña **"Campos"** y seleccionamos **campos rellenables** y eliges el de **lista desplegable**:
 
 ![Lista desplegable](tutoriales/zoho-writer-add-combobox.png)
 
 ### **Uso de Task List**
 
-Ya en los ejemplos anteriores, vimos de uso de **campos personalizados**, pero ahora vamos a marcar los productos. En vez de usar campos campos personalizados, vamos a usar un **task lists** que se pueden marcar como completadas, en este caso se daría a entender como los productos ya comprados. Ejemplo:
+Ya en los ejemplos anteriores, vimos el uso de **campos personalizados**, pero ahora vamos a marcar los productos. En vez de usar campos campos personalizados, vamos a usar un **task lists** que se pueden marcar como completadas, en este caso se daría a entender como los productos ya comprados. Ejemplo:
 
 ![Uso de Task Lists](tutoriales/zoho-writer-task-lists.png)
+
+### **Escribir Bloques de Código**
+
+Zoho Writer facilita la elaboración de documentos técnicos al permitirle insertar **bloques de código** de manera rápida y eficiente. Esta función es ideal para mostrar ejemplos de código de manera clara, manteniendo el formato y la legibilidad, lo que es esencial cuando compartes manuales.
+
+**Para insertar un bloque de código,**
+
+1. Haz clic en la pestaña **"Insertar"** en la barra de herramientas.
+2. Selecciona **"Bloque de código"**.
+3. Pega o escribe el código dentro del bloque.
+
+También puedes buscarlo desde el menú desplegable con la barra diagonal (`"/"`):
+
+![Insertar bloque de código](tutoriales/zoho-writer-insert-block-code.png)
+
+### **Administrar Extensiones**
+
+Para administrar las extensiones de Zoho Writer, es necesario estar en la aplicación web (versión online), desde la barra lateral derecha se encuentra el ícono de las extensiones.
+
+![administrar extensiones](tutoriales/zoho-writer-administrar-extensiones.png)
+
+> Puedes buscar más extensiones en el [marketplace de zoho](https://marketplace.zoho.com/app/writer){: target='_blank' }
+{: .prompt-info }
+
