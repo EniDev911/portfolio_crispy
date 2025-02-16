@@ -75,7 +75,7 @@ Después de haber instalado MySQL, si al abrir una terminal no reconoce el coman
 
 Para conectarse al servidor desde la terminal, se requiere agregar el directorio que contiene los binarios de MySQL a la variable `PATH`. Para hacerlo, sigue estas instrucciones:
 
-Abrir el archivo de configuración** `~/.bashrc` o `~/.bash_profile`:
+Abrir el archivo de configuración `~/.bashrc` o `~/.bash_profile`:
 
 ```terminal
 nano ~/.bash_profile

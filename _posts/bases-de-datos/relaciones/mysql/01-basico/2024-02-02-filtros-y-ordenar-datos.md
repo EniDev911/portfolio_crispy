@@ -5,9 +5,10 @@ description: "Las cláusulas `WHERE` y `ORDER BY` nos permiten **filtrar y orden
 categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 mermaid: true
 image:
-  path: posters/mysql-filtrar-y-ordenar.webp
-  lqip: data:image/webp;base64,UklGRqQAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4ID4AAABQAgCdASoUAAsALvmczmclLy8vDwD4SgAA86AA/u+V7Q4feNf9fpqEH9TZbLCzXOJxN7iQurXOmD+cC0AAAA==
+  path: posters/mysql-uso-de-where-y-order-by.webp
+  lqip: data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBMAAAABD9D/iAgICQjN/8WyBxH9z+QCAFZQOCBeAAAAsAMAnQEqFAALAD85hrxULykmIzAIAeAnCWwAAFtiav5uaCFRuAAA/uqLXyEPWtCZUj4tVmuH1JwDzu+Riq2UIC7ZzsRFykWjB1P5ERlcXou6UeS5K3UkfwbXneAAAA==
 tags: [Bases de Datos]
+pin: true
 ---
 
 Cuando trabajamos con bases de datos, a menudo necesitamos extraer información específica y mostrarla de manera ordenada. Para lograr esto, MySQL nos brinda las cláusula `WHERE` para filtrar datos y `ORDER BY` para ordenarlos según nuestros criterios. En este post, profundizaremos en estas cláusulas y veremos cómo combinarlas para crear consultas más efectivas. Pero antes de sumergirnos en el código, vamos a preparar un escenario que contextualice el uso de estas herramientas.

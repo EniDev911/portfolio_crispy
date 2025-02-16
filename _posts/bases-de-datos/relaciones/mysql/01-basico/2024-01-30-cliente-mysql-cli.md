@@ -6,8 +6,8 @@ description: "El cliente MySQL es una herramienta de línea de comandos que perm
 categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 tags: [Bases de Datos]
 image:
-    path: posters/cliente-mysql-terminal.webp
-    lqip: data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAwCdASoUAAoAPzmIulQvKSWjMAgB4CcJZwAAW+yhwD5JxgGAAP7TFoCN38bd6SlcQ+wMcxKf2BuNM8N0BtfYfBgAAA==
+    path: posters/mysql-cliente-terminal.webp
+    lqip: data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJQAXf+A765PmdR4q07gAA/uqLJcRZMeZLMqSqqNHxfbqvYo6tqfPV1md4ZJcvyyr2o1Cmv1GQxsB76tOaGDaVRvrfisE2NnJfBGEmCMTHmRwAAAA=
 ---
 
 Cuando instalamos MySQL, dentro del paquete de instalación contiene un programa para conectarnos al servidor mediante la línea de comandos, el programa se llama **mysql** y nos permite abrir una sesión como cliente para ejecutar sentencias **SQL** con capacidades de edición.
