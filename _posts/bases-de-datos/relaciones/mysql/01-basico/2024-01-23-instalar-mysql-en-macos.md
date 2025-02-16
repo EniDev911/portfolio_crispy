@@ -28,7 +28,7 @@ Para descargar la imagen de la **versión comunitaria**, sigue estas instruccion
 ![instalador](mysql/mysql-installer-mac-light.webp){: .right .w-50 .light }
 ![instalador](mysql/mysql-installer-mac-dark.webp){: .right .w-50 .dark }
 - Una vez descargado el archivo `.dmg`, haz doble clic en el archivo para montar la imagen del disco.
-- Dentro de la imagen monstada, verás un instalador. Haz doble clic en el instalador para iniciar el proceso de instalación.
+- Dentro de la imagen montada, verás un instalador. Haz doble clic en el instalador para iniciar el proceso de instalación.
 - Se abrirá una ventana emergente con el mensaje de "Este paquete ejecutará un programa para determinar si el software se puede instalar", presiona en **permitir** para iniciar el asistente. 
 
 ### **Paso 3: Asistente de Instalación**
@@ -50,13 +50,32 @@ El asistente de instalación, te guiará para instalar y configurar MySQL, sigue
 **Finalizar el instalador**
 ![finalizar instalador](mysql/mysql-mac-asistente-finalizar.webp)
 
+### **Paso 4: Verificar Instalación**
 
-## **Añadir MySQL al PATH**
+1. Después de completar la instalación de MySQL, abre **Preferencias del Sistema**. Para hacerlo, puedes hacer clic en el icono de **Apple** en la esquina superior izquierda de la pantalla y seleccionar **Preferencias del Sistema**
 
-Para que podamos conectarnos al servidor usando el programa `mysql` desde la terminal, necesitamos agregar el directorio que contiene los binarios de MySQL a la variable `PATH`.
+2. Dentro de **Preferencia del Sistema**, busca el panel de MySQL. Este panel se instala automáticamente con MySQL y te permite iniciar, detener y configurar el servidor de MySQL.
 
+![preferencias del sistema](mysql/mysql-mac-preferencias-del-sistema-light.webp){: .light }
+![preferencias del sistema](mysql/mysql-mac-preferencias-del-sistema-dark.webp){: .dark }
 
-**1. Tenemos que abrir el archivo de configuración** `~/.bashrc` o `~/.bash_profile`:
+Desde aquí podrás:
+
+- **Iniciar** o **Detener** el servidor MySQL.
+- Verificar el estado del servicio.
+- Configurar las opciones de MySQL a través de un archivo de configuración.
+- **Desinstalar** MySQL.
+
+![panel mysql](mysql/mysql-mac-panel-instancias-light.webp){: .light }
+![panel mysql](mysql/mysql-mac-panel-instancias-dark.webp){: .dark }
+
+### **Paso 5: Añadir MySQL al PATH** (Opcional)
+
+Después de haber instalado MySQL, si al abrir una terminal no reconoce el comando `mysql`, puede ser que no lo haya añadido automáticamente al **PATH**.
+
+Para conectarse al servidor desde la terminal, se requiere agregar el directorio que contiene los binarios de MySQL a la variable `PATH`. Para hacerlo, sigue estas instrucciones:
+
+Abrir el archivo de configuración** `~/.bashrc` o `~/.bash_profile`:
 
 ```terminal
 nano ~/.bash_profile
@@ -65,9 +84,9 @@ nano ~/.bash_profile
 > Si tienes zsh, en vez de `~/.bashrc` remplazalo por `~/.zshrc`.
 {: .prompt-info }
 
-**2. Añadir la siguiente línea al final del archivo**:
+Añadir la siguiente línea al final del archivo:
 
-```terminal
+```bash
 export PATH=$PATH:/usr/local/mysql/bin
 ```
 {: .nolineno file='.bashrc' }

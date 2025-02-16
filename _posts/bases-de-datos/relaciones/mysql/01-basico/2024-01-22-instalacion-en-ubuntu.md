@@ -26,7 +26,7 @@ Antes de comenzar, asegurate de tener lo siguiente:
 
 Es fundamental que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que cuentas con los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
 
-Abre una nueva terminal y actualizar el índice de paquetes apt con el siguiente comando:
+Abre una nueva terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y actualiza el índice de paquetes apt con el siguiente comando:
   
 ```terminal
 sudo apt update
