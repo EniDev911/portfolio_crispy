@@ -1,5 +1,5 @@
 ---
-title: "PHP : Introducción"
+title: "PHP : Introducción al Lenguaje"
 author: enidev911
 categories: [Desarrollo Web, "PHP 01. Básico"]
 image:
@@ -12,9 +12,8 @@ Antes de sumergirnos en el aprendizaje del ecosistema PHP, en este post abarcare
 
 ## **¿Qué es PHP?**
 
-![PHP LOGO](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Webysther_20160423_-_Elephpant.svg/1280px-Webysther_20160423_-_Elephpant.svg.png){: width="972" height="589" .w-50 .right }
+![PHP LOGO](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Webysther_20160423_-_Elephpant.svg/1280px-Webysther_20160423_-_Elephpant.svg.png){: width="972" height="589" .w-25 .right }
 PHP es un **lenguaje de programación interpretado**, ejecutado en el servidor, lo que significa que el código se procesa en el servidor web y la salida se envía al navegador del cliente en forma de HTML. Esto ofrece una capa adicional de seguridad, ya que el usuario no tiene acceso directo al código fuente. Además, PHP se integra de forma nativa con HTML, lo que facilita la generación de páginas web dinámicas y personalizadas.
-
 
 ## **Historia y Evolución de PHP**
 
