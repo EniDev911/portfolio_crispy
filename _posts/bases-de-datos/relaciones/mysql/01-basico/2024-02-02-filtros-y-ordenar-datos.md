@@ -13,7 +13,7 @@ pin: true
 
 Cuando trabajamos con bases de datos, a menudo necesitamos extraer información específica y mostrarla de manera ordenada. Para lograr esto, MySQL nos brinda las cláusula `WHERE` para filtrar datos y `ORDER BY` para ordenarlos según nuestros criterios. En este post, profundizaremos en estas cláusulas y veremos cómo combinarlas para crear consultas más efectivas. Pero antes de sumergirnos en el código, vamos a preparar un escenario que contextualice el uso de estas herramientas.
 
-## **Escenario: Tienda "ElectroShop"**
+## **Escenario 1: Tienda "ElectroShop"**
 
 Imagina que eres el administrador de **ElectroShop**, una tienda en línea que se especializa en productos electrónicos y accesorios. Tu principal fuente de información de tu inventario se encuentra en la tabla `productos`. Esta tabla cuenta con las siguiente columnas:
 
@@ -23,7 +23,7 @@ Imagina que eres el administrador de **ElectroShop**, una tienda en línea que s
 - `precio`: Precio del producto.
 - `stock`: Cantidad disponible en inventario.
 
-### **Crear la Base de Datos y la Tabla**
+### **Paso 1: Crear la Base de Datos y la Tabla**
 
 Para empezar a trabajar, lo primero es crear la base de datos:
 
@@ -52,7 +52,9 @@ CREATE TABLE productos (
 ```
 {: .nolineno }
 
-**Los Datos de la Tabla `productos`**
+### **Paso 2: Insertar algunos datos de ejemplo**
+
+Algunos datos de ejemplos, cambia a la pestaña `SQL` para ver el código:
 
 {% tabs data_porductos %}
 {% tab data_porductos datos %}
@@ -221,3 +223,79 @@ Puedes crear un índice compuesto en las columnas `categoria`y `precio` para mej
 CREATE INDEX idx_categoria_precio ON productos(categoria, precio);
 ```
 {: .nolineno }
+
+## **Escenario 2: Publicaciones en Blog**
+
+Imagina que eres el administrador de un blog, tienes la responsabilidad de gestionar y analizar el contenido publicado. Con el tiempo, las publicaciones se acumulan y es necesario tener una forma eficiente de acceder a ellas. Ya sea para ver qué publicaciones están activas, saber quién las escribió, etc.
+
+### **Paso 1: Crear la Base de Datos y la Tabla**
+
+Para preparar el escenario, debes tener la base de datos con la tabla adecuada para almacenar los posts. En este caso, la tabla `posts` tendrá la información sobre el título, el autor, el estado de la publicación (si está publicada, borrador, etc), la fecha de publicación y más:
+
+```sql
+CREATE DATABASE blog;
+
+USE blog;
+
+CREATE TABLE posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    contenido TEXT NOT NULL,
+    autor VARCHAR(100),
+    fecha_publicacion DATETIME,
+    categoria VARCHAR(50),
+    estado VARCHAR(20)
+);
+```
+{: .nolineno }
+
+### **Paso 2: Insertar algunos datos de ejemplo**
+
+Algunos datos de ejemplos, pega el código en tu editor o terminal:
+
+```sql
+INSERT INTO posts (titulo, contenido, autor, fecha_publicacion, categoria, estado) VALUES
+('Inteligencia Artificial', 'AI está revolucionando la tecnología.', 'Juan Pérez', '2025-02-01 08:00:00', 'Tecnología', 'Publicado'),
+('Cambio Climático', 'El clima está cambiando rápidamente.', 'Ana Gómez', '2025-02-03 10:00:00', 'Medio Ambiente', 'Publicado'),
+('Trabajo Remoto', 'El teletrabajo es la nueva normalidad.', 'Carlos Martínez', '2025-02-05 14:00:00', 'Trabajo', 'Borrador'),
+('Programación', 'Aprender a programar es esencial.', 'Laura Sánchez', '2025-02-07 09:30:00', 'Educación', 'Publicado'),
+('Diseño Gráfico', 'El diseño está en constante cambio.', 'Pedro López', '2025-01-30 16:00:00', 'Diseño', 'Publicado');
+```
+{: .nolineno }
+
+¡Entendido! Aquí te dejo un ejemplo siguiendo el formato de tu situación, pero con un caso relacionado con el blog:
+
+
+### **Situación**
+
+Recientemente, has notado algunas situaciones en tu blog que requieren atención:
+
+**Revisar los Posts de Trabajo**
+: Quieres enfocarte en los posts de la categoría **Trabajo** para ver los que están actualmente **publicados** y hacer algunos ajustes. Para lograrlo, necesitas filtrar por **categoría** y **estado**.
+
+**Publicaciones Pendientes de Revisión**
+: Además, tienes varios posts que están en estado de **Borrador** y necesitas revisarlos para decidir si deben ser publicados o si requieren cambios. Para esto, necesitas filtrar todos los posts que estén en estado **Borrador** y que hayan sido creados después de una fecha específica, como **el 1 de febrero de 2025**.
+
+
+#### **1. Filtrar Posts por Categoría y Estado:**
+
+Quiero obtener todos los posts de la categoría **Trabajo** que ya están **publicados**. Para esto, utilizo el comando `WHERE` para filtrar por categoría y estado.
+
+
+```sql
+SELECT * FROM posts WHERE categoria = 'Trabajo' AND estado = 'Publicado';
+```
+{: .nolineno }
+
+Esta consulta te devolverá solo los posts de la categoría **Trabajo** que estén **publicados**, lo cual te ayudará a enfocarte en el contenido que ya está disponible para los usuarios.
+
+#### **2. Filtrar Posts por Estado 'Borrador' y Fecha de Publicación:**
+
+Ahora, necesito ver todos los posts que están en estado **Borrador** y fueron creados después del **1 de febrero de 2025**, para hacer una revisión y decidir si se publican o no.
+
+```sql
+SELECT * FROM posts WHERE estado = 'Borrador' AND fecha_publicacion > '2025-02-01' ORDER BY fecha_publicacion DESC;
+```
+{: .nolineno }
+
+Esta consulta filtrará todos los posts que están en estado **Borrador** y cuya fecha de publicación es posterior al **1 de febrero de 2025**, ordenándolos por la fecha de publicación más reciente. Esto te permitirá revisar primero los posts más nuevos que todavía están en proceso de edición.
