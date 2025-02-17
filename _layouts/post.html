@@ -13,7 +13,7 @@ tail_includes:
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>{{ page.title | markdownify }}</h1>
+    <h1 data-toc-skip><strong>{{ page.title | markdownify }}</strong></h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description | markdownify }}</p>
     {% endif %}

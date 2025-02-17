@@ -1,10 +1,10 @@
 ---
-title: "PHP : Variables y Tipos"
+title: "PHP : Variables y sus Tipos"
 author: enidev911
 categories: [Desarrollo Web, "PHP 01. Básico"]
 image:
-  path: posters/php-variables-y-tipos.webp
-  lqip: data:image/webp;base64,UklGRsoAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSEEAAAABb6CobSQ3qdleeezzqF1ExPhH0wFESw+KIklq6hyAHbRgCQE52eCLhgxy9oWBiP5PAOOQWoVyPug7Un8N5IuGAgBWUDggYgAAABAEAJ0BKhQADAA/OYS5U68opaKwCAHgJwlkAJ0AGZwcmMMXvlkpb4lAAPoHnw1SQy37wi5/ID1WynjY6Kf1+q3av0vkIGFv++Eyvy2LtSSq5HjLQb53GKY7d3SI66AsrgAA
+  path: posters/php-variables-y-sus-tipos.webp
+  lqip: data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwBACdASoUAAsAPzmGuVOvKSWisAgB4CcJZACw7B7HMb07/HY8sVXJUAAA8pzZmcS4tvY3R53g7e7JTdBeg2encGxVZGOFEn5Lk/BoXUL5F2btZs/dSB1tnC+N7g98Ijm0M6lW2gNL8YQ/a4AAAA==
 tags: [desarrollo web, php]
 ---
 
@@ -28,10 +28,8 @@ En PHP y en el mundo de la programación, una variable es un contenedor que alma
 **Ejemplo de Variables**
 
 ```php
-<?php
 $mensaje = "Hola, mundo!";
 $numero = 42;
-?>
 ```
 {: .nolineno }
 
@@ -47,9 +45,7 @@ PHP admite varios tipos de datos que permiten representar distintas formas de in
 Representa una cadena de caracteres. Se puede definir entre comillas simples o dobles:
 
 ```php
-<?php
 $texto = "Esto es una cadena de texto";
-?>
 ```
 {: .nolineno }
 
@@ -58,9 +54,9 @@ $texto = "Esto es una cadena de texto";
 Números enteros sin decimales y con ellos puedes realizar operaciones aritméticas básicas:
 
 ```php
-<?php
-$edad = 30;
-?>
+$a = 34;
+$b = 90;
+$resultado = $a + $b;
 ```
 {: .nolineno }
 
@@ -69,9 +65,7 @@ $edad = 30;
 Números de punto flotante, utilizados para representar decimales:
 
 ```php
-<?php
 $altura = 1.80;
-?>
 ```
 {: .nolineno }
 
@@ -80,9 +74,7 @@ $altura = 1.80;
 Solo puede tener dos valores: `true` o `false`. Es fundamental en la toma de decisiones y estructuras de control:
 
 ```php
-<?php
 $esValido = true;
-?>
 ```
 {: .nolineno }
 
@@ -93,10 +85,8 @@ $esValido = true;
 Permite almacenar múltiples valores en una sola variable. Los arrays pueden ser indexados numéricamente o asociativos:
 
 ```php
-<?php
 $frutas = array("Manzana", "Banana", "Cereza");
 $usuario = array("nombre" => "Marco", "edad" => 34);
-?>
 ```
 {: .nolineno }
 
@@ -105,7 +95,6 @@ $usuario = array("nombre" => "Marco", "edad" => 34);
 Representa una instancia de una clase. Los objetos permiten encapsular datos y funciones que operan sobre esos datos:
 
 ```php
-<?php
 class Persona {
     public $nombre;
     public $edad;
@@ -117,7 +106,6 @@ class Persona {
 }
 
 $persona = new Persona("Carlos", 25);
-?>
 ```
 {: .nolineno }
 
@@ -128,9 +116,7 @@ $persona = new Persona("Carlos", 25);
 Representa una variable sin valor asignado. Es útil para inicializar variables:
 
 ```php
-<?php
 $vacio = null;
-?>
 ```
 {: .nolineno }
 
@@ -143,3 +129,26 @@ Un tipo especial que hace referencia a recursos externos (por ejemplo, conexione
 - **Nombre Descriptivo**: Usar nombres significativos para las variables para mejorar la legibilidad y mantenimiento del código.
 - **Inicialización Adecuada**: Siempre que sea posible, inicializa las variables para evitar comportamientos inesperados.
 - **Conversión de Tipos**: PHP permite convertir entre tipos de datos. Asegúrate de entender las implicaciones de las conversiones automáticas para evitar errores lógicos.
+
+**Ejemplos de variables con nombres descriptivos**
+
+```php
+// Variable para almacenar el nombre del usuario
+$nombreUsuario = "Juan Pérez"; 
+
+// Variable para almacenar el correo electrónico del usuario
+$correoElectronico = "juan.perez@example.com";
+
+// Variable para almacenar la edad del usuario
+$edadUsuario = 28;
+
+// Variable para verificar si el usuario está registrado
+$usuarioRegistrado = true;
+
+// Variable para verificar si el formulario de contacto fue enviado
+$formularioEnviado = false;
+
+// Variable para almacenar el mensaje de error si ocurre un problema
+$mensajeError = "";
+```
+{: .nolineno }
