@@ -3,8 +3,8 @@ title: "PHP : Introducción"
 author: enidev911
 categories: [Desarrollo Web, "PHP 01. Básico"]
 image:
-  path: posters/php-introduccion.webp
-  lqip: data:image/webp;base64,UklGRsoAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSEEAAAABb6CobSQ3qdleeezzqF1ExPhH0wFESw+KIklq6hyAHbRgCQE52eCLhgxy9oWBiP5PAOOQWoVyPug7Un8N5IuGAgBWUDggYgAAABAEAJ0BKhQADAA/OYS5U68opaKwCAHgJwlkAJ0AGZwcmMMXvlkpb4lAAPoHnw1SQy37wi5/ID1WynjY6Kf1+q3av0vkIGFv++Eyvy2LtSSq5HjLQb53GKY7d3SI66AsrgAA
+  path: posters/php-introduccion-al-lenguaje.webp
+  lqip: data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBMAAAABD9D/iAgICQjN/8WyBxH9z+QCAFZQOCBsAAAAEAQAnQEqFAALAD85hLlTryilorAIAeAnCWQAnQAd+3hn83L9/5Ic44AAyyZyI5kLn7CkmLma5GQLTAxSZPz7378kjKUL/66YaNtm7TPQ42E9qoiwjKMK1P7KZCnaC0BNOxbQG3ep4P2uAAAA
 tags: [desarrollo web, php]
 ---
 
