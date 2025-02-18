@@ -8,7 +8,7 @@ tags: [tools]
 
 Cuando estamos trabajando con GitHub y deseamos interactuar con los repositorios de manera más segura y eficiente, utilizar una clave SSH es una excelente opción. SSH permite que tu conexión con GitHub sea cifrada y sin necesidad de ingresar tus credenciales.
 
-### Crear una Nueva Clave SSH
+### **Crear una Nueva Clave SSH**
 
 Comenzamos creando una nueva clave, usando el correo electrónico como etiqueta en la terminal:
 
@@ -42,9 +42,20 @@ eval $(ssh-agent -s)
 
 Ahora agregamos la llave privada al agente ssh. Si creaste la llave con un nombre distinto, asegurate de apuntar hacia donde se encuentre la llave que creaste. Si dejaste los valores predeterminado basta con copiar el siguiente comando:
 
+
+{% tabs add_ssh %}
+{% tab add_ssh "CMD, BASH" %}
 ```terminal
 ssh-add ~/.ssh/id_rsa
-``` 
+```
+{% endtab %}
+{% tab add_ssh POWERSHELL %}
+```terminal
+ssh-add $env:USERPROFILE\.ssh\id_rsa
+```
+{% endtab %}
+{% endtabs %}
+
 
 El comando anterior nos devolverá el siguiente mensaje:
 
