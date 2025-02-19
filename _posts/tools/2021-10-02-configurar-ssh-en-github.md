@@ -8,7 +8,7 @@ tags: [tools]
 
 Cuando estamos trabajando con GitHub y deseamos interactuar con los repositorios de manera más segura y eficiente, utilizar una clave SSH es una excelente opción. SSH permite que tu conexión con GitHub sea cifrada y sin necesidad de ingresar tus credenciales.
 
-### **Crear una Nueva Clave SSH**
+## **Paso 1: Crear una Nueva Clave SSH**
 
 Comenzamos creando una nueva clave, usando el correo electrónico como etiqueta en la terminal:
 
@@ -30,9 +30,9 @@ Enter file in which to save the key (~/<user>/.ssh/id_rsa):
 
 Selecciona la ubicación de tu preferencia o solo presiona <kbd>Enter</kbd>.
 
-### Agregar la Llave al Servicio de Ssh-Agent
+## **Paso 2: Agregar la Llave al Servicio de Ssh-Agent**
 
-El comando `ssh-agent` es un programa auxiliar que realiza seguimiento de las claves de identidad del usuario y sus frases de contraseñas.
+El comando `ssh-agent` es un programa auxiliar que realiza seguimiento de las claves de identidad del usuario y sus frases de contraseñas. A continuación, sigue las instrucciones para agregar
 
 Verificar si el programa se está ejecutando:
 
@@ -44,7 +44,7 @@ Ahora agregamos la llave privada al agente ssh. Si creaste la llave con un nombr
 
 
 {% tabs add_ssh %}
-{% tab add_ssh "CMD, BASH" %}
+{% tab add_ssh GIT BASH o LINUX %}
 ```terminal
 ssh-add ~/.ssh/id_rsa
 ```
@@ -54,8 +54,12 @@ ssh-add ~/.ssh/id_rsa
 ssh-add $env:USERPROFILE\.ssh\id_rsa
 ```
 {% endtab %}
+{% tab add_ssh CMD %}
+```terminal
+ssh-add %USERPROFILE%\.ssh\id_rsa
+```
+{% endtab %}
 {% endtabs %}
-
 
 El comando anterior nos devolverá el siguiente mensaje:
 
@@ -65,13 +69,27 @@ Identity added: /<User>/.ssh/id_rsa (user@mail.com)
 {: .noheader .nolineno +}
 
 
-### Registrar la LLave Pública a Github
+## **Paso 3: Registrar la LLave Pública a Github**
 
 En Git Bash podemos usar la herramienta `clip` de Windows para copiar la clave de una manera sencilla y rápida:
 
+{% tabs copy_clipboard_ssh_pub %}
+{% tab copy_clipboard_ssh_pub GIT BASH %}
 ```terminal
 clip < ~/.ssh/id_rsa.pub
 ```
+{% endtab %}
+{% tab copy_clipboard_ssh_pub POWERSHELL %}
+```terminal
+Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub" | clip
+```
+{% endtab %}
+{% tab copy_clipboard_ssh_pub CMD %}
+```terminal
+type %USERPROFILE%\\.ssh\id_rsa.pub | clip
+```
+{% endtab %}
+{% endtabs %}
 
 - Vamos a nuestra cuenta en GitHub e iniciamos sesión.
 - Dirigite a la [configuración de llaves SSH y GPG](https://github.com/settings/keys){: target='_blank' }
@@ -80,7 +98,7 @@ clip < ~/.ssh/id_rsa.pub
 - En el campo `Key` pega la clave que está contenida en el portapapeles con <kbd>ctrl</kbd> + <kbd>v</kbd>.
 
 
-### Probar la Conexión
+## **Paso 4: Probar la Conexión**
 
 Par asegurarnos de que todo está funcionando correctamente, probamos la conexión con GitHub usando el siguiente comando:
 
