@@ -93,3 +93,34 @@ svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+
+@media (min-width: 1200px) {
+  .hr-lines{
+    position: relative;
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .hr-lines:before{
+    content:" ";
+    height: 2px;
+    width: 130px;
+    background: var(--text-color);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+  
+  .hr-lines:after{
+    content:" ";
+    height: 2px;
+    width: 130px;
+    background: var(--text-color);
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+}

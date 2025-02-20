@@ -101,9 +101,17 @@ A continuación, se muestra las diferencias de tamaño al cambiar el parámetro 
 
 ![controlando la calidad de las imágenes convertidas](tutoriales/tutorial-webp-quality-90.webp){: .frame }
 
+**3. Usar el modo de compresión "lossless" (sin pérdida)**
+
+```terminal
+cwebp -lossless input-image.png -o output-image.webp
+```
+
+## **Imágenes de Baja Calidad para Placeholder**
+
 ### **Herramientas para LQIP**
 
-Los marcadores de posición de imágenes de baja calidad (LQIP) son fundamentales para mejorar los tiempos de carga percibidos y la experiencia del usuario. Para crear estos marcadores de posición, utiliremos ImageMagick, una potente herramienta de manipulación de imágenes.
+Los marcadores de posición *placeholders* de imágenes de baja calidad (LQIP) son fundamentales para mejorar los tiempos de carga percibidos y la experiencia del usuario. Para crear estos marcadores de posición, utiliremos ImageMagick, una potente herramienta de manipulación de imágenes.
 
 ### **Uso de ImageMagick para LQIP**
 
@@ -145,6 +153,77 @@ Esta configuración, logra un equilibrio óptimo entre la longitud de la cadena 
 - `tmp.webp`: Crea un archivo WebP temporal.
 - `base64 tmp.webp`: Convierte el archivo temporal en una cadena base64.
 - `rm tmp.webp`: Elimina el archivo temporal después de la codificación.
+
+
+## **Estructura Final de la Imagen con Placeholder y Carga Diferida**
+
+Ahora que ya tienes el archivo WebP y el LQIP listo, puedes implementar la imagen en tu sitio con **lazy loading** y un **placeholder** para que se cargue progresivamente.
+
+### **HTML para la imagen con carga diferida y placeholder:**
+
+En este caso, utilizaremos el **LQIP** como una imagen de baja calidad temporalmente mientras se carga la imagen original con el formato WebP.
+
+```html
+<img
+  src="data:image/webp;base64,...."
+  data-src="input-image.webp"
+  alt="Imagen optimizada"
+  class="lazyload"
+  loading="lazy"
+  width="600" height="400"
+  style="width: 100%; height: auto;"
+/>
+```
+{: .nolineno }
+
+
+- `src`: Contiene la imagen LQIP en formato base64.
+- `data-src`: Tiene la URL de la imagen original en formato WebP.
+- `class="lazyload"`: Se utiliza para indicar que la imagen debe cargarse de manera diferida.
+- `loading="lazy"`: Es un atributo estándar de HTML5 que ayuda a activar la carga diferida de las imágenes.
+- `width` y `height`: Controlan el tamaño de la imagen.
+
+### **Script JS para Manejar la Carga Diferida (Lazy Loading)**
+
+El siguiente paso, es añadir el algo de JavaScript que permitirá que las imágenes solo se carguen cuando están cerca de la ventana de visualización. Esto mejora el rendimiento, ya que no todas las imágenes se cargan de inmediato.
+
+```html
+<script>
+  const lazyImages = document.querySelectorAll('.lazyload');
+
+  const loadImage = (image) => {
+    const src = image.getAttribute('data-src');
+    if (src) {
+      image.src = src;
+      image.onload = () => {
+        image.style.opacity = 1;
+      };
+    }
+  };
+
+  // rootMargin: Activar cuando la imagen esté a punto de entrar en la vista
+  // threshold: Cuando el 10% de la imagen sea visible
+  const imageOptions = {
+    rootMargin: '0px 0px 100px 0px', 
+    threshold: 0.1,                    
+  };
+
+  // observer.unobserve(entry.target): Dejar de observar la imagen una vez cargada
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        loadImage(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, imageOptions);
+
+  lazyImages.forEach((image) => {
+    imageObserver.observe(image);
+  });
+</script>
+```
+{: .nolineno }
 
 ### **Consejos adicionales para optimizar imágenes**
 

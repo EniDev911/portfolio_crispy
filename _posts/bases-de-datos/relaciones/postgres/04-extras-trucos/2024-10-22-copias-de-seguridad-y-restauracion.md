@@ -1,15 +1,17 @@
 ---
 title: "PostgreSQL 🐘 : Copias de Seguridad y Restauración"
 author: enidev911
-categories: [Bases de Datos Relacionales, Postgres]
-image: posters/postgres-backup.png
+categories: [Bases de Datos Relacionales, "Postgres - Extras/Trucos"]
+image:
+  path: posters/postgres-backup.webp
+  lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJZACdMoADTrSblGqSKVeeBUAA4iuMyLVJtI8Vd+GWO+/Fq/bnaIZgSZ3mxVvRE934U4nSOaPqKSKct3n5HKzjA3QQ4AAA
 tags: [Bases de Datos]
 pin: true
 ---
 
 Las copias de seguridad (backup) son un aspecto esencial en la administración de bases de datos, especialmente cuando se trata de bases de datos críticas como PostgreSQL. La gestión adecuada de copias de seguridad y restauración es esencial para garantizar la integridad y disponibilidad de tus datos en caso de pérdida o corrupción de la base de datos.
 
-## Métodos de Copias de Seguridad
+## **Métodos de Copias de Seguridad**
 
 PostgreSQL ofrece varios métodos para realizar copias de seguridad:
 
@@ -19,11 +21,17 @@ PostgreSQL ofrece varios métodos para realizar copias de seguridad:
 2. **Copias de Seguridad Físicas:**
    Implican copiar los archivos del sistema de archivos donde PostgreSQL almacena los datos. Esto generalmente se hace mediante herramientas de nivel de sistema, como `rsync`.
 
-### Realizando Copias de Seguridad Lógicas
+### **Copias de Seguridad Lógicas**
 
-#### Usando pg_dump
+Las copias lógicas en PostgreSQL permiten realizar respaldos de los datos de la base de datos de manera estructurada y selectiva, a nivel de tablas, esquemas o incluso registros individuales. A diferencia de las copias físicas, que respaldan todo el sistema de archivos, las copias lógicas se centran solo en los datos y la estructura de la base de datos. Entonces en pocas palabras, estas son sus características principales:
 
-El programa [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html){:target='_blank'} viene incluido en el paquete de instalación de **PostgreSQL** y por ende lo podemos utilizar directamente por línea de comando desde la terminal. En una nueva terminal hacemos una copia de seguridad de una base de datos existente en el servidor:
+- **Granularidad**: Puedes hacer copias de seguridad de tablas, esquemas o partes específicas de la base de datos.
+- **Portabilidad**: Las copias lógicas se pueden transferir fácilmente entre diferentes instancias de PostgreSQL.
+- **Restauración Selectiva**: Permiten restaurar solo los datos necesarios, lo que puede ser útil en casos de errores o migraciones parciales.
+
+#### **¿Qué es pg_dump?**
+
+La herramienta [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html){:target='_blank'} forma parte del paquete de instalación de PostgreSQL, lo que nos permite utilizarla directamente desde la línea de comando en la terminal. Para hacer una copia de seguridad de una base de datos existente en el servidor, simplemente ejecutamos el siguiente comando en una nueva terminal:
 
 ```terminal
 pg_dump -U usuario -d dbname -f backup.sql
