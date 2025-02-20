@@ -1,5 +1,5 @@
 ---
-title: "Migrar Dominio desde Google Workspace a Zoho Mail"
+title: "Tutorial: Migrar Dominio desde Google Workspace a Zoho Mail"
 categories: ["Tutoriales", "Productividad"]
 description: "Si tienes una pequeña empresa o simplemente buscas una solución más económica para tu correo electrónico corporativo, la migración a **Zoho Mail** te permitirá mantener tu dominio **sin costos**."
 image:
@@ -19,7 +19,6 @@ Cuando se trata de servicios de correo electrónico profesional para tu empresa,
 - **Sin anuncios**: A diferencia de otros servicios gratuitos, Zoho Mail no inserta anuncios en tu bandeja de entrada, garantizando una experiencia más profesional.
 
 - **Interfaz intuitiva**: Es fácil de usar, con un diseño limpio y herramientas poderosas para gestionar tu correo de manera eficiente.
-
 
 ## **Pasos para Migrar el Dominio en Google Workspace a Zoho Mail**
 

@@ -82,11 +82,24 @@ Para Windows, descargue los binarios de WebP desde [la página del proyecto WebP
 
 ### **Convertir imagen al formato WebP**
 
-Para convertir la imagen PNG al formato WebP:
+**1. Conversión básica de una imagen (sin compresión adicional)**
 
 ```terminal
 cwebp imagen.png -o imagen.webp
 ```
+
+**2. Controlar la calidad de la imagen convertida (0 a 100)**
+
+```terminal
+cwebp -q 80 input-image.png -o output-image.webp
+```
+
+- `-q 80`: Establece la calidad de la imagen convertida a 80 (de 0 a 100, donde 100 es la calidad más alta y el tamaño más grande).
+- `-o output-image.webp`: Especifica el archivo de salida en formato WebP.
+
+A continuación, se muestra las diferencias de tamaño al cambiar el parámetro `-q`:
+
+![controlando la calidad de las imágenes convertidas](tutoriales/tutorial-webp-quality-90.webp){: .frame }
 
 ### **Herramientas para LQIP**
 
