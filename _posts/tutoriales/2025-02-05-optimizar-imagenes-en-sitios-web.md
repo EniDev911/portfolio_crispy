@@ -1,16 +1,51 @@
 ---
 title: "Tutorial: Acelerar sitios Web con Optimización de Imágenes"
 categories: ["Tutoriales", "Web"]
+image:
+    path: posters/tutorial-optimizacion-de-imagenes.webp
+    alt: Optimización de Imágenes Para la Web
+    lqip: data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJaQAASoAhmdH0egAA/uv+PzBy+/q1hjFXpgUNEQ3rpKi6nLu3PWw1NRyLeXrgj8nxLKAAAAA=
 ---
 
-### **Comprender los beneficios del LQIP**
+La optimización de imágenes es fundamental para mejorar la velocidad de carga de un sitio web. Las imágenes de gran tamaño, si no se gestionan adecuadamente, pueden ralentizar el rendimiento del sitio y afectar la experiencia del usuario. Afortunadamente, existen diversas **técnicas** y **herramientas** que permiten reducir el tamaño de las imágenes sin perder calidad. Además, el uso de *placeholders* puede mejorar la percepción de la carga de la página, brindando una experiencia de usuario más fluida y agradable. A continuación, exploraremos algunas de las mejores prácticas y herramientas para optimizar imágenes y mejorar el rendimiento de tu sitio web.
 
-LQIP (Low-Quality Image Placeholder) es una técnica, en la que se codifica una versión de baja resolución de una imagen en base64 y se coloca temporalmente. Esto garantiza que se muestre una vista previa rápida mientras se carga la imagen de alta resolución, lo que mejora el tiempo de carga percibido y la experiencia del usuario.
+## **Calidad Visual y Experiencia del Usuario**
+
+La **calidad visual** de un sitio web juega un papel esencial en la **experiencia del usuario**. Imágenes de baja resolución pueden dar una impresión negativa, haciendo que el sitio se vea poco profesional o desactualizado. Por otro lado, imágenes de alta resolución pueden hacer que el sitio se vea nítido y atractivo, pero si no se optimizan correctamente, pueden afectar el rendimiento y la velocidad de carga.
+
+La resolución ideal de las imágenes en un sitio web depende del equilibrio entre calidad y rendimiento. Aquí tienes algunas recomendaciones según el uso:  
+
+### 📏 **Tamaño y resolución según el uso**  
+- **Imágenes de fondo o banners grandes** → 1920x1080 px o más (pero comprimidas).  
+- **Imágenes de contenido (ej: productos, ilustraciones)** → 1200x800 px suele ser suficiente.  
+- **Miniaturas o imágenes pequeñas (thumbnails)** → 300x300 px o similar.  
+
+> **Las imágenes son los recursos que más peso pueden tener en un sitio web**, y si estás no están optimizadas correctamente harán que tu página parezca lenta y arruinará la experiencia de navegación de tus usuarios.
+{: .prompt-info }
+
+Existen diversas herramientas para crear imágenes con resoluciones específicas, y en mi caso, una de las que más me resulta útil es el uso de los **marcos (frames)** de [Excalidraw](https://excalidraw.com/){: target='_blank' }.
+
+![frames excalidraw - resoluciones](tutoriales/excalidraw-frames-con-resoluciones.webp){: .frame }
+
+**Mostrar información de resoluciones en excalidraw**
+
+![frames excalidraw - resoluciones](tutoriales/excalidraw-mostrar-informacion-resoluciones.webp){: .frame }
+
+### 📄 **Formatos recomendados**  
+- **WebP** → Mejor opción (gran calidad y menor peso).  
+- **JPEG** → Bueno para fotos, pero más pesado que WebP.  
+- **PNG** → Solo si necesitas transparencia (pero pesa más).  
+- **SVG** → Ideal para iconos y gráficos simples.  
+
+
+## **¿Qué es LQIP (Low Quality Placeholder)?**
+
+**LQIP** es una de las técnicas más efectivas para mejorar la experiencia del usuario, que consiste en generar una versión de baja resolución de una imagen codificada en base64 y mostrarla temporalmente. Esto permite mostrar una vista previa rápida mientras la imagen de alta resolución se carga en segundo plano, lo que mejora la percepción del tiempo de carga y optimiza la experiencia del usuario.
 
 ### **Ventajas del LQIP**
 
-1 **Carga más rápida**: Se muestra una imagen de baja resolución mientras se carga la real, lo que da la impresión de que la página se carga más rápido.
-2. **Mejor experiencia de usuario**: El uso de LQIP hace los sitios web parezcan más rápidos, lo que aumenta la satisfacción del usuario.
+1. **Carga más rápida**: Se muestra una imagen de baja resolución mientras se carga la real, lo que da la impresión de que la página se carga más rápido.
+2. **Mejor experiencia de usuario**: El uso de LQIP hace que los sitios web parezcan más rápidos, lo que aumenta la satisfacción del usuario.
 3. **Reducción de la percepción de espera**: Aunque la imagen pesada todavía se está cargando, el usuario ya puede ver una versión básica de la misma.
 
 ### **¿Qué es WebP y por qué es útil?**
