@@ -19,10 +19,10 @@
     const reader = new FileReader();
     reader.onload = function (e) {
       const img = document.getElementById(imageId);
-      img.style.backgroundImage = `url(${e.target.result})`;  // Usamos background-image
-      const size = (file.size / 1024).toFixed(2); // Tamaño en KB
+      img.style.backgroundImage = `url(${e.target.result})`;
+      const size = (file.size / 1024).toFixed(2);
       document.getElementById(sizeId).innerText = "Tamaño: " + size + " KB";
-      document.getElementById(containerId).style.display = "block"; // Mostrar la imagen
+      document.getElementById(containerId).style.display = "block";
     };
     reader.readAsDataURL(file);
   }
@@ -42,7 +42,7 @@
           canvas.toBlob(function (blob) {
             const webpFile = new File(
               [blob],
-              file.name.replace(/\.(png|jpg|jpeg)$/i, ".webp"), // Reemplaza la extensión con .webp
+              file.name.replace(/\.(png|jpg|jpeg)$/i, ".webp"),
               { type: "image/webp" }
             );
             displayImage(webpFile, "webp-container", "webp-image", "webp-size");
@@ -64,12 +64,12 @@
   }
   .image-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Columna única en móviles */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
   @media (min-width: 768px) {
     .image-grid {
-      grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+      grid-template-columns: 1fr 1fr;
     }
   }
   .image-container {
