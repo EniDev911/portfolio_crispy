@@ -5,6 +5,7 @@ image:
     path: posters/tutorial-optimizacion-de-imagenes.webp
     alt: Optimización de Imágenes Para la Web
     lqip: data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJaQAASoAhmdH0egAA/uv+PzBy+/q1hjFXpgUNEQ3rpKi6nLu3PWw1NRyLeXrgj8nxLKAAAAA=
+pin: true
 ---
 
 La optimización de imágenes es fundamental para mejorar la velocidad de carga de un sitio web. Las imágenes de gran tamaño, si no se gestionan adecuadamente, pueden ralentizar el rendimiento del sitio y afectar la experiencia del usuario. Afortunadamente, existen diversas **técnicas** y **herramientas** que permiten reducir el tamaño de las imágenes sin perder calidad. Además, el uso de *placeholders* puede mejorar la percepción de la carga de la página, brindando una experiencia de usuario más fluida y agradable. A continuación, exploraremos algunas de las mejores prácticas y herramientas para optimizar imágenes y mejorar el rendimiento de tu sitio web.
@@ -37,7 +38,6 @@ Existen diversas herramientas para crear imágenes con resoluciones específicas
 - **PNG** → Solo si necesitas transparencia (pero pesa más).  
 - **SVG** → Ideal para iconos y gráficos simples.  
 
-
 ## **¿Qué es LQIP (Low Quality Placeholder)?**
 
 **LQIP** es una de las técnicas más efectivas para mejorar la experiencia del usuario, que consiste en generar una versión de baja resolución de una imagen codificada en base64 y mostrarla temporalmente. Esto permite mostrar una vista previa rápida mientras la imagen de alta resolución se carga en segundo plano, lo que mejora la percepción del tiempo de carga y optimiza la experiencia del usuario.
@@ -48,9 +48,15 @@ Existen diversas herramientas para crear imágenes con resoluciones específicas
 2. **Mejor experiencia de usuario**: El uso de LQIP hace que los sitios web parezcan más rápidos, lo que aumenta la satisfacción del usuario.
 3. **Reducción de la percepción de espera**: Aunque la imagen pesada todavía se está cargando, el usuario ya puede ver una versión básica de la misma.
 
-### **¿Qué es WebP y por qué es útil?**
+## **¿Qué es WebP y por qué es útil?**
 
 **WebP** es un formato de imagen moderno desarrollado por Google, que frece características de compresión y calidad superiores en comparación con los formatos de imagen tradicionales como **JPEG** y **PNG**. Con WebP, puede reducir significativamente el tamaño de archivo de sus imágenes sin comprometer la calidad, puede reducir los tamaños de archivo de imagen hasta un 30% más que JPEG y PNG, lo que permite imágenes de alta calidad con tamaños de archivo más pequeños. WebP también admite fondos transparentes (como PNG) y animaciones (como GIF), lo que lo hace versatíl para diversas necesidades de imágenes para usar en la web.
+
+Para mostrar un ejemplo de la diferencia entre una imagen en **formato PNG** o **JPEG** y su **versión optimizada en WebP**, a continuación te dejo un escenario dinámico donde puedes subir tu propia imagen y ver los resultados. Verás cómo se carga la imagen en su formato original y luego su versión optimizada en WebP, destacando la diferencia en el tamaño de los archivos entre ambos formatos.
+
+### **Comparar imágenes PNG, JPEG y WebP**
+
+{% include extras/png-to-webp.html %}
 
 ### **Herramientas de WebP**
 
