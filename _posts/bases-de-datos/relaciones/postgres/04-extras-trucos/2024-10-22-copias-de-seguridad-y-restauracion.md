@@ -23,7 +23,7 @@ PostgreSQL ofrece varios métodos para realizar copias de seguridad:
 
 ### **Copias de Seguridad Lógicas**
 
-Las copias lógicas en PostgreSQL permiten realizar respaldos de los datos de la base de datos de manera estructurada y selectiva, a nivel de tablas, esquemas o incluso registros individuales. A diferencia de las copias físicas, que respaldan todo el sistema de archivos, las copias lógicas se centran solo en los datos y la estructura de la base de datos. Entonces en pocas palabras, estas son sus características principales:
+Las copias lógicas en PostgreSQL permiten realizar respaldos de las bases de datos de manera estructurada y selectiva, a nivel de tablas, esquemas o incluso registros individuales. A diferencia de las copias físicas, que respaldan todo el sistema de archivos, las copias lógicas se centran solo en los datos y la estructura de la base de datos. Entonces en pocas palabras, estas son sus características principales:
 
 - **Granularidad**: Puedes hacer copias de seguridad de tablas, esquemas o partes específicas de la base de datos.
 - **Portabilidad**: Las copias lógicas se pueden transferir fácilmente entre diferentes instancias de PostgreSQL.

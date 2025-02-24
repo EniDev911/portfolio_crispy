@@ -429,57 +429,26 @@ title: 'Home'
       stroke-opacity: 0;
     }
   }
-
-  @media (prefers-color-scheme: light) {
-    html:not([data-mode])  #hero-animation path,
-    html[data-mode='light'] #hero-animation path {
-      stroke: #888; /* Negro en modo claro */
-      fill: #fff;   /* Blanco de fondo */
-    }
-    html[data-mode='light'] #Capa_1 {
-      fill: #888;
-    }
-
-    html[data-mode="dark"] #hero-animation path {
-      stroke: #ccc; /* Blanco en modo oscuro */
-      fill: #1f1f1f;   /* Negro de fondo */
-    }
-    html[data-mode='dark'] #Capa_1 {
-      fill: #ccc;
-    }
+  #hero-animation path{
+    stroke: var(--text-color);
+    fill: var(--main-bg);
   }
-
-  /* Trazo en modo oscuro */
-  @media (prefers-color-scheme: dark) {
-    html:not([data-mode])  #hero-animation path,
-    html[data-mode="dark"] #hero-animation path {
-      stroke: #ccc; /* Blanco en modo oscuro */
-      fill: #1f1f1f;   /* Negro de fondo */
-    }
-    html[data-mode='dark'] #Capa_1 {
-      fill: #ccc;
-    }
-
-    html[data-mode='light'] #hero-animation path {
-      stroke: #888; /* Negro en modo claro */
-      fill: #fff;   /* Blanco de fondo */
-    }
-    html[data-mode='light'] #Capa_1 {
-      fill: #888;
-    }
+  #Capa_1 {
+    stroke: var(--main-bg);
+    fill: var(--text-color);
   }
 
 </style>
 <header class="my-5">
   <svg id="hero-animation" viewBox="0 0 650 265" version="1.1" xmlns="http://www.w3.org/2000/svg" style="justify-content: center;">
-    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Website" stroke="none" stroke-width="1.3" fill="none" fill-rule="evenodd">
       <g id="Group-32" transform="translate(0.000000, 3.000000)">
         <path
         d="M126.007899,38.7650154 C126.007899,34.7383476 129.263975,31.4816286 133.298472,31.4816286 L386.871877,31.4816286 C390.898902,31.4816286 394.162451,34.7405 394.162451,38.7650154 L394.162451,212.307477 C394.162451,216.334145 390.906375,219.590864 386.871877,219.590864 L133.298472,219.590864 C129.271447,219.590864 126.007899,216.331993 126.007899,212.307477 L126.007899,38.7650154 Z"
-        id="Case" stroke="#949599" stroke-width="2.08142999" fill="#F7F2F2" class="zrpfIRpo_0"></path>
+        id="Case" stroke="#949599" stroke-width="2.08142999"></path>
         <path
         d="M142.409667,50.7365341 C142.409667,49.0123794 143.813338,47.612711 145.535934,47.612711 L374.37407,47.612711 C376.102828,47.612711 377.500337,49.004393 377.500337,50.7365341 L377.500337,180.042016 C377.500337,181.766171 376.096666,183.165839 374.37407,183.165839 L145.535934,183.165839 C143.807176,183.165839 142.409667,181.774157 142.409667,180.042016 L142.409667,50.7365341 Z"
-        id="Case" stroke="#BBBEC3" stroke-width="2.08142999" fill="#fff" class="zrpfIRpo_1"></path>
+        id="Case" stroke="#BBBEC3" stroke-width="2.08142999" class="zrpfIRpo_1"></path>
         <path d="M240.989547,219.590864 L279.441148,219.590864 L282.037136,253.153923 L238.39356,253.153923 L240.989547,219.590864 Z" id="Case" stroke="#949599" stroke-width="2.08142999" fill="#F7F2F2"
         class="zrpfIRpo_2">
       </path>
@@ -500,7 +469,7 @@ title: 'Home'
     <path id="Rectangle-11" fill="#BBBEC3" width="5.93587786" height="5.93207547"
     d="M 126.184813,250.031778 L 128.12069086,250.031778 A 2,2,0,0,1,130.12069086,252.031778 L 130.12069086,253.96385347 A 2,2,0,0,1,128.12069086,255.96385347 L 126.184813,255.96385347 A 2,2,0,0,1,124.184813,253.96385347 L 124.184813,252.031778 A 2,2,0,0,1,126.184813,250.031778"
     class="zrpfIRpo_8"></path>
-    <path id="Oval-6" stroke="#BBBEC3" stroke-width="2.08142999" fill="#F7F2F2" d="M111.9485742,208.142999A3.9051828,3.90268123 0,1,1 119.75893980000001,208.142999A3.9051828,3.90268123 0,1,1 111.9485742,208.142999"
+    <path id="Oval-6" stroke="#BBBEC3" stroke-width="2.08142999" d="M111.9485742,208.142999A3.9051828,3.90268123 0,1,1 119.75893980000001,208.142999A3.9051828,3.90268123 0,1,1 111.9485742,208.142999"
     class="zrpfIRpo_9"></path>
     <path id="Rectangle-11" fill="#BBBEC3" width="18.2241864" height="2.08142999"
     d="M 125.96585,201.378352 L 142.1900364,201.378352 A 1,1,0,0,1,143.1900364,202.378352 L 143.1900364,202.45978199 A 1,1,0,0,1,142.1900364,203.45978199 L 125.96585,203.45978199 A 1,1,0,0,1,124.96585,202.45978199 L 124.96585,202.378352 A 1,1,0,0,1,125.96585,201.378352"
