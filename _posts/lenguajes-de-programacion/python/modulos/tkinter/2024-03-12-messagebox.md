@@ -5,11 +5,21 @@ categories: [Python, Tkinter]
 image: posters/python-tkinter-messagebox.png
 ---
 
-## ¿Qué es messagebox?
+[**Tkinter**](https://docs.python.org/es/3.13/library/tkinter.html), cuenta con una variedad de herramientas para **crear de mensajes**. Estos cuadros de mensajes son ideales para notificaciones, alertas y confirmaciones de usuarios en diversas aplicaciones.
 
-El `messagebox` en Tkinter es un módulo que proporciona una serie de funciones para mostrar cuadros de mensaje simples. Estos cuadros de mensaje pueden contener texto, botones y, en algunos casos, iconos para indicar el tipo de mensaje (por ejemplo, información, advertencia o error).
+**En este post cubriremos los siguientes temas:**
 
-## Importar el Módulo messagebox
+- **Cómo mostrar mensajes de información con `showinfo.
+- **Cómo crear advertencias con `showwarning`**
+- **Cómo manejar errores con `showerror`**
+- **Cómo hacer preguntas interactivas con `askquestion`**
+
+## __¿Qué es messagebox?__
+
+El módulo `messagebox` de Tkinter es una herramienta que te permite mostrar cuadros de diálogo emergentes de manera sencilla. Estos cuadros pueden incluir mensajes de texto, botones y, según el tipo de mensaje (como información, advertencia o error), incluso iconos que ayudan a comunicar el propósito del mensaje de forma visual. Es ideal para interactuar con el usuario de forma rápida y efectiva sin necesidad de crear interfaces complejas.
+
+
+## __¿Cómo usar messagebox en Tkinter?__
 
 Antes de comenzar a usar `messagebox`, necesitas importarlo desde Tkinter. Aquí tienes cómo hacerlo:
 
@@ -18,9 +28,9 @@ from tkinter import Tk, messagebox
 ```
 {: .nolineno }
 
-## Crear una Ventana de Aplicación Básica
+### __Crear una Ventana de Aplicación Básica__
 
-Para mostrar un `messagebox`, primero debes crear una ventana principal de Tkinter. Aquí tienes un ejemplo básico:
+Para mostrar un `messagebox`, primero debes crear una ventana principal de Tkinter. Aquí tienes un ejemplo básico para implementar un cuadro de diálogo:
 
 ```python
 import tkinter as tk
@@ -47,7 +57,7 @@ root.mainloop()
 ```
 {: .nolineno }
 
-En este ejemplo:
+**En este ejemplo**:
 - Se crea una ventana principal con el título "Ejemplo de Messagebox" y un tamaño de 300x200 píxeles.
 - Se define una función `mostrar_alerta` que utiliza `messagebox.showinfo` para mostrar un cuadro de mensaje de información.
 - Se crea un botón que llama a esta función cuando se hace clic.
