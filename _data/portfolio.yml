@@ -31,7 +31,7 @@ projects:
 
   - title: "Website"
     description: "Django Doc"
-    url: "https://enidev911.github.io/doc_django/"
+    url: "https://enidev911.github.io/django-boost/"
     image: "/assets/img/proyectos/django-doc.webp"
     image_base64: "UklGRkAAAABXRUJQVlA4IDQAAABQAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJZQAAW+ql30zGQAD+sjckdWE2A9yG5UROeEAA"
 

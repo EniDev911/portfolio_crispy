@@ -8,16 +8,16 @@ image:
 pin: true
 ---
 
-Si eres de los que busca eficiencia y flexibilidad al momento de crear y gestionar documentos.
+Si eres de los que le gusta trabajar con documentos desde cualquier lugar y buscas eficiencia y flexibilidad para crear y gestionar contenido. En este artículo, te mostraré cómo usar Zoho Writer para mejorar tu productividad y optimizar tu flujo de trabajo.
 
-## **¿Qué es Zoho Writer?**
+## __¿Qué es Zoho Writer?__
 
 Zoho Writer es un procesador de texto basado en la nube que forma parte de la suite de productividad de [Zoho](https://www.zoho.com/es-xl/){: target='_blank' }. Si eres usuario de plataformas como **Notion**, seguramente apreciarás la flexibilidad de Zoho Writer, brindándote una experiencia de usuario muy similar pero sin las limitaciones que tiene el **plan gratuito de Notion**.
 
 ## **Cómo Usar Zoho Writer**
 
 **Online**
-: Puedes usar [**Zoho Writer de manera online**](https://www.zoho.com/es-xl/writer/){: target='_blank' } a través de su aplicación web, y te da la posibilidad de **administrar extensiones** para mejorar la experiencia, como integraciones con otras herramientas de Zoho o funciones adicionales de productividad.
+: Puedes usar [**Zoho Writer de manera online**](https://www.zoho.com/es-xl/writer/){: target='_blank' } a través de su aplicación web, y te da la posibilidad de **administrar extensiones** para mejorar la experiencia, como integraciones con otras [herramientas de Zoho](https://www.zoho.com/es-xl/all-products.html){:target='_blank'} o funciones adicionales de productividad.
 
 - [**Zoho Writer    online**](https://www.zoho.com/es-xl/writer/){: target='_blank' }
 
@@ -118,12 +118,23 @@ También puedes buscarlo desde el menú desplegable con la barra diagonal (`"/"`
 
 ![Insertar bloque de código](tutoriales/zoho-writer-insert-block-code.png)
 
-### **Administrar Extensiones**
+## __Administrar Extensiones__
 
-Para administrar las extensiones de Zoho Writer, es necesario estar en la aplicación web (versión online), desde la barra lateral derecha se encuentra el ícono de las extensiones.
+Para **administrar las extensiones** de Zoho Writer, es necesario estar **en la aplicación web** (versión online), desde la barra lateral derecha se encuentra el ícono de las extensiones.
 
 ![administrar extensiones](tutoriales/zoho-writer-administrar-extensiones.png)
 
-> Puedes buscar más extensiones en el [marketplace de zoho](https://marketplace.zoho.com/app/writer){: target='_blank' }
+### __Instalar Extensiones__
+
+Para instalar una nueva extensión, puedes buscar en el [marketplace de zoho](https://marketplace.zoho.com/app/writer){: target='_blank' } y escribir el nombre de la extensión. Haz clic en **Instalar** y listo:
+
+![Instalar extension](tutoriales/zoho-writer-instalar-extension.webp)
+
+> Es posible que debas aceptar los términos y condiciones; solo confirma y la extensión se activará automáticamente.
 {: .prompt-info }
 
+Una vez instalada, puedes usar la extensión al presionar sobre su ícono en la barra lateral:
+
+![abrir extension](tutoriales/zoho-writer-abrir-extension.webp)
+
+![utilizar extension](tutoriales/zoho-writer-utilizar-extension.webp)
