@@ -2,14 +2,16 @@
 title: Tkinter Messagebox
 author: enidev911
 categories: [Python, Tkinter]
-image: posters/python-tkinter-messagebox.png
+image:
+  path: posters/python-tk-messagebox.webp
+  lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBcAAAABF9D/iAgYZBtpB9n353mCiP4HOFjVHwBWUDggNAAAAHADAJ0BKhQACwA/OYa5U68pJaKwCAHgJwlpAABcTsUdKoWYAAD+1Li304qBdRQXDtgAAAA=
 ---
 
 [**Tkinter**](https://docs.python.org/es/3.13/library/tkinter.html), cuenta con una variedad de herramientas para **crear de mensajes**. Estos cuadros de mensajes son ideales para notificaciones, alertas y confirmaciones de usuarios en diversas aplicaciones.
 
 **En este post cubriremos los siguientes temas:**
 
-- **Cómo mostrar mensajes de información con `showinfo.
+- **Cómo mostrar mensajes de información con `showinfo`**.
 - **Cómo crear advertencias con `showwarning`**
 - **Cómo manejar errores con `showerror`**
 - **Cómo hacer preguntas interactivas con `askquestion`**
@@ -17,7 +19,6 @@ image: posters/python-tkinter-messagebox.png
 ## __¿Qué es messagebox?__
 
 El módulo `messagebox` de Tkinter es una herramienta que te permite mostrar cuadros de diálogo emergentes de manera sencilla. Estos cuadros pueden incluir mensajes de texto, botones y, según el tipo de mensaje (como información, advertencia o error), incluso iconos que ayudan a comunicar el propósito del mensaje de forma visual. Es ideal para interactuar con el usuario de forma rápida y efectiva sin necesidad de crear interfaces complejas.
-
 
 ## __¿Cómo usar messagebox en Tkinter?__
 
@@ -92,11 +93,11 @@ Si ejecutamos el script anterior, obtendríamos una ventana gráfica como la sig
 {% endcapture %}
 {% include window-wrapper.html title="Ejemplo de Messagebox" content_html=show_message %}
 
-## Tipos de Mensajes con messagebox
+## __Tipos de Mensajes con messagebox__
 
-Tkinter ofrece varias funciones para mostrar diferentes tipos de cuadros de mensaje. Aquí se presentan los más comunes:
+El módulo `messagebox` ofrece varias funciones para mostrar diferentes tipos de cuadros de mensaje. A continuación, se presentan los más comunes:
 
-### Mensaje de Información
+### __Mensajes de Información__
 
 ```python
 messagebox.showinfo("Título del Mensaje", "Este es un mensaje de información.")
@@ -108,7 +109,7 @@ messagebox.showinfo("Título del Mensaje", "Este es un mensaje de información."
 
 ![img](tkinter/messagebox/showinfo.png){:style="height: 160px"}
 
-### Mensaje de Advertencia
+### __Mensajes de Advertencia__
 
 ```python
 messagebox.showwarning("Título de Advertencia", "Este es un mensaje de advertencia.")
@@ -120,7 +121,7 @@ messagebox.showwarning("Título de Advertencia", "Este es un mensaje de adverten
 
 ![img](tkinter/messagebox/showwarning.png){:style="height: 160px"}
 
-### Mensaje de Error
+### __Mensajes de Error__
 
 ```python
 messagebox.showerror("Título de Error", "Este es un mensaje de error.")
@@ -151,8 +152,7 @@ else:
 - **Botones**: Sí, No
 - **Valor de Retorno**: `True` o `False`, según la elección del usuario.
 
-### Mensaje de Pregunta
-
+### __Mensajes de Pregunta__
 
 ```python
 respuesta = messagebox.askquestion(
@@ -173,7 +173,7 @@ else:
 
 ![img](tkinter/messagebox/askyesno.png){:style="height: 160px"}
 
-### Uso de Iconos en messagebox
+### __Uso de Iconos en messagebox__
 
 Los cuadros de mensaje también pueden incluir iconos para proporcionar contexto visual:
 
@@ -184,7 +184,7 @@ Los cuadros de mensaje también pueden incluir iconos para proporcionar contexto
 
 Cada uno de estos métodos incluye un icono específico que ayuda a transmitir el tipo de mensaje que se está mostrando.
 
-### Conclusión
+## __Conclusión__
 
 El módulo `messagebox` de Tkinter es una herramienta poderosa para mejorar la interacción con los usuarios en las aplicaciones. Ya sea que necesitemos mostrar mensajes de información, advertencias, errores, o solicitar confirmaciones, `messagebox` proporciona una forma fácil y efectiva de hacerlo.
 

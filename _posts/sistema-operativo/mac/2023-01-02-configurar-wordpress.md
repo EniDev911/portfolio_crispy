@@ -1,14 +1,11 @@
 ---
-title: "macOS  : Configurar Wordpress en Local (Local WP
-er, MAMP)"
+title: "macOS  : Configurar Wordpress en Local (Local WP, MAMP)"
 author: enidev911
 categories: [Sistemas Operativos, macOS]
 tags: [Sistemas Operativos, macOS, docker]
 ---
 
-
 ## __WordPress localmente (LOCAL WP)__
-
 
 [**Local WP**](https://localwp.com/){: target='_blank' } es una herramienta de desarrollo de WordPress que permite establecer fácilmente un servidor local en Mac.
 

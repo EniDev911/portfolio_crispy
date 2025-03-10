@@ -2,12 +2,14 @@
 title: "Tkinter: Clase Tk"
 author: enidev911
 categories: [Python, Tkinter]
-image: posters/python-tkinter.png
+image:
+  path: posters/python-tk.webp
+  lqip: data:image/webp;base64,UklGRngAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBcAAAABF9D/iAgYZBtpB9n353mCiP4HOFjVHwBWUDggOgAAANADAJ0BKhQACwA/OYa6U68opaKwCAHgJwljALToIpSaefErDlvEwAD+0+LMCDyCheaspqejR0JCAAA=
 ---
 
 Tkinter es la biblioteca estándar de Python para la creación de interfaces gráficas de usuario (GUI). Proporciona un conjunto de herramientas que permiten a los desarrolladores construir aplicaciones con ventanas, botones, cuadros de texto y otros elementos interactivos. La clase `Tk` es la piedra angular de Tkinter, ya que representa la ventana principal de la aplicación. En este artículo, exploraremos la clase `Tk`, su propósito, sus métodos y cómo utilizarla para crear aplicaciones GUI en Python.
 
-### ¿Qué es la Clase Tk?
+### __¿Qué es la Clase Tk?__
 
 La clase `Tk` es la clase principal en Tkinter y se utiliza para crear la ventana principal de la aplicación. Cuando se instancia un objeto de la clase `Tk`, se crea una ventana que puede contener otros widgets (como botones, etiquetas, cuadros de texto, etc.). Esta ventana actúa como el contenedor principal para todos los demás elementos gráficos de la interfaz.
 
