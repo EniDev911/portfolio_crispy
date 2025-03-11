@@ -3,6 +3,9 @@ title: "macOS  : Configurar Wordpress en Local (Local WP, MAMP)"
 author: enidev911
 categories: [Sistemas Operativos, macOS]
 tags: [Sistemas Operativos, macOS, docker]
+image:
+  path: posters/config-wp-local.webp
+  lqip: data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBwAAAABF0CQbePPvO3XiIg4B0G2TdGGdv4TRPQ/INgZVlA4IGQAAACQAwCdASoUAAsAPzmGulOvKSWisAgB4CcJaAAAP9E3whlu+sgAAP68SaI0xwsYWRm4hESz9y6vYasaHuCfCLZBvM9mnNfY6Lmqu5OfSoazYp8zp+tgXLj3Jm0haAQn67CKIAAA
 ---
 
 ## __WordPress localmente (LOCAL WP)__
