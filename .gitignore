@@ -2,8 +2,8 @@
 .bundle
 vendor
 Gemfile.lock
-
-
+assets/img/.DS_Store
+demo.eml
 *:Zone.Identifier
 
 # Jekyll cache
