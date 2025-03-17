@@ -15,7 +15,7 @@ pin: true
 
 ## __¿Qué es Notion?__
 
-Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su versatilidad permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes apliacaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos. 
+Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su versatilidad permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos. 
 
 ### __¿Es Notion gratuito?__
 
