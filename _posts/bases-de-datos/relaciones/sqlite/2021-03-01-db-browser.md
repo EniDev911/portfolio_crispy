@@ -14,5 +14,3 @@ Ahora, cuando abres el programa y quieres crear una base de datos, solo debes re
 2. Eligir el destino donde se almacenará el archivo de base de datos y dar un nombre.
 
 ![New database DB Browser](sqlite/db-browser-new-database.webp)
-
-

@@ -27,15 +27,14 @@ pin: true
 ![descarga de los binarios](mysql/download-binary-mysql-dark.png){: .dark }
 
 
-### Extraer el contenido
+### __Extraer el contenido__
 
 - Una vez descargado el archivo, extraemos su contenido en una carpeta, por ejemplo: `C:\mysql`.
 
----
 
-## Configurar MySQL
+## __Configurar MySQL__
 
-### Crear la carpeta de datos
+### __Crear la carpeta de datos__
 
 - En la carpeta donde hemos extraído los binarios de MySQL, creamos una carpeta llamada `data`.
 - La ruta completa sería algo así como `C:\mysql\data`.

@@ -6,6 +6,8 @@ assets/img/.DS_Store
 demo.eml
 *:Zone.Identifier
 
+.DS_Store
+**/**/.DS_Store
 # Jekyll cache
 .jekyll-cache
 _site

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Gestionar Documentos con Zoho Writer"
+title: "Tutorial: Gestionar Documentos con Zoho Writer"
 categories: ["Tutoriales", "Productividad"]
 image:
     path: posters/tutorial-zoho-writer.webp

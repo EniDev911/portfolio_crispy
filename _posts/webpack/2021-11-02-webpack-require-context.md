@@ -5,7 +5,7 @@ categories: ["Desarrollo Web", "Webpack"]
 
 La función `require.context()` es una herramienta poderosa ya que permite crear contexto dinámico de importación para todos los archivos dentro de una carpeta específica, sin necesidad de importarlos uno por uno.
 
-## ¿Qué hace require context?
+## __¿Qué hace require context?__
 
 En Webpack la función `require.context()` permite importar cualquier archivo dentro de una carpeta, o incluso dentro de subcarpetas. A diferencia de las importaciones estáticas de ES6, que requiren que declares explícitamente cada archivo, `require.context()` nos permite importar archivos de una manera más flexible y dinámica.
 
@@ -20,7 +20,7 @@ require.context(directory, recursive, pattern);
 - `recursive`: Un valor booleano (`true` o `false`) que indica si Webpack debe buscar en las subcarpetas dentro de `directory`.
 - `pattern`: Una expresión regular que define los archivos que deben ser incluidos (por ejemplo, `\.js$` para todos los archivos JavaScript).
 
-### Ejemplo Básico de Uso con Imágenes
+### __Ejemplo Básico de Uso con Imágenes__
 
 Para ello vamos utilizar un template que ya tengo preparado con la configuración básica de webpack: <a href="https://github.com/new?template_name=webpack5-starter-template&template_owner=mc-herrera-90" class="border-0" target="_blank">
   <kbd style="background: green; color: white;">Use this template</kbd>
@@ -60,8 +60,6 @@ imageContext.keys().forEach((imagePath) => {
 ```
 {: .nolineno file="index.js" }
 
-
-####
 
 En resumen `require.context()` permite:
 

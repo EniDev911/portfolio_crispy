@@ -1,5 +1,5 @@
 ---
-title: "Tutotial: Archivos .EML Optimizar correos electrónicos"
+title: "Tutorial: Archivos .EML Optimizar correos electrónicos"
 categories: ["Tutoriales", "Productividad"]
 ---
 
