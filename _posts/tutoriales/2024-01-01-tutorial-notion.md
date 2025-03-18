@@ -23,19 +23,28 @@ Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, 
 
 ## __Ventajas y Desventajas de Notion__
 
+Notion es una herremienta de productividad más completas del mercado. Sin embargo, como cualquier herramienta, tiene puntos fuertes y débiles. A continuación, analizamos sus ventajas y desventajas.
+
 ### __Ventajas__
 
-- **Todo en uno**: Combina notas, bases de datos, tareas y colaboración en un solo lugar.
-- **Interfaz flexible**: Usa bloques para crear documentos personalizados.
-- **Integraciones**: Compatible con Google Calendar, Slack y más.
-- **Modo sin conexión**: Permite trabajar sin internet (aunque con limitaciones).
+**1. Plataforma todo en uno**
+: Notion combina funciones de notas, bases de datos, gestión de proyectos y colaboración en un solo espacio, evitando el uso de múltiples aplicaciones.
+
+**2. Alta personalización**
+: Notion permite organizar la información con páginas, bloques, tablas, listas, y bases de datos con distintas vistas (lista, calendario, galería, etc).
+
+**3. Integraciones**
+: Notion destaca por su capacidad de integrarse con una amplia variedad de herramientas, como Google Calendar, Slack, Github y más.
+
+**4. Colaboración en Tiempo Real**
+: Notion ofrece una sólida funcionalidad de colaboración en tiempo real, permitiendo que múltiples usuarios editen una misma página simultáneamente.
 
 ### __Desventajas__
 
 Aunque Notion es una herramienta muy versatíl, tiene algunas limitaciones en su versión gratuita.
 
 **1. Límite de Bloques en el Plan Gratuito**
-: Notion permite hasta **1.000 bloques** en su versión gratuita. Cada texto, imagen, tabla o cualquier elemento cuenta como un bloque.
+: Notion permite hasta **1.000 bloques por espacio de trabajo con más de 2 propietarios** en su versión gratuita. Cada texto, imagen, tabla o cualquier elemento cuenta como un bloque.
 
 **2. Espacio de Almacenamiento Limitado**
 : En la versión gratuita solo puedes subir archivos de hasta **5 MB por archivo**, lo que puede ser restrictivo para documentos pesados.
@@ -44,6 +53,12 @@ Aunque Notion es una herramienta muy versatíl, tiene algunas limitaciones en su
 : Opciones como el historial de versiones, integraciones avanzadas y mayor almacenamiento están bloqueadas en la versión gratuita.
 
 ## __Empezando en Notion__
+
+Lo primero que se debe hacer es crear una cuenta, para esto ingresar a la [página de registro Notion](https://www.notion.so/signup){: target='_blank'}, una vez allí, selecciona la opción con la cual te quieres registrar:
+
+![Registrarse en Notion](tutoriales/notion-register.webp)
+
+Enseguida te llegará un código de registro al correo ingresado, el cual puedes copiar y pegar.
 
 Una vez creamos una cuenta para usar Notion, la primera vez que iniciamos sesión en Notion nos va a ayudar a configurar un espacio de trabajo. Para ello debes seleccionar las opciones que más se adaptan a tus necesidades:
 
