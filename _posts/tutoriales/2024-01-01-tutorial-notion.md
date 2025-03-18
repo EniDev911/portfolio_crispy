@@ -23,7 +23,7 @@ Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, 
 
 ## __Ventajas y Desventajas de Notion__
 
-Notion es una herremienta de productividad más completas del mercado. Sin embargo, como cualquier herramienta, tiene puntos fuertes y débiles. A continuación, analizamos sus ventajas y desventajas.
+Notion es una de las herramientas de productividad más completas del mercado. Sin embargo, como cualquier herramienta, tiene puntos fuertes y débiles. A continuación, analizamos sus ventajas y desventajas.
 
 ### __Ventajas__
 
