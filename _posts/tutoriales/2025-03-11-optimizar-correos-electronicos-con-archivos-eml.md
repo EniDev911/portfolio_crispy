@@ -1,6 +1,9 @@
 ---
 title: "Tutorial: Archivos .EML Optimizar correos electrónicos"
 categories: ["Tutoriales", "Productividad"]
+image:
+    path: 'posters/archivos-eml.webp'
+    lqip: data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdABf21VAA/ud16mIMVTb+adSO08g4DaDCbnHYC/AEHU2lYh0qEyGLKbvRpQmSQo7jRPhaFRwA
 ---
 
 
