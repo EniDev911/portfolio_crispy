@@ -2,7 +2,7 @@
 title: "MySQL 🐬 : Instalar y Configurar desde los Binarios en Windows"
 author: enidev911
 description: "Instalar MySQL en Windows **desde los binarios** es una buena opción si deseamos una instalación limpia y controlada de MySQL."
-categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
+categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-instalacion-windows-zip.webp
@@ -11,41 +11,45 @@ image:
 pin: true
 ---
 
-## Descargar los binarios de MySQL
+Existen varias formas de instalar MySQL en Windows, como a través del instalador oficial, mediante paquetes como [XAMP](https://www.apachefriends.org/es/index.html) o [WAMPSERVER](https://www.wampserver.com/){:target='_blank'} o incluso usando contenedores de Docker. Sin embargo instalar MySQL desde los binarios en Windows es una excelente opción para usuarios que desean un mayor control sobre la configuración, evitar software adicional innecesario y comprender mejor su funcionamiento interno. En este post, cubriremos los pasos detallados para lograrlo de manera fácil y efectiva.
+
+## __Requisitos Previos__
+
+- Windows 10 o superior.
+- Una cuenta con permisos de administrador.
+- Instalación de [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170){:target='_blank'} actualizada.
+
+## __1. Descargar y Extraer los Binarios de MySQL__
 
 - Abrimos el navegador y vamos a la página oficial de descargas de MySQL: <a href="https://dev.mysql.com/downloads/" target="_blank">https://dev.mysql.com/downloads/</a>
-- En la sección de **MySQL Community Server**, seleccionamos la versión de MySQL s instalar.
-- Luego de seleccionar la versión según la arquitectura de nuestro equipo:
+- En la sección de **MySQL Community Server**, selecciona la versión de MySQL a instalar.
+- Luego selecciona la versión según la arquitectura de tu equipo:
   - **Windows (x86, 64bit), ZIP archive**: Este archivo contiene los binarios sin necesidad de un instalador gráfico.
   - **Windows (x86, 32-bit), ZIP archive**: Si estás usando una versión de 32 bits de Windows.
 - Clic en **Download** y luego clic en **No thank, just start my download** para evitar registrarse y comenzar la descarga directamente.
 
-> Si prefieres, puedes ir directo a la descarga de [Mysql 8.0.28 para 64 bit](https://dev.mysql.com/downloads/file/?id=509736)
+> Si prefieres, puedes ir directo a la descarga de [Mysql 8.0.28 para 64 bit](https://dev.mysql.com/downloads/file/?id=509736){:target='_blank'}
 {: .prompt-tip }
 
 ![descarga de los binarios](mysql/download-binary-mysql-light.png){: .light }
 ![descarga de los binarios](mysql/download-binary-mysql-dark.png){: .dark }
 
+- Una vez descargado el archivo, extraemos su contenido en una carpeta de preferencia. Por ejemplo: `C:\mysql`.
 
-### __Extraer el contenido__
-
-- Una vez descargado el archivo, extraemos su contenido en una carpeta, por ejemplo: `C:\mysql`.
-
-
-## __Configurar MySQL__
+## __2. Configurar MySQL__
 
 ### __Crear la carpeta de datos__
 
-- En la carpeta donde hemos extraído los binarios de MySQL, creamos una carpeta llamada `data`.
+- En la carpeta donde haz extraído los binarios de MySQL, creamos una carpeta llamada `data`.
+  - **¿Para qué sirve la carpeta `data`?** Esta carpeta es donde MySQL almacena todas las bases de datos y sus respectivos archivos de configuración. Aquí se guardan las tablas, índices y cualquier dato que ingreses en MySQL, por lo que es fundamental para el funcionamiento del sistema.
 - La ruta completa sería algo así como `C:\mysql\data`.
-- Esta carpeta almacenará las bases de datos de MySQL.
 
-### Crear el archivo de configuración
+### __Crear el archivo de configuración__
 
-- En la misma carpeta donde se han extraído los binarios de MySQL (`C:\mysql`), creamos un archivo `my.ini`.  
-- El [archivo de opciones](https://dev.mysql.com/doc/refman/8.4/en/option-files.html){: target='_blank'} define la configuración que se utilizará para iniciar el servidor de MySQL.
+- En la misma carpeta donde haz extraído los binarios, crea un archivo `my.ini`.
+  - **¿Para qué sirve el archivo `my.ini`?** Este archivo de configuración afecta directamente el comportamiento del servidor MySQl. Permite definir ubicaciones de archivos, puertos de conexión y otros parámetros importantes que optimizan el rendimiento.  
 
-A continuación, veamos un ejemplo básico de configuración que podemos usar:
+Un ejemplo básico de configuración que puedes definir en este archivo:
 
 ```ini
 [mysqld]
@@ -61,10 +65,10 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 ```
 {: .nolineno file="my.ini" }
 
-> Ten en cuenta que las barras invertidas `\` en Windows deben ser reemplazadas por barras diagonales `/` en la configuración de MySQL, o debes escaparlas (por ejemplo: `C:\\mysql`).
-{: .prompt-info }
+> Para ver más información y las configuraciones que se pueden definir en estos archivos, revisa este artículo: [https://dev.mysql.com/doc/refman/8.4/en/option-files.html](https://dev.mysql.com/doc/refman/8.4/en/option-files.html){:target='_blank'}
+{: .prompt-tip }
 
-### Inicializar la base de datos
+### __Inicializar la base de datos__
 
 - Abrimos un **Símbolo del sistema** (cmd) como administrador.
 - Navegamos hasta la carpeta de los binarios con el comando `cd`. Ejemplo:
@@ -206,6 +210,4 @@ ALTER USER user() IDENTIFIED BY '<new-password>';
 ```
 {: .nolineno }
 
-Este sería un ejemplo, que explica de forma ordenada de cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. ¡Espero que te sirva! 
-
-
+Este sería un ejemplo, que explica de forma ordenada de cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. ¡Espero que te sirva!

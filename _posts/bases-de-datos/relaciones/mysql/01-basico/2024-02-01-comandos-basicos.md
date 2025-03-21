@@ -2,7 +2,7 @@
 title: "MySQL 🐬 : Comandos Básicos"
 author: enidev911
 description: "Los **comandos básicos de MySQL** son fundamentales para interactuar con las bases de datos y realizar operaciones"
-categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
+categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 mermaid: true
 image:
   path: posters/mysql-comandos-basicos.webp

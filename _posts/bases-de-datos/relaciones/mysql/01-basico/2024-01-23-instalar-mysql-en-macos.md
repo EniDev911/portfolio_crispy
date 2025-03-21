@@ -1,7 +1,7 @@
 ---
 title: "MySQL 🐬 : Instalar en macOS "
 author: enidev911
-categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
+categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-instalacion-mac.webp

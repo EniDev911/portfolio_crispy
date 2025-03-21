@@ -1,8 +1,8 @@
 ---
 title: "MySQL 🐬 : Instalación en Ubuntu"
 author: enidev911
-categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
 description: "Este artículo explicará cómo instalar MySQL versión 8 en una máquina Ubuntu 20.04"
+categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 tags: [Bases de Datos, MySQL]
 image:
   path: posters/mysql-instalacion-ubuntu.webp
