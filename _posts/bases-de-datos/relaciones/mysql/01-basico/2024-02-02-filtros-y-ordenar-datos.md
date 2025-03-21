@@ -2,7 +2,7 @@
 title: "MySQL 🐬 : Uso de WHERE y ORDER BY para Filtrar y Ordenar Datos"
 author: enidev911
 description: "Las cláusulas `WHERE` y `ORDER BY` nos permiten **filtrar y ordenar** la información que obtienes de una consulta."
-categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
+categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 mermaid: true
 image:
   path: posters/mysql-uso-de-where-y-order-by.webp

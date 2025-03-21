@@ -2,7 +2,7 @@
 title: "MySQL 🐬 : Uso de LIMIT y OFFSET para Limitar Resultados"
 author: enidev911
 description: "Las cláusulas `LIMIT` y `OFFSET` nos permiten **controlar la cantidad de resultados** que obtienes de una consulta, ideal para mejorar el rendimiento."
-categories: [Bases de Datos Relacionales, "MySQL - 01. Básico"]
+categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 image:
   path: posters/mysql-limit-y-offset.webp
   lqip: data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4IC4AAACwAgCdASoUAAsAPzmGulOvKSWisAgB4CcJZwAAeyAA/u3GcM2Jni56py+qUAAA

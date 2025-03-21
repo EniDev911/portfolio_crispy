@@ -11,7 +11,7 @@ image:
 pin: true
 ---
 
-Existen varias formas de instalar MySQL en Windows, como a través del instalador oficial, mediante paquetes como [XAMP](https://www.apachefriends.org/es/index.html) o [WAMPSERVER](https://www.wampserver.com/){:target='_blank'} o incluso usando contenedores de Docker. Sin embargo instalar MySQL desde los binarios en Windows es una excelente opción para usuarios que desean un mayor control sobre la configuración, evitar software adicional innecesario y comprender mejor su funcionamiento interno. En este post, cubriremos los pasos detallados para lograrlo de manera fácil y efectiva.
+Existen varias formas de instalar MySQL en Windows, descargando el instalador oficial, mediante paquetes como [XAMP](https://www.apachefriends.org/es/index.html) o [WAMPSERVER](https://www.wampserver.com/){:target='_blank'} o incluso usando contenedores de Docker. Sin embargo instalar MySQL desde los binarios en Windows es una excelente opción para usuarios que desean un mayor control sobre la configuración, evitar software adicional innecesario y comprender mejor su funcionamiento interno. En este post, cubriremos los pasos detallados para lograrlo de manera fácil y efectiva.
 
 ## __Requisitos Previos__
 
@@ -40,20 +40,20 @@ Existen varias formas de instalar MySQL en Windows, como a través del instalado
 
 ### __Crear la carpeta de datos__
 
-- En la carpeta donde haz extraído los binarios de MySQL, creamos una carpeta llamada `data`.
+- En la carpeta dónde has extraído los binarios de MySQL, creamos una carpeta llamada `data`.
   - **¿Para qué sirve la carpeta `data`?** Esta carpeta es donde MySQL almacena todas las bases de datos y sus respectivos archivos de configuración. Aquí se guardan las tablas, índices y cualquier dato que ingreses en MySQL, por lo que es fundamental para el funcionamiento del sistema.
 - La ruta completa sería algo así como `C:\mysql\data`.
 
 ### __Crear el archivo de configuración__
 
-- En la misma carpeta donde haz extraído los binarios, crea un archivo `my.ini`.
-  - **¿Para qué sirve el archivo `my.ini`?** Este archivo de configuración afecta directamente el comportamiento del servidor MySQl. Permite definir ubicaciones de archivos, puertos de conexión y otros parámetros importantes que optimizan el rendimiento.  
+- En la misma carpeta dónde has extraído los binarios, crea un archivo `my.ini`.
+  - **¿Para qué sirve el archivo `my.ini`?** Este archivo de configuración afecta directamente el comportamiento del servidor MySQL. Permite definir ubicaciones de archivos, puertos de conexión y otros parámetros importantes que optimizan el rendimiento.
+- La ruta completa sería algo así como `C:\mysql\my.ini`.
 
 Un ejemplo básico de configuración que puedes definir en este archivo:
 
 ```ini
-[mysqld]
-# Configuración de la base de datos
+[mysqld] # <== En esta directiva, defines las opciones para del servidor.
 basedir=C:/mysql
 datadir=C:/mysql/data
 port=3306
@@ -65,34 +65,33 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 ```
 {: .nolineno file="my.ini" }
 
-> Para ver más información y las configuraciones que se pueden definir en estos archivos, revisa este artículo: [https://dev.mysql.com/doc/refman/8.4/en/option-files.html](https://dev.mysql.com/doc/refman/8.4/en/option-files.html){:target='_blank'}
+> Para ver más información y las configuraciones que se pueden definir en estos archivos, revisa este [**artículo**](https://dev.mysql.com/doc/refman/8.4/en/option-files.html){:target='_blank'}
 {: .prompt-tip }
 
 ### __Inicializar la base de datos__
 
 - Abrimos un **Símbolo del sistema** (cmd) como administrador.
-- Navegamos hasta la carpeta de los binarios con el comando `cd`. Ejemplo:
+- Navega hasta la carpeta dónde has extraído los binarios con el comando `cd`. Ejemplo:
 
 ```console
 cd C:\mysql\bin
 ```
-- Ahora, ejecutamos el siguiente comando para inicializar el directorio de datos de MySQL:
+- Ahora, ejecuta el siguiente comando para inicializar el directorio de datos de MySQL. Ejemplo:
 
 ```console
 mysqld --initialize --console
 ```
 
-- El comando anterior realiza lo siguiente:
+- **Explicación de lo que realiza el comando anterior**:
   - Inicializa el directorio de datos de MySQL y crea las tablas del sistema.
   - Instala el [esquema sys](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html){: target='_blank' }.
   - Crea una cuenta administrativa.
-- Implementación segura por defecto:
+- **Implementación segura por defecto**:
   - Se crea una sola cuenta administrativa `root@localhost` con una contraseña generada aleatoriamente, que se marca como caducada.
   - No se crean cuentas de usuarios anónimos.
   - No se crea ninguna base de datos como `test` accesible para todos los usuarios.
 
-
-Observamos que en la consola que nos muestra el password generado aleatoriamente:
+Observamos la consola, donde se muestra el password generado aleatoriamente:
 
 <div class="language-plaintext highlighter-rouge">
 <div class="code-header">
@@ -112,7 +111,7 @@ Observamos que en la consola que nos muestra el password generado aleatoriamente
 </div>
 </div>
 
-### Agregar al path
+### __Agregar al path__
 
 - Para ejecutar después el programa cliente de mysql desde cualquier ubicación, debemos incluir el directorio `C:\mysql\bin` a la variable `PATH`.
 - Abrimos la CMD normal (para que sea disponible a nivel de usuario) o como administrador (para que sea disponible a nivel de sistema):
@@ -121,9 +120,11 @@ Observamos que en la consola que nos muestra el password generado aleatoriamente
 setx PATH "%path%;"C:\mysql\bin\
 ```
 
-### Configurar MySQL como servicio
+## __3. Configurar MySQL como Servicio__
 
-Nos posicionamos dentro del directorio de instalación e ingresamos a la carpeta **bin** y ejecutamos los siguientes comandos:
+Un **servicio** es un programa o proceso que se ejecuta en segundo plano en Windows, incluso cuando no estás interactuando directamente con él. Configurar MySQL como servicio permite que se inicie automáticamente con el sistema y funcione de manera continua sin necesidad de intervención manual.
+
+Primero, accedemos al directorio de instalación, luego entramos en la carpeta **`bin`** y ejecutamos los siguientes comandos:
 
 - El siguiente comando es para asegurarnos de no tener ninguna instancia del servidor corriendo actualmente:
 
@@ -137,7 +138,7 @@ mysqladmin -u root shutdown
 mysqld --install "mysql"
 ```
 
-Ahora podemos iniciar o detener el servicio desde la línea de comandos. Para ello podemos abrir una nueva **CMD** como administrador y realizar alguna de las siguientes operaciones:
+Ahora podemos **iniciar** o **detener** el servicio desde la línea de comandos. Para ello podemos abrir una nueva **CMD** como administrador y realizar alguna de las siguientes operaciones:
 
 1. Iniciar el servicio con el comando:
 
@@ -163,7 +164,7 @@ net stop mysql
 sc qc mysql
 ```
 
-Lo anterior nos mosntraía un mensaje similar al siguiente:
+Lo anterior nos mostraría un mensaje similar al siguiente:
 
 <div class="language-plaintext highlighter-rouge">
 <div class="code-header">
@@ -196,10 +197,10 @@ NOMBRE_SERVICIO: mysql
 sc delete mysql
 ```
 
-> La herramienta [`sc`](https://learn.microsoft.com/es-es/windows-server/administration/windows-commands/sc-query) es más avanzada y proporciona un control más detallado sobre los servicios de windows.
-{: .prompt-info }
+> La herramienta [`sc`](https://learn.microsoft.com/es-es/windows-server/administration/windows-commands/sc-query) es más avanzada y proporciona un control detallado sobre los servicios de Windows. Se debe utilizar con cuidado, ya que una configuración incorrecta puede afectar el funcionamiento del sistema.
+{: .prompt-warning }
 
-### Establecer una nueva contraseña
+### __Establecer una nueva contraseña__
 
 Una vez ya podemos acceder a nuestro servidor, lo primero que debemos hacer es cambiar la contraseña generada al momento de inicializar las bases de datos del servidor. Para eso tenemos el comando `ALTER USER` que fue introducido en versiones de MySQL 5.7 en adelante.
 
@@ -210,4 +211,6 @@ ALTER USER user() IDENTIFIED BY '<new-password>';
 ```
 {: .nolineno }
 
-Este sería un ejemplo, que explica de forma ordenada de cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. ¡Espero que te sirva!
+---
+
+Este sería un ejemplo, que explica de forma ordenada cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. **¡Espero que te sirva!** Sigue explorando y aprendiendo más sobre MySQL y otras tecnologías.
