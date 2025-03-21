@@ -1,19 +1,35 @@
 ---
 title: "MySQL 🐬 : Personalizar el prompt"
 author: enidev911
-categories: [Bases de Datos Relacionales, "MySQL - Extras/Trucos"]
+categories: [Bases de Datos Relacionales, "MySQL", "Extras/Trucos"]
 tags: [MySQL]
 ---
 
 ## **¿Qué es el Prompt?**
 
-El **prompt** visualmente es el conjunto de caracteres que se muestra en la línea de comandos para indicar que está en la espera de órdenes. En todos los intérpretes de comandos esto suele variar y a su vez se puede configurar para dar información de interés.
+El "**prompt**" visualmente es el conjunto de caracteres que se muestra en la línea de comandos para indicar que está en la espera de órdenes. En todos los intérpretes de comandos, los "prompts" no son fijos y se pueden configurar según las necesidades del usuario.
 
-### **El Prompt del Cliente MYSQL**
+Por ejemplo, en una terminal de Linux o en una línea de comandos de Windows, el prompt podría verse como esto:
+
+<div class="language-plaintext highlighter-rouge">
+<div class="code-header">
+  <span data-label-text="Terminal"><i class="fas fa-code fa-fw small"></i></span>
+  <span class="m-4"></span>
+</div>
+<div class="highlight p-2">
+<code><pre style="overflow: inherit;">
+<span class="hl">usuario@miPC:~$ </span>   &lt;== En Linux
+
+<span class="hl">C:\Users\Usuario&gt; </span> &lt;== En Windows
+</pre></code>
+</div>
+</div>
+
+## __El Prompt del Cliente MySQL__
 
 El **prompt del programa cliente** de terminal llamado **mysql** se suele personalizar para ofrecer cierta información a simple vista. Lo podemos personalizar mediante la variable de entorno `MYSQL_PS1` o con el **comando** `prompt` dentro de la sesión interactiva.
 
-### Secuencias de Escape para el Prompt de MySQL
+### __Secuencias de Escape para el Prompt de MySQL__
 
 Una **secuencia de escape** es una combinación de caracteres que tiene un significado especial. En el contexto de MySQL, las secuencias de escape en el prompt del cliente mysql permite personalizar cómo se muestra la información en la línea de comandos. Algunas opciones de secuencia de escape que proporcionan información serían las siguientes:
 

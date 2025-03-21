@@ -1,7 +1,7 @@
 ---
 title: "MySQL 🐬 : Administrar Usuarios"
 author: enidev911
-categories: [Bases de Datos Relacionales, "MySQL - 02 Intermedio"]
+categories: [Bases de Datos Relacionales, "MySQL", "Intermedio"]
 tags: [Bases de Datos]
 pin: true
 image:

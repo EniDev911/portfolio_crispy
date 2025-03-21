@@ -1,7 +1,7 @@
 ---
 title: "MySQL 🐬 : Manejo de Fechas y Tiempos"
 author: enidev911
-categories: [Bases de Datos Relacionales, "MySQL - 02 Intermedio"]
+categories: [Bases de Datos Relacionales, "MySQL", "Intermedio"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-trabajar-con-fechas.png

@@ -2,7 +2,7 @@
 title: "MySQL 🐬 : Funciones de Agregado"
 author: enidev911
 description: "Las funciones de agregado permiten realizar operaciones como **contar**, **sumar**, **promediar**, obtener **máximos** o **mínimos**, etc."
-categories: [Bases de Datos Relacionales, "MySQL - 02 Intermedio"]
+categories: [Bases de Datos Relacionales, "MySQL", "Intermedio"]
 mermaid: true
 tags: [Bases de Datos]
 ---
