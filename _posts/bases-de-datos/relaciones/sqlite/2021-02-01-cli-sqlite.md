@@ -215,6 +215,7 @@ Luego añade las opciones que quieres que se apliquen siempre:
 .headers on
 .mode table
 .nullvalue NULL
+PRAGMA foreign_keys = ON;
 ```
 {: .nolineno file=".sqliterc"}
 
