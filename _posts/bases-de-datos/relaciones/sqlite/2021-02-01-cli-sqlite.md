@@ -1,5 +1,5 @@
 ---
-title: "SQLite: El shell (línea de comandos) para ejecutar SQL"
+title: "Command Line For SQLite3 (línea de comandos) para ejecutar SQL"
 categories: [Bases de Datos Relacionales, SQLite]
 tags: [Bases de Datos Relacionales, SQLite]
 ---
@@ -8,7 +8,7 @@ SQLite proporciona un programa de línea de comandos simple llamado **sqlite3** 
 
 Al iniciarse, el programa **sqlite3** mostrará un breve mensaje y queda esperando que ingresemos instrucciones SQL. Cada sentencia SQL debe terminar con un punto y coma.
 
-## __¿Que Command Line For SQLite3?__
+## __¿Qué es Command Line For SQLite3?__
 
 La **interfaz de línea de comandos** o "**CLI**" es el programa que descargamos y que permite ejecutar comandos SQL y los pasa al núcleo del motor de base de datos SQLite.
 
@@ -80,6 +80,24 @@ Para ver el esquema, donde figuran las sentencias SQL ejecutadas en la creación
 
 ```
 .fullschema
+```
+{: .nolineno }
+
+### __Ver las tablas existentes__
+
+Para listar las tablas existentes en la base de datos, ejecuta el siguiente comando especial de punto:
+
+```sql
+.tables
+```
+{: .nolineno }
+
+El comando anterior es equivalente a configurar el modo lista y luego ejecutar la siguiente consulta:
+
+```sql
+SELECT name FROM sqlite_schema 
+WHERE type IN ('table','view') AND name NOT LIKE 'sqlite_%'
+ORDER BY 1;
 ```
 {: .nolineno }
 
@@ -195,7 +213,12 @@ Luego añade las opciones que quieres que se apliquen siempre:
 
 ```
 .headers on
-.mode column
+.mode table
 .nullvalue NULL
 ```
 {: .nolineno file=".sqliterc"}
+
+Al abrir nuevamente el programa se aplican esas configuraciones.
+
+![aplicar las configuraciones](sqlite/load-sqliterc-light.webp){: .light }
+![aplicar las configuraciones](sqlite/load-sqliterc-dark.webp){: .dark }

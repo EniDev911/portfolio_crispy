@@ -1,5 +1,5 @@
 ---
-title: "SQLite: El cliente gráfico DB BROWSER"
+title: "El cliente gráfico DB BROWSER"
 categories: [Bases de Datos Relacionales, SQLite]
 tags: [Bases de Datos Relacionales, SQLite]
 ---
