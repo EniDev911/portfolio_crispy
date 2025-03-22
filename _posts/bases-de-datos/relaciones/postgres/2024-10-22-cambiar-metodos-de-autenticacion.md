@@ -1,14 +1,13 @@
 ---
 title: "PostgreSQL 🐘 : Cambiar métodos de autenticación en Debian y derivados"
 author: enidev911
-categories: [Bases de Datos Relacionales, Postgres]
+categories: [Bases de Datos Relacionales, Postgres, "Extras/Trucos"]
 tags: [Bases de Datos]
 ---
 
+## __Localizar el Archivo de Configuración_
 
-## Localizar el archivo de configuración pg_hba.conf:
-
-Por lo general, el archivo `pg_hba.conf` se encuentra en el directorio de datos de PostgreSQL. La ubicación más común es: `/etc/postgresql/<version>/main/pg_hba.conf`{: .filepath}.
+Por lo general, el archivo de configuración `pg_hba.conf` se encuentra en el directorio de datos de PostgreSQL. La ubicación más común es: `/etc/postgresql/<version>/main/pg_hba.conf`{: .filepath}.
 
 También podemos conectarnos a Postgres y ejecutar el comando `SHOW hba_file` para obtener la ruta del archivo de configuración:
 

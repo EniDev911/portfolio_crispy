@@ -8,29 +8,20 @@ When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jeky
 from the theme's gem. If you have ever installed this theme gem, you can use the command
 `bundle info --path jekyll-theme-chirpy` to locate these files.
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+## Escribir un post
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+El orden en cuanto a como deben ir los archivos en las carpetas es a gusto personal, lo que importante es que se encuentre dentro de la carpeta `_posts`.
 
 ```shell
 .
-├── _config.yml
+├── ..
+├── _layouts
 ├── _plugins
-├── _tabs
-└── index.html
+├── _posts # aquí
+├──..
 ```
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
-
-## Prerequisites
-
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of
-the basic environment. [Git](https://git-scm.com/) also needs to be installed.
-
-## Installation
+## Instalación
 
 Sign in to GitHub and [**use this template**][use-template] to generate a brand new repository and name it
 `USERNAME.github.io`, where `USERNAME` represents your GitHub username.

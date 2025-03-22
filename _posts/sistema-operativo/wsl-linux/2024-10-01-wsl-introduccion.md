@@ -1,17 +1,25 @@
 ---
-title: "WSL 🐧 : Introducción"
+title: "WSL 🐧 : Potencia de Linux en Windows"
 author: enidev911
 categories: [Sistemas Operativos, WSL]
 tags: [Sistemas Operativos]
 ---
 
-## Introducción a WSL: Potencia Linux en Windows
+Si eres un desarrollador o entusiasta de Linux y trabajas en Windows, **Windows Subsystem for Linux (WSL)** es una herramienta imprescindible. En este post cubriremos los siguientes puntos:
 
-### ¿Qué es WSL?
+- **¿Qué es WSL?** y sus ventajas
+- **Cómo instalarlo**
+- **Cómo usarlo y personalizarlo**.
 
-WSL, o Windows Subsystem for Linux, es una característica de Windows que permite ejecutar un entorno Linux directamente en Windows, sin necesidad de una máquina virtual o un arranque dual. Esto significa que puedes utilizar herramientas y aplicaciones de Linux junto con aplicaciones de Windows, todo desde la misma interfaz.
+Olvidate de máquinas virtuales ni configuraciones complicadas y disfruta de una experiencia nativa dentro de Windows.
 
-### ¿Por qué Usar WSL?
+## __¿Qué es WSL?__
+
+WSL (Windows Subsystem for Linux) es una capa de compatibilidad que permite ejecutar un entorno Linux directamente en Windows, sin necesidad de una máquina virtual o un arranque dual. Esto significa que puedes utilizar herramientas y aplicaciones de Linux junto con aplicaciones de Windows, todo desde la misma interfaz.
+
+## __¿Por qué usar WSL?__
+
+Aquí te dejo 3 razones por las que deberías empezar a usarlo **hoy mismo**.
 
 1. **Desarrollo Simplificado**: Si eres un desarrollador que trabaja en aplicaciones web o software que utiliza herramientas de Linux, WSL te permite acceder a esas herramientas sin salir de Windows.
 
@@ -19,13 +27,11 @@ WSL, o Windows Subsystem for Linux, es una característica de Windows que permit
 
 3. **Acceso a Herramientas de Línea de Comandos**: WSL te da acceso a potentes herramientas de línea de comandos de Linux, como `bash`, `git`, `ssh` y muchas más, facilitando tareas de desarrollo y administración.
 
-### Instalación de WSL
+## __Instalar y habilitar WSL__
 
-Instalar WSL es un proceso sencillo. Aquí vamos paso a paso:
+Instalar o habilitar WSL es un proceso sencillo. Aquí vamos paso a paso:
 
-#### Activar WSL
-
-Abre PowerShell como administrador y ejecuta el siguiente comando:
+1. Abre PowerShell como administrador y ejecuta el siguiente comando:
 
 ```terminal
 wsl --install
@@ -36,7 +42,7 @@ Esto instalará la última versión de WSL y la distribución de Linux predeterm
 ![comando de instalación wsl](wsl/comando-instalacion-wsl-dark.png){: .dark }
 ![comando de instalación wsl](wsl/comando-instalacion-wsl-light.png){: .light }
 
-#### Elegir una Distribución de Linux
+### __Elegir una Distribución de Linux__
 
 Puedes instalar diferentes distribuciones de Linux. Si quieres elegir una distribución específica, la forma más sencilla es abrir Microsoft Store y buscar "Linux". Allí encontraremos opciones como Ubuntu, Debian y Kali Linux. A continuación un ejemplo para instalar Debian desde la Terminal de Windows:
 
@@ -44,7 +50,7 @@ Puedes instalar diferentes distribuciones de Linux. Si quieres elegir una distri
 wsl --install -d Debian
 ```
 
-#### Configurar la Distribución
+### __Configurar la Distribución__
 
 Cuando se termina de instalar la nueva distribución de WSL, se le pedirá que cree un nombre de usuario y una contraseña para la distribución de Linux:
 
@@ -54,11 +60,11 @@ Cuando se termina de instalar la nueva distribución de WSL, se le pedirá que c
 > Recuerda que esta cuenta se considerará el administrador de Linux y tendrá la capacidad de ejecutar comandos administrativos sudo (es decir, de superusuario).
 {: .prompt-info }
 
-### Usando WSL
+## __Usando WSL__
 
 Una vez que hayas instalado y configurado WSL, podemos comenzar a usarlo. Lo primero que podemos hacer es probar los típicos comandos de Linux como `ls`, `cd`, `mkdir`, etc., para navegar y gestionar archivos.
 
-### Instalar Zsh
+### __Instalar Zsh__
 
 Cuando abrimos WSL el shell predeterminado incluido en las distribuciones es [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29){:target='_blank'}. Sin embargo Zsh (Z Shell) es un potente intérprete de comandos que ofrece una experiencia mejorada en la terminal. Para instalar Zsh debemos realizar los siguientes pasos:
 
@@ -82,7 +88,7 @@ chsh -s $(which zsh)
 
 Cierra y vuelve a abrir tu terminal de Linux en Wsl para que los cambios surtan efecto.
 
-#### Configurar Zsh
+### __Configurar Zsh__
 
 Para una experiencia de Zsh más rica, podemos instalar [Oh My Zsh](https://ohmyz.sh/){: target='_blank'}. En la terminal ejecutamos el siguiente comando:
 

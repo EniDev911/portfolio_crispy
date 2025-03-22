@@ -1,36 +1,68 @@
 ---
-title: "PostgreSQL 🐘 : Almacenar credenciales de forma segura en archivo pgpass"
+title: "PostgreSQL 🐘 : Almacenar Credenciales de Forma Segura"
 author: enidev911
-categories: [Bases de Datos Relacionales, Postgres]
+categories: [Bases de Datos Relacionales, Postgres, "Extras/Trucos"]
 tags: [Bases de Datos]
+image:
+    path: posters/postgres-uso-pgpass.webp
+    lqip: data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJZACdH8ACu95gjmIj0rcoAMye8lKZjUwbdlLZS/oxLyP/yeT2kPHno7VZx8wI3UmiwEnZuQ1El0tXl7H7GPu3fai4AA==
+pin: true
 ---
 
-Cuando trabajas con bases de datos PostgreSQL y en general, una de las tareas más comunes es conectarte a la base de datos desde la línea comandos usando el cliente `psql`. Sin embargo, cada vez que te conectas, PostgreSQL te pedirá la contraseña. Esto puede resultar tedioso, especialmente cuando automatizas tareas o trabajas con scripts. Para evitar este inconveniente, PostgreSQL ofrece una herramienta llamada `pgpass`, que permite almacenar las credenciales de acceso de manera segura y automática, evitando la necesidad de ingresar la contraseña cada vez que te conectas. En este post veremos cómo crear y utilizar el archivo `pgpass`.
+Cuando trabajas con bases de datos en PostgreSQL y en general, una de las tareas más comunes es conectarte a las bases de datos desde la línea comandos usando el cliente **`psql`**. Sin embargo, cada vez que lo haces, el servidor de PostgreSQL te pide la contraseña. Esto puede resultar tedioso, especialmente al automatizar tareas o ejecutar scripts. Para evitar este inconveniente, PostgreSQL ofrece una herramienta denominada **`pgpass`**, que permite almacenar las credenciales de acceso de forma segura y automática, eliminando la necesidad de ingresar la contraseña en cada conexión. En este post aprenderás a crear y utilizar el archivo **`pgpass`** de manera efectiva.
 
-### **¿Cómo utilizar el archivo pgpass?**
+## __¿Qué es el Archivo Pgpass?__
+
+El archivo **`pgpass`** es un archivo de texto que almacena credenciales de autenticación para servidores PostgreSQL. Su función principal es permitir conexiones automáticas sin que el usuario tenga que ingresar manualmente la contraseña en cada sesión.
+
+Este archivo es especialmente útil en los siguientes casos:
+- **Automatización de tareas**: Si usas scripts o **cron jobs** (tareas programadas) que requieren conectarse a PostgreSQL, **`pgpass`** evita que tengas que escribir la contraseña en cada ejecución.
+- **Conexión desde aplicaciones**: Herramientas como **`psql`**, **`pg_dump`** o **`pg_restore`** pueden usar **`pgpass`** para conectarse sin pedir credenciales.
+- **Mejor seguridad**: Evita almacenar contraseñas en scripts o en variables de entorno, reduciendo riesgos de exposición.
+
+## __Ubicación del Archivo Pgpass__
+
+El archivo **`pgpass`** debe guardarse en una ubicación específica dependiendo del sistema operativo.
+
+{% tabs ubicacion_pgpass %}
+{% tab ubicacion_pgpass Linux/macOS %}
+La ubicación del archivo en **Linux/macOS** normalmente se encuentra en el directorio de inicio de tu usuario (`~/.pgpass`) Ejemplo:
+```terminal
+/Users/<user>/.pgpass
+```
+{% endtab %}
+{% tab ubicacion_pgpass Windows %}
+En **Windows** se debe buscar el destino de instalación, generalmente es `%APPDATA%\postgresql\pgpass.conf`. Ejemplo:
+```terminal
+C:\Users\<usuario>\AppData\Roaming\postgresql\pgpass.conf
+````
+{% endtab %}
+{% endtabs %}
 
 
-#### **Crear el archivo pgpass**
+## __Crear Archivo Pgpass__
 
-1. Abrimos una terminal o símbolo del sistema.
-2. Crear el archivo `pgpass` en la ubicación que corresponda según tu sistema operativo.
+Como ya sabemos el archivo **`pgpass`** debe guardarse en una ubicación específica dependiendo del sistema operativo. Para ello realiza los siguientes pasos:
 
-{% tabs crear_pgpass %}
-{% tab crear_pgpass Linux/macOS %}
-La ubicación del archivo en **Linux/macOS** normalmente se encuentra en el directorio de inicio de tu usuario (Ej: `~/.pgpass`). Para crear el archivo ejecuta el siguiente comando:
+1. Abre una terminal o símbolo del sistema.
+2. Crea el archivo `pgpass` en la ubicación que corresponda según tu sistema operativo.
+
+{% tabs crear_archivo_pgpass %}
+{% tab crear_archivo_pgpass Linux/macOS %}
+En **Linux/macOS** creamos el archivo con el comando `touch`:
 ```terminal
 touch ~/.pgpass
 ```
 {% endtab %}
-{% tab crear_pgpass Windows %}
-En **Windows** debes buscar el destino de instalación, puede ser algo como `C:\Users\<usuario>\AppData\Roaming\postgresql\pgpass.conf`. Una vez encontrado, ejecuta el siguiente comando:
+{% tab crear_archivo_pgpass Windows %}
+En **Windows** debes buscar el destino de instalación, puede ser algo como `%APPDATA%\postgresql\pgpass.conf`. Una vez encontrado, ejecuta el siguiente comando:
 ```terminal
 echo '' > pgpass.conf
 ````
 {% endtab %}
 {% endtabs %}
 
-#### **Formato del archivo pgpass**
+### __Formato del archivo pgpass__
 
 El archivo `pgpass` tiene un formato muy sencillo, donde cada línea describe las credenciales para una conexión específica. La estructura es la siguiente:
 

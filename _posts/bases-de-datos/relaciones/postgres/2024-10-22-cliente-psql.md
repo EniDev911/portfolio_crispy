@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL 🐘 : Cliente de línea de comandos"
 author: enidev911
-categories: [Bases de Datos Relacionales, Postgres]
+categories: [Bases de Datos Relacionales, Postgres, "Extras/Trucos"]
 tags: [Bases de Datos Relacionales, Postgres]
 ---
 

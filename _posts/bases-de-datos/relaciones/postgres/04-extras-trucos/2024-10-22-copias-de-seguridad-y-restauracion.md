@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL 🐘 : Copias de Seguridad y Restauración"
 author: enidev911
-categories: [Bases de Datos Relacionales, "Postgres - Extras/Trucos"]
+categories: [Bases de Datos Relacionales, Postgres, "Extras/Trucos"]
 image:
   path: posters/postgres-backup.webp
   lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJZACdMoADTrSblGqSKVeeBUAA4iuMyLVJtI8Vd+GWO+/Fq/bnaIZgSZ3mxVvRE934U4nSOaPqKSKct3n5HKzjA3QQ4AAA
