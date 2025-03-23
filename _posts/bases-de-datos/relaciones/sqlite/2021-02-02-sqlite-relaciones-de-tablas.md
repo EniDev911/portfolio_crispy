@@ -53,7 +53,7 @@ erDiagram
     
     PEDIDOS {
         int id "PK"
-        int id_cliente "FK"
+        int cliente_id "FK"
         string fecha_pedido
         int total
     }
@@ -74,9 +74,21 @@ INSERT INTO clientes (nombre, correo) VALUES
 ('Ana Gomés', 'ana@example.com');
 
 -- insertar pedidos
-INSERT INTO Pedidos (id_cliente, fecha_pedido, total) VALUES 
+INSERT INTO Pedidos (cliente_id, fecha_pedido, total) VALUES 
 (1, '2021-03-10', 2500),
 (1, '2021-03-13', 3400),
 (2, '2021-03-23', 1800);
+```
+{: .nolineno }
+
+### __Consultando datos relacionados__
+
+Para obtener la información completa de los pedidos junto a la información del cliente:
+
+```sql
+SELECT pedidos.id, clientes.nombre, pedidos.fecha_pedido, pedidos.total
+FROM pedidos
+JOIN cientes
+ON pedidos.id = clientes.id;
 ```
 {: .nolineno }

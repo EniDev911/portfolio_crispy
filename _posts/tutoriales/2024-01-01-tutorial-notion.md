@@ -152,7 +152,7 @@ En resumen, una base de datos es una colección de páginas y puede crearse dent
 
 Para crear una base de datos em Notion, puedes hacerlo al crear una página nueva y, en la parte inferior `Get Started With`, selecciona `Table`. También puedes abrir una página existente y usar el comando de barra diagonal `/database`.
 
-Al crear una base de datos, puede empezar desde cero o elegir entre las plantillas seguridas:
+Al crear una base de datos, puede empezar desde cero o elegir entre las plantillas sugeridas:
 
 ![nueva base de datos](tutoriales/notion-new-database.webp)
 

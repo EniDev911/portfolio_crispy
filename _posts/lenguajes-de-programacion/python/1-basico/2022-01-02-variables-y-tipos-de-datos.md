@@ -43,7 +43,7 @@ graph LR
     style F stroke-width:2px,stroke-dasharray: 5 5
 ```
 
-## **Declaración y Asignación de Variables en Python**
+## __Declaración y Asignación de Variables en Python__
 
 En Python, puedes declarar una variable simplemente asignándole un valor. No necesitas especificar el tipo de dato de la variable, ya que Python lo infiere automáticamente. Para asignar un valor a una variable se utiliza el operador de igualdad (`=`). A la izquierda se escribe el nombre de la variable y a la derecha el valor que se quiere dar a la variable.
 
@@ -76,7 +76,7 @@ Traceback (most recent call last):
 > Siempre debes ser consciente de inicializar las variables antes de usarlas para evitar errores y mantener el código limpio y comprensible.
 {: .prompt-tip }
 
-## **Tipos de Datos**
+## __Tipos de Datos que Almacenan las Variables__
 
 Python maneja varios tipos de datos básicos que puedes almacenar en variables. Algunos de esos tipos de datos ya fueron definidos en los ejemplos anteriores, entre los tipos de datos más comunes se incluyen:
 
@@ -106,9 +106,9 @@ Traceback (most recent call last):
 {% endcapture %}
 {% include terminal-wrapper.html content=code_str2 %}
 
-### **Uso de type()**
+### __Conocer los Tipos de Datos__
 
-En Python, existen **funciones integradas** como `type()` que permiten conocer el tipo de datos de una variable. Esto es útil en un lenguaje de tipado dinámico como Python, donde no es necesario declarar explícitamente el tipo de una variable. Además de `type()`, otras funciones como `isinstance()` permiten verificar si un objeto es una instancia de tipo específico, proporcionando mayor flexibilidad y control al trabajar con datos.
+En Python, existen **funciones integradas** como `type()` que permiten conocer el tipo de dato de una variable. Esto es útil en un lenguaje de tipado dinámico como Python, donde no es necesario declarar explícitamente el tipo de una variable. Además de `type()`, otras funciones como `isinstance()` permiten verificar si un objeto es una instancia de tipo específico, proporcionando mayor flexibilidad y control al trabajar con datos.
 
 **Ejemplo de usar `type()`:**
 
@@ -134,7 +134,59 @@ texto = str(numero)  # Convierte el número 5 a la cadena "5"
 {: .nolineno }
 
 
-## **Reglas para Nombrar Variables**
+## __Formato para Nombrar Variables__
+
+En Python, existen diferentes estilos para nombrar y otros identificadores. Cada uno tiene su uso recomendado. A continuación te dejo algunos ejemplo de cada estilo.
+
+### __1. snake\_case (recomendado en Python 🏆)__
+
+- Se escribe en minúsculas, separando las palabras con guion bajo.
+- Es estándar en Python para variables y funciones.
+
+**💡 Ejemplo:**
+
+{% capture snake_case %}
+&gt;&gt;&gt; nombre_completo = "Marco Contreras"
+&gt;&gt;&gt; contador_de_visitas = 103
+{% endcapture %}
+{% include terminal-wrapper.html content=snake_case %}
+
+### __2. camelCase__
+
+- La primera palabra va en minúscula y las siguientes comienzan con mayúscula.
+- Se usa más en [JavaScript](https://www.w3schools.com/JS/js_conventions.asp){:target='_blank'} y otros lenguajes, pero no es común en Python.
+
+**💡 Ejemplo:**
+
+{% capture camelCase %}
+&gt;&gt;&gt; nombreCompleto = "Marco Contreras"
+&gt;&gt;&gt; contadorDeVisitas = 103
+{% endcapture %}
+{% include terminal-wrapper.html content=camelCase %}
+
+### __3. PascalCase__
+
+- Todas las palabras inician con mayúscula.
+- Se usa en nombres de clases en Python.
+
+{% capture PascalCase %}
+&gt;&gt;&gt; class RegistroUsuario():
+&dot;&dot;&dot;     pass
+{% endcapture %}
+{% include terminal-wrapper.html content=PascalCase %}
+
+### __4. UPPER\_CASE__
+
+- Todas las letras en mayúsculas.
+- Se usa para definir **constantes** en Python (aunque Python no tiene constantes reales, es una convención).
+
+{% capture UPPER_CASE %}
+&gt;&gt;&gt; PI = 3.1416
+&gt;&gt;&gt; TASA_DE_CAMBIO = 18.50
+{% endcapture %}
+{% include terminal-wrapper.html content=UPPER_CASE %}
+
+## __Reglas para Nombres de Variables__
 
 Aunque no es obligatorio, en Python, se recomienda seguir algunas reglas y convenciones para nombrar variables:
 
@@ -150,7 +202,7 @@ Los nombres de las variables deben comenzar con una letra (a-z, A-Z) o un guion 
 
 **2. Usar solo caracteres alfanuméricos y guiones bajos**
 
-  Después del primer carácter, puedes usar letras, números y guiones bajos.
+Después del primer carácter, puedes usar letras, números y guiones bajos.
 
 {% capture code_var_name %}
 &gt;&gt;&gt; mi_variable = "valor"
@@ -158,11 +210,9 @@ Los nombres de las variables deben comenzar con una letra (a-z, A-Z) o un guion 
 {% endcapture %}
 {% include terminal-wrapper.html content=code_var_name %}
 
-
 **3. No uses palabras reservadas**
 
 Evita usar palabras que son reservadas por Python (como `if`, `for`, `while`, etc.) como nombres de variables.
-
 
 {% capture code_var_name %}
 <span class="hl">&gt;&gt;&gt; for = "valor"</span>
@@ -172,7 +222,6 @@ Evita usar palabras que son reservadas por Python (como `if`, `for`, `while`, et
 <span class="hl">SyntaxError: invalid syntax</span>
 {% endcapture %}
 {% include terminal-wrapper.html content=code_var_name %}
-
 
 **4. Usa nombres descriptivos**
 
