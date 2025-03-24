@@ -292,6 +292,7 @@ NameError: name 'variable_local' is not defined
 ```
 {: .nolineno .noheader }
 
+{% include circle-line.html %}
 
 Las variables son la base de la programación en Python. Son simples pero poderosas, permitiéndote almacenar y manipular datos de manera eficiente. Entender cómo funcionan las variables y cómo usarlas correctamente es esencial para escribir código limpio y funcional.
 

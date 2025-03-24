@@ -4,7 +4,7 @@ author: enidev911
 categories: [Python, "01. Básico"]
 image:
     path: "posters/python-estructuras-de-control.webp"
-    lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAAoAPzmGuVOvKSWisAgB4CcJZACdGuAASSZYBA8/WAAA+efo2Lj0+h6Eu1vzDvatqCvqbP6Vxfy+2qxTsfQ/IQaSSivOCg0Z+GlZmHP7qgL9uZ+0u0KARMbullj5aoUAAA==
+    lqip: data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJQBibAl4ulhXEuXoAAP7L5f9RXsuXTmYBIKqe0umlxeSVuDuABAFyesqrvpYEF2T2dM/zfWLNzb8mAAA=
 mermaid: true
 ---
 
@@ -153,6 +153,6 @@ print(mensaje)
 
 En esta expresión condicional, el valor de `mensaje` depende de la condición `edad >= 18`.
 
-## **Conclusión**
+{% include circle-line.html %}
 
 Los condicionales son herramientas poderosas en Python que permiten que tu programa tome decisiones basadas en condiciones específicas. Comprender cómo usar `if`, `elif`, y `else` te permitirá controlar el flujo de tu programa y gestionar diferentes escenarios de manera efectiva. Además, los operadores lógicos, condicionales anidados y expresiones condicionales te ofrecen flexibilidad para abordar problemas más complejos.
