@@ -126,15 +126,15 @@ La línea de comandos de `sqlite3` permite importar archivos CSV fácilmente y c
 > 👉 **¡Ideal para analizar datos rápido sin herramientas adicionales!**
 {: .prompt-tip }
 
-Para hacer el análisis de un archivo CSV, abre una terminal y ejecuta `sqlite3` sin argumentos. Esto iniciará **SQLite en la memoria** en vez de crear una base de datos en disco, lo que significa que los datos se cargarán solo mientras la sesión esté activa. A continuación tienes los comandos que debes ejecutar para importar el CSV:
-
+Para hacer el análisis de un archivo CSV, abre una terminal y ejecuta `sqlite3` sin argumentos. Esto iniciará **SQLite en la memoria** en vez de crear una base de datos en el disco, lo que significa que los datos se cargarán solo mientras la sesión esté activa. A continuación tienes los comandos que debes ejecutar para importar el CSV:
 
 {% tabs ejemplo_import_csv %}
 {% tab ejemplo_import_csv comando %}
-```
+```sql
 .mode csv
 .import ventas.csv ventas
 ```
+{: .nolineno }
 {% endtab %}
 {% tab ejemplo_import_csv CSV %}
 Copia y guarda este contenido en un archivo llamado `ventas.csv`:
@@ -166,22 +166,24 @@ Auriculares,Accesorios,81000,1,81000,2024-08-30
 
 ### __Consultas SQL rápidas sobre el CSV__
 
-**Ver las primeras 5 filas:**  
+**💡 Ejemplo**: Ver las primeras 5 filas:
 ```sql
 SELECT * FROM ventas LIMIT 5;
 ```
 {: .nolineno }
-**Total de ventas por categoría:**  
+**💡 Ejemplo**: Total de ventas por categoría:
 ```sql
-SELECT 'Categoría', SUM(Total) AS Ventas_Totales FROM ventas GROUP BY 'Categoría';
+SELECT 'Categoría', SUM(Total) AS Ventas_Totales
+FROM ventas
+GROUP BY 'Categoría';
 ```
 {: .nolineno }
-**Ventas en enero de 2024:**  
+**💡 Ejemplo**: Ventas en enero de 2024:
 ```sql
 SELECT * FROM ventas WHERE Fecha_Venta LIKE '2024-01%';
 ```
 {: .nolineno }
-**Productos más caros vendidos:**  
+**💡 Ejemplo**: Productos más caros vendidos:
 ```sql
 SELECT * FROM ventas ORDER BY Precio DESC LIMIT 5;
 ```
@@ -194,7 +196,9 @@ Si después de analizar los datos quieres guardar los resultados en otro archivo
 ```sql
 .mode csv
 .output resumen.csv
-SELECT 'Categoría', SUM(Total) AS Ventas_Totales FROM ventas GROUP BY 'Categoría';
+SELECT 'Categoría', SUM(Total) AS Ventas_Totales
+FROM ventas
+GROUP BY 'Categoría';
 .output stdout -- Volver a cambiar la salida al modo normal
 ```
 {: .nolineno }
@@ -206,7 +210,7 @@ Esto creará un archivo **resumen.csv** con el total de ventas por categoría.
 Para definir opciones de forma permanente al ejecutar sqlite3, crea un archivo de configuración `.sqliterc` en el directorio del usuario. Ejemplo:
 
 ```terminal
-nano ~/.sqliterc   # O usa vi, vim, o cualquier editor de texto
+nano ~/.sqliterc  # O usa vi, vim, o cualquier editor de texto
 ```
 
 Luego añade las opciones que quieres que se apliquen siempre:
