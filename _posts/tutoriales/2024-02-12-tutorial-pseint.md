@@ -22,7 +22,7 @@ PSeInt te ayuda a:
 ### __Paso 1: Descargar e Instalar PSeInt__
 
 1. **Descargar PSeInt:**
-   - Ve al sitio web oficial de PSeInt: [https://pseint.sourceforge.io](https://pseint.sourceforge.io).
+   - Ve al sitio web oficial de PSeInt: [https://pseint.sourceforge.io](https://pseint.sourceforge.io){:target='_blank'}.
    - Selecciona la versión que corresponde a tu sistema operativo (Windows, Linux, o macOS).
 
 2. **Instalar PSeInt:**
@@ -32,7 +32,22 @@ PSeInt te ayuda a:
 3. **Abrir el programa:**
    - Después de la instalación, abre PSeInt desde el acceso directo que se crea en tu escritorio o desde el menú de inicio.
 
-### __Paso 2: Crear un Nuevo Algoritmo en PSeInt__
+### __Paso 2: Conocer su Interfaz__
+
+La interfaz de PSeInt es sencilla e intuitiva, al abrir PSeInt, encontraremos varios elementos comunes en su interfaz:
+
+**Área de trabajo**
+: Es el espacio principal donde escribimos nuestro pseudocódigo. Aquí es donde definimos las instrucciones de un algoritmo:
+
+![interfaz superior](tutoriales/pseint-interfaz2.webp)
+
+**Barra de Herramientas**
+: Justo encima del área de trabajo, esta barra proporciona accesos rápidos a funciones importantes, como ejecutar un algoritmo o depurarlo paso a pase.
+
+
+![interfaz superior](tutoriales/pseint-interfaz1.webp)
+
+### __Paso 3: Crear un Nuevo Algoritmo en PSeInt__
 
 1. **Iniciar un nuevo archivo:**
    - Cuando abras PSeInt, selecciona **Archivo** en la barra de menú y luego haz clic en **Nuevo** para crear un nuevo algoritmo.
@@ -41,7 +56,7 @@ PSeInt te ayuda a:
    - Ahora puedes empezar a escribir tu pseudocódigo en el área de trabajo. PSeInt tiene una interfaz sencilla que te permitirá escribir de manera intuitiva.
 
 
-### __Paso 3: Estructura Básica de un Algoritmo en PSeInt__
+### __Paso 4: Estructura Básica de un Algoritmo en PSeInt__
 En PSeInt, la sintaxis es sencilla. A continuación te muestro las estructuras más comunes que usarás:
 
 #### 1. **Declaración de Variables**
@@ -89,7 +104,7 @@ En PSeInt, la sintaxis es sencilla. A continuación te muestro las estructuras m
    ```
 
 
-### __Paso 4: Ejecutar el Algoritmo__
+### __Paso 5: Ejecutar el Algoritmo__
 Una vez que hayas escrito el pseudocódigo, es hora de probarlo.
 
 1. **Ejecutar el algoritmo:**
