@@ -1,7 +1,10 @@
 ---
-title: "Tutorial: PSeInt"
+title: "Tutorial: PSeInt y Aprender a Escribir Pseudocódigo"
 categories: [Tutoriales, "Programación"]
+mermaid: true
 ---
+
+
 
 ## __¿Qué es PSeInt?__
 
@@ -149,8 +152,44 @@ FinAlgoritmo
 
 3. **Experimenta con más estructuras:** PSeInt tiene muchas más funcionalidades como funciones, procedimientos, y estructuras de datos. No dudes en explorar más allá de las estructuras básicas.
 
+
+## __Ejercicio Prácticos__
+
+### __Terminar con tu novia__
+
+Cuando nos enfrentamos a un problema en la vida cotidiana, su resolución también requiere seguir una serie de pasos como si fuera un algoritmo. Por ejemplo, un problema puede ser terminar con tu novia 😞. Para ello, es necesario llevar a cabo ciertos pasos organizados. Supongamos que este díficil proceso se resolverá de la siguiente manera:
+
+- [x] **Paso 1**: Llamar a la novia:
+   - Decirle que es solicitada para hablarle de algo importante.
+- [x] **Paso 2**: Ponerle una hora de encuentro:
+   - Decirle a las 6:00 PM, eso es para que por lo menos llegue a las 7:00 PM.
+- [x] **Paso 3**: Esperar a la novia:
+   - Si no ha llegado a las 7:00 PM, pero si llega, pone cara seria. 
+- [x] **Paso 4**: Esperar a que pregunte:
+   - *"¿Qué pasa?"*.
+   - Si no pregunta, soltar un suspiro profundo y decir: *"Tenemos que hablar..."*.
+- [x] **Paso 5**: Hacer una pausa:
+   - Hacer una pausa dramática de **3 a 5 segundos** para aumentar la tensión.
+- [x] **Paso 6**: Decir con voz firme:
+   - *"He estado pensando en nosotros, y creo que lo mejor es que terminemos"*.
+- [x] **Paso 7**: Esperar su reacción:
+   - **Si se enoja**, mantener la calma y decir: *"Entiendo que esto te moleste, pero es lo mejor"*.
+   - **Si llora**, ofrecele un pañuelo (si no tienes, improvisar con una servilleta).
+   - **Si pregunta por qué**, responder con sinceridad pero sin detalles innecesarios.
+- [x] **Paso 8**: Responder con sinceridad:
+   - Evitar frases como: *"No eres tú, soy yo"*, *"Necesito encontrarme a mí mismo"*.
+- [x] **Paso 9**: Confirmar tu decisión:
+   - Si intenta convencerte de no terminar, repetir con determinación:
+   - *"Lo he pensado bien y mi decisión es definitiva"*.
+- [x] **Paso 10**: Despedirse:
+   - Despedirse con respeto. Si se va enojada, dejarla ir. Si se queda en silencio, esperar unos segundos y luego retirarse.
+
+
+Veamos el ejemplo en PSeInt:
+
+{% include embed/video.html src='pseint_run_terminar_relacion.mp4' %}
+
+
 {% include circle-line.html %}
 
-PSeInt es una excelente herramienta para comenzar a entender la programación y la lógica detrás de los algoritmos. Con su interfaz simple y su lenguaje cercano al español, puedes concentrarte en aprender conceptos fundamentales sin preocuparte demasiado por la sintaxis de lenguajes más complejos.
-
-¡Ahora que tienes una introducción completa, puedes comenzar a experimentar creando tus propios algoritmos!
+PSeInt es una excelente herramienta para comenzar a entender la programación y la lógica detrás de los algoritmos y el pseudocódigo. Con su interfaz simple y su lenguaje cercano al español, puedes concentrarte en aprender conceptos fundamentales sin preocuparte demasiado por la sintaxis de lenguajes más complejos.
