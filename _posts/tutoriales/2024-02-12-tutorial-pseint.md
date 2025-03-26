@@ -14,14 +14,14 @@ PSeInt es un programa diseñado para aprender y practicar programación utilizan
 PSeInt te ayuda a:
 - Entender la lógica detrás de los algoritmos.
 - Escribir y visualizar algoritmos sin tener que preocuparte por la sintaxis específica de un lenguaje de programación.
-- Aprender conceptos fundamentales de programación, como condicionales, bucles, y variables.
+- Aprender **conceptos fundamentales de programación**, como condicionales, bucles, y variables.
 
 ## __Comenzar con PSeInt Paso a Paso__
 
 ### __Paso 1: Descargar e Instalar PSeInt__
 
 1. **Descargar PSeInt:**
-   - Ve al sitio web oficial de PSeInt: [https://pseint.sourceforge.io](https://pseint.sourceforge.io){:target='_blank'}.
+   - Ve al sitio de descargas de PSeInt: [https://pseint.sourceforge.io](https://pseint.sourceforge.io){:target='_blank'}.
    - Selecciona la versión que corresponde a tu sistema operativo (Windows, Linux, o macOS).
 
 2. **Instalar PSeInt:**
@@ -36,12 +36,12 @@ PSeInt te ayuda a:
 La interfaz de PSeInt es sencilla e intuitiva, al abrir PSeInt, encontraremos varios elementos comunes en su interfaz:
 
 **Área de trabajo**
-: Es el espacio principal donde escribimos nuestro pseudocódigo. Aquí es donde definimos las instrucciones de un algoritmo:
+: Es el espacio principal donde escribimos nuestro pseudocódigo. Aquí es donde definimos las instrucciones de un algoritmo.
 
 ![interfaz superior](tutoriales/pseint-interfaz2.webp)
 
 **Barra de Herramientas**
-: Justo encima del área de trabajo, esta barra proporciona accesos rápidos a funciones importantes, como ejecutar un algoritmo o depurarlo paso a pase.
+: Justo encima del área de trabajo, se encuentra la barra de herramientas, esta barra proporciona accesos rápidos a funciones importantes, como crear un nuevo archivo, guardar, ejecutar un algoritmo o depurarlo paso a paso, etc.
 
 
 ![interfaz superior](tutoriales/pseint-interfaz1.webp)
@@ -53,7 +53,6 @@ La interfaz de PSeInt es sencilla e intuitiva, al abrir PSeInt, encontraremos va
 
 2. **Escribir el pseudocódigo:**
    - Ahora puedes empezar a escribir tu pseudocódigo en el área de trabajo. PSeInt tiene una interfaz sencilla que te permitirá escribir de manera intuitiva.
-
 
 ### __Paso 4: Estructura Básica de un Algoritmo en PSeInt__
 
@@ -82,6 +81,7 @@ Las variables se declaran usando la palabra clave `Definir`. Ejemplo:
 Definir nombre, apellido Como Texto
 Definir edad, sueldo Como Entero
 ```
+{:file="demo.psc"}
 
 En el área de trabajo, puedes comenzar definiendo algunas variables y acostumbrate a escribir respetando la indentación como lo muestra la siguiente ilustración:
 
@@ -89,64 +89,137 @@ En el área de trabajo, puedes comenzar definiendo algunas variables y acostumbr
 
 #### 2. **Entrada de Datos**
 
-Para solicitar datos al usuario, se usa la instrucción `Leer`. Ejemplo:
+Anteriormente, ya hemos definido algunas variables. Ahora, si queremos almacenar información que ingrese un usuario, debemos utilizar la instrucción `Leer`. Ejemplo:
 
 ```
-Leer edad
+Escribir "¿Cuál es su nombre?: "
+Leer nombre
+Escribir "¿Cuál es su apellido?: "
+Leer apellido
 ```
 {:file="demo.psc"}
 
-#### 3. **Salida de Datos**
-   - Para mostrar datos en pantalla, se usa la instrucción `Escribir`. Ejemplo:
-   ```pseudocode
-   Escribir "Tu edad es: ", edad
-   ```
+Cuando queremos que el usuario ingrese información desde el teclado, utilizamos la instrucción `Leer`, como se muestra en la ilustración:
 
-#### 4. **Condicionales**
-   - Las estructuras condicionales permiten ejecutar bloques de código dependiendo de una condición. Se usa `Si` para iniciar una condición, y `Sino` para la alternativa.
-   ```pseudocode
-   Si edad >= 18 Entonces
-      Escribir "Eres mayor de edad"
-   Sino
-      Escribir "Eres menor de edad"
-   FinSi
-   ```
+![instrucción leer](tutoriales/pseint-instruccion-leer.webp)
+
+#### 3. **Salida de Datos**
+
+Para mostrar la información por pantalla, utilizamos la instrucción `Escribir`. En el ejemplo anterior, la utilizamos para dar indicaciones al usuario antes de solicitarle los datos. Sin embargo, `Escribir` también nos permite mostrar los valores de variables o resultados de operaciones.
+
+Ahora, podemos usarla también para mostrar los valores ingresados y generar una respuesta personalizada. Ejemplo:
+
+```
+Escribir "Hola ", nombre, " ", apellido, ", bienvenido a nuestro programa."
+```
+{:file="demo.psc"}
+
+De esta forma, proporcionamos un saludo personalizado al usuario, como se muestra en la siguiente ilustración:
+
+![instruccion leer y escribir](tutoriales/pseint-instruccion-leer-y-escribir.webp)
+
+#### 4. __Condicionales__
+
+Sin las estructuras condicionales, un código escrito en cualquier lenguaje de programación se ejecutaría línea por línea de manera secuencial hasta finalizar. Veamos el siguiente diagrama:
+
+```mermaid
+---
+title: Programa lineal vs Con Condicionales
+---
+flowchart TB
+    subgraph "Programa Lineal"
+        direction TB
+        inicio1([Inicio])
+        --> p1[Instrucción 1]
+        --> p2[Instrucción 2]
+        --> p3[Instrucción 3]
+        --> fin1([Fin])
+    end
+
+    subgraph "Con Condicional"
+        direction TB
+        inicio2([Inicio])
+        --> cond{Condición verdadera?}
+        cond -->|Sí| a1[Ejecutar Bloque A]
+        a1 --> fin2([Fin])
+        cond -->|No| b1[Ejecutar Bloque B]
+        b1 --> fin2
+    end
+```
+
+> En palabras simples, los condicionales permiten ejecutar bloques de código según una condición. Para ello, se usa `Si` para evaluar una condición y `Sino` para la alternativa.
+{: .prompt-info }
+
+Continuando con nuestro pseudocódigo, podemos definir una variable `edad` para almacenar este dato que ingresará el usuario, luego vamos a evaluar este dato usando un condicional. Ejemplo:
+
+```
+Definir edad Como Entero
+
+Escribir "Ingrese su edad: "
+Leer edad
+
+Si edad >= 18 Entonces
+   Escribir "Eres mayor de edad"
+Sino
+   Escribir "Eres menor de edad"
+FinSi
+```
+{:file="demo.psc"}
+
+> Aunque PSeInt infiere el tipo de dato ingresado por el usuario automáticamente, es una **buena práctica** definirlo explícitamente con anterioridad utilizando `Definir`.
+{: .prompt-info }
+
+![expresión condicional](tutoriales/pseint-instruccion-condicional-si-sino.webp)
 
 #### 5. **Bucles (Ciclos)**
-   - Los bucles permiten repetir un bloque de código. Existen varios tipos de bucles. Aquí te muestro un ejemplo de un ciclo `Mientras`:
-   ```pseudocode
+
+Los bucles permiten repetir un bloque de código. Existen varios tipos de bucles. A continuación te explico como funciona cada uno.
+
+- **Ciclo `Mientras`**{: .fs-5 }
+   - El ciclo `Mientras` se utiliza para ejecutar un bloque de instrucciones repetidamente mientras se cumpla una condición lógica. Se trata de una estructura de control de tipo **bucle condicional**, lo que significa que la repetición depende de una condición que se evalúa antes de cada iteración. Ejemplo:
+
+```
+Si edad >= 18
+   Escribir "Eres mayor de edad"
+SiNo
    Mientras edad < 18 Hacer
       Escribir "Aún eres menor de edad."
+      Escribir "Ingrese su edad: "
       Leer edad
    FinMientras
-   ```
+FinSi
+```
+{: file="demo.psc" }
 
-   Y también un ciclo `Para`:
-   ```pseudocode
-   Para i Desde 1 Hasta 10 Paso 1 Hacer
-      Escribir i
-   FinPara
-   ```
+Continuando con el pseudocódigo, utilizamos el ciclo mientras `Mientras` para mantener al usuario ingresando su edad hasta que sea mayor a 18, como lo muestra la siguiente ilustración:
 
+![instruccion mientras](tutoriales/pseint-instruccion-mientras-ejemplo-edad.webp)
+
+- **Ciclo `Para`**{: .fs-5 }
+   - El ciclo `Para` es una estructura de control de tipo **bucle controlado por un contador**. A diferencia del ciclo `Mientras`, que depende de una condición, el ciclo `Para` se ejecuta un número específico de veces. Ejemplo:
+
+```
+Para i Desde 1 Hasta 10 Paso 1 Hacer
+   Escribir i
+FinPara
+```
+{: file="demo.psc" }
 
 ### __Paso 5: Ejecutar el Algoritmo__
 Una vez que hayas escrito el pseudocódigo, es hora de probarlo.
 
-1. **Ejecutar el algoritmo:**
-   - Haz clic en el botón **Ejecutar** o presiona **F7** en tu teclado.
-   - PSeInt te pedirá que ingreses datos (si es necesario), y luego mostrará los resultados de tu algoritmo.
+**Sigue estos pasos:**
 
-2. **Ver los resultados:**
-   - El programa mostrará las salidas de tu pseudocódigo en la ventana de salida o consola.
-
+- Haz clic en el botón **Ejecutar** <span id="run_pseint" style="display: inline-block; background-image: url(buttons/pseint_run.webp);height: 20px; width: 20px; background-size: contain;"></span> o presiona <kbd>F7</kbd> en tu teclado.
+- PSeInt te pedirá que ingreses datos (si es necesario), y luego mostrará los resultados de tu algoritmo.
+- El programa mostrará las salidas de tu pseudocódigo en la ventana de salida o consola.
 
 ### __Paso 5: Guardar el Algoritmo__
 Es importante guardar tu trabajo para poder modificarlo o revisarlo más tarde.
 
 1. **Guardar archivo:**
    - Ve a **Archivo** → **Guardar** o usa el atajo de teclado <kbd>Ctrl</kbd> + <kbd>S</kbd>.
-   - Elige una ubicación en tu computadora y ponle un nombre a tu archivo.
-
+   - Elige una ubicación y ponle un nombre a tu archivo.
 
 ### __Ejemplo Completo de un Algoritmo en PSeInt__
 
