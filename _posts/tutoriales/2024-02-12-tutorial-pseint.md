@@ -5,7 +5,6 @@ mermaid: true
 ---
 
 
-
 ## __¿Qué es PSeInt?__
 
 PSeInt es un programa diseñado para aprender y practicar programación utilizando [pseudocódigo](https://es.wikipedia.org/wiki/Pseudoc%C3%B3digo){:target='_blank'}. Es muy útil para iniciarse en la lógica de programación sin necesidad de conocer un lenguaje de programación complejo. El pseudocódigo es una forma de describir algoritmos usando un lenguaje cercano al humano, con estructuras y convenciones de programación simples.
@@ -57,19 +56,45 @@ La interfaz de PSeInt es sencilla e intuitiva, al abrir PSeInt, encontraremos va
 
 
 ### __Paso 4: Estructura Básica de un Algoritmo en PSeInt__
-En PSeInt, la sintaxis es sencilla. A continuación te muestro las estructuras más comunes que usarás:
+
+En PSeInt, la estructura básica de un algoritmo está definida entre dos palabras principales:
+
+```
+Algoritmo primerAlgoritmo
+    // Instrucciones del algoritmo
+FinAlgoritmo
+```
+{:file="demo.psc"}
+
+En el área de trabajo, todo el código necesario debe ir entre las palabras claves como lo muestra la siguiente ilustración:
+
+![escribir algoritmo](tutoriales/pseint-escribir-algoritmo1.webp)
+
+Otra cosa importante es el nombre que le des a un algoritmo. **Este nombre debe ser descriptivo**, ya que esto permitirá entender lo que intentas resolver y, además, te servirá para que al guardar el archivo, se respete ese nombre.
+
+A continuación te explico las estructuras más comunes que usarás:
 
 #### 1. **Declaración de Variables**
-   - Las variables se declaran usando la palabra clave `Definir`. Ejemplo:
-   ```pseudocode
-   Definir edad, sueldo Como Entero
-   ```
+
+Las variables se declaran usando la palabra clave `Definir`. Ejemplo:
+
+```
+Definir nombre, apellido Como Texto
+Definir edad, sueldo Como Entero
+```
+
+En el área de trabajo, puedes comenzar definiendo algunas variables y acostumbrate a escribir respetando la indentación como lo muestra la siguiente ilustración:
+
+![escribir algoritmo](tutoriales/pseint-escribir-algoritmo2.webp)
 
 #### 2. **Entrada de Datos**
-   - Para solicitar datos al usuario, se usa la instrucción `Leer`. Ejemplo:
-   ```pseudocode
-   Leer edad
-   ```
+
+Para solicitar datos al usuario, se usa la instrucción `Leer`. Ejemplo:
+
+```
+Leer edad
+```
+{:file="demo.psc"}
 
 #### 3. **Salida de Datos**
    - Para mostrar datos en pantalla, se usa la instrucción `Escribir`. Ejemplo:
