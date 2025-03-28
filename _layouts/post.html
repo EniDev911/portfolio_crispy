@@ -10,7 +10,16 @@ tail_includes:
 ---
 
 {% include lang.html %}
-
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("font_big").onclick = () => {
+    document.querySelector(".content").style.fontSize = "1.43rem";
+  };
+  document.getElementById("font_normal").onclick = () => {
+    document.querySelector(".content").style.fontSize = "1.03rem";
+  };
+});
+</script>
 <article class="px-1">
   <header>
     <h1 data-toc-skip><strong>{{ page.title | markdownify }}</strong></h1>
@@ -75,7 +84,10 @@ tail_includes:
             {% endif %}
           </em>
         </span>
-
+        <div>
+          <button id="font_big" style="border: 1px solid #ccc; border-radius: 4px;" title="Fuente Aumentada">A</button>
+          <button id="font_normal" style="border: 1px solid #ccc; border-radius: 4px;" title="Fuente Normal">a</button>
+        </div>
         <!-- read time -->
         {% include read-time.html content=content prompt=true lang=lang %}
       </div>
