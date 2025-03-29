@@ -140,9 +140,18 @@ else:
 
 Aquí, si la primera condición `edad >= 18` es falsa, se evalúa una segunda condición dentro del bloque `else`.
 
-### **Expresiones Condicionales (Ternarias)**
+### __Expresiones Condicionales Tenarias__
 
-Python permite usar expresiones condicionales en una sola línea para casos simples:
+Las expresiones condicionales ternarias en Python permiten escribir de manera más concisa en una sola línea las condiciones.
+
+Para usar expresiones condicionales en una sola línea para casos simples. La sintaxis es sencilla:
+
+```python
+valor_si_es_verdadero if condicion else valor_si_es_falso
+```
+{: .nolineno }
+
+**Ejemplo Básico**
 
 ```python
 edad = 20

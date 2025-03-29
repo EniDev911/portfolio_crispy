@@ -87,12 +87,14 @@ Python maneja varios tipos de datos básicos que puedes almacenar en variables. 
 
 Una variable además puede almacenar estructuras más complicadas (que se verán más adelante). Si se va a almacenar texto, el texto debe escribirse entre comillas simples (`'`) o dobles (`''`). A las variables que almacenan texto se les suele llamar cadenas (de texto).
 
-{% capture code_str %}
-<span class="hl">&gt;&gt;&gt; nombre = "Marco Contreras"</span>
-&gt;&gt;&gt; nombre
-<span class="hl">'Marco Contreras'</span>
-{% endcapture %}
-{% include terminal-wrapper.html content=code_str %}
+```python
+nombre = "Marco"
+apellido = 'Contreras'
+```
+{: .nolineno }
+
+> **Consejo**: En Python, puedes usar comillas simples o dobles para las cadenas, pero **es recomendable usar comillas simples** por consistencia y facilidad de escritura.
+{: .prompt-tip }
 
 Si no se escriben comillas, Python supone que estamos haciendo referencia a otra variable (que, si no está definida, genera un mensaje de error):
 
@@ -145,11 +147,11 @@ En Python, existen diferentes estilos para nombrar y otros identificadores. Cada
 
 **💡 Ejemplo:**
 
-{% capture snake_case %}
-&gt;&gt;&gt; nombre_completo = "Marco Contreras"
-&gt;&gt;&gt; contador_de_visitas = 103
-{% endcapture %}
-{% include terminal-wrapper.html content=snake_case %}
+```python
+nombre_completo = "Marco Contreras"
+contador_de_visitas = 103
+```
+{: .nolineno }
 
 ### __2. camelCase__
 
@@ -158,33 +160,33 @@ En Python, existen diferentes estilos para nombrar y otros identificadores. Cada
 
 **💡 Ejemplo:**
 
-{% capture camelCase %}
-&gt;&gt;&gt; nombreCompleto = "Marco Contreras"
-&gt;&gt;&gt; contadorDeVisitas = 103
-{% endcapture %}
-{% include terminal-wrapper.html content=camelCase %}
+```python
+nombreCompleto = "Marco Contreras"
+contadorDeVisitas = 103
+```
+{: .nolineno }
 
 ### __3. PascalCase__
 
 - Todas las palabras inician con mayúscula.
 - Se usa en nombres de clases en Python.
 
-{% capture PascalCase %}
-&gt;&gt;&gt; class RegistroUsuario():
-&dot;&dot;&dot;     pass
-{% endcapture %}
-{% include terminal-wrapper.html content=PascalCase %}
+```python
+class RegistroUsuario():
+  pass
+```
+{: .nolineno }
 
 ### __4. UPPER\_CASE__
 
 - Todas las letras en mayúsculas.
 - Se usa para definir **constantes** en Python (aunque Python no tiene constantes reales, es una convención).
 
-{% capture UPPER_CASE %}
-&gt;&gt;&gt; PI = 3.1416
-&gt;&gt;&gt; TASA_DE_CAMBIO = 18.50
-{% endcapture %}
-{% include terminal-wrapper.html content=UPPER_CASE %}
+```python
+PI = 3.1416
+TASA_DE_CAMBIO = 18.50
+```
+{: .nolineno }
 
 ## __Reglas para Nombres de Variables__
 
@@ -194,21 +196,21 @@ Aunque no es obligatorio, en Python, se recomienda seguir algunas reglas y conve
 
 Los nombres de las variables deben comenzar con una letra (a-z, A-Z) o un guion bajo (`_`). No pueden comenzar con un número. Ej:
 
-{% capture code_var_name %}
-&gt;&gt;&gt; _variable = "valor"
-&gt;&gt;&gt; variable1 = "valor"
-{% endcapture %}
-{% include terminal-wrapper.html content=code_var_name %}
+```python
+_variable = "valor"
+variable1 = "valor"
+```
+{: .nolineno }
 
 **2. Usar solo caracteres alfanuméricos y guiones bajos**
 
 Después del primer carácter, puedes usar letras, números y guiones bajos.
 
-{% capture code_var_name %}
-&gt;&gt;&gt; mi_variable = "valor"
-&gt;&gt;&gt; variable_2 = "valor"
-{% endcapture %}
-{% include terminal-wrapper.html content=code_var_name %}
+```python
+mi_variable = "valor"
+variable_2 = "valor"
+```
+{: .nolineno }
 
 **3. No uses palabras reservadas**
 
@@ -234,28 +236,27 @@ creditos = 99.0
 ```
 {: .nolineno }
 
-
 ## **Actualización y Eliminación de Variables**
 
 Una vez que una variable ha sido creada, puedes actualizar su valor simplemente asignándole un nuevo valor.
 
-{% capture code_update_var %}
-<span class="hl">&gt;&gt;&gt; edad = 30</span>
-<span class="hl">&gt;&gt;&gt; edad = 31</span> # Actualiza el valor de la variable edad
-{% endcapture %}
-{% include terminal-wrapper.html content=code_update_var %}
+```python
+edad = 30
+edad = 31</span> # Actualiza el valor de la variable edad
+```
+{: .nolineno }
 
 Si necesitas eliminar una variable, puedes usar la instrucción `del` que borra completamente una variable.
 
-{% capture code_update_var %}
+{% capture code_delete_var %}
 <span class="hl">&gt;&gt;&gt; del edad</span>
-<span class="hl">&gt;&gt;&gt; edad</span> # Actualiza el valor de la variable edad
+&gt;&gt;&gt; edad # Al referenciar 'edad' dará error.
 Traceback (most recent call last):
   File "&lt;python-input-14&gt;", line 1, in &lt;module&gt;
     edad
-NameError: name 'edad' is not defined
+<span class="hl">NameError: name 'edad' is not defined</span>
 {% endcapture %}
-{% include terminal-wrapper.html content=code_update_var %}
+{% include terminal-wrapper.html content=code_delete_var %}
 
 ```python
 del edad  # Elimina la variable edad

@@ -19,7 +19,7 @@ Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos
 
 ### __¿Es Notion gratuito?__
 
-Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La versión gratuita incluye páginas y bloques ilimitados, integraciones con otras aplicaciones, hasta cinco invitados al espacio de trabajo y un límite de **carga de archivos de 5 MB** por archivo.
+Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La versión gratuita incluye páginas y bloques ilimitados, integraciones con otras aplicaciones. Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados y un límite de **carga de archivos de 5 MB** por archivo. Sin embargo, ahora han cambiado su modelo y, para mantener bloques ilimitados en el plan gratuito, ya no se pueden añadir invitados en los espacios de trabajo. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
 
 ## __Ventajas y Desventajas de Notion__
 

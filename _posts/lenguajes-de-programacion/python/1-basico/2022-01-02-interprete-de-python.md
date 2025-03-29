@@ -56,7 +56,7 @@ En un lenguaje compilado por otra parte, el compilador lee el programa y lo trad
 
 ## __Modo Interactivo__
 
-En el modo interactivo de Python, podemos abrir una sesión en la que es posible ejecutar instrucciones directamente, realizar cálculos, operaciones y probar pequeños fragmentos de código y construir pequeños programas, pero una vez que se cierre la sesión interactiva no podemos reutilizar aquellos programas.
+En el **modo interactivo** de Python, podemos abrir una sesión en la que es posible ejecutar instrucciones directamente, realizar cálculos, operaciones y probar pequeños fragmentos de código y construir pequeños programas, pero una vez que se cierre la sesión interactiva no podemos reutilizar aquellos programas.
 
 Para iniciar una sesión interactiva, basta con ejecutar el comando `python3` en la terminal:
 
@@ -155,8 +155,14 @@ Para funciones matemáticas más avanzadas, tenemos un módulo especializado `ma
 > Por ahora, completa los ejemplos y experimenta con el modo interactivo. En los próximos posts, profundizaremos en temas más avanzados, como los **módulos**, **variables**, etc.
 {: .prompt-info }
 
+## __Modo Scripts__
+
+El **modo scripts** se usa cuando se necesita ejecutar programas completos almacenados en archivos `.py`. El script se guarda y ejecuta desde una Terminal o símbolo del sistema, resultando en la ejecución del programa y la impresión del resultado en pantalla.
+
 {% include circle-line.html %}
 
 Como hemos visto, Python en su **modo interactivo** es una potente herramienta para experimentar, aprender y probar ideas de manera rápida y eficiente. Ya sea que estés trabajando con cálculos simples o explorando conceptos más complejos, este modo te permite interactuar directamente con el lenguaje y ver los resultados de inmediato.
 
-A medida que avanzamos en los siguientes posts, profundizaremos en temas más avanzados, que te permitirán organizar y reutilizar tu código de manera más eficiente. No te detengas aquí; ¡sigue explorando, aprendiendo y divirtiéndote con Python! ✌️
+A medida que avanzamos en los siguientes posts, profundizaremos en temas más avanzados, que te permitirán organizar y reutilizar tu código de manera más eficiente. No te detengas aquí.
+
+¡Sigue explorando, aprendiendo y divirtiéndote con Python! ✌️
