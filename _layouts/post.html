@@ -12,10 +12,9 @@ tail_includes:
 {% include lang.html %}
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  let contentH2Elements = document.querySelectorAll(".content h2"); // Seleccionar h2 dentro de .content
-  let contentH3Elements = document.querySelectorAll(".content h3"); // Seleccionar h3 dentro de .content
-
-  if (contentH2Elements.length === 0 && contentH3Elements.length === 0) return; // Evita errores si no hay h2 ni h3
+  let contentH2Elements = document.querySelectorAll(".content h2");
+  let contentH3Elements = document.querySelectorAll(".content h3");
+  if (contentH2Elements.length === 0 && contentH3Elements.length === 0) return;
 
   // Función para obtener valores originales
   function getOriginalValues(elements) {
@@ -35,9 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (h2Original) {
       contentH2Elements.forEach((h2) => {
-        h2.style.fontSize = (h2Original.fontSize * 1.8) + "px"; // Aumenta fuente un 80%
-        h2.style.marginTop = (h2Original.marginTop * 1.2) + "px"; // Aumenta margen superior 20%
-        h2.style.marginBottom = (h2Original.marginBottom * 1.3) + "px"; // Aumenta margen inferior 30%
+        h2.style.fontSize = (h2Original.fontSize * 1.8) + "px";
+        h2.style.marginTop = (h2Original.marginTop * 1.2) + "px";
+        h2.style.marginBottom = (h2Original.marginBottom * 1.3) + "px";
       });
     }
 
