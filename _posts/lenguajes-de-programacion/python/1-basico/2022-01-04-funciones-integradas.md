@@ -5,13 +5,38 @@ categories: [Python, "01. Básico"]
 tags: [funciones en python]
 ---
 
-Python tiene una gran variedad de funciones que podemos utilizar sin necesidad de importar ningún módulo. En este post vamos a seleccionar algunas para revisar y agruparlas en diferentes categorías en función de su utilidad, tal y como se puede ver en la tabla de contenido de este post.
+Python ofrece una gran variedad de funciones integradas que podemos utilizar sin necesidad de importar ningún módulo. Estas funciones están diseñadas para hacer nuestro trabajo más fácil. En este post, vamos a seleccionar algunas de estas funciones y revisarlas en detalle, agrupándolas en diferentes categorías en función de su utilidad.
 
-## **Entrada - Salida**
+## __Entrada - Salida__
 
-### **print()**
+Comenzamos con las funciones integradas relacionadas con la **entrada y salida** de datos, ya que son fundamentales en la mayoría de los programas. Estas funciones nos facilitan la interacción con el usuario, recibir información y mostrar resultados.
 
-Es sin duda la función más conocida de todas. Lo que hace `print()` es imprimir por la salida estándar la representación en un *string* de cualquier objeto. Además tiene varios parámetros de entrada opcionales que modifican su comportamiento.
+### __Entrada: Función Input__
+
+La función integrada `input()` toma datos de entrada desde el teclado hasta que el usuario pulsa <kbd>Enter</kbd>. Normalmente a menudo tenemos la necesidad de obtener un dato para proporcionar algún tipo de resultado.
+
+**Sintaxis**
+
+```py
+input(prompt)
+```
+{: .nolineno }
+
+**Parámetros**
+
+- `prompt` : Un *string* que se muestra como un mensaje de ayuda para el usuario que interactua con el programa.
+
+**Ejemplos de uso**
+
+```py
+val = input("Ingresa un valor: ")
+print(val)
+```
+{: .nolineno }
+
+### __Salida: para Print__
+
+Sin duda la función más conocida de todas. Lo que hace `print()` es imprimir por la salida estándar la representación en un *string* de cualquier objeto. Además tiene varios parámetros de entrada opcionales que modifican su comportamiento.
 
 **Sintaxis**
 
@@ -30,7 +55,7 @@ print(object(s), sep=separator, end=end, file=file, flush=flush)
 	- Predeterminado `\n` (salto de línea)
 
 
-#### **Ejemplos**
+**Ejemplos de uso**
 
 ```python
 print("Hola Mundo!") # Hola Mundo!
@@ -40,31 +65,10 @@ print("Python", "te", "saluda", sep="\n", end="\n*-*-*-\n")
 ```
 {: .nolineno }
 
-### **input()**
 
-La función integrada `input()` toma datos de entrada por el teclado hasta que pulsamos <kbd>Enter</kbd>. Normalmente a menudo tenemos la necesidad de obtener un dato para proporcionar algún tipo de resultado.
 
-**Sintaxis**
 
-```py
-input(prompt)
-```
-{: .nolineno }
-
-#### Parámetros
-
-- `prompt` : Un *string* que se muestra como un mensaje de ayuda para el usuario que interactua con el programa.
-
-#### Ejemplos
-
-```py
-val = input("Ingresa un valor: ")
-print(val)
-```
-
----
-
-## Funciones matemáticas
+## __Funciones matemáticas__
 
 ### abs()
 
@@ -95,9 +99,7 @@ round(2.5)         #2
 round(3.141592, 4) #3.1416
 ```
 
----
-
-## Ayuda para programar
+## __Ayuda para programar__
 
 ### help()
 
@@ -135,21 +137,20 @@ dir(list)      # Muestra todos los métodos de las listas
 dir([1, 2, 3]) # Muestra todos los métodos de las listas
 ```
 
----
+## __Estructuras de datos__
 
-## Estructuras de datos
-
-### list()
+### __Funciones para Listas: List__
 
 En realidad `list()` más que una función en si, se trata de un constructor de **listas**. Cuando lo utilizamos sin argumentos crea una lista vacía. También le podemos pasar como argumento una secuencia iterable, en cuyo caso la convierte en una lista. Normalmente esa secuencia iterable que le pasamos a `list()` no suele ser una lista ya que estaríamos generando código redundante.
 
-#### Sintaxis
+**Sintaxis**
 
-```
+```python
 list(iterable)
 ```
+{: .nolineno }
 
-#### Ejemplos
+**Ejemplos de uso**
 
 ```py
 list()          # []
@@ -166,9 +167,6 @@ print(dict())                     # {}
 print(dict(uno=1, dos=2, tres=3)) # {'uno': 1, 'dos': 2, 'tres': 3}
 ```
 
-
-
----
 
 ## Generación de secuencias iterables
 

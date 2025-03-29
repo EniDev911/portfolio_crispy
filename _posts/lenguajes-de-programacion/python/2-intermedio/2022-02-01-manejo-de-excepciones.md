@@ -16,8 +16,18 @@ El manejo de errores y excepciones es una parte fundamental en el desarrollo de 
 
 En términos sencillos, una excepción es un evento inesperado que interrumpe el flujo normal de ejecución de un programa. En Python, las excepciones se utilizan para manejar errores de forma controlada, permitiendo que el programa no se detenga bruscamente.
 
-Por ejemplo, si intentas dividir por cero, Python lanzará una excepción [`ZeroDivisionError`](https://docs.python.org/3/library/exceptions.html#ZeroDivisionError){: target='_blank' }. En lugar de que el programa se detenga de inmediato, podemos **capturar** y manejar esa excepción para tomar una acción apropiada, como mostrar un mensaje de error o realizar una operación alternativa.
+Por ejemplo, si intentas dividir por cero, Python lanzará una excepción [`ZeroDivisionError`](https://docs.python.org/3/library/exceptions.html#ZeroDivisionError){: target='_blank' }. En lugar de que el programa se detenga de inmediato, podemos **capturar** y manejar esa excepción para tomar una acción apropiada, como mostrar un mensaje de error o realizar una operación alternativa. Puedes ver este ejemplo de excepción en una sesión interactiva:
 
+{% capture exception_ej %}
+<span class="hl">&gt;&gt;&gt; 6 / 0 </span>
+Traceback (most recent call last):
+  File "&lt;python-input-13&gt;", line 1, in &lt;module&gt;
+    6 / 0
+    ~~^~~
+<span class="hl">ZeroDivisionError: division by zero</span>
+{% endcapture %}
+
+{% include terminal-wrapper.html content=exception_ej %}
 
 ## **Estructura Básica de Manejo de Excepciones**
 

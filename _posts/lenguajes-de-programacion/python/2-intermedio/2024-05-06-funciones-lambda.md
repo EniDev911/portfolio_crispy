@@ -1,20 +1,21 @@
 ---
-title: "Funciones lambda"
+title: "Python 🐍 : Funciones lambda"
 author: enidev911
-categories: [Python, Funciones]
+categories: [Python, "02. Intermedio"]
 date: 2024-01-01
 ---
 
-## ¿Qué es una función Lambda?
+## __¿Qué es una función Lambda?__
 
-Las funciones Lambda son similares a las funciones definidas por el usuario pero no llevan nombre. Se le conoce comúnmente como funciones anónimas.
+Las funciones Lambda son similares a las funciones definidas por el usuario con l a palabra `def`, pero no llevan nombre. Se le conoce comúnmente como funciones anónimas.
 
-Las funciones Lambda suelen ser útiles en varios contextos, un caso suele ser cuando desea crear una función que solo contengan expresiones simples, es decir, que podemos escribir en una sola línea.
+Las funciones Lambda suelen ser útiles en varios contextos, un caso suele ser cuando desea crear una función que solo contengan expresiones simples, es decir, que podemos escribir en una sola línea (al igual que con las expresiones condicionales ternarias).
 
-## ¿Cómo se definen las funciones Lambda?
+## __Defenir funciones Lambda__
 
-Para definir debemos respetar la siguiente sintaxis:
+Para definir debemos respetar la siguiente sintaxis.
 
+**Sintaxis**
 
 ```python
 lambda argumento(s) : expresion
@@ -26,12 +27,11 @@ lambda argumento(s) : expresion
 - `argumentos`: es un marcador de posición, es decir, una variable que se utilizará para contener el valor que desea pasar a la expresión de la función. Una función lambda puede tener múltiples variables según necesite.
 - `expresion`: es el código que desea ejecutar en la función lambda.
 
-
-> La función anónima no utiliza explícitamente `return`. Esto se debe a que la función anónima devolverá automáticamente el resultado de la expresión en la función una vez que se ejecute.
+> La función lambda no utiliza explícitamente `return`. porque automáticamente devuelve el resultado de la expresión que contiene en el momento que se ejecuta.
 {: .prompt-info }
 
 
-### Creando una función lambda
+## __Ejemplos de Funciones Lambda__
 
 Veamos un ejemplo de una función definida por el usuario que devuelva un número recibido por parámetro elevado al cuadrado:
 
@@ -53,13 +53,12 @@ print(al_cuadrado(10)) # 100
 {: .nolineno }
 
 
-## Casos de uso para funciones lambda
+## __Casos para Utilizar Funciones Lambda__
 
 
-### Filtros
+### __En Filtros__
 
 Cuando necesitamos en valores específicos en un iterable, podemos utilizar la función `filter()` de Python. Su sintaxis es la siguiente:
-
 
 ```py
 filter(function, iterable)
