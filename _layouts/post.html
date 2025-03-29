@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let contentH3Elements = document.querySelectorAll(".content h3");
   if (contentH2Elements.length === 0 && contentH3Elements.length === 0) return;
 
-  // Función para obtener valores originales
   function getOriginalValues(elements) {
     if (elements.length === 0) return null;
     return {
