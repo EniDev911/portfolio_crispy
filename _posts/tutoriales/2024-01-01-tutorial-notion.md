@@ -11,7 +11,7 @@ pin: true
 [Notion](https://www.notion.com/){:target='_blank'} es una de las herramientas de productividad de más rápido crecimiento en los últimos tiempos. Los usuarios avanzados se han enamorado de esta herramienta.
 
 > Lo que más me gusta de Notion es que **puedo usarlo para crear exactamente la interfaz que necesito para estar al día con las cosas importante de mi vida**. El hecho de poder compartir estas interfaces con otros con un solo clic es lo que lo hace excepcional.
-{: .prompt-tip }
+{: .prompt-love }
 
 ## __¿Qué es Notion?__
 

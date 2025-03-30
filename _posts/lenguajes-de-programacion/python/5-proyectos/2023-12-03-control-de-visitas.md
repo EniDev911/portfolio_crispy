@@ -20,3 +20,27 @@ Este sistema de control de accesos vehiculares permitirá registrar la entrada y
 
 **3. Visualizar vehículos actuales**
 : Mostrar los vehículos que están actualmente dentro, es decir, los que han registrado su entrada pero no su salida.
+
+## __Desarrollo Paso a Paso__
+
+
+### __Registrar una Entrada__
+
+Cuando un vehículo llega, registramos su entrada con la fecha y hora actual. Por ejemplo, una función `registrar_entrada()`:
+
+```python
+def registrar_entrada():
+    rut = input("Ingrese el RUT del conductor: ")
+    nombre = input("Ingrese el nombre del conductor: ")
+    patente = input("Ingrese la patente del vehículo: ")
+    empresa = input("Ingrese la empresa: ")
+    entrada = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    with open(CSV_FILE, mode="a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([rut, nombre, patente, empresa, entrada, ""])
+
+    print(f"\n✅ Entrada registrada para {nombre} ({patente}) a las {entrada}\n")
+```
+{: .nolineno }
+
