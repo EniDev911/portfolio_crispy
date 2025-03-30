@@ -15,11 +15,13 @@ pin: true
 
 ## __¿Qué es Notion?__
 
-Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su versatilidad permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos. 
+Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su versatilidad permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
+
+![web oficial Notion](tutoriales/notion-web-oficial-section-3.webp)
 
 ### __¿Es Notion gratuito?__
 
-Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La versión gratuita incluye páginas y bloques ilimitados, integraciones con otras aplicaciones. Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados y un límite de **carga de archivos de 5 MB** por archivo. Sin embargo, ahora han cambiado su modelo y, para mantener bloques ilimitados en el plan gratuito, ya no se pueden añadir invitados en los espacios de trabajo. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
+Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La versión gratuita incluye **páginas** y **bloques ilimitados**, integraciones con otras aplicaciones, espacios de trabajos, entre otras cosas. Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados y un límite de carga de archivos de 5 MB por archivo. Sin embargo, ahora han cambiado su modelo y, para mantener bloques ilimitados en el plan gratuito, ya no se pueden añadir invitados en los espacios de trabajo. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
 
 ## __Ventajas y Desventajas de Notion__
 
@@ -64,51 +66,48 @@ Una vez creamos una cuenta para usar Notion, la primera vez que iniciamos sesió
 
 ![Setup notion](tutoriales/notion-custom-1.webp)
 
-## __Cambiar la Apariencia__
 
-Desde la barra laterar en la parte superior, podemos encontrar el botón para ir a la configuraciones.
+## __Personalizar Notion__
+
+Desde la barra lateral izquierda, en la parte superior, podemos encontrar el botón para ir a la configuraciones.
+
+![Ir a configuraciones](tutoriales/notion-ir-a-configuraciones.webp)
+
+> Desde las configuraciones, **puedes ajustar las preferencias** como **idioma**, **temas**, **notificaciones**, personalizar **espacios de trabajos y permisos**, etc.
+{: .prompt-info }
+
+### __Cambiar la Apariencia__
 
 En **Preferencias** vamos a la sección de **Apariencia** y podemos cambiar entre temas **Oscuro/Claro**:
 
 ![Cambiar de tema](tutoriales/notion-custom-theme.webp)
 
+En las siguientes secciones, vamos a ver sobre lo que es importante en Notion. Uno de los conceptos clave que debes entender para dominar y sacarle el máximo provecho a la plataforma, es la diferencia entre **páginas** y **bloques**
 
-## __Publicar Páginas__
+## __Páginas 📄 VS. Bloques 🧩__
 
-En Notion, puedes compartir una página con otras personas haciéndola pública. Esto es útil para difundir información, colaborar en proyectos o crear documentos accesibles en línea.
+En Notion, entender la diferencia entre **páginas** y **bloques** es la clave para organizar tu información de manera eficiente. Aunque pueden parecer similares al principio, cumplen funciones distintas. Por eso, te explicaré estas diferencias.
 
-### **Instrucciones:**
+### __¿Qué son las Páginas en Notion?__
 
-- Abre la página en Notion.  
-- Haz clic en **"Compartir"** (arriba a la derecha).  
-- Activa **"Compartir en la web"**.  
-- Ajusta los permisos según lo que necesites.  
-- Copia el enlace y compártelo.
+Las páginas en Notion son el contenedor principal de información. Puedes pensar en las páginas como documentos en blanco donde agregas contenido, pero también funcionan como **carpetas** porque pueden contener otras páginas dentro. Por ejemplo, si tienes una página llamada "**Trabajo**", dentro de ella podrías tener otras páginas:
 
-{% tabs iln_publish %}
-{% tab iln_publish Paso 1 %}
-![Publicar Contenido De Páginas de Notion Paso 1](tutoriales/notion-publish-page.webp)
-{% endtab %}
-{% tab iln_publish Paso 2 %}
-![Publicar Contenido De Páginas de Notion Paso 2](tutoriales/notion-publish-page2.webp)
-{% endtab %}
-{% tab iln_publish Paso 3 %}
-![Publicar Contenido De Páginas de Notion Paso 3](tutoriales/notion-publish-page3.webp)
-{% endtab %}
-{% endtabs %}
+![página como contenedor de otras páginas](tutoriales/notion-pagina-contenedor-otras-paginas.webp)
+_Página como contenedor de otras páginas_
 
-> Para dejar de compartir, desactiva **"Compartir en la web"** que la puedes desplegar al presionar nuevamente en el botón **Compartir**.
-{: .prompt-info }
+Cada una de esas páginas puede contener más información, incluso otras páginas, creando un sistema jerárquico dentro de la plataforma.
 
-### __Cambiar el Nombre de Dominio__
+### __¿Qué son los Bloques en Notion?__
 
-En la versión gratuita, se puede cambiar el nombre del dominio. Para ello debes entrar a **configuraciones** y en la opción **Sitios** actualiza el nombre de dominio:
+En notion, **todo es un bloque**. Cada texto, imagen, lista o base de datos o cualquier cosa que agregas dentro de una página es un bloque individual. Si volvemos al ejemplo anterior, dentro de la página "**Trabajo**" ya tenemos varios bloques:
 
-![Cambiar el nombre de dominio](tutoriales/notion-update-domain.webp)
+- El título principal (**nombre de la página**) ➝ Es un bloque de encabezado especial.
+- Cada página dentro de otra ➝ Es un bloque de tipo "página".
+- Saltos de líneas ➝ Es un bloque de texto vácio.
 
-## __Uso de Bloques: La Esencia de Notion__
+## __Uso de Bloques y Tipos de Bloques__
 
-Todo en Notion funciona con "bloques", un bloque puede ser texto, imágenes, listas, bases de datos y más. La mejor manera de familiarizarse con Notion es probar algunos bloques, simplemente escriba `/` y verá todas las opciones:
+Como sabemos, todo en Notion funciona con "bloques", un bloque puede ser texto, imágenes, listas, bases de datos y más. La mejor manera de familiarizarse con Notion es probar algunos bloques, simplemente escriba `/` y verá todas las opciones:
 
 ![Crear un bloque](tutoriales/notion-create-a-block.webp)
 
@@ -126,7 +125,6 @@ Viñetas, numeradas o listas de tareas (`/todo`):
 
 ![Bloques de listas](tutoriales/notion-using-list-block.webp)
 
-
 #### __Imágenes y Videos__
 
 Adjunta archivos o incrusta enlaces (`/imagen`, `/video`):
@@ -141,6 +139,16 @@ Adjunta archivos o incrusta enlaces (`/imagen`, `/video`):
 En Notion, todos los bloques se pueden convertir en bloques de otro tipo, para usar, ver o profundizar en esa misma información de una forma distinta:
 
 ![convertir bloques](tutoriales/notion-convert-block.webp)
+
+## __Organizar Bloques__
+
+En Notion, podemos organizar la información de muchas maneras, usando páginas, listas, tablas y más. Pero una de las formas más efectivas para estructurar contenido de manera visual es **usando columna**.
+
+### __Cómo Crear Columnas__
+
+Aunque Notion no tiene un botón directo para crear columnas, podemos hacerlo de forma muy sencilla con **arrastrar y soltar**.
+
+![Poner contenido en columnas](tutoriales/notion-crear-columnas.webp)
 
 ## __Bases de Datos__
 
@@ -167,3 +175,37 @@ Estos son algunos ejemplos de datos que puedes utilizar:
 
 **Archivos y multimedia**
 : Te permite subir archivos, imágenes y otros archivos relacionados con tus datos.
+
+
+## __Publicar Páginas__
+
+En Notion, puedes compartir tus páginas con otras personas haciéndola pública. Esto es útil para difundir información con otras personas o crear documentos accesibles en línea.
+
+### **Instrucciones:**
+
+- Abre la página en Notion.  
+- Haz clic en **"Compartir"** (arriba a la derecha).  
+- Activa **"Compartir en la web"**.  
+- Ajusta los permisos según lo que necesites.  
+- Copia el enlace y compártelo.
+
+{% tabs iln_publish %}
+{% tab iln_publish Paso 1 %}
+![Publicar Contenido De Páginas de Notion Paso 1](tutoriales/notion-publish-page.webp)
+{% endtab %}
+{% tab iln_publish Paso 2 %}
+![Publicar Contenido De Páginas de Notion Paso 2](tutoriales/notion-publish-page2.webp)
+{% endtab %}
+{% tab iln_publish Paso 3 %}
+![Publicar Contenido De Páginas de Notion Paso 3](tutoriales/notion-publish-page3.webp)
+{% endtab %}
+{% endtabs %}
+
+> Para dejar de compartir, desactiva **"Compartir en la web"** que la puedes desplegar al presionar nuevamente en el botón **Compartir**.
+{: .prompt-info }
+
+### __Cambiar el Nombre de Dominio__
+
+En la versión gratuita, tu dominio siempre tendrá `notion.site`, pero se puede cambiar el nombre para cuando publiques una página se vea como `minombre.notion.site`. Para ello debes entrar a **configuraciones** y en la opción **Sitios** actualiza el nombre de dominio:
+
+![Cambiar el nombre de dominio](tutoriales/notion-update-domain.webp)
