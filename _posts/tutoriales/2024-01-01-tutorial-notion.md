@@ -188,6 +188,8 @@ Para crear bases de datos inline, abre una página existente o crea una nueva, e
 
 ![bases de datos inline](tutoriales/notion-database-inline.webp)
 
+### __Propiedades de las Bases de Datos__
+
 Las propiedades en las bases de datos de Notion funcionan como **columnas** en la vista de tabla. Cada propiedad almacena un tipo específico de información dentro de un registro.
 
 Estos son algunos ejemplos de propiedades:
@@ -198,7 +200,7 @@ Estos son algunos ejemplos de propiedades:
 ![Casillas de verificación](tutoriales/notion-database-checkbox.webp)
 
 **Archivos y multimedia**
-: Te permite subir archivos, imágenes y otros archivos relacionados con tus datos.
+: Te permite subir archivos, imágenes y otros archivos relacionados con tus datos:
 
 ![Archivos multimedia](tutoriales/notion-database-file.webp)
 
