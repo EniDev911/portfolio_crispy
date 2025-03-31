@@ -113,19 +113,19 @@ Como sabemos, todo en Notion funciona con "bloques", un bloque puede ser texto, 
 
 ## __Bloques Comunes__
 
-#### __Texto__
+### __Texto__
 
 Simple, con opciones de formato (`/h1`, `/bold`, `/citas`, etc):
 
 ![Bloques de texto](tutoriales/notion-using-text-block.webp)
 
-#### __Listas__
+### __Listas__
 
 Viñetas, numeradas o listas de tareas (`/todo`):
 
 ![Bloques de listas](tutoriales/notion-using-list-block.webp)
 
-#### __Imágenes y Videos__
+### __Imágenes y Videos__
 
 Adjunta archivos o incrusta enlaces (`/imagen`, `/video`):
 
@@ -142,40 +142,68 @@ En Notion, todos los bloques se pueden convertir en bloques de otro tipo, para u
 
 ## __Organizar Bloques__
 
-En Notion, podemos organizar la información de muchas maneras, usando páginas, listas, tablas y más. Pero una de las formas más efectivas para estructurar contenido de manera visual es **usando columna**.
+En Notion, podemos organizar la información de muchas maneras, usando páginas, listas, tablas y más. Pero una de las formas más efectivas para estructurar contenido de manera visual es **usando columnas**.
 
-### __Cómo Crear Columnas__
+### __Cómo crear Columnas__
 
-Aunque Notion no tiene un botón directo para crear columnas, podemos hacerlo de forma muy sencilla con **arrastrar y soltar**.
+Aunque Notion no tiene un botón directo para crear columnas, podemos hacerlo de forma muy sencilla con **arrastrar y soltar**:
 
 ![Poner contenido en columnas](tutoriales/notion-crear-columnas.webp)
 
-## __Bases de Datos__
+También se pueden crear columnas usando el comando `/column` y selecciona la opción "**Columnas** (2, 3, 4, etc.)":
+
+![Poner contenido en columnas](tutoriales/notion-comando-crear-columnas.webp)
+
+Como podemos ver, las columnas permiten organizar bloques de contenido uno al lado de otro, y así distribuir información visualmente en varias secciones dentro de una página. Esto hace que la información sea más fácil de leer y comparar.
+
+Sin embargo, esta no es la única forma de organizar el contenido. Si necesitas ordenar, filtrar y visualizar la información de distintas maneras, entonces una **base de datos** es la mejor opción.
+
+A continuación, veremos qué son las bases de datos en Notion. 🚀
+
+## __Bases de Datos en Notion__
 
 Las bases de datos en Notion son los tipos de bloques más poderosos y que más funcionalidades nos ofrecen ya que nos permiten **estructurar información y visualizarla de diferentes maneras**, así como **categorizarla**, **filtrarla** y **organizarla** de la manera que más nos convenga en cada contexto.
 
-En resumen, una base de datos es una colección de páginas y puede crearse dentro de un bloque o ser una página completa.
-
 ### __Cómo crear una base de datos__
 
-Para crear una base de datos em Notion, puedes hacerlo al crear una página nueva y, en la parte inferior `Get Started With`, selecciona `Table`. También puedes abrir una página existente y usar el comando de barra diagonal `/database`.
+Las bases de datos en Notion pueden crearse de dos formas:
 
-Al crear una base de datos, puede empezar desde cero o elegir entre las plantillas sugeridas:
+- **Bases de Datos Full-Page (Página Completa)**: Se crean como una página independiente dentro de Notion y aparecen en la barra lateral.
+- **Bases de Datos Inline (Dentro de una Página)**: Se insertan dentro de una página existente y se combinan con otros bloques de contenido, incluso otras bases de datos.
+
+### __Bases de datos Full-Page__
+
+Para crear una base de datos full-page en Notion, crea una página nueva y, en la parte inferior `Get Started With`, selecciona `Table`. También puedes abrir una página existente y usar el comando de barra diagonal `/database`.
+
+Al crear una base de datos full-page (creando una nueva página), puedes empezar desde cero o elegir entre las plantillas sugeridas:
 
 ![nueva base de datos](tutoriales/notion-new-database.webp)
 
-### __Bases de datos Fullpage__
+> Tener una base de datos Full-Page, significa que no podemos añadir más contenido a esa página que se salga de aquel que introduzcamos en la propia base de datos.
+{: .prompt-info }
 
-Esto quiere decir que no podemos añadir más contenido a esa página que se salga de aquel que introduzcamos en la propia base de datos.
+### __Bases de datos Inline__
 
-Estos son algunos ejemplos de datos que puedes utilizar:
+Para crear bases de datos inline, abre una página existente o crea una nueva, escribe `/database` y selecciona una vista:
+
+![bases de datos inline](tutoriales/notion-database-inline.webp)
+
+Las propiedades en las bases de datos de Notion funcionan como **columnas** en la vista de tabla. Cada propiedad almacena un tipo específico de información dentro de un registro.
+
+Estos son algunos ejemplos de propiedades:
 
 **CheckBox** (Casilla para marcar)
 : Si se ha completado la información, puede contener el valor marcado/desmarcado:
 
+![Casillas de verificación](tutoriales/notion-database-checkbox.webp)
+
 **Archivos y multimedia**
 : Te permite subir archivos, imágenes y otros archivos relacionados con tus datos.
 
+![Archivos multimedia](tutoriales/notion-database-file.webp)
+
+> En resumen, una base de datos es una colección de páginas y puede crearse dentro de un bloque o ser una página completa.
+{: .prompt-info }
 
 ## __Publicar Páginas__
 
