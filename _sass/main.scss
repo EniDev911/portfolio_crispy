@@ -16,7 +16,6 @@
 @import 'layout/categories';
 @import 'layout/category-tag';
 
-
 em {
 	margin: 0 0.30rem;
 }
@@ -32,6 +31,11 @@ em.type {
 
 .highlighter-rouge {
   overflow: hidden;
+}
+
+.bgerr .err {
+  background-color: transparent !important;
+  color: var(--text-color) !important;
 }
 
 .noheader {

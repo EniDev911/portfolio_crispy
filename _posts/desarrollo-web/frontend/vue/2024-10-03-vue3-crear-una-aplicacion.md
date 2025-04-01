@@ -1,43 +1,66 @@
 ---
-title: "Vue 3: Introducción"
+title: "Vue: Crear una aplicación de Vue 3"
 author: enidev911
 categories: [Desarrollo Web, "Vue 3"]
 tags: [desarrollo web, vue]
 ---
 
-Vue.js (también llamado Vue o VueJS) es un **framework** para crear interfaces de usuario, o en otras palabras, se trata de una capa añadida de javascript formada por herramientas, convenciones de trabajo y nos permite crear aplicaciones de forma rápida, agradable, sencilla y muy práctica.
+Para crear un nuevo proyecto de Vue, se recomienda utilizar `npm`, que no es más que el gestor de dependencias de Node.js, en este sentido npm nos automatizará la tarea de instalar librerías y paquetes en aplicaciones javascript, de modo que no tengamos que preocuparnos de hacerlo manualmente.
 
-**Vue** es un **framework frontend**, si vienes de framework del estilo **Laravel** (PHP), **Ruby on Rails** (Ruby), **Django** (Python) u otros framework de backend, te encontrarás múltiples diferencias. En los últimos años se ha popularizado la creación de **aplicaciones de tipo SPA** (Single Page Application), que es la categoría donde se encuentra Vue, React, Angular, etc...
+## __Creando un nuevo proyecto__
 
-## __¿Qué es Vue.js?__
+Para comenzar, solo tenemos que abrir una nueva Terminal o Símbolo de sistema en alguna ubicación del sistema. Luego escribe el siguiente comando:
 
-Vue.js es un **framework progresivo** de javascript que permite desarrollar **interfaces de usuario interactivas** de manera sencilla y agradable. Se basa en el concepto de **componentes**, lo que facilita la creación de interfaces modulares y reutilizables.
+```terminal
+npm create vue@latest
+```
 
-## __Principales Ventajas de Vue__
+Al ejecutar el comando, nos puede solicitar instalar el paquete **create-vue**, que es el asistente que se encargará de crear la estructura de carpetas del proyecto de vue y dejarlo listo para empezar:
 
-Quizás, la pregunta más frecuente cuando hablamos de **frameworks de javascript** es **¿Por qué Vue y no otro?**. La respuesta a esta pregunta es subjetiva. Para ello, revisemos algunas de sus características:
+{% capture install_create_vue %}
+<span class="hl">$ npm create vue@latest</span>
+Need to install the following packages:
+<span class="hl">  create-vue@3.15.1</span>
+Ok to proceed? (y) _
+{% endcapture %}
 
-- La **curva de aprendizaje** es, con diferencia, las más sencilla en comparación con otros frameworks como Angular o React.
-- Se trata de un **framework amigable** con las tecnologías de frontend y los estándares. Utiliza HTML, CSS y javascript y es compatible con [WebComponents](https://www.webcomponents.org/){:target='_blank'}. Esto significa, que si tienes una base fuerte de HTML/CSS, muy probablemente te guste más **Vue** que otras opciones.
-- Depuración Avanzada (Vue Devtools) con la llegada de **Vue 3y Vite**, las Vue DevTools ahora vienen integradas en los proyectos durante el desarrollo, sin necesidad de instalar extensiones en el navegador.
+{% include terminal-wrapper.html content=install_create_vue %}
 
-> Como vez, la principal ventaja de Vue es su **curva de aprendizaje suave**. Su sintaxis es clara y fácil de entender, incluso para principiantes en desarrollo frontend.
-{: .prompt-info }
+Una vez instalado, nos aparecerá el asistente para comenzar la configuración. Las opciones son las siguientes:
 
-## __Ecosistema de Vue__
+```
+Vue.js - The Progressive JavaScript Framework
 
-El ecosistema de Vue, está formado por varias herramientas, donde cada una se encarga de tareas concretas. Sus herramientas principales son:
+✔ Add TypeScript? … No / Yes
+✔ Add JSX Support? … No / Yes
+✔ Add Vue Router for Single Page Application development? … No / Yes
+✔ Add Pinia for state management? … No / Yes
+✔ Add Vitest for Unit Testing? … No / Yes
+✔ Add an End-to-End Testing Solution? › Playwright
+✔ Add ESLint for code quality? … No / Yes
+✔ Add Prettier for code formatting? … No / Yes
 
-|Herramienta|Descripción|
-|:----------|:----------|
-|**Vue**|El core o núcleo del framework Vue, donde se encuentran sus funciones principales.|
-|**create-vue**|El asistente para crear y administrar proyectos de Vue desde una terminal con Vite.|
-|**Vue Router**|Sistema para crear y gestionar rutas URL desde el navegador en una aplicación Vue.|
-|**Pinia**|Gestor de estados para aplicaciones SPA Vue de nueva generación.|
-|**Vuex**|Gestor de estados para aplicaciones SPA de Vue legacy.|
+Scaffolding project in /home/manz/vue3-project...
 
-## __Ejemplo Básico de un Componente en Vue 3__
+Done. Now run:
 
+  cd vue-folder
+  npm install
+  npm run format
+  npm run dev
+
+```
+{: .nolineno .noheader }
+
+Debemos marcar las opciones que nos intersa para que el asistente instale y preconfigure los paquetes necesarios para el proyecto.
+
+## __Instalación de ESLint__
+
+[ESlint](https://eslint.org/){:target='_blank'} es un linter de código javascript, que una vez instalado, el editor donde programamos y escribimos código estará preparado para revisar nuestro código en tiempo real y avisarnos de posibles errores, problemas con el código o fragmentos que escribamos mal. **Vue 3** lo configura por defecto.
+
+## __Comenzar el Proyecto__
+
+Una vez decidido que complementos vamos a utilizar y hemos respondido cada una de las preguntas 
 Antes de profundizar en la configuración del proyecto, veamos un pequeño ejemplo de un **componente en Vue**:
 
 {% raw %}
@@ -184,5 +207,4 @@ const nombre = ref('');
 {: .nolineno .bgerr }
 
 - `v-model="nombre"` → Enlaza el input con la variable `nombre`. **Cada vez que el usuario escriba en el input**, el valor de `nombre` cambiará automáticamente y se reflejará en la interfaz sin necesidad de eventos adicionales.
-
 {% endraw %}
