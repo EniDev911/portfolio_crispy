@@ -1,27 +1,61 @@
 ---
-title: "Vue 3: Fundamentos de Reactividad"
+title: "Introducción a Vue"
 author: enidev911
 categories: [Desarrollo Web, "Vue"]
 tags: [desarrollo web, vue]
 mermaid: true
 ---
 
+## __¿Qué es Vue.js?__
 
-## __¿Qué es la Reactividad?__
+Vue.js es un **framework** progresivo de JavaScript utilizado para construir interfaces de usuarios interactivas y aplicaciones de una sola página ([SPA](https://en.wikipedia.org/wiki/Single-page_application){:target='_blank'}). Se caracteriza por su facilidad de uso, flexibilidad y alto rendimiento
 
-La reactividad en Vue significa que los datos y la interfaz de usuario están **vinculados dinámicamente**. Cuando un dato cambia, Vue detecta el cambio y actualiza automáticamente el DOM.
+## __Formas de Comenzar a en Vue.js__
+
+Si queremos hacer un uso muy básico de Vue y crear una aplicación muy sencilla, no hace falta que utilicemos herramientas como Webpack, ni necesitamos instalar un *transpilers* ni nada. Simplemente con importar la librería en el HTML (desde un CDN) ya podemos utilizar Vue. Por ejemplo el siguiente script se puede copiar y pegar directo en tu HTML:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+```
+{: .nolineno }
+
+> Si nuestra aplicación crece y queremos orientarnos a componentes, podemos hacerlo sin cambiar mucho el *workflow*.
+{: .prompt-info }
+
+En resumen, si necesitamos algo muy básico, Vue es perfecto y no es necesario instalar nada más. Y si necesitamos desarrollar un proyecto más complejo. Vue cubre esas necesidades y podemos ir ampliando con plugins a medida que nuestra aplicación lo requiera.
+
+## __Historia de Vue.js__
+
+Vue.js fue creado en 2014 por [Evan You](http://x.com/youyuxi?lang=kn){:target='_blank'}, un exingeniero de Google que trabajó en AngularJS. Su intención era desarrollar un framework que fuera ligero y flexible. Desde entonces, Vue ha crecido rápidamente y se ha convertido en una de las opciones más populares para el desarrollo frontend.
+
+Algunas versiones importantes incluyen:
+
+- **Vue 1 (2014)**: Introdujo el concepto de reactividad con el Virtual DOM.
+- **Vue 2 (2016)**: Mejoró el rendimiento y agregó renderizado basado en Virtual DOM y el sistema de componentes.
+- **Vue 3 (2020)**: Introdujo la Composition API, mejor rendimiento y mejor soporte para TypeScript.
+
+## __Características Clave__
+
+### __1. Enfoque Reactivo__
+
+Vue utiliza un sistema de reactividad que permite actualizar automáticamente la interfaz de usuario cuando los datos cambian, sin necesidad de manipular directamente el DOM.
 
 Para explicarlo mejor, el sistema de reactividad en Vue funciona de la siguiente manera:
 
 ```mermaid
-graph TD;
-  A["Vue 3"] -->|"Crea variables reactivas"| B["ref() / reactive()"]
-  B -->|"Cambio de datos"| C["Vue detecta cambios"]
-  C -->|"Actualiza automáticamente"| D["Virtual DOM"]
-  D -->|"Renderiza cambios"| E["Interfaz de Usuario"]
-  E -->|"El usuario interactúa"| F["Eventos (click, input, etc.)"]
-  F -->|"Modifica datos reactivos"| B
+---
+title: Reactividad en Vue
+---
+graph LR;
+    Datos -->|Cambio| Reactividad;
+    Reactividad -->|Actualiza| DOM;
+    Usuario -->|Interacción| Datos;
 ```
+
+### __2. Basado en Componentes__
+
+Las aplicaciones en Vue se construyen a partir de componentes reutilizables, lo que facilita la organización y mantenimiento del código.
+
 
 ## __¿Qué es el Virtual DOM?__
 

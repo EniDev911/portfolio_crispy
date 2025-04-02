@@ -7,11 +7,11 @@ image: posters/deploy-react-vite-gh-pages.png
 pin: true
 ---
 
-## Cómo desplegar una aplicación de React con Vite
+## __Cómo desplegar una aplicación de React con Vite__
 
 Si has creado una aplicación de React usando Vite y quieres desplegarla en GitHub Pages, este tutorial te guiará paso a paso para hacerlo de forma sencilla. GitHub Pages es una excelente opción para alojar proyectos frontend estáticos de manera gratuita. A continuación te muestro cómo hacerlo.
 
-### Herramientas necesarias
+## __Herramientas Necesarias__
 
 Doy por hecho que ya cuentas con las siguientes herramientas instaladas en tu sistema:
 
@@ -48,17 +48,17 @@ El template básico de React en Vite te proporciona una estructura mínima con l
 
 Para efecto de aprendizaje, no vamos a modificar ningún componente, seguiremos con los pasos para desplegar la aplicación.
 
----
+{% include circle-line.html %}
 
-### Configurar el Repositorio
+### __Configurar el Repositorio__
 
-- Inicializamos un nuevo repositorio, en la raíz del proyecto ejecutamos el siguiente comando:
+**1. Inicializamos un nuevo repositorio, en la raíz del proyecto ejecutamos el siguiente comando**:
 
 ```terminal
 git init
 ```
 
-- Creamos un nuevo repositorio usando [gh-cli](https://cli.github.com/){: target='_blank' } basado en nuestro proyecto:
+**2. Creamos un nuevo repositorio usando [gh-cli](https://cli.github.com/){: target='_blank' } basado en nuestro proyecto**:
 
 {% tabs gh-repo-create %}
 {% tab gh-repo-create terminal %}
@@ -79,7 +79,7 @@ $ gh repo clone --public -s=. -r=origin
 {% endtab %}
 {% endtabs %}
 
-- Preparamos los archivos y subimos al repositorio remoto creado:
+**3. Preparamos los archivos y subimos al repositorio remoto creado**:
 
 ```terminal
 git add .
@@ -87,9 +87,9 @@ git commit -m "f commit"
 git push -u origin main
 ```
 
----
+{% include circle-line.html %}
 
-### Instalar el paquete de gh-pages
+### __Instalar el paquete de gh-pages__
 
 En el caso de Vite, necesitamos instalar [gh-pages](https://www.npmjs.com/package/gh-pages){: target='_blank' } para desplegar los archivos generados en la carpeta `dist` a Github Pages.
 

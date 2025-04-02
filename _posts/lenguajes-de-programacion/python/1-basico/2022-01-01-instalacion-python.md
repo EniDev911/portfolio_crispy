@@ -62,7 +62,7 @@ python-3.12.1.exe /passive InstallAllUsers=1
 ```
 {: .nolineno }
 
----
+{% include circle-line.html %}
 
 ## __Instalación en Linux__
 
@@ -97,7 +97,7 @@ Y también para verificar `pip`:
 pip3 --version
 ```
 
----
+{% include circle-line.html %}
 
 ## __Instalación en MacOS__
 

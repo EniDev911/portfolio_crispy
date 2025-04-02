@@ -1,7 +1,7 @@
 ---
-title: "Vue 3: Introducción"
+title: "Introducción a Vue 3"
 author: enidev911
-categories: [Desarrollo Web, "Vue 3"]
+categories: [Desarrollo Web, "Vue"]
 tags: [desarrollo web, vue]
 ---
 

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	let contentH2Elements = document.querySelectorAll("[aria-label='Main Content'] h2");
 	let contentH3Elements = document.querySelectorAll("[aria-label='Main Content'] h3");
+	let contentPElements = document.querySelectorAll("p");
 	if (contentH2Elements.length === 0 && contentH3Elements.length === 0) return;
   
 	function getOriginalValues(elements) {
@@ -13,10 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	let h2Original = getOriginalValues(contentH2Elements);
 	let h3Original = getOriginalValues(contentH3Elements);
+	let pOriginal = getOriginalValues(contentPElements);
   
 	document.getElementById("font_big").onclick = () => {
 	  document.querySelector("[aria-label='Main Content']").style.fontSize = "1.43rem";
 	  document.querySelector(".content").style.fontSize = "1.43rem";
+
 	  if (h2Original) {
 		contentH2Elements.forEach((h2) => {
 		  h2.style.fontSize = (h2Original.fontSize * 1.7) + "px";
@@ -35,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
   
 	document.getElementById("font_normal").onclick = () => {
-	  document.querySelector("[aria-label='Main Content']").style.fontSize = "1.03rem";
-	  document.querySelector(".content").style.fontSize = "1.03rem";
+	  document.querySelector("[aria-label='Main Content']").style.fontSize = pOriginal.fontSize + "px";
+	  document.querySelector(".content").style.fontSize = pOriginal.fontSize + "px";
   
 	  if (h2Original) {
 		contentH2Elements.forEach((h2) => {
