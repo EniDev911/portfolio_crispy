@@ -55,4 +55,64 @@ Las directivas de enlace de datos permiten **vincular datos y variables** de Vue
 
 Las directivas de renderizado condicional permiten **mostrar u ocultar** elementos en función de una condición. Por ejemplo, para crear interfaces dinámicas que reaccionan al estado de la aplicación.
 
+|Nombre|Descripción|
+|:-----|:----------|
+|`v-if`|Renderiza condicionalmente un bloque de HTML si la expresión es verdadera.|
+|`v-else-if`|Renderiza condicionalmente un bloque HTML si la expresión anterior es falsa.|
+|`v-else`|Renderiza un bloque de HTML si todas las condiciones anteriores son falsas.|
+|`v-show`|Muestra u oculta un elemento basado en una condición (usando `display: none`).|
 
+```vue
+<p v-if="showMessage">!Hola!</p>
+<p v-else>No hay mensaje.</p>
+```
+{: .nolineno .bgerr }
+
+## __Renderizado Iterativo__
+
+Las directivas de iteración permiten **mostrar colecciones de datos** de manera dinámica (por ejemplo, mostrar datos de un array).
+
+|Nombre|Descripción|
+|:-----|:----------|
+|`v-for`|Itera sobre una lista y renderiza un bloque de HTML para cada elemento.|
+
+{% raw %}
+```vue
+<ul>
+  <li v-for="item in items" :key="item.id">{{ item.name }}</li>
+</ul>
+```
+{: .nolineno }
+
+## __Manejo de Eventos__
+
+Las directivas de manejo de eventos permiten **escuchar eventos del DOM** (como clics, entradas de teclado o cambios en un campo de texto), y ejecutar métodos en respuestas.
+
+|Nombre|Descripción|
+|:-----|:----------|
+|`v-on`|Escucha eventos del DOM y ejecuta métodos cuando ocurren.|
+
+```vue
+<button @click="handleClick">Haz clic</button>
+```
+{: .nolineno .bgerr }
+
+> El uso de `@` es una abreviatura de `v-on`. Por ejemplo, `@click` es equivalente a `v-on:click`
+{: .prompt-info }
+
+## __Optimización__
+
+Las directivas de optimización están diseñadas para mejorar el rendimiento de la aplicación. Permiten controlar cómo Vue.js compila y renderiza los elementos, evitando actualizaciones innecesarias.
+
+|Nombre|Descripción|
+|:-----|:----------|
+|`v-pre`|Omite la compilación de Vue para un elemento y sus hijos.|
+|`v-cloak`|Oculta el contenido hasta que Vue termine de compilar el componente.|
+|`v-once`|Renderiza un elemento o componente solo una vez (no se actualiza).|
+|`v-memo`|Memoriza un subárbol del DOM para optimizar renderizados repetidos.|
+
+```vue
+<div v-pre>{{ Esto no será compilado }}</div>
+<div v-cloak>{{ message }}</div>
+```
+{% endraw %}
