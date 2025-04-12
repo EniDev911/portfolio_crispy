@@ -1,5 +1,5 @@
 ---
-title: "Linux 🐧 : Variables Reservadas BASH"
+title: "Linux 🐧 : Variables Reservadas"
 author: enidev911
 categories: [Sistemas Operativos, Linux]
 tags: [Sistemas Operativos, Linux]
@@ -7,9 +7,9 @@ tags: [Sistemas Operativos, Linux]
 
 En Linux, las **variables reservadas** son un conjunto de variables que el sistema utiliza para gestionar diversos aspectos del entorno de ejecucción y administración del sistema. Estas variables tienen un significado especial y, en general, no se deben modificar sin comprender su próposito, ya que podrían afectar el comportamiento del sistema o de los procesos en ejecución.
 
-### Variable $USER
+## __Variable $USER__
 
-La variable `$USER` contiene el nombre de usuario del usuario que está actualmente logueado.
+La variable `$USER` almacena el __nombre del usuario actual que ha iniciado sesión en el sistema__.:
 
 **Ejemplo**
 
@@ -17,7 +17,34 @@ La variable `$USER` contiene el nombre de usuario del usuario que está actualme
 echo $USER
 ```
 
-### **Variable $HOME**
+Supongamos que estamos haciendo un script de instalación que necesita ejecutar ciertos comandos con permisos elevados, pero que __no se ejecute directamente como root sin saber si el usuario tiene privilegios__ `sudo`.
+
+El siguiente fragmento en Bash permite detectar si el usuario actual tiene permisos de administrador antes de continuar con el resto del script:
+
+```bash
+#!/bin/bash
+
+if [ "$(id -u)" -eq 0 ]; then
+  echo "Eres el usuario root. Tienes privilegios de administrador."
+elif groups $USER | grep -qw "sudo"; then
+  echo "$USER pertenece al grupo sudo. Tiene privilegios de administrador."
+else
+  echo "$USER no tiene privilegios de administrador."
+  echo "Este script requiere permisos de administrador para continuar."
+  exit 1
+fi
+```
+
+En la primera expresión `[ "$(id -u)" -eq 0 ]`, estamos haciendo lo siguiente:
+
+- `id -u`: devuelve el __UID__ (User ID) del usuario actual.
+- `$(...)`: ejecuta el comando y pone su salida en el lugar donde está.
+- `-eq`: compara si el resultado es igual a `0`
+
+> En Linux (y sistemas Unix en general), el __UID__ `0` __siempre representa al usuario__ `root`.
+{: .prompt-info }
+
+## __Variable $HOME__
 
 La variable `$HOME` define el directorio home del usuario actual. Es utilizada por el sistema para acceder rápidamente a los archivos y configuraciones del usuario sin necesidad de especificar la ruta completa. Cada usuario tiene su propio directorio home, como `/home/usuario`.
 

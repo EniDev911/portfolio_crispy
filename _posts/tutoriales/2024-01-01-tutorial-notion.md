@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Gestionar tu trabajo en Notion"
+title: "Gestionar tu trabajo en Notion 🧱"
 description: "**Notion** es una de las herramientas más versátiles para la productividad"
 categories: [Tutoriales, Productividad]
 image:
@@ -8,16 +8,17 @@ image:
 pin: true
 ---
 
-[Notion](https://www.notion.com/){:target='_blank'} es una de las herramientas de productividad de más rápido crecimiento en los últimos tiempos. Los usuarios avanzados se han enamorado de esta herramienta.
+[__Notion__](https://www.notion.com/){:target='_blank'} es una de las herramientas de productividad de más rápido crecimiento en los últimos tiempos. Su __versatibilidad__ y __capacidad para adaptarse a diferentes flujos de trabajo__ han hecho los usuarios avanzados se enamoren de esta herramienta. Aunque en los últimos años ha enfrentado ciertas limitaciones derivadas de cambios en su modelo de negocio (restricciones en algunas funciones que antes eran gratuitas), sigue siendo una opción muy sólida para organizar información y proyectos.
 
-> Lo que más me gusta de Notion es que **puedo usarlo para crear exactamente la interfaz que necesito para estar al día con las cosas importante de mi vida**. El hecho de poder compartir estas interfaces con otros con un solo clic es lo que lo hace excepcional.
+> Lo que más me gusta de Notion es que **puedo usarlo para crear exactamente la interfaz que necesito para estar al día con las cosas importantes de mi día a día**. El hecho de poder compartir estas interfaces con más personas y con un solo clic es lo que lo hace excepcional.
 {: .prompt-love }
 
 ## __¿Qué es Notion?__
 
-Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su versatilidad permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
+Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su capacidad de adaptación permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
 
 ![web oficial Notion](tutoriales/notion-web-oficial-section-3.webp)
+_Página oficial de Notion_
 
 ### __¿Es Notion gratuito?__
 

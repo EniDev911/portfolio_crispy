@@ -75,13 +75,18 @@ tail_includes:
             {% endif %}
           </em>
         </span>
-        <div>
-          <button id="font_normal" style="border: 1px solid #ccc; border-radius: 4px;" title="Fuente Aumentada">
-            <i class="fa-solid fa-font fa-sm" aria-hidden="true"></i>
-          </button>
-          <button id="font_big" style="border: 1px solid #ccc; border-radius: 4px;" title="Fuente Normal">
-            <i class="fa-solid fa-font fa" aria-hidden="true"></i>
-          </button>
+        <div class="row justify-content-center align-items-center g-2 mx-auto">
+          <!-- fonts control  -->
+           <div class="col-12 col-md-6">
+            <button id="font_normal" style="border: 1px solid #ccc; border-radius: 4px;" title="Fuente Aumentada">
+              <i class="fa-solid fa-font fa-sm" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="col-12 col-md-6">
+            <button id="font_big" style="border: 1px solid #ccc; border-radius: 4px;" title="Fuente Normal">
+              <i class="fa-solid fa-font fa" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
         <!-- read time -->
         {% include read-time.html content=content prompt=true lang=lang %}

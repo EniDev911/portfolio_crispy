@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	let contentH2Elements = document.querySelectorAll("[aria-label='Main Content'] h2");
 	let contentH3Elements = document.querySelectorAll("[aria-label='Main Content'] h3");
 	let contentPElements = document.querySelectorAll("p");
+	let codeInlineElements = document.querySelectorAll("code.language-plaintext");
+
 	if (contentH2Elements.length === 0 && contentH3Elements.length === 0) return;
   
 	function getOriginalValues(elements) {
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	let h2Original = getOriginalValues(contentH2Elements);
 	let h3Original = getOriginalValues(contentH3Elements);
 	let pOriginal = getOriginalValues(contentPElements);
+	let codeInlineOriginal = getOriginalValues(codeInlineElements);
   
 	document.getElementById("font_big").onclick = () => {
 	  document.querySelector("[aria-label='Main Content']").style.fontSize = "1.43rem";
@@ -27,6 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		  h2.style.marginBottom = (h2Original.marginBottom * 1.3) + "px";
 		});
 	  }
+
+	  if (codeInlineOriginal) {
+		codeInlineElements.forEach((codeInline) => {
+			codeInline.style.fontSize = (codeInlineOriginal.fontSize * 1.4) + "px";
+			codeInline.style.marginTop = (codeInlineOriginal.marginTop * 1) + "px";
+			codeInline.style.marginBottom = (codeInlineOriginal.marginBottom * 1)+ "px";
+		})
+	  }	  
   
 	  if (h3Original) {
 		contentH3Elements.forEach((h3) => {
@@ -40,7 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.getElementById("font_normal").onclick = () => {
 	  document.querySelector("[aria-label='Main Content']").style.fontSize = pOriginal.fontSize + "px";
 	  document.querySelector(".content").style.fontSize = pOriginal.fontSize + "px";
-  
+		
+	  if (codeInlineOriginal) {
+		codeInlineElements.forEach((codeInline) => {
+			codeInline.style.fontSize = codeInlineOriginal.fontSize + "px";
+			codeInline.style.marginTop = codeInlineOriginal.marginTop + "px";
+			codeInline.style.marginBottom = codeInlineOriginal.marginBottom + "px";
+		})
+	  }
+
 	  if (h2Original) {
 		contentH2Elements.forEach((h2) => {
 		  h2.style.fontSize = h2Original.fontSize + "px";
