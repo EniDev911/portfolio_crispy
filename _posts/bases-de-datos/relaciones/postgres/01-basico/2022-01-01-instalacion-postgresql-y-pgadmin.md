@@ -1,5 +1,5 @@
 ---
-title: "PostgreSQL 🐘 : Instalación de PostgreSQL y PgAdmin en Windows"
+title: "PostgreSQL 🐘: Instalación PostgreSQL y PgAdmin"
 author: enidev911
 categories: [Bases de Datos Relacionales, Postgres, "Básico"]
 tags: [Bases de Datos]

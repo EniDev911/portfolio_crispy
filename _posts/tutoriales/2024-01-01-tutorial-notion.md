@@ -8,25 +8,25 @@ image:
 pin: true
 ---
 
-[__Notion__](https://www.notion.com/){:target='_blank'} es una de las herramientas de productividad de más rápido crecimiento en los últimos tiempos. Su __versatibilidad__ y __capacidad para adaptarse a diferentes flujos de trabajo__ han hecho los usuarios avanzados se enamoren de esta herramienta. Aunque en los últimos años ha enfrentado ciertas limitaciones derivadas de cambios en su modelo de negocio (restricciones en algunas funciones que antes eran gratuitas), sigue siendo una opción muy sólida para organizar información y proyectos.
+[__Notion__](https://www.notion.com/){:target='_blank'} es una de las herramientas de productividad de más rápido crecimiento en los últimos tiempos. Su __versatibilidad__ y __capacidad para adaptarse a diferentes flujos de trabajo__ han hecho   que muchos usuarios avanzados se enamoren de esta herramienta. Aunque en los últimos años ha enfrentado ciertas limitaciones derivadas de cambios en su modelo de negocio (restricciones en algunas funciones que antes eran gratuitas), sigue siendo una opción muy sólida para organizar información y proyectos.
 
-> Lo que más me gusta de Notion es que **puedo usarlo para crear exactamente la interfaz que necesito para estar al día con las cosas importantes de mi día a día**. El hecho de poder compartir estas interfaces con más personas y con un solo clic es lo que lo hace excepcional.
+> __Lo que más me gusta de Notion es que puedo usarlo para crear exactamente la interfaz que necesito para mantenerme al tanto con las cosas importantes de mi día a día__.
 {: .prompt-love }
 
 ## __¿Qué es Notion?__
 
-Notion es una herramienta **todo-en-uno** que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su capacidad de adaptación permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
+__Notion es una herramienta todo-en-uno__ que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su capacidad de adaptación permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
 
 ![web oficial Notion](tutoriales/notion-web-oficial-section-3.webp)
 _Página oficial de Notion_
 
 ### __¿Es Notion gratuito?__
 
-Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La versión gratuita incluye **páginas** y **bloques ilimitados**, integraciones con otras aplicaciones, espacios de trabajos, entre otras cosas. Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados y un límite de carga de archivos de 5 MB por archivo. Sin embargo, ahora han cambiado su modelo y, para mantener bloques ilimitados en el plan gratuito, ya no se pueden añadir invitados en los espacios de trabajo. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
+Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La versión gratuita incluye **páginas** y **bloques ilimitados**, integraciones con otras aplicaciones, espacios de trabajos, entre otras cosas. __Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados__ y un __límite de carga de archivos de 5 MB por archivo__. Sin embargo, __ahora han cambiado su modelo y__, __para mantener bloques ilimitados en el plan gratuito__, __ya no se pueden añadir invitados en los espacios de trabajo__. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
 
 ## __Ventajas y Desventajas de Notion__
 
-Notion es una de las herramientas de productividad más completas del mercado. Sin embargo, como cualquier herramienta, tiene puntos fuertes y débiles. A continuación, analizamos sus ventajas y desventajas.
+Notion es una de las herramientas de productividad más completas del mercado. Sin embargo, como cualquier herramienta, tiene __puntos fuertes y débiles__. A continuación, __analizamos sus ventajas y desventajas__.
 
 ### __Ventajas__
 
@@ -44,7 +44,7 @@ Notion es una de las herramientas de productividad más completas del mercado. S
 
 ### __Desventajas__
 
-Aunque Notion es una herramienta muy versatíl, tiene algunas limitaciones en su versión gratuita.
+Aunque Notion es una herramienta muy versatíl, tiene algunas __limitaciones en su versión gratuita__.
 
 **1. Límite de Bloques en el Plan Gratuito**
 : Notion permite hasta **1.000 bloques por espacio de trabajo con más de 2 propietarios** en su versión gratuita. Cada texto, imagen, tabla o cualquier elemento cuenta como un bloque.
@@ -237,6 +237,6 @@ En Notion, puedes compartir tus páginas con otras personas haciéndola pública
 
 ### __Cambiar el Nombre de Dominio__
 
-En la versión gratuita, tu dominio siempre tendrá `notion.site`, pero se puede cambiar el nombre para cuando publiques una página se vea como `minombre.notion.site`. Para ello debes entrar a **configuraciones** y en la opción **Sitios** actualiza el nombre de dominio:
+En la versión gratuita, tu dominio siempre tendrá `notion.site`, pero se puede cambiar el nombre para que cuando publiques una página se vea como `minombre.notion.site`. Para ello debes entrar a **configuraciones** y en la opción **Sitios** actualiza el nombre de dominio:
 
 ![Cambiar el nombre de dominio](tutoriales/notion-update-domain.webp)
