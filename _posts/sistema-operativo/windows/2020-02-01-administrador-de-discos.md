@@ -37,7 +37,7 @@ Una partición es como dividir tu disco en __"secciones"__. Aunque físicamente 
 
 ### __Crear una nueva partición__
 
-Primero, debes tener un espacio __no asignado__ disponible, luego hacer clic derecho sobre él para seleccionar __"Nuevo volumen Simple__
+Primero, debes tener un espacio __no asignado__ disponible, luego hacer clic derecho sobre él para seleccionar __"Nuevo volumen Simple"__
 
 ![Nuevo volumen simple](windows/nuevo-volumen-simple-administrador-de-discos.webp)
 
@@ -52,9 +52,19 @@ _Asignar letra a la nueva partición_
 ![Asignar tipo y etiqueta](windows/asignar-tipo-y-label-de-particion.webp){: style="width: 510px"}
 _Asignar tipo y etiqueta a la nueva partición_
 
+> Dale un nombre si quieres (por ejemplo: __"Mis cosas"__) y marca __"formato rápido"__.
+{: .prompt-info }
+
 ![Resumen de la nueva partición](windows/resumen-nueva-particion.webp){: style="width: 510px"}
 _Resumen de la nueva partición que se creará_
 
+Listo. Ahora tenemos una nueva partición para almacenar nuestros archivos. Aparecerá como __una nueva unidad en el Explorador de archivos__.
+
+![Nueva partición creada](windows/nueva-particion-explorar-de-archivos.webp)
+_Nueva partición creada_
+
+> Es una __Buena práctica__ separar tus archivos del sistema operativo. Si Windows falla y necesitás reinstalarlo, puedes formatear solo la unidad `C:` sin borrar tus archivos, que están en la nueva partición.
+{: .prompt-tip }
 
 {% include circle-line.html %}
 
