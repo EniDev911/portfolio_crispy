@@ -1,0 +1,61 @@
+---
+title: "Windows : Administrador de Discos"
+categories: ["Sistemas Operativos", "Windows"]
+---
+
+El __Administrador de discos__ es una __herramienta del sistema__ incluida en Windows que te permite ver y administrar todos los discos y particiones conectados a la computadora.
+
+> __Importante__: Aunque el Administrador de discos permite __crear__, __borrar__ y __formatear particiones__, esta guía es solo para exploración y aprendizaje. No hagas cambios si no estás seguro, ya que podrías perder datos.
+{: .prompt-warning }
+
+## __Cómo abrir el Administrador de Discos__
+
+Es muy sencillo, puedes simplemente presionar <kbd>Win</kbd> + <kbd>R</kbd> y escribe lo siguiente: `diskmgmt.msc` y presiona <kbd>Enter</kbd>.
+
+![abrir el administrador](windows/abrir-diskmgmt.webp){: style="width: 330px"}
+
+### __1. Lista de Vólumenes__
+
+Una vez abierta la herramienta, verás una lista de cada unidad (por ejemplo `C:`, `D:`, `E:`), su tipo de sistema de archivos (`NTFS`, `FAT32`), capacidad de espacio libre, y su estado.
+
+![Lista de vólumenes](windows/lista-de-volumenes.webp)
+
+## __2. Vista Gráfica__
+
+En esta parte verás los discos físicos representados como __"Disco 0"__, __"Disco 1"__, etc. Cada uno muestra sus particiones como bloques horizontales. Puedes ver lo siguiente:
+
+![Vista Gráfica](windows/vista-grafica-administrador-de-discos.webp)
+
+En cada disco, se puede ver el color que indica lo siguiente:
+
+- El espacio usado (en azul).
+- El espacio no asignado (en negro).
+
+## __¿Qué es una Partición?__
+
+Una partición es como dividir tu disco en __"secciones"__. Aunque físicamente sea un solo disco, Windows puede tratar cada partición como una unidad independiente (por ejemplo, `C:`, `D:`, `E:`).
+
+### __Crear una nueva partición__
+
+Primero, debes tener un espacio __no asignado__ disponible, luego hacer clic derecho sobre él para seleccionar __"Nuevo volumen Simple__
+
+![Nuevo volumen simple](windows/nuevo-volumen-simple-administrador-de-discos.webp)
+
+Ahora a seguir el asistente:
+
+![Asignar tamaño](windows/asignar-tamanio-particion.webp){:style="width: 510px"}
+_Asignar tamaño a la nueva artición_
+
+![Asignar letra a la partición](windows/asignar-letra-particion.webp){: style="width: 510px"}
+_Asignar letra a la nueva partición_
+
+![Asignar tipo y etiqueta](windows/asignar-tipo-y-label-de-particion.webp){: style="width: 510px"}
+_Asignar tipo y etiqueta a la nueva partición_
+
+![Resumen de la nueva partición](windows/resumen-nueva-particion.webp){: style="width: 510px"}
+_Resumen de la nueva partición que se creará_
+
+
+{% include circle-line.html %}
+
+El __Administrador de discos__ es una herramienta muy útil para visualizar y comprender el estado de almacenamiento en tu __PC__. No necesitas ser un técnico para empezar a usarla; con solo abrirla y explorar un poco, ya puedes aprender mucho.
