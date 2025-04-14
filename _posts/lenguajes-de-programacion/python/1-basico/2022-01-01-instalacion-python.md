@@ -1,5 +1,5 @@
 ---
-title: "Python 🐍 : Instalación En Los Diferentes Sistemas Operativos"
+title: "Python 🐍 : Instalación en los Diferentes Sistemas Operativos"
 description: "Instala Python con facilidad: en **Windows**, usa el instalador oficial; en **macOS**, Homebrew o la web oficial; en **Linux**, el gestor de paquetes."
 categories: [Python, "01. Básico"]
 image:

@@ -22,7 +22,7 @@ En Windows, la forma más fácil de instalar PostgreSQL es utilizando el [**inst
 
 ## __Instalar PostgreSQL y pgAdmin en Linux 🐧__
 
-Ahora, vamos a cubrir la inmstalación de __PostgreSQL__ y __pgAdmin__ en Linux.
+Ahora, vamos a cubrir la instalación de __PostgreSQL__ y __pgAdmin__ en Linux.
 
 ### __Paso 1: Actualizar el Sistema__
 
