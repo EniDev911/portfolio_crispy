@@ -3,7 +3,8 @@
 vendor
 Gemfile.lock
 assets/img/.DS_Store
-demo.eml
+test.*
+demo.*
 *:Zone.Identifier
 
 .DS_Store

@@ -5,7 +5,7 @@ categories: [Bases de Datos Relacionales, Postgres, "Básico"]
 tags: [Bases de Datos]
 image:
     path: posters/postgres-pgadmin-instalacion.webp
-    alt: "Instalar PostgreSQL"
+    lqip: data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZQC06B6Mf6VyKv8MBgAA/tqeRr/itkI3ksi3LJqxKSoBoWUaagAelsUaVUr2prb6W+yqICW/jcToAAA=
 ---
 
 En Windows, la forma más fácil de instalar PostgreSQL es utilizando el [**instalador oficial de EnterpriseDB**](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads){: target='_blank' }, que incluye **PostgreSQL** y **PgAdmin** (una interfaz gráfica para administrar bases de datos) y otras herramientas.
@@ -177,7 +177,7 @@ ALTER USER postgres with encrypted password 'my_password';
 
 ---
 
-## **PostgreSQL en macOS 🖥️**
+## __PostgreSQL en macOS 🖥️__
 
 ### **Instalador interactivo EDB**
 
