@@ -1,9 +1,40 @@
 @media print {
+    #topbar-wrapper,
+    #tail-wrapper,
+    .post-tail-wrapper,
+    div.post-meta,
+    iframe, img {
+        display: none;
+    }
+    // HEADINGS
+    h2 a, h3 a, h4 a {
+        display: none;
+    }
+    h2 {
+        font-size: 1.69rem;
+        margin: 1.9rem 0;
+    }
+    h3 {
+        font-size: 1.49rem;
+        margin: 1.4rem 0;
+    }
+    .print-url {
+        display: block;
+        font-family: sans-serif;
+        font-size: 15px;
+        padding: .4rem .8rem;
+        border: 1px solid #CCC;
+        width: 100%;
+        border-radius: 6px;
+        margin: 1em 0;
+    }
+
     span[data-label-text] {
         margin: 0 auto;
         text-align: center;
         display: block;
         width:fit-content;
+        padding-left: 15px;
     }
     .lineno {
         display: none;
@@ -19,7 +50,6 @@
     div.code-header {
         text-align: center !important;
         justify-content: center !important;
-
         &::before {
             content: none !important;
         }

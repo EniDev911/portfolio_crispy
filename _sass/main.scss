@@ -6,7 +6,6 @@
 @import 'addon/syntax';
 @import 'addon/commons';
 @import 'addon/mermaid';
-@import 'addon/printer';
 @import 'colors/syntax-light'; // optional
 @import 'colors/syntax-dark'; // optional
 @import 'layout/home';
@@ -15,6 +14,10 @@
 @import 'layout/archives';
 @import 'layout/categories';
 @import 'layout/category-tag';
+
+.print-url {
+  display: none;
+}
 
 h2 {
   margin-bottom: 2rem;
@@ -131,3 +134,5 @@ svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
     right: 0;
   }
 }
+
+@import 'addon/printer';

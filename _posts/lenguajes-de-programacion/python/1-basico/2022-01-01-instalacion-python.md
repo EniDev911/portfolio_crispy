@@ -7,7 +7,7 @@ image:
     lqip: data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZQCsAB5TNeuOMY4AAP6/w0vQ+vGtZ2d+5B1BGMHo+JyRLzQHQnaNOxZctf24PqxUCoAA
 ---
 
-En este post, cubriremos la instalación de Python en **Windows**, **macOS** y **Linux**, usando distintas herramienta. También revisaremos los requisitos del sistema y algunos consejos para una instalación sin problemas.
+En esta guía, cubriremos la instalación de Python en **Windows**, **macOS** y **Linux**, usando distintas herramienta. También revisaremos los requisitos del sistema y algunos consejos para una instalación sin problemas.
 
 ## __Instalación en Windows__
 
@@ -21,7 +21,7 @@ En este post, cubriremos la instalación de Python en **Windows**, **macOS** y *
 
 ### __Usando el instalador__
 
-1. Descargar el archivo ejecutable de instalación de la versión más reciente de Python que sea compatible con tu sistema operativo desde [página de descargas](https://www.python.org/downloads/){:target='_blank' class='link'}
+1. Descargar el archivo ejecutable de instalación de la versión más reciente de Python que sea compatible con tu sistema operativo desde la [página de descargas](https://www.python.org/downloads/){:target='_blank' class='link'}
 2. Ejecuta el archivo ejecutable de instalación de Python que se descargó anterioremente.<br>
     Selecciona las siguientes opciones en la ventana del instalador de Python para configurar los pasos de instalación.
     1. Elija agregar el archivo ejecutable de Python a la ruta.
@@ -137,7 +137,7 @@ python3 -m ensurepip --upgrade
 
 {% include circle-line.html %}
 
-Hasta aquí con este post donde hemos cubierto la **instalación de Python** en los diferentes sistemas operativos. Con estos pasos, ya tienes Python instalado en tu sistema operativo. Ahora puedes comenzar a programar y explorar las múltiples posibilidades que ofrece este lenguaje.
+Hasta aquí con esta guía donde hemos cubierto la **instalación de Python** en los diferentes sistemas operativos. Con estos pasos, ya tienes Python instalado en tu sistema operativo. Ahora puedes comenzar a programar y explorar las múltiples posibilidades que ofrece este lenguaje.
 
 ¡Sigue avanzando y aprendiendo! ✌️
 
