@@ -1,5 +1,5 @@
 ---
-title: "Python 🐍 : Estructuras de control (IF, ELSE, ELIF)"
+title: "Python 🐍 : Estructuras Condicionales (IF, ELSE, ELIF)"
 author: enidev911
 categories: [Python, "01. Básico"]
 image:
@@ -8,27 +8,39 @@ image:
 mermaid: true
 ---
 
-En cualquier lenguaje de programación, las **estructuras de control** son fundamentales. Son las que permiten que un programa tome decisiones, ejecutando diferentes bloques de código según ciertas condiciones. En Python, las **estructuras de control** más comunes son **`if`**, **`else`** y **`elif`**. En este artículo, exploraremos en detalle cómo funcionan estas estructuras de control en Python, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
+En cualquier lenguaje de programación, las **estructuras de control** son fundamentales. Son las que permiten que un programa tome decisiones, ejecutando diferentes bloques de código según ciertas condiciones y repetir bloques de código ( __bucles__ ).
 
-## **¿Qué es una estructura de control?**
+En este artículo, exploraremos en detalle cómo funcionan las **estructuras condicionales**  **`if`**, **`else`** y **`elif`** y __operadores lógicos__, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
 
-Como les decía las estructuras de control son instrucciones que le dicen al programa qué hacer en función de una condición. Dependiendo si la condición es **`True`** (verdadera) o **`False`** (falso), el flujo de ejecución del programa cambia.
+## __¿Qué son las Estructura de Control?__
 
-En Python, se utilizan principalmente las declaraciones `if`, `elif` y `else` para gestionar el flujo del programa basado en estas condiciones. Para ello debemos saber que hace cada una de estas instrucciones:
+Las estructuras de control son __instrucciones que alteran la secuencia natural de ejecucción del código__. En lugar de ejecutar línea por línea de arriba hacia abajo, se puede:
+
+- Tomar decisiones (**`if`**, **`else`**, **`elif`**)
+- Repetir tareas, los denominados "bucles" (**`for`**, **`while`**)
+- Saltar o continuar iteraciones (**`break`**, **`continue`**)
+- Ignorar instrucciones temporalmente (**`pass`**) 
+
+## __Estructuras de Control Condicional__
+
+Estas estructuras le dicen al programa __qué hacer en función de una condición__. Dependiendo si la condición es **`True`** (verdadera) o **`False`** (falso), el flujo de ejecución del programa cambia.
+
+En Python, se utilizan principalmente las declaraciones `if`, `elif` y `else` para gestionar el flujo del programa basado en estas condiciones.
+
+Para ello debemos saber que hace cada una de estas instrucciones:
 
 - **`if`**: Evalúa una condición y ejecuta el bloque de código asociado si la condición es **verdadera**.
 - **`else`**: Se ejecuta si la condición del `if` es **false**
 - **`elif`**: Se usa para verificar múltiples condiciones, y se ejecuta cuando una de ellas es **verdadera**.
 
-
-A continuación tenemos un diagrama de flujo que ilustra cómo funcionan las estructuras de control. Este diagrama muestra un flujo de decisión básico usando una estructura `if`, `elif`, y `else`.
+A continuación tenemos un flujo que ilustra cómo funciona una estructura condicional. Esto muestra un flujo de decisión básico usando una estructura `if`, `elif`, y `else`.
 
 ```mermaid
 ---
-title: Estructuras de Control en Python
+title: Estructuras Condicionales en Python
 ---
 graph TD
-    A([Inicio]) --> B[Evaluar Condición]
+    A([Inicio]) --> B[Evaluar Expresión Condicional]
     B -->|Condición Verdadera| C[Ejecutar Bloque If]
     B -->|Condición Falsa| D[Evaluar Condición Elif]
     D -->|Condición Elif Verdadera| E[Ejecutar Bloque Elif]
@@ -38,7 +50,11 @@ graph TD
     F --> G
 ```
 
-## **Sintaxis Básica de estructuras de control**
+> **Nota:** Una *condición* es una *expresión* que se evalúa como `True` o `False`. Es decir, **toda condición es una expresión**, pero **no toda expresión es una condición**.
+{: .prompt-info }
+
+
+## __Sintaxis Básica de estructuras de control__
 
 La sintaxis básica de una declaración condicional en Python es la siguiente:
 
