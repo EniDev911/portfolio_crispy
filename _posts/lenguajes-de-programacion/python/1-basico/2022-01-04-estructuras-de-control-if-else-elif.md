@@ -8,7 +8,7 @@ image:
 mermaid: true
 ---
 
-En cualquier lenguaje de programación, las **estructuras de control** son fundamentales. Son las que permiten que un programa tome decisiones, ejecutando diferentes bloques de código según ciertas condiciones. En Python, las **estructuras de control** más comunes son **`if`**, **`else`** y **`elif`**. En este post, exploraremos en detalle cómo funcionan estas estructuras de control en Python, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
+En cualquier lenguaje de programación, las **estructuras de control** son fundamentales. Son las que permiten que un programa tome decisiones, ejecutando diferentes bloques de código según ciertas condiciones. En Python, las **estructuras de control** más comunes son **`if`**, **`else`** y **`elif`**. En este artículo, exploraremos en detalle cómo funcionan estas estructuras de control en Python, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
 
 ## **¿Qué es una estructura de control?**
 
