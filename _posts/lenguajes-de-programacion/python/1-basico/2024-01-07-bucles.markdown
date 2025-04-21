@@ -1,5 +1,5 @@
 ---
-title: "Python 🐍 : Bucles (FOR y WHILE)"
+title: "Python 🐍 : Estructuras Repetitivas Bucles (FOR y WHILE)"
 author: enidev911
 date: 2024-01-07
 categories: [Python, "01. Básico"]

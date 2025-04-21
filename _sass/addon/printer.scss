@@ -42,6 +42,7 @@
     }
     p, code.language-plaintext {
         font-size: 1.1rem;
+        font-variant-ligatures: none;
     }
 
     span[data-label-text] {
@@ -62,6 +63,7 @@
         padding: 0;
         & pre {
             white-space: break-spaces;
+            font-variant-ligatures: none;
         }
 
     }

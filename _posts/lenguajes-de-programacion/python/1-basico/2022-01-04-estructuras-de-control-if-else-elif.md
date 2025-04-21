@@ -111,7 +111,17 @@ else:
 2. **Segunda Condición (`elif`):** Si la primera condición no se cumple, verifica si `nota` es mayor o igual a 70.
 3. **Condición Final (`else`):** Si ninguna de las condiciones anteriores es verdadera, se ejecuta el bloque bajo `else`.
 
-### **Condiciones Complejas**
+### __Operadores Lógicos__
+
+Cuando queremos evaluar __más de una condición al mismo tiempo__, utilizamos los __operadores lógicos__. Estos operadores nos permiten construir condiciones más complejas y tomar decisiones más eficientes en nuestros programas.
+
+Python nos proporciona tres operadores lógicos principales:
+
+- **`and`:** Ambas condiciones deben ser verdaderas.
+- **`or`:** Al menos una de las condiciones debe ser verdadera.
+- **`not`:** Invierte el valor de verdad de la condición.
+
+### __Condiciones Complejas__
 
 Puedes combinar múltiples condiciones usando operadores lógicos como `and`, `or` y `not`:
 
@@ -130,11 +140,6 @@ else:
 
 - La condición `edad >= 18 and tiene_licencia` se evalúa como verdadera solo si ambas sub-condiciones son verdaderas.
 
-### **Operadores Lógicos**
-
-- **`and`:** Ambas condiciones deben ser verdaderas.
-- **`or`:** Al menos una de las condiciones debe ser verdadera.
-- **`not`:** Invierte el valor de verdad de la condición.
 
 ### **Condicionales Anidados**
 
