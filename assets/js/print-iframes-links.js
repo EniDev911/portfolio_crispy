@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
         const fullUrl = getFullUrl(url);
         const note = document.createElement("div");
+        note.style.textAlign = 'left';
+        note.style.color = '#000';
         note.className = "print-url";
         note.innerHTML = `Imagen ubicada en: <a href="${fullUrl}" target="_blank">${fullUrl}</a>`;
         img.insertAdjacentElement("afterend", note);

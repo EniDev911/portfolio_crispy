@@ -1,4 +1,11 @@
 @media print {
+    @page {
+        margin-top: 1.4cm;
+        margin-bottom: 1.4cm;
+    }
+    div .hl::before {
+        display: none;
+    }
     #topbar-wrapper,
     #tail-wrapper,
     .post-tail-wrapper,
@@ -10,6 +17,7 @@
     h2 a, h3 a, h4 a {
         display: none;
     }
+
     h2 {
         font-size: 1.69rem;
         margin: 1.9rem 0;
@@ -26,7 +34,7 @@
         border: 1px solid #CCC;
         width: 100%;
         border-radius: 6px;
-        margin: 1em 0;
+        margin: 0;
     }
 
     span[data-label-text] {
@@ -42,11 +50,14 @@
 
     .highlight {
         background: #fff;
+        // border: 1px solid #191919;
+        color: #111;
+        padding: 0;
         & pre {
             white-space: break-spaces;
         }
-    }
 
+    }
     div.code-header {
         text-align: center !important;
         justify-content: center !important;

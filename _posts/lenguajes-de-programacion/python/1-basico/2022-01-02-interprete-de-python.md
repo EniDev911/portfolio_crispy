@@ -8,7 +8,7 @@ image:
 mermaid: true
 ---
 
-En este post, exploraremos qué es el **intérprete de Python**, cómo funciona y por qué es una pieza clave en la ejecución de programas creados en este lenguaje. También cubriremos (aunque no en profundidad) los diferentes tipos de intérpretes disponibles y cómo usarlos en **modo interactivo** o a través de **scripts**.
+En este artículo, exploraremos qué es el **intérprete de Python**, cómo funciona y por qué es una pieza clave en la ejecución de programas creados en este lenguaje. También cubriremos (aunque no en profundidad) los diferentes tipos de intérpretes disponibles y cómo usarlos en **modo interactivo** o a través de **scripts**.
 
 ## __¿Qué es el Intérprete de Python?__
 
@@ -16,12 +16,12 @@ El intérprete de Python es un software que se encarga de leer y ejecutar el có
 
 Cuando ejecutas instrucciones o un programa en Python, sigue estas etapas:
 
-![funcionamiento del intérprete de python](python/funcionamiento-del-interpre-de-python.webp){: .light }
-![funcionamiento del intérprete de python](python/funcionamiento-del-interpre-de-python-dark.webp){: .dark }
+![funcionamiento del intérprete de python](python/funcionamiento-del-interprete-de-python.webp){: .light }
+![funcionamiento del intérprete de python](python/funcionamiento-del-interprete-de-python-dark.webp){: .dark }
 
 ### __Etapa 1. Lectura del Código Fuente__
 
-El primer paso es cuando el intérprete de Python **recibe el código fuente**, que es el archivo `.py`. Este archivo contiene las instrucciones que el programador ha escrito en el lenguaje Python.
+El primer paso es cuando el intérprete de Python **recibe el código fuente**, que es el archivo con extensión `.py`. Este archivo contiene las instrucciones que el programador ha escrito en el lenguaje Python. En esta etapa, el intérprete simplemente carga el contenido del archivo en memoria para comenzar a procesarlo.
 
 ### __Etapa 2. Compilación a Bytecode y Traducción en la PVM__
 
@@ -61,7 +61,7 @@ En el **modo interactivo** de Python, podemos abrir una sesión en la que es pos
 Para iniciar una sesión interactiva, basta con ejecutar el comando `python3` en la terminal:
 
 {% capture interprete %}
-<span clas="hl">❯ python3</span>
+<span class="hl">❯ python3</span>
 Python 3.13.2 (main, Feb 14 2025, 23:15:40) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 <span class="hl">&gt;&gt;&gt;</span>

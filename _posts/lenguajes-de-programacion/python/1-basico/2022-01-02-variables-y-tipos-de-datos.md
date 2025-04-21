@@ -16,6 +16,8 @@ En el mundo de la programación, las variables son conceptos fundamentales que a
 
 ## **¿Qué es una Variable?**
 
+Las variables son uno de los conceptos fundamentales tanto en Matemáticas como en programación. __Aunque se usan en distintos contextos__, la idea general es la misma: __una variable es un valor que puede cambiar o variar__.
+
 ### **Variables en Matemáticas**
 
 El concepto de "variable" proviene de las Matemáticas. En Matemáticas, una variable es un símbolo que forma parte de una expresión o formula. Normalmente las variables se representan mediante letras del alfabeto latino (x, y, z, n, j, etc). Dependiendo del contexto, las variables significan cosas distintas. Por ejemplo en el caso del Álgebra, una variable representa una cantidad desconocida que se relaciona con otras y que en algunos casos podemos averiguar. Consideremos por ejemplo la siguiente ecuación:
@@ -25,20 +27,23 @@ $$ x + 3 = 4 $$
 
 En este caso, la variable `x` representa una cantidad desconocida pero de la que se sabe si se le suma 3 obtiene 4. Resolviendo la ecuación, entendemos inmediatamente que la variable `x` estaba representando realmente el número 1.
 
+### __Variables en Programación__
 
-### **Variables en Programación**
+En programación también existe el concepto de "variable", __parecido pero no idéntico al concepto matemático__. En términos simples, una variable en programación es un nombre que se asocia a un valor y que se almacena en la memoria principal (RAM) de tu computadora mientras el programa esté en ejecución. Este valor puede ser cualquier cosa: un **número**, una **cadena de texto**, una **colección**, y cualquier tipo de dato que sea válido en el lenguaje de programación que usemos.
 
-En Programación también existe el concepto de "variable", parecido pero no idéntico al concepto matemático. En términos simples, una variable en programación es un nombre que se asocia a un valor y que se almacena en la memoria principal (RAM) de tu computadora mientras el programa esté en ejecución. Este valor puede ser cualquier cosa: un **número**, una **cadena de texto**, una **colección**, y cualquier tipo de dato que sea válido en el lenguaje de programación específico. En algunos lenguajes de programación, las variables se pueden entender como "cajas" en las que se guardan datos, pero cuando estamos aprendiendo Python es mejor pensar en las variables como si fueran "etiquetas" que le das a los datos para que puedas referenciarlos y que se guardan en "cajas" llamadas objetos.
+En algunos lenguajes de programación, las variables se pueden entender como "cajas" en las que se guardan datos, pero cuando estamos aprendiendo Python es mejor pensar en las variables como si fueran __"etiquetas" que le das a los datos para que puedas referenciarlos__ y que se guardan en "cajas" llamadas objetos.
 
 ```mermaid
 ---
-title: VARIABLES Y TIPOS
+title: VARIABLE, TIPO Y VALOR
 ---
 graph LR
+    a>"&nbsp;&nbsp;Etiqueta&nbsp;&nbsp;&nbsp;&nbsp;"] -- &lt;TIPO&gt; --- c["&nbsp;&nbsp;VALOR&nbsp;&nbsp;"]
     A>"&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;"] -- &lt;class 'float'&gt; --- B["&nbsp;&nbsp;9.6&nbsp;&nbsp;"]
     C>"&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;&nbsp;"] -- &lt;class 'int'&gt; --- D["&nbsp;&nbsp;10&nbsp;&nbsp;"]
     E>"&nbsp;&nbsp;Z&nbsp;&nbsp;&nbsp;&nbsp;"] -- &lt;class 'str'&gt; --- F["'hola'"]
     style B stroke-width:2px,stroke-dasharray: 5 5
+    style c stroke-width:2px,stroke-dasharray: 5 5
     style D stroke-width:2px,stroke-dasharray: 5 5
     style F stroke-width:2px,stroke-dasharray: 5 5
 ```
