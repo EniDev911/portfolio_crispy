@@ -14,13 +14,13 @@ image:
 
 En el mundo de la programación, las variables son conceptos fundamentales que actúan como contenedores para almacenar datos. En Python, las variables son sencillas de usar y entender, lo que hace que sea un lenguaje amigable para quienes están comenzando a programar. En este artículo, exploraremos qué son las variables en Python, cómo se usan, y algunas de las características más interesantes sobre las variables.
 
-## **¿Qué es una Variable?**
+## __¿Qué es una Variable?__
 
 Las variables son uno de los conceptos fundamentales tanto en Matemáticas como en programación. __Aunque se usan en distintos contextos__, la idea general es la misma: __una variable es un valor que puede cambiar o variar__.
 
-### **Variables en Matemáticas**
+### __Variables en Matemáticas__
 
-El concepto de "variable" proviene de las Matemáticas. En Matemáticas, una variable es un símbolo que forma parte de una expresión o formula. Normalmente las variables se representan mediante letras del alfabeto latino (x, y, z, n, j, etc). Dependiendo del contexto, las variables significan cosas distintas. Por ejemplo en el caso del Álgebra, una variable representa una cantidad desconocida que se relaciona con otras y que en algunos casos podemos averiguar. Consideremos por ejemplo la siguiente ecuación:
+El concepto de "variable" en las matemáticas es usado a través de símbolos que forman parte de una formula. Normalmente las variables se representan mediante letras del alfabeto latino (x, y, z, n, j, etc). Dependiendo del contexto, las variables significan cosas distintas. Por ejemplo en el caso del Álgebra, una variable representa una cantidad desconocida que se relaciona con otras y que en algunos casos podemos averiguar. Consideremos por ejemplo la siguiente ecuación:
 
 $$ x + 3 = 4 $$
 {: .fs-1 }
