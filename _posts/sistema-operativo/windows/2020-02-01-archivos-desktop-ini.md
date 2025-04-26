@@ -13,12 +13,13 @@ Es un archivo de configuración (oculto por defecto) que Windows usa para record
 - Le dice al sistema qué __ícono__ usar.
 - Puede cambiar el __nombre que se muestra__ (aunque el nombre de la carpeta no cambie).
 
-
 📁 **Organizar tu disco como un profesional:**
 
-¿Tenés un disco duro externo con carpetas para música, backups, proyectos o videos? Ponerles íconos distintos te permite identificarlas **al instante**, sin leer nombres.
+¿Tienes un disco duro externo con carpetas para música, backups, proyectos o videos? Ponerles íconos distintos te permite identificarlas **al instante**, sin leer nombres.
 
-### __¿Cómo lo hacés?__
+### __¿Cómo hacer este archivo?__
+
+Para crear un archivo `Desktop.ini` a través de la interfaz gráfica es muy sencillo, siguiendo estos pasos:
 
 1. Eliges una carpeta y sobre ella haces __clic derecho__ → __Propiedades__ → __Personalizar__.
 2. Selecciona __"Cambiar ícono"__ y asigna uno.
@@ -32,6 +33,57 @@ Si no puedes ver este archivo, debes ir a panel de control y cambiar la vista a 
 Y luego desmarca la casilla __"ocultar archivos protegidos del sistema"__:
 
 ![desmarcar opción](windows/ocultar-archivos-protegidos-del-sistema.webp)
+
+### __¿Cómo hacer este archivo con CMD?__
+
+Para crear un archivo `desktop.ini` como archivo de sistema en Windows usando la consola (CMD), puedes seguir estos pasos:
+
+**1. Crear el archivo `desktop.ini`**
+: Abre la consola (CMD) y navega a la carpeta donde quieres crear el archivo. Luego, crea el archivo:
+
+```terminal
+echo [.ShellClassInfo] > desktop.ini
+```
+
+> Puedes usar `type nul > desktop.ini` si quieres crear un archivo vacío.
+{: .prompt-info }
+
+
+**2. Marcarlo como archivo oculto y de sistema**
+: Esto es lo que hace que Windows lo trate como un archivo de configuración de carpeta:
+
+```terminal
+attrib +s +h desktop.ini
+```
+
+- `+s` lo marca como **archivo de sistema**.
+- `+h` lo marca como **oculto**.
+
+
+**3. Definir la ruta del ícono**
+: Esto hace que Windows cambie el ícono por defecto de una carpeta por uno personalizado:
+
+```terminal
+echo IconResource="\assets\ico\linux.ico" >> desktop.ini
+```
+
+**4. Mostrar el ícono**
+: Para que los cambios surtan efectos, se debe marcar la carpeta como __"de solo lectura"__
+
+```terminal
+attrib +r .
+```
+
+__Ejemplo completo__
+
+```terminal
+cd "C:\Usuarios\TuUsuario\Escritorio\Test"
+echo [.ShellClassInfo] > desktop.ini
+attrib +s +h desktop.ini
+echo IconResource="\assets\ico\linux.ico" >> desktop.ini
+attrib +r .
+```
+
 
 ### ⚠️ __Tip para que funcione bien en discos externos__
 
