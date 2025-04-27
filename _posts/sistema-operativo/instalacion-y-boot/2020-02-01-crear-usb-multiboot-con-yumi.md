@@ -125,7 +125,7 @@ Ahora falta crear el disco de arranque para poder iniciar YUMI, debemos seleccio
 
 ![Seleccionar Disco Yumi](virtualbox/usar_disco_yumi_puente.webp){:style="width: 75%; margin:auto"}
 
-Y esto estaría listo, con la limitación de que no añadimos un disco duro adicional para poder instalar el sistema operativo, pero podemos ejecutarlo en __modo live__.
+Y ya estaría listo, con la limitación de que no añadimos un disco duro adicional para poder instalar el sistema operativo, pero podemos ejecutarlo en __modo live__.
 
 Si iniciamos la máquina, tendremos a YUMI en acción:
 
@@ -142,3 +142,8 @@ Y la última opción es seleccionar arrancar en modo normal:
 Finalmente, empieza el __modo live__ de Ubuntu, para acceder a probar el sistema, debes dar clic en __Probar Ubuntu__:
 
 ![Modo Live de Ubuntu](virtualbox/inicio_instalador_ubuntu_mate.webp)
+
+{% include circle-line.html %}
+
+__YUMI__ es una opción __rápida__, __sencilla__ y muy útil para llevar varios sistemas operativos y para generar unidades __USB multiboot__ mediante un sistema de menús basados en [__GRUB__](https://es.wikipedia.org/wiki/GNU_GRUB){:target='_blank'}. Su compatibilidad con BIOS y UEFI (en versiones actualizada) y su soporte de persistencia para algunas distribuciones lo hacen una solución sólida para entornos de mantenimiento, instalación y rescate de sistemas.
+
