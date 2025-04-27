@@ -130,3 +130,15 @@ Y esto estaría listo, con la limitación de que no añadimos un disco duro adic
 Si iniciamos la máquina, tendremos a YUMI en acción:
 
 ![YUMI Inicio](yumi/yumi_inicio.webp)
+
+Buscamos la única ISO que tenemos de momento y la seleccionamos:
+
+![YUMI seleccionar la ISO](virtualbox/seleccionar_iso_yumi.webp)
+
+Y la última opción es seleccionar arrancar en modo normal:
+
+![YUMI arancar en modo normal](virtualbox/arrancar_iso_modo_normal.webp)
+
+Finalmente, empieza el __modo live__ de Ubuntu, para acceder a probar el sistema, debes dar clic en __Probar Ubuntu__:
+
+![Modo Live de Ubuntu](virtualbox/inicio_instalador_ubuntu_mate.webp)
