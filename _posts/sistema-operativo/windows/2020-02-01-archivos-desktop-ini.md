@@ -84,7 +84,6 @@ echo IconResource="\assets\ico\linux.ico" >> desktop.ini
 attrib +r .
 ```
 
-
 ### ⚠️ __Tip para que funcione bien en discos externos__
 
 - Asegurate de que el ícono esté **dentro de la misma carpeta** o en una ruta accesible desde el mismo dispositivo.
