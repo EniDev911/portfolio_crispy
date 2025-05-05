@@ -16,7 +16,7 @@ El manejo de errores y excepciones es una parte fundamental en el desarrollo de 
 
 En términos sencillos, una excepción __es un evento inesperado que interrumpe el flujo normal de ejecución__ de un programa. Cuando ocurre una excepción, Python detiene ese flujo y busca una manera de manejarla. Si no se maneja, el programa termina con un mensaje de error.
 
-Imagina qe estás en tu cocina preparando café. Estás calentando el agua en una tetera eléctrica (_hervidor_). Todo va bien... hasta que te distraes y el agua hierve tanto que la tetera de desborda, quemándote la mano.
+Imagina que estás en tu cocina preparando café. Estás calentando el agua en una tetera eléctrica (_hervidor_). Todo va bien... hasta que te distraes y el agua hierve tanto que la tetera de desborda, quemándote la mano.
 
 Este es el __evento inesperado__. No lo planeaste, pero ocurrió.
 
