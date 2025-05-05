@@ -22,17 +22,28 @@ input(prompt)
 ```
 {: .nolineno }
 
-**Parámetros**
 
-- `prompt` : Un *string* que se muestra como un mensaje de ayuda para el usuario que interactua con el programa.
+>__`prompt`__: Una cadena de texto (*`string`*) que se muestra como un mensaje de ayuda para el usuario que interactua con el programa.
+{: .prompt-info }
 
-**Ejemplos de uso**
+**Ejemplo de uso**
 
 ```py
 val = input("Ingresa un valor: ")
 print(val)
 ```
 {: .nolineno }
+
+{% capture ej1_input %}
+<span class="hl">&gt;&gt;&gt; </span> # Suma
+<span style='color: bluepink'>Ingresa un valor: </span>
+<span class="hl">&gt;&gt;&gt; print(val)</span>
+<span style='color: bluepink'>Ingresa un valor: </span>
+{% endcapture %}
+
+{% include terminal-wrapper.html content=ej1_input %}
+
+
 
 ### __Salida: para Print__
 

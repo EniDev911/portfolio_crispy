@@ -2,7 +2,7 @@
 title: "Python 🐍 : Manejo de Archivos"
 author: enidev911
 categories: [Python, "02. Intermedio"]
-tags: [trabajar con archivos]
+tags: [Manejo de archivos, Python]
 ---
 
 Uno de los aspectos más comunes al programar es el **manejo de archivos**. Python nos facilita la interacción con archivos mediante su módulo incorporado `open()`, el cual permite abrir archivos, leer su contenido, escribir datos e incluso modificar archivos existentes.
@@ -11,7 +11,7 @@ En este post, nos vamos a enfocar principalmente en **leer** y **escribir** arch
 
 Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos **abrir el archivo**. Al abrir el archivo nos comunicamos con el sistema operativo, el cual sabe dónde están almacenados los datos de cada archivo. Cuando abres un archivo, le estás pidiendo al sistema operativo que encuentre el archivo por su nombre y se asegure que existe.
 
-## **Abriendo archivos**
+## __Abriendo archivos__
 
 > Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos.
 {: .prompt-warning }
@@ -32,9 +32,7 @@ Ejemplo
 
 Si el resultado de la función `open()` es exitoso, el sistema operativo nos devuelve una instancia de `TextIOWrapper` que es una clase en el módulo `io` de Python que se utiliza para manejar flujos de entrada/salida de texto, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un manejador (*handler*) que podemos usar para leer los datos.
 
----
-
-## Leer un archivo
+## __Leer un archivo__
 
 Para leer un archivo sabemos que lo primero es abrir el respectivo archivo usando la función `open()`, si nos ponemos a pensar en una lista de amigos que tenemos en un archivo de texto llamado `amigos.txt` con el siguiente contenido:
 

@@ -35,6 +35,12 @@ projects:
     image: "/assets/img/proyectos/django-doc.webp"
     image_base64: "UklGRkAAAABXRUJQVlA4IDQAAABQAwCdASoUAAwAPzmEuVOvKKWisAgB4CcJZQAAW+ql30zGQAD+sjckdWE2A9yG5UROeEAA"
 
+  - title: "Landing Page"
+    description: "PrimSoft SPA"
+    url: "https://primsoft.cl/"
+    image: "/assets/img/proyectos/primsoft.webp"
+    image_base64: "UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAAkAPzmEuVOvKKWisAgB4CcJYwDA3CFsnlmGIPboAAD+42Bbb9TBm82pjQPA4riQPhFPtT6LWB4Ox1NOuuIKdPQTTQwQAAA="
+
 certificates:
   - title: "HackerRank"
     description: "Python Basic"
