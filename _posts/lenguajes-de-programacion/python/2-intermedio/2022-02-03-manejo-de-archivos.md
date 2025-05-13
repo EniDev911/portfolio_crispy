@@ -7,32 +7,108 @@ tags: [Manejo de archivos, Python]
 
 Uno de los aspectos más comunes al programar es el **manejo de archivos**. Python nos facilita la interacción con archivos mediante su módulo incorporado `open()`, el cual permite abrir archivos, leer su contenido, escribir datos e incluso modificar archivos existentes.
 
-En este post, nos vamos a enfocar principalmente en **leer** y **escribir** archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
+En este artículo, nos vamos a enfocar principalmente en **leer** y **escribir** archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
 
 Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos **abrir el archivo**. Al abrir el archivo nos comunicamos con el sistema operativo, el cual sabe dónde están almacenados los datos de cada archivo. Cuando abres un archivo, le estás pidiendo al sistema operativo que encuentre el archivo por su nombre y se asegure que existe.
 
-## __Abriendo archivos__
+## __¿Por qué es importante el manejo de archivos?__
+
+El manejo de archivos es una de las habilidades más prácticas y necesarias cuando __pasas de escribir scripts simples a desarrollar aplicaciones reales en Python__. Si bien al inicio puedes resolver problemas en memoria, tarde o temprano vas a necesitar __guardar información de forma persistente__.
+
+El manejo de archivo nos permite abrirnos a las siguientes posibilidades:
+
+### 📁 __1. Persistencia de datos__
+
+Guardar información para que esté disponible incluso después de cerrar el programa. Esto es clave en aplicaciones como:
+
+- Gestores de tareas
+- Juegos que necesitan guardar el progreso
+- Formularios o encuestas donde se guardan respuestas
+
+### 🔁 __2. Automatización de tareas__
+
+Muchos scripts automatizados trabajan leyendo y escribiendo archivos.
+
+- Descargar y procesar archivos de una web o API
+- Renombrar archivos por lote
+- Generar reportes en PDF, TXT o CSV automáticamente
+
+### 🔗 __3. Integración con otras herramientas y sistemas__
+
+Los archivos `.csv`, `.json`, `.xml` y `.txt` son formatos comunes para intercambiar datos:
+
+- Abrir datos exportados desde Excel o una base de datos
+- Leer archivos de configuración o logs generados por otros programas
+- Escribir archivos que puedan ser leídos por herramientas externas
+
+### 📊 __4. Análisis de grandes volúmenes de información__
+
+En data science, los datos suelen venir en archivos planos. Python permite:
+
+- Leer y procesar archivos de texto de gigabytes
+- Transformar y limpiar información
+- Convertir archivos entre distintos formatos
+
+### 🛠️ __5. Registro y trazabilidad__
+
+Guardar el comportamiento del programa o de los usuarios en un archivo log es fundamental para:
+
+- Auditar acciones
+- Rastrear errores
+- Generar estadísticas internas
+
+## __📝 Abrir archivos con Python__
+
+La función más común para abrir archivos en Python es `open()`. Esta función te permite especificar el __modo__ en el que quieres abrir el archivo, lo que determina qué operaciones podrás realizar (leer, escribir, agregar contenido, etc).
 
 > Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos.
 {: .prompt-warning }
 
-Para abrir un archivo, Python nos brinda la función `open()` que recibe como argumento la **ruta del archivo** que queremos manejar como un `string` y como segundo argumento el **modo de apertura** también como un `string`.
+La función `open()` espera como primer argumento la **ruta del archivo** que queremos manejar, proporcionada como una cadena de texto ( `string` ), y como segundo argumento el **modo de apertura** también especificado como una cadena de texto.
 
-{:class='fs-5'}
-Ejemplo
+__Sintaxis Básica - open__
 
-```bash
->>> manejador = open('file.txt')
->>> manejador
-<_io.TextIOWrapper name='file.txt' mode='r' encoding='cp65001'>
->>> type(manejador)
-<class '_io.TextIOWrapper'>
+```python
+archivo = open("ruta/del/archivo.txt", "modo", encoding="utf-8")
 ```
-{: .nolineno .noheader }
+{: .nolineno }
 
-Si el resultado de la función `open()` es exitoso, el sistema operativo nos devuelve una instancia de `TextIOWrapper` que es una clase en el módulo `io` de Python que se utiliza para manejar flujos de entrada/salida de texto, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un manejador (*handler*) que podemos usar para leer los datos.
+- `"ruta/del/archivo.txt"`: es la ubicación del archivo que deseas abrir. Puede ser una ruta relativa (como "archivo.txt") o una ruta absoluta (como "/home/usuario/documentos/archivo.txt").
 
-## __Leer un archivo__
+- `"modo"`: es el tipo de operación que deseas realizar en el archivo. Dependiendo del modo, podrás leer, escribir o agregar contenido al archivo.
+
+- `encoding="utf-8"`: es opcional, pero se recomienda para evitar problemas con caracteres especiales, especialmente si estás trabajando con textos que contienen acentos, eñes, o caracteres no latinos.
+
+__Modos de apertura__
+
+- `"r"`: solo lectura (el archivo debe existir).
+- `"w"`: solo escritura (sobrescribe el archivo si ya existe, o lo crea si no).
+- `"a"`: agregar contenido al final del archivo (sin borrar lo que ya tiene).
+- `"x"`: creación exclusiva (solo crea el archivo si no existe).
+- `"r+"`: lectura y escritura (el archivo debe existir).
+
+### __¿Qué es un manejador de archivo?__
+
+Cuando usas la función `open()`, Python no abre el archivo directamente como un objeto "normal". En su lugar, __crea un objeto de tipo `TextIOWrapper`__ que sirve como __manejador__ ( o "handler" ) del archivo. Este manejador actúa como un intermediario entre tu programa y el archivo, permitiéndote leer, escribir o manipular su contenido a través de dirversos métodos.
+
+Podemos realizar algunas pruebas en una sesión interactiva de Python:
+
+{% capture example_open_handler %}
+Python 3.10.2 (main, Feb 14 2024, 23:15:40) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+<span class="hl">&gt;&gt;&gt; manejador = open('mi_archivo.txt')</span>
+&gt;&gt;&gt; manejador
+<span class="hl">&lt;_io.TextIOWrapper name=&quot;mi_archivo.txt&quot; mode=&quot;r&quot; encoding=&quot;cp65001&quot;&gt;
+</span>
+&gt;&gt;&gt; type(manejador)
+<span class="hl">&lt;class &quot;_io.TextIOWrapper&quot;&gt;</span>
+{% endcapture %}
+
+{% include terminal-wrapper.html content=example_open_handler %}
+
+Si el resultado de la función `open()` es exitoso, el sistema operativo nos devuelve una instancia de `TextIOWrapper` que es una clase en el módulo `io` de Python que se utiliza para manejar flujos de entrada/salida de texto, que en este caso lo estamos asignando a una variable llamada `manejador`. El **manejador de archivo** no son los datos contenidos en el archivo, sino un manejador que podemos usar para leer los datos.
+
+## __Leer Archivo - Modo lectura ( "r" )__
 
 Para leer un archivo sabemos que lo primero es abrir el respectivo archivo usando la función `open()`, si nos ponemos a pensar en una lista de amigos que tenemos en un archivo de texto llamado `amigos.txt` con el siguiente contenido:
 
@@ -44,23 +120,23 @@ Alejandro
 ```
 {: file='amigos.txt' }
 
-### read()
 
 Luego de usar la función `open`, abrimos el archivo en modo lectura (si no le pasamos un segundo argumento a la función `open()` por defecto es modo lectura) y usamos el método `read()` del manejador:
 
-```py
->>> manejador = open('amigos.txt')
->>> manejador.read()
-'Marco\nLuis\nGabriel\nAlejandro'
-```
-{: .nolineno .noheader }
+{% capture example_open_read %}
+&gt;&gt;&gt; manejador = open('amigos.txt')
+<span class="hl">&gt;&gt;&gt; manejador.read()</span>
+&quot;Marco\nLuis\nGabriel\nAlejandro&quot;
+{% endcapture %}
+
+{% include terminal-wrapper.html content=example_open_read %}
 
 Este método `read()` lee todo el contenido del archivo como una sola cadena de texto. Puede ser útil para archivos pequeños.
 
 > Una vez ejecutado el método `read()` del manejador si no se guarda el resultado en una variable, se debe volver a posicionar el puntero al inicio (usando el método `seek(0)` del maneajor).
 {: .prompt-warning }
 
-### read(size)
+### __Leer por cantidades__
 
 El método `read()` si se le pasa el argumento `size` lee esa cantidad de bytes. Si se omite lee todo el el contenido restante del archivo.
 
@@ -74,7 +150,7 @@ El método `read()` si se le pasa el argumento `size` lee esa cantidad de bytes.
 {: .nolineno .noheader }
 
 
-### readline()
+### __Leer línea por línea__
 
 El método `readline()` lee una sola línea del archivo. Es útil para leer archivos línea por línea
 
@@ -89,7 +165,7 @@ El método `readline()` lee una sola línea del archivo. Es útil para leer arch
 ```
 {: .nolineno .noheader }
 
-### readlines()
+### __Leer todo y separar__
 
 El método `readlines()` lee todas las líneas del archivo y las devuelve como una lista de cadenas, donde cada línea es un elemento de la lista.
 
@@ -100,9 +176,8 @@ El método `readlines()` lee todas las líneas del archivo y las devuelve como u
 ```
 {: .nolineno .noheader }
 
----
 
-## Escritura de un archivo
+## __Escritura de un archivo - Modo lectura ( "w" )__
 
 Para escribir texto en un archivo hay que abrir el archivo en **modo escritura**. Para ello utilizamos el *argumento adicional* en la función `open()` que se indica en la siguiente operación:
 
