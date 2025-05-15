@@ -6,14 +6,14 @@ tags: ["guías", python]
 mermaid: true
 ---
 
-En este post, vamos a desarrollar una sencilla aplicación de consola en Python para gestionar **enlaces web** de una forma estructurada. De manera similar a los **bookmarks** de los navegadores, la aplicación permitirá realizar las operaciones básicas de un CRUD como **agregar**, **listar**, **actualizar** y **eliminar**, pero además realizar búsquedas y organizar los enlaces web en categorías, todo desde la terminal.
+En este artículo, vamos a desarrollar una sencilla aplicación de consola en Python para gestionar **favoritos** (marcadores, enlaces). La aplicación permitirá realizar operaciones básicas de un CRUD como **agregar**, **listar**, **actualizar** y **eliminar**, y realizar __búsquedas__, todo desde la terminal.
 
-La base de datos será SQLite y crearemos dos tablas que estarán relacionadas. Podemos visualizar esa relación en el siguiente diagrama:
+Usaremos SQLite como base de datos y crearemos dos tablas que estarán relacionadas. Podemos visualizar esa relación en el siguiente diagrama:
 
 
 ```mermaid
 ---
-title: "Diagrama Entidad Relación"
+title: "Diagrama ER Bookmark"
 ---
 erDiagram
     Category {
@@ -33,7 +33,7 @@ erDiagram
 - `Category`: Almacenaremos las categorías disponibles para clasificar los enlaces.
 - `Bookmark`: Almacenaremos la URL, descripción y categoría que pertenece.
 
-### **Estructura del Proyecto**
+## __Estructura del Proyecto__
 
 La estructura del proyecto será modular y se organizará de la siguiente manera para mantener claridad, la separación de responsabilidades y la facilidad de mantenimiento:
 
