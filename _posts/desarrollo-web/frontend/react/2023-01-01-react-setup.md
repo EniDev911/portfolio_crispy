@@ -7,21 +7,20 @@ tags: [desarrollo web, react]
 
 Cuando inicias en React, tienes que configurar previamente un entorno de desarrollo y con ello poner en marcha tu primer proyecto. Siguiendo unos sencillos paso podemos comenzar a crear aplicaciones modernas y dinámicas en poco tiempo.
 
+## __🔧 Requisitos Previos__
 
-## **🔧 Requisitos Previos**
-
-Antes de comenzar, debemos tener instaladas las siguierntes herramientas en nuestra máquina:
+Antes de comenzar, debemos tener instaladas las siguientes herramientas en nuestra máquina:
 
 - [Node.js](https://nodejs.org/en/){:target='_blank'}: Necesitarás **Node.js 14.18.0** o superior para este y otros turoriales que publicaré. [Vite](https://vite.dev/){: target='_blank' } requiere al menos esta versión.
 - [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}): Son administradores de paquetes que te permiten gestionar las dependencias de un proyecto. **npm** viene preinstalado con **Node.js**, pero puedes optar por otra alternativa.
 
-## **📝 Pasos para Crear un Proyecto React**
+## __Cómo Crear un Proyecto de React__
 
 Existen varias maneras de crear y configurar un proyecto de React, sin embargo la forma más tradicional y en su momento era la forma más sencilla es usando el paquete oficial `create-react-app`, que configura todo automáticamente.
 
-### **Usando create-react-app** (No recomendado actualmente)
+### **Usando create-react-app** ( No recomendado )
 
-1. Para ello abrimos una terminal y ejecutamos el siguiente comando:
+1. Abrimos una nueva terminal o símbolo de sistema y ejecuta el siguiente comando:
 
 ```terminal
 npx create-react-app <nombre-proyecto>
@@ -49,9 +48,7 @@ Esto iniciará el servidor de desarrollo y abrirá automáticamente la aplicaci�
 {: .prompt-warning }
 
 
----
-
-### **Usando Vite** (Recomendado)
+### __Usando Vite__ ( Recomendado )
 
 [**Vite**](https://vite.dev/){: target='_blank' } es una herramienta de desarrollo moderna y rápida que se utiliza para crear proyectos de front-end, y es ideal para trabajar con React debido a su rápida configuración y **hot-reloading** eficiente. Una vez teniendo los [**requsitos previos**](#-requisitos-previos) en nuestro equipo, iremos al directorio donde queramos ubicar nuestro proyecto y realizamos los siguientes pasos:
 

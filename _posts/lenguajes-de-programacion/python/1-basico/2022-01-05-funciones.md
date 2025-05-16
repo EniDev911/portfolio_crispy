@@ -28,9 +28,7 @@ def elevar_al_cuadrado(numero):
 	return numero ** 2
 ```
 
----
-
-## **Parámetros y argumentos**
+## __Parámetros y argumentos__
 
 En la definición de una función los valores que se reciben se denominan **parámetros**, pero durante la llamada a cuyas funciones, los valores que se envían se denominan **argumentos**.
 

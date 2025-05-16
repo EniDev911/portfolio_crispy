@@ -231,6 +231,6 @@ Para aprender más sobre WSL y cómo aprovecharlo al máximo, considera los sigu
 - [Documentación Oficial de WSL](https://docs.microsoft.com/en-us/windows/wsl/)
 - [Foros y Comunidades](https://stackoverflow.com/questions/tagged/wsl)
 
-### En Resumen
+{% include circle-line.html %}
 
 WSL es una herramienta poderosa que permite a los usuarios de Windows disfrutar de las ventajas de un entorno Linux sin complicaciones. Ya seas un desarrollador, un administrador de sistemas o simplemente un entusiasta de la tecnología, WSL te ofrece un mundo de posibilidades. ¡Empieza a explorar y potencia tu flujo de trabajo!

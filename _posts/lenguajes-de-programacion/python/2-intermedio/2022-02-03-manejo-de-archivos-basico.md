@@ -48,7 +48,7 @@ Los archivos `.csv`, `.json`, `.xml` y `.txt` son formatos comunes para intercam
 
 En data science, los datos suelen venir en archivos planos. Python permite:
 
-- Leer y procesar archivos de texto de gigabytes
+- Leer y procesar archivos de texto de varios gigabytes de tamaño
 - Transformar y limpiar información
 - Convertir archivos entre distintos formatos
 
@@ -78,7 +78,7 @@ flowchart TD
 
 ## __📝 Abrir archivos con Python__
 
-La manera más habitual de trabajar con archivos en Python utilizando la función incorporada `open()`. Esta función permite abrir un archivo y especificar el __modo de apertura__, lo que determina qué tipo de operaciones se pueden realizar sobre él (leer, escribir, agregar contenido, etc).
+La manera más habitual de trabajar con archivos en Python es con la función incorporada `open()`. Esta función permite abrir un archivo y especificar el __modo de apertura__, lo que determina qué tipo de operaciones se pueden realizar sobre él (leer, escribir, agregar contenido, etc).
 
 > Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos. Te recomiendo este artículo: <https://phoenixnap.com/kb/absolute-path-vs-relative-path>
 {: .prompt-warning }
@@ -147,7 +147,7 @@ Luego de usar la función `open`, abrimos el archivo en modo lectura (si no le p
 {% capture example_open_read %}
 &gt;&gt;&gt; manejador = open('amigos.txt')
 <span class="hl">&gt;&gt;&gt; manejador.read()</span>
-&quot;Marco\nLuis\nGabriel\nAlejandro\nPedro&quot;
+&quot;Marco\nLuis\nGabriel\nAlejandro\nPedro\n&quot;
 {% endcapture %}
 
 {% include terminal-wrapper.html content=example_open_read %}
@@ -159,46 +159,45 @@ Este método `read()` lee todo el contenido del archivo como una sola cadena de 
 
 ### __Leer por cantidades__
 
-El método `read()` si se le pasa el argumento `size` lee esa cantidad de bytes. Si se omite lee todo el el contenido restante del archivo.
+El método `read()` si se le pasa el argumento `size` lee esa cantidad de bytes. Si se omite lee todo el el contenido restante del archivo. Por ejemplo:
 
 {% capture example_open_size_read %}
 &gt;&gt;&gt; manejador = open('amigos.txt')
 <span class="hl">&gt;&gt;&gt; manejador.read(10)</span>
 &quot;Marco\nLuis&quot;
 <span class="hl">&gt;&gt;&gt; manejador.read()</span>
-&quot;\nGabriel\nAlejandro\nPedro&quot;
+&quot;\nGabriel\nAlejandro\nPedro\n&quot;
 {% endcapture %}
 
 {% include terminal-wrapper.html content=example_open_size_read %}
 
 ### __Leer línea por línea__
 
-El método `readline()` lee una sola línea del archivo. Es útil para leer archivos línea por línea
+El método `readline()` lee una sola línea del archivo. Es útil para leer archivos línea por línea. Por ejemplo:
 
-```py
->>> manejador = "amigos.txt"
->>> manejador.readline()
-'Marco\n'
->>> manejador.readline()
-'Luis\n'
->>> manejador.readline()
-'Gabriel\n'
-```
-{: .nolineno .noheader }
+{% capture example_open_linea_a_linea %}
+&gt;&gt;&gt; manejador = open('amigos.txt')
+<span class="hl">&gt;&gt;&gt; manejador.readline()</span>
+&quot;Marco\n&quot;
+<span class="hl">&gt;&gt;&gt; manejador.readline()</span>
+&quot;Gabriel\n&quot;
+{% endcapture %}
+
+{% include terminal-wrapper.html content=example_open_linea_a_linea %}
 
 ### __Leer todo y separar__
 
 El método `readlines()` lee todas las líneas del archivo y las devuelve como una lista de cadenas, donde cada línea es un elemento de la lista.
 
-```py
->>> manejador = "amigos.txt"
->>> manejador.readlines()
-['Marco\n', 'Luis\n', 'Gabriel\n', 'Alejandro']
-```
-{: .nolineno .noheader }
+{% capture example_open_readlines %}
+&gt;&gt;&gt; manejador = open('amigos.txt')
+<span class="hl">&gt;&gt;&gt; manejador.readlines()</span>
+['Marco\n', 'Luis\n', 'Gabriel\n', 'Alejandro\n', 'Pedro\n']
+{% endcapture %}
 
+{% include terminal-wrapper.html content=example_open_readlines %}
 
-## __Escritura de un archivo - Modo lectura ( "w" )__
+## __Escritura de un archivo - Modo escritura ( "w" | "a" )__
 
 Para escribir texto en un archivo en Python, es necesario abrir el archivo en el **modo escritura**:
 
@@ -211,11 +210,12 @@ manejador = open('amigos.txt', 'w')
 
 El método `write()` se utiliza para escribir una única cadena de texto en un archivo. Es importante destacar que __no añade automáticamente saltos de línea__. Por lo tanto, si deseas que cada entrada aparezca en una línea separada, debes incluir explícitamente el carácter de nueva línea (`\n`) al final de cada cadena.
 
-```python
-manejador = open('amigos.txt', 'w')
-manejador.write("Juan")
-```
-{: .nolineno .noheader }
+{% capture example_open_readlines %}
+&gt;&gt;&gt; manejador = open('amigos.txt', 'w')
+<span class="hl">&gt;&gt;&gt; manejador.write("Juan")</span>
+{% endcapture %}
+
+{% include terminal-wrapper.html content=example_open_readlines %}
 
 Si revisamos el archivo `amigos.txt` nos encontraremos con la sorpresa de que se sobreescribio el contenido:
 
@@ -228,27 +228,36 @@ Esto sucede porque el segundo argumento `'w'` se refiere al modo de **solo escri
 
 ### __Escribir al final de un archivo__
 
-Tenemos entonces ahora el modo de **solo agregar** (*append*) `'a'` que nos permite abrir el archivo para escritura y de la misma forma que `'w'` si el archivo aún no existe, se crea uno nuevo. La diferencia es que en este modo el cursor del manejador se establece al final del archivo y así los datos recíen escritos se agregarán al final, manteniendo los datos escritos anteriormente:
+El **modo** `'a'` ( append ) permite abrir un archivo para escritura colocando el cursor al final del contenido existente. Si el archivo aún no existe, se crea uno nuevo. A diferencia del modo `'w'`, que borra el contenido anterior. Por ejemplo:
 
-```python
-manejador = open('amigos.txt', 'a')
-manejador.write("\nJuan") # '\n' es para generar un salto de línea 
-```
-{: .nolineno }
+{% capture example_open_write_end %}
+&gt;&gt;&gt; manejador = open('amigos.txt', 'a')
+<span class="hl">&gt;&gt;&gt; manejador.write("\nArmando")</span>
+{% endcapture %}
+
+{% include terminal-wrapper.html content=example_open_write_end %}
 
 Al igual que en el caso anterior, si queremos además leer el archivo debemos cambiar al modificador `'a+'`.
 
-### writelines()
+Si revisamos el archivo `amigos.txt` tenemos el contenido añadido al final:
+
+```
+Juan
+Armando
+```
+{: file='amigos.txt' }
+
+### __Escribir múltiples líneas__
 
 El método `writelines()` nos permite escribir múltiples líneas a la vez. Ejemplo:
 
+{% capture example_open_writelines %}
+&gt;&gt;&gt; manejador = open('amigos.txt', 'a')
+&gt;&gt;&gt; amigos = ['\nFabián', '\nMateo', '\nLeonardo']
+<span class="hl">&gt;&gt;&gt; manejador.writelines(amigos)</span>
+{% endcapture %}
 
-```py
->>> lineas = ['Primera línea\n', 'Segunda línea\n', 'Tercera línea\n']
->>> with open('archivo.txt', 'w') as archivo:
-...     archivo.writelines(lineas)
-```
-{: .nolineno .noheader }
+{% include terminal-wrapper.html content=example_open_writelines %}
 
 ## __Propiedades del objeto file__
 

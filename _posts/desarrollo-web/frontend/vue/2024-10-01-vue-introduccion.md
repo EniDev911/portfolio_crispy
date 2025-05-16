@@ -26,7 +26,7 @@ En resumen, si necesitamos algo muy básico, Vue es perfecto y no es necesario i
 
 ## __Historia de Vue.js__
 
-Vue.js fue creado en 2014 por [Evan You](http://x.com/youyuxi?lang=kn){:target='_blank'}, un exingeniero de Google que trabajó en AngularJS. Su intención era desarrollar un framework que fuera ligero y flexible. Desde entonces, Vue ha crecido rápidamente y se ha convertido en una de las opciones más populares para el desarrollo frontend.
+Vue.js fue creado en 2014 por [Evan You](http://x.com/youyuxi?lang=kn){:target='_blank'}, un ex-ingeniero de Google que trabajó en [AngularJS](https://en.wikipedia.org/wiki/AngularJS){:target='_blank'}. Su intención era desarrollar un framework que fuera ligero y flexible. Desde entonces, Vue ha crecido rápidamente y se ha convertido en una de las opciones más populares para el desarrollo frontend.
 
 Algunas versiones importantes incluyen:
 
