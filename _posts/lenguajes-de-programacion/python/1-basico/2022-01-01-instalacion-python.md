@@ -5,7 +5,7 @@ categories: [Python, "01. Básico"]
 image:
     path: "posters/python-instalacion.webp"
     lqip: data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZQCsAB5TNeuOMY4AAP6/w0vQ+vGtZ2d+5B1BGMHo+JyRLzQHQnaNOxZctf24PqxUCoAA
-permalink: /categorias/python/basico/instalacion 
+permalink: /categorias/python/basico/instalacion
 ---
 
 En esta guía, cubriremos la instalación de Python en **Windows**, **macOS** y **Linux**, usando distintas herramienta. También revisaremos los requisitos del sistema y algunos consejos para una instalación sin problemas.

@@ -2,12 +2,13 @@
 title: "Python 🐍 : Diccionarios"
 author: enidev911
 description: "Los diccionarios en Python son estructuras de datos que almacenan pares de clave-valor. Son ideales para almacenar información que requiere acceso rápido mediante una clave única, permitiendo manipular y organizar datos de manera eficiente."
-categories: [Python, "02. Intermedio"]
-tags: [python, intermedio]
+categories: [Python, "01. Básico"]
+tags: [python]
 image:
     path: "posters/python-diccionarios.webp"
     lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoUAAoAPzmEuVOvKKWisAgB4CcJZgCdGuAAVeISei2Ds94gwQAA+efmU7AgrJPxwct/taq2o7ktOODARNSHIwtKr3mjj+AuxqeB77LuLpoFVQulUgdC/mAA
 mermaid: true
+permalink: /categorias/python/basico/diccionarios
 ---
 
 En Python, el tipo de dato **Diccionario** (`dict`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los objetos **Objects**. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
@@ -29,9 +30,7 @@ Un diccionario de Python tiene las siguientes características:
 **Son de rápido acceso**
 : esto debido a la forma en la que están implementados internamente.
 
----
-
-## **Creando diccionarios**
+## __Creando Diccionarios__
 
 Para crear un diccionario se deben usar las llaves `{}` de apertura y cierre. Cada item `clave:valor` en el diccionario debe estar separado de otro par `clave:valor` por comas `,`. 
 
@@ -61,11 +60,7 @@ car2 = dict(name='honda', model=2019, color='blue')
 > Para crear un diccionario vacío, se suele recomendar el uso de `{}` frente a `dict()`, no sólo por ser más pitónico sino por tener (en promedio) un mejor rendimiento en tiempos de ejecución.
 {: .prompt-tip }
 
-
----
-
-
-## **Operaciones comunes con Diccionarios**
+## __Operaciones comunes con Diccionarios__
 
 Como ya sabemos cómo se crean los diccionarios, recordemos que cada tipo de dato tiene sus propios métodos porque están diseñados para cumplir con necesidades específicas y proporcionar funcionalidad adecuada para el tipo de colección que representan. Python es un lenguaje orientado a objetos, lo que significa que cada tipo de dato (como listas, diccionarios, tuplas, conjuntos) es en realidad una **instancia de una clase**. Ahora veamos que métodos podemos aplicar sobre los diccionarios:
 
@@ -81,7 +76,7 @@ graph LR
     F --> F5["<code class="hl">key in my_dict</code>: Verifica si una clave existe"]
 ```
 
-### **Obtener elementos**
+### __Obtener elementos__
 
 Para obtener un elemento basta con escribir la **clave** entre `[]`. Veamos el siguiente ejemplo:
 
@@ -118,7 +113,7 @@ car.get('colorino', 'No existe esta clave') # 'No existe esta clave'
 ```
 {: .nolineno }
 
-### Añadir o modificar un elemento
+### __Añadir o modificar un elemento__
 
 Para añadir un elemento a un diccionario sólo es necesario hacer referencia a la `clave` y asignarle un `valor`:
 
@@ -151,7 +146,7 @@ user['country'] = 'Chile'
 {: .nolineno }
 
 
-### **Obtener todas las claves de un diccionario**
+### __Obtener todas las claves de un diccionario__
 
 Mediante el método `keys()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene las **clave** del diccionario en forma de **lista**:
 
@@ -169,23 +164,23 @@ user.keys() # dict_keys(['Marco', 'Enidev911', 'Chile'])
 ```
 {: .nolineno }
 
-### **Obtener todos los pares clave-valor de un diccionario**
+### __Obtener todos los pares clave-valor de un diccionario__
 
 Mediante el método `items()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene tuplas como elementos conpuestas por pares **clave-valor** del diccionario en forma de vista:
 
 ```python
 user.items() 
-"""
-dict_items([
-  ('name', 'Marco'),
-  ('nickname', 'Enidev911'),
-  ('country', 'Chile')
-  ])
-"""
 ```
 {: .nolineno }
 
-### **Borrar elementos**
+El resultado:
+
+```python
+dict_items([('name', 'Marco'), ('nickname', 'Enidev911'), ('country', 'Chile')])
+```
+{: .noheader .nolineno }
+
+### __Borrar elementos__
 
 Python nos proporciona, al menos, tres formas de borrar elementos en un diccionario:
 
