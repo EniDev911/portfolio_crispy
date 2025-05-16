@@ -1,7 +1,6 @@
 ---
-title: "Python 🐍 : Diccionarios"
+title: "Python 🐍 : Estructura de Datos - Diccionarios"
 author: enidev911
-description: "Los diccionarios en Python son estructuras de datos que almacenan pares de clave-valor. Son ideales para almacenar información que requiere acceso rápido mediante una clave única, permitiendo manipular y organizar datos de manera eficiente."
 categories: [Python, "01. Básico"]
 tags: [python]
 image:
@@ -11,7 +10,36 @@ mermaid: true
 permalink: /categorias/python/basico/diccionarios
 ---
 
-En Python, el tipo de dato **Diccionario** (`dict`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los [objetos](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Object_basics){:target='_blank'}. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
+En Python, un **diccionario** (`dict`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los [objetos](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Object_basics){:target='_blank'}. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
+
+## __¿Qué es un Diccionario?__
+
+Un diccionario es una colección __no ordenada__, __modificable__ e __indexada__ que __no permite duplicados__. Se define con llaves `{}` y contiene pares `clave:valor`.
+
+Los diccionarios funcionan de forma análoga a los diccionarios en la vida real, aunque con algunas diferencias. Por ejemplo, un diccionario de idiomas:
+
+| Palabra (clave) | Significado (valor) |
+|:----------------|:--------------------|
+| "hola"          | Saludo amistoso     |
+| "adiós"         | Despedida           |
+| "libro"         | Objeto con páginas  |
+
+En Python sería:
+
+```python
+diccionario_espanol = {
+    "hola": "Saludo amistoso",
+    "adiós": "Despedida", 
+    "libro": "Objeto con páginas"
+}
+```
+{: .nolineno }
+
+En los diccionarios reales, las palabras están ordenadas alfabéticamente. En Python, desde la versión 3.7+, el orden de inserción se conserva, pero __no están ordenados alfabéticamente__.
+
+En los diccionarios, una definición suele ser una cadena de texto. En Python, los valores pueden ser __cualquier cosa__: números, listas, otros diccionarios, funciones, objetos, etc.
+
+### __Características importantes de los diccionarios__
 
 Un diccionario de Python tiene las siguientes características:
 
@@ -30,38 +58,50 @@ Un diccionario de Python tiene las siguientes características:
 **Son de rápido acceso**
 : esto debido a la forma en la que están implementados internamente.
 
-## __Creando Diccionarios__
+## __Crear Diccionarios__
 
-Para crear un diccionario en Python se utilizan las llaves `{}` de apertura y cierre. Cada ítem debe estar compuesto por un par `clave:valor`, y cada par debe estar separado de otro par `clave:valor` por comas `,`. 
-
-Veamos el siguiente ejemplo, donde almacenamos un diccionario en una variable `car`:
+Para crear un diccionario en Python se utilizan las llaves `{}` de apertura y cierre. Cada ítem debe estar compuesto por un par `clave:valor`, y cada par debe estar separado de otro par `clave:valor` por comas (`,`). Por ejemplo:
 
 ```python
-car = { 'name': 'Audi', 'model': 'r8', 'color': 'negro' }
+mis_datos = {
+    "nombre": "Marco",
+    "edad": 32,
+    "ciudad": "Coquimbo"
+}
 ```
 {: .nolineno }
-
-Como se puede observar, es muy simple crear diccionarios en Python siempre y cuando usemos las llaves y respetemos el formato de `clave:valor`.
 
 > Aunque está permitido, **NO** uses nombres como `dict` en variables porque vas a romper la función `dict()` que nos permite crear diccionarios.
 {: .prompt-warning }
 
-Sin embargo no es la única forma, ya que Python nos provee la función `dict()` para la creación de diccionarios:
+Sin embargo no es la única forma, ya que Python nos provee la función `dict()` para la creación de diccionarios.
 
-```python
-# una forma es pasarle una lista de tuplas
-car = dict([('name', 'Audi'), ('model', 2012), ('color', 'white')])
-# otra forma es pasar un la clave y valor como argumentos
-car2 = dict(name='honda', model=2019, color='blue')
-```
-{: .nolineno }
+Una forma es pasarle una lista de tuplas a la función `dict()`:
 
-> Para crear un diccionario vacío, se suele recomendar el uso de `{}` frente a `dict()`, no sólo por ser más pitónico sino por tener (en promedio) un mejor rendimiento en tiempos de ejecución.
+{% capture func_dict %}
+<span class="hl">&gt;&gt;&gt; mis_datos = dict([('nombre', 'Marco'), ('edad', 32), ('ciudad', 'Coquimbo')])</span>
+&gt;&gt;&gt; mis_datos
+{'nombre': 'Marco', 'edad': 32, 'ciudad': 'Coquimbo'}
+{% endcapture %}
+{% include terminal-wrapper.html content=func_dict %}
+
+Otra forma es pasar la clave como nombre de argumento y asignarle el valor:
+
+{% capture func_dict_name %}
+<span class="hl">&gt;&gt;&gt; mis_datos = dict(nombre='Marco', edad=32, ciudad='Coquimbo')</span>
+&gt;&gt;&gt; mis_datos
+{'nombre': 'Marco', 'edad': 32, 'ciudad': 'Coquimbo'}
+{% endcapture %}
+{% include terminal-wrapper.html content=func_dict_name %}
+
+> Para crear un diccionario vacío, se suele recomendar el uso de `{}` frente a `dict()`, no sólo por ser más pitónico sino por tener ( en promedio ) un mejor rendimiento en tiempos de ejecución.
 {: .prompt-tip }
 
-## __Operaciones comunes con Diccionarios__
+Ya que sabemos cómo crear diccionarios, ahora seguimos con las operaciones con diccionarios. 
 
-Como ya sabemos cómo se crean los diccionarios, recordemos que cada tipo de dato tiene sus propios métodos porque están diseñados para cumplir con necesidades específicas y proporcionar funcionalidad adecuada para el tipo de colección que representan. Python es un lenguaje orientado a objetos, lo que significa que cada tipo de dato (como listas, diccionarios, tuplas, conjuntos) es en realidad una **instancia de una clase**. Ahora veamos que métodos podemos aplicar sobre los diccionarios:
+## __Operaciones Comunes con Diccionarios__
+
+Trabajar con diccionarios de forma eficiente requiere conocer las operaciones básicas. A continuación, te muestro las operaciones más comunes y útiles:
 
 ```mermaid
 ---
@@ -73,6 +113,7 @@ graph LR
     F --> F3["<code class="hl">my_dict.items()</code>: Retorna pares clave-valor"]
     F --> F4["<code class="hl">my_dict.clear()</code>: Elimina todos los elementos"]
     F --> F5["<code class="hl">key in my_dict</code>: Verifica si una clave existe"]
+    F --> F6["<code class='hl'>my_dict.get(key, default)</code>: Retorna el valor de la clave o el por defecto si no existe"]
 ```
 
 ### __Obtener elementos__
@@ -207,3 +248,7 @@ user.clear()
 user # {}
 ```
 {: .nolineno }
+
+{% include circle-line.html %}
+
+Los diccionarios en Python son estructuras de datos que almacenan pares de `clave:valor`. Son ideales para almacenar información que requiere acceso rápido mediante una clave única, permitiendo manipular y organizar datos de manera eficiente.
