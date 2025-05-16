@@ -11,7 +11,7 @@ mermaid: true
 permalink: /categorias/python/basico/diccionarios
 ---
 
-En Python, el tipo de dato **Diccionario** (`dict`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los objetos **Objects**. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
+En Python, el tipo de dato **Diccionario** (`dict`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los [objetos](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Object_basics){:target='_blank'}. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
 
 Un diccionario de Python tiene las siguientes características:
 
@@ -32,15 +32,14 @@ Un diccionario de Python tiene las siguientes características:
 
 ## __Creando Diccionarios__
 
-Para crear un diccionario se deben usar las llaves `{}` de apertura y cierre. Cada item `clave:valor` en el diccionario debe estar separado de otro par `clave:valor` por comas `,`. 
+Para crear un diccionario en Python se utilizan las llaves `{}` de apertura y cierre. Cada ítem debe estar compuesto por un par `clave:valor`, y cada par debe estar separado de otro par `clave:valor` por comas `,`. 
 
-Veamos el siguiente código donde vamos a almacenar en una variable el diccionario de Python:
+Veamos el siguiente ejemplo, donde almacenamos un diccionario en una variable `car`:
 
 ```python
 car = { 'name': 'Audi', 'model': 'r8', 'color': 'negro' }
 ```
 {: .nolineno }
-
 
 Como se puede observar, es muy simple crear diccionarios en Python siempre y cuando usemos las llaves y respetemos el formato de `clave:valor`.
 
