@@ -43,8 +43,6 @@ print(val)
 
 {% include terminal-wrapper.html content=ej1_input %}
 
-
-
 ### __Salida: para Print__
 
 Sin duda la función más conocida de todas. Lo que hace `print()` es imprimir por la salida estándar la representación en un *string* de cualquier objeto. Además tiene varios parámetros de entrada opcionales que modifican su comportamiento.

@@ -6,6 +6,7 @@ image:
     path: posters/interprete-de-python.webp
     lqip: data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJYwAu/8BI9M77/2lcgAD+qgI/Fbsm6FPNhAk/w5fGidEa+g+aH7wjANd2HfKparmqLHNDu9pYKg+34VwNy+us+AIYGVG9YAA=
 mermaid: true
+permalink: /categorias/python/basico/usando-el-interprete
 ---
 
 En este artículo, exploraremos qué es el **intérprete de Python**, cómo funciona y por qué es una pieza clave en la ejecución de programas creados en este lenguaje. También cubriremos (aunque no en profundidad) los diferentes tipos de intérpretes disponibles y cómo usarlos en **modo interactivo** o a través de **scripts**.

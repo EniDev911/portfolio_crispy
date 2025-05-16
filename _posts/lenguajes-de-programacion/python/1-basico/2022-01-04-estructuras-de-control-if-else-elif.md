@@ -6,6 +6,7 @@ image:
     path: "posters/python-estructuras-de-control.webp"
     lqip: data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJQBibAl4ulhXEuXoAAP7L5f9RXsuXTmYBIKqe0umlxeSVuDuABAFyesqrvpYEF2T2dM/zfWLNzb8mAAA=
 mermaid: true
+permalink: /categorias/python/basico/estructuras-condicionales
 ---
 
 En cualquier lenguaje de programación, las **estructuras de control** son fundamentales. Son las que permiten que un programa tome decisiones, ejecutando diferentes bloques de código según ciertas condiciones y repetir bloques de código ( __bucles__ ).

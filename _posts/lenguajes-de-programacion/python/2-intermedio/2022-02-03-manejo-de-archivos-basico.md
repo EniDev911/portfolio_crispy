@@ -1,15 +1,17 @@
 ---
-title: "Python 🐍 : Manejo de Archivos"
+title: "Python 🐍 : Manejo de Archivos Básico"
 author: enidev911
 categories: [Python, "02. Intermedio"]
 tags: [Manejo de archivos, Python]
+mermaid: true
+image:
+    path: posters/python-manejo-de-archivos-basico.webp
+    lqip: data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJZQAAUqq2m2bgAP7D/qau5+ywS3RU3YV0bnTeoDTDOHrTLqnOAAAA
 ---
 
-Uno de los aspectos más comunes al programar es el **manejo de archivos**. Python nos facilita la interacción con archivos mediante su módulo incorporado `open()`, el cual permite abrir archivos, leer su contenido, escribir datos e incluso modificar archivos existentes.
+Uno de los aspectos más comunes en la programación es el manejo de archivos. Python nos facilita la interacción con archivos mediante su módulo incorporado `open()`, que permite abrir, leer, escribir y modificar archivos fácilmente.
 
-En este artículo, nos vamos a enfocar principalmente en **leer** y **escribir** archivos como los que creamos en un editor de texto. Más adelante veremos cómo trabajar con archivos de bases de datos, que son archivos binarios diseñados específicamente para ser leídos y escritos a través de software para el manejo de bases de datos.
-
-Cuando queremos abrir un archivo (digamos, en el disco duro), primero debemos **abrir el archivo**. Al abrir el archivo nos comunicamos con el sistema operativo, el cual sabe dónde están almacenados los datos de cada archivo. Cuando abres un archivo, le estás pidiendo al sistema operativo que encuentre el archivo por su nombre y se asegure que existe.
+En este artículo, nos enfocaremos en cómo __leer y escribir archivos de texto__, como los que se crean con un editor. Más adelante veremos cómo manejar archivos más complejos, como bases de datos, que son archivos binarios diseñados específicamente para ser usados por sistemas especializados.
 
 ## __¿Por qué es importante el manejo de archivos?__
 
@@ -24,6 +26,7 @@ Guardar información para que esté disponible incluso después de cerrar el pro
 - Gestores de tareas
 - Juegos que necesitan guardar el progreso
 - Formularios o encuestas donde se guardan respuestas
+- Carritos de compras en tienda online
 
 ### 🔁 __2. Automatización de tareas__
 
@@ -57,14 +60,30 @@ Guardar el comportamiento del programa o de los usuarios en un archivo log es fu
 - Rastrear errores
 - Generar estadísticas internas
 
+## __¿Cómo funciona la apertura de archivos?__
+
+Para abrir un archivo, una aplicación solicita al sistema operativo el acceso y el sistema operativo gestiona su apertura. El proceso se realiza de la siguiente manera:
+
+```mermaid
+flowchart TD
+    A[Aplicación pide abrir un archivo] --> B[SO busca el archivo]
+    B --> C{¿Archivo encontrado?}
+    C -- No --> X["Error: no existe"]
+    C -- Sí --> D[Verificar permisos]
+    D --> E{"¿Permisos válidos?"}
+    E -- No --> Y[Error: acceso denegado]
+    E -- Sí --> F[Preparar archivo para acceso]
+    F --> G["Devolver identificador a la aplicación"]
+```
+
 ## __📝 Abrir archivos con Python__
 
-La función más común para abrir archivos en Python es `open()`. Esta función te permite especificar el __modo__ en el que quieres abrir el archivo, lo que determina qué operaciones podrás realizar (leer, escribir, agregar contenido, etc).
+La manera más habitual de trabajar con archivos en Python utilizando la función incorporada `open()`. Esta función permite abrir un archivo y especificar el __modo de apertura__, lo que determina qué tipo de operaciones se pueden realizar sobre él (leer, escribir, agregar contenido, etc).
 
-> Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos.
+> Es importante dominar los conceptos de **ruta relativa** y **ruta absoluta** para trabajar con archivos. Te recomiendo este artículo: <https://phoenixnap.com/kb/absolute-path-vs-relative-path>
 {: .prompt-warning }
 
-La función `open()` espera como primer argumento la **ruta del archivo** que queremos manejar, proporcionada como una cadena de texto ( `string` ), y como segundo argumento el **modo de apertura** también especificado como una cadena de texto.
+La función `open()` recipe como primer argumento la **ruta del archivo** que se desea manejar, proporcionada como una cadena de texto ( `string` ). El segundo argumento es el **modo de apertura**, también especificado como una cadena de texto, y define cómo se interactuará con el archivo.
 
 __Sintaxis Básica - open__
 
@@ -72,6 +91,8 @@ __Sintaxis Básica - open__
 archivo = open("ruta/del/archivo.txt", "modo", encoding="utf-8")
 ```
 {: .nolineno }
+
+__Argumentos__:
 
 - `"ruta/del/archivo.txt"`: es la ubicación del archivo que deseas abrir. Puede ser una ruta relativa (como "archivo.txt") o una ruta absoluta (como "/home/usuario/documentos/archivo.txt").
 
@@ -117,16 +138,16 @@ Marco
 Luis
 Gabriel
 Alejandro
+Pedro
 ```
 {: file='amigos.txt' }
-
 
 Luego de usar la función `open`, abrimos el archivo en modo lectura (si no le pasamos un segundo argumento a la función `open()` por defecto es modo lectura) y usamos el método `read()` del manejador:
 
 {% capture example_open_read %}
 &gt;&gt;&gt; manejador = open('amigos.txt')
 <span class="hl">&gt;&gt;&gt; manejador.read()</span>
-&quot;Marco\nLuis\nGabriel\nAlejandro&quot;
+&quot;Marco\nLuis\nGabriel\nAlejandro\nPedro&quot;
 {% endcapture %}
 
 {% include terminal-wrapper.html content=example_open_read %}
@@ -134,21 +155,21 @@ Luego de usar la función `open`, abrimos el archivo en modo lectura (si no le p
 Este método `read()` lee todo el contenido del archivo como una sola cadena de texto. Puede ser útil para archivos pequeños.
 
 > Una vez ejecutado el método `read()` del manejador si no se guarda el resultado en una variable, se debe volver a posicionar el puntero al inicio (usando el método `seek(0)` del maneajor).
-{: .prompt-warning }
+{: .prompt-info }
 
 ### __Leer por cantidades__
 
 El método `read()` si se le pasa el argumento `size` lee esa cantidad de bytes. Si se omite lee todo el el contenido restante del archivo.
 
-```py
->>> manejador = open('amigos.txt')
->>> manejador.read(10)
-'Marco\nLuis'
->>> manejador.read()
-'\nGabriel\nAlejandro'
-```
-{: .nolineno .noheader }
+{% capture example_open_size_read %}
+&gt;&gt;&gt; manejador = open('amigos.txt')
+<span class="hl">&gt;&gt;&gt; manejador.read(10)</span>
+&quot;Marco\nLuis&quot;
+<span class="hl">&gt;&gt;&gt; manejador.read()</span>
+&quot;\nGabriel\nAlejandro\nPedro&quot;
+{% endcapture %}
 
+{% include terminal-wrapper.html content=example_open_size_read %}
 
 ### __Leer línea por línea__
 
@@ -179,16 +200,16 @@ El método `readlines()` lee todas las líneas del archivo y las devuelve como u
 
 ## __Escritura de un archivo - Modo lectura ( "w" )__
 
-Para escribir texto en un archivo hay que abrir el archivo en **modo escritura**. Para ello utilizamos el *argumento adicional* en la función `open()` que se indica en la siguiente operación:
+Para escribir texto en un archivo en Python, es necesario abrir el archivo en el **modo escritura**:
 
 ```python
 manejador = open('amigos.txt', 'w')
 ```
 {: .nolineno }
 
-### write()
+### __Escribir una sola cadena__
 
-Luego usaremos el método `write()` del manejador para escribir en el archivo anterior:
+El método `write()` se utiliza para escribir una única cadena de texto en un archivo. Es importante destacar que __no añade automáticamente saltos de línea__. Por lo tanto, si deseas que cada entrada aparezca en una línea separada, debes incluir explícitamente el carácter de nueva línea (`\n`) al final de cada cadena.
 
 ```python
 manejador = open('amigos.txt', 'w')
@@ -205,13 +226,12 @@ Juan
 
 Esto sucede porque el segundo argumento `'w'` se refiere al modo de **solo escritura**, por lo que los datos existentes en el archivo de modifican y sobrescriben y si el archivo aún no existe, se crea uno nuevo. Por otro lado no podemos leer el archivo usando el método `read()` si quisieramos leer el archivo debemos usar `'w+'` para cambiar al modo de **escritura y lectura**.
 
-### Escribir al final de un archivo
+### __Escribir al final de un archivo__
 
 Tenemos entonces ahora el modo de **solo agregar** (*append*) `'a'` que nos permite abrir el archivo para escritura y de la misma forma que `'w'` si el archivo aún no existe, se crea uno nuevo. La diferencia es que en este modo el cursor del manejador se establece al final del archivo y así los datos recíen escritos se agregarán al final, manteniendo los datos escritos anteriormente:
 
 ```python
 manejador = open('amigos.txt', 'a')
-
 manejador.write("\nJuan") # '\n' es para generar un salto de línea 
 ```
 {: .nolineno }
@@ -230,10 +250,7 @@ El método `writelines()` nos permite escribir múltiples líneas a la vez. Ejem
 ```
 {: .nolineno .noheader }
 
----
-
-
-## Propiedades del objeto file
+## __Propiedades del objeto file__
 
 Además de los diferentes métodos que podemos acceder desde el **objeto File**, también podemos acceder a diferentes propiedades para conocer más sobre el objeto que estamos utilizando.
 
@@ -258,53 +275,6 @@ manejador.close()
 manejador.closed # True
 ```
 {: .nolineno .noheader }
-
-
----
-
-## **Utilizando la estructura with**
-
-La **estructura with** es una estructura de control, Python define a la estructura `with` como **un administrador de contexto** (*context manager*).
-
-{:class='fs-5'}
-Un ejemplo sería:
-
-```py
-with open("ejemplo.txt", "r") as archivo:
-  content = archivo.read()
-```
-{:file='demos/uso_with.py'}
-
-> Utilizar esta estructura es que nos cerrará automáticamente el objeto sin necesidad de tener que llamar explícitamente al método `close()` para cerrarlo manualmente.
-{: .prompt-info }
-
----
-
-## **Manejando excepciones usando with**
-
-> Este apartado requiere haber estudiado sobre **Menejo de excepciones**
-{: .prompt-info }
-
-El uso de `with` resuelve problemas y puede lidiar de mejor manera con **objetos** que utilizan **recursos** externos. Es una excelente combinación el uso de `with` con el manejo de excepciones con las cláusulas `try` `except`.
-
-Un ejemplo muy típico es intentar abrir un archivo, pero capturar una posible excepción. 
-
-{:class='fs-5'}
-Veamos el ejemplo
-
-```py
-# Se intenta abrir un archivo y se captura una posible excepción
-try:
-  with open('archivo.txt') as file:
-    read_data = file.read()
-    print(read_data)
-except:
-  # Se entra aquí si no pudo ser abierto
-  print('No se pudo abrir')
-```
-{: .nolineno }
-
----
 
 ## **Consideraciones adicionales**
 
@@ -344,9 +314,9 @@ else:
 > Esto también puede ser útil cuando estás realizando operaciones de escritura y no deseas sobrescribir un archivo accidentalmente.
 {: .prompt-tip }
 
-### **Permisos de Archivos**
+### __Permisos de Archivos__
 
-En sistemas operativos como **Linux** o **MacOS**, los archivos pueden tener permisos restrictivos. Por eso debemos estar seguros si ese archivo tiene los permisos adecuados para leer o escribir en él:
+En sistemas operativos como **Linux** o **MacOS**, los archivos pueden tener permisos restrictivos. Por eso debemos estar seguros si ese archivo tiene los permisos adecuados para leer o escribir en él. Por ejemplo:
 
 ```py
 import os
@@ -354,10 +324,16 @@ import os
 archivo = "archivo.txt"
 
 if os.access(archivo, os.R_OK):  # Verifica si se puede leer
-    with open(archivo, "r") as f:
-        contenido = f.read()
-        print(contenido)
+    archivo = open(archivo, "r")
+    print(archivo.read())
+    archivo.close()
 else:
     print("No tienes permiso para leer este archivo.")
 ```
 {: .nolineno }
+
+{% include circle-line.html %}
+
+El manejo de archivos en Python es esencial para almacenar y recuperar datos de manera persistente. La función `open()` permite abrir archivos en diversos modos (lectura, escritura, adición) y se debe cerrar adecuadamente para liberar recursos.
+
+Además, los métodos `write()` y `writelines()` permiten escribir datos en archivos, siendo `write()` adecuado para una única cadena y `writelines()` para listas de cadenas. Es importante recordar que ninguno de estos métodos añade saltos de línea automáticamente; por lo tanto, se debe incluir explícitamente `\n` si se desea separar las líneas en el archivo.

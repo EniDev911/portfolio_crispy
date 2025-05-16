@@ -10,6 +10,7 @@ pin: true
 image:
     path: "posters/python-variables.webp"
     lqip: data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAwCdASoUAAsAPzmGu1QvKSYjMAgB4CcJYwAAUqmETGJJDTgAAP7ASzru7Llu3/JrGGY1rce86VMUhGjbMk3J3rBnab3RaWYAAA==
+permalink: /categorias/python/basico/variables-y-tipos
 ---
 
 En el mundo de la programación, las variables son conceptos fundamentales que actúan como contenedores para almacenar datos. En Python, las variables son sencillas de usar y entender, lo que hace que sea un lenguaje amigable para quienes están comenzando a programar. En este artículo, exploraremos qué son las variables en Python, cómo se usan, y algunas de las características más interesantes sobre las variables.

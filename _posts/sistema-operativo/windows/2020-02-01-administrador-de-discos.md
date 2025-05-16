@@ -1,6 +1,9 @@
 ---
 title: "Windows : Administrador de Discos"
 categories: ["Sistemas Operativos", "Windows"]
+image:
+    path: posters/windows-administrador-de-discos.webp
+    lqip: data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJZQAAW9NUnUZxKfBAAP7ankW4ehdlsW8jCat4BJIuI/7bfFz5Z+6hK2sjYshOdXXjKTajR+AAAA==
 ---
 
 El __Administrador de discos__ es una __herramienta del sistema__ incluida en Windows que te permite ver y administrar todos los discos y particiones conectados a la computadora.
@@ -60,7 +63,7 @@ _Resumen de la nueva partición que se creará_
 
 Listo. Ahora tenemos una nueva partición para almacenar nuestros archivos. Aparecerá como __una nueva unidad en el Explorador de archivos__.
 
-![Nueva partición creada](windows/nueva-particion-explorar-de-archivos.webp)
+![Nueva partición creada](windows/nueva-particion-explorar-de-archivos.webp){:style='border: 2px solid #ccc'}
 _Nueva partición creada_
 
 > Es una __Buena práctica__ separar tus archivos del sistema operativo. Si Windows falla y necesitás reinstalarlo, puedes formatear solo la unidad `C:` sin borrar tus archivos, que están en la nueva partición.

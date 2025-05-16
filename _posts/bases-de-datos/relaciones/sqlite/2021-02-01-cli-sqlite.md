@@ -70,9 +70,19 @@ Para crear una base de datos, debes abrir una nueva __Terminal__ o ventana de __
 sqlite3 sistema.db
 ```
 
-
 > **Si la base de datos no existe, creará el archivo de base de datos una vez que tengamos como mínimo creada una tabla**.
 {: .prompt-info }
+
+El comando anterior abre un __entorno interactivo__ y se ve de la siguiente manera:
+
+```sql
+SQLite version 3.40.1 2022-12-28 14:03:47
+Enter ".help" for usage hints.
+sqlite>
+```
+{: .nolineno .noheader }
+
+Ahora puedes ejecutar instrucciones SQL.
 
 ### __Crear Tablas__
 
@@ -87,7 +97,6 @@ CREATE TABLE usuarios (id INT, nombre TEXT);
 {: .prompt-info }
 
 ![sqlite crear una base de datos](sqlite/create-filedb.webp)
-
 
 ### __Insertar Datos__
 
@@ -134,6 +143,45 @@ sqlite> SELECT * FROM usuarios;
 {% endtab %}
 {% endtabs %}
 
+### __Actualizar Registros__
+
+Modificar datos existentes con el comando `UPDATE`:
+
+{% tabs update_datos %}
+{% tab update_datos SQL %}
+```sql
+UPDATE usuarios SET nombre = 'alonso' WHERE nombre = 'marcelo';
+```
+{: .nolineno }
+{% endtab %}
+{% tab update_datos SQLite3 %}
+```sql
+sqlite> UPDATE usuarios SET nombre = 'alonso' WHERE nombre = 'marcelo';
+```
+{: .nolineno .noheader }
+{% endtab %}
+{% endtabs %}
+
+### __Eliminar Registros__
+
+Borrar registros específicos:
+
+{% tabs del_datos %}
+{% tab del_datos SQL %}
+```sql
+DELETE FROM usuarios WHERE nombre = 'marco';
+```
+{: .nolineno }
+{% endtab %}
+{% tab del_datos SQLite3 %}
+```sql
+sqlite> DELETE FROM usuarios WHERE nombre = 'marco';
+```
+{: .nolineno .noheader }
+{% endtab %}
+{% endtabs %}
+
+
 > Para salir del programa **sqlite3** escribe el comando `.q` o con el atajo <kbd>Ctrl</kbd> + <kbd>D</kbd> y luego <kbd>Enter</kbd>.
 {: .prompt-info }
 
@@ -161,10 +209,22 @@ Estos comandos de puntos se utilizan normalmente para cambiar el formato de sali
 
 Para ver el esquema, donde figuran las sentencias SQL ejecutadas en la creación de tablas, ejecuta el comando `.schema` o `.fullschema`:
 
-```
+{% tabs ver_schema %}
+{% tab ver_schema Comando %}
+```sql
 .fullschema
 ```
 {: .nolineno }
+{% endtab %}
+{% tab ver_schema SQLite3 %}
+```sql
+sqlite> .fullschema
+CREATE TABLE usuarios (id INT, nombre TEXT);
+/* No STAT tables available */
+```
+{: .nolineno .noheader }
+{% endtab %}
+{% endtabs %}
 
 ### __Ver las tablas existentes__
 
@@ -293,7 +353,7 @@ Esto creará un archivo **resumen.csv** con el total de ventas por categoría.
 Para definir opciones de forma permanente al ejecutar sqlite3, crea un archivo de configuración `.sqliterc` en el directorio del usuario. Ejemplo:
 
 ```terminal
-nano ~/.sqliterc  # O usa vi, vim, o cualquier editor de texto
+nano ~/.sqliterc
 ```
 
 Luego añade las opciones que quieres que se apliquen siempre:
@@ -310,3 +370,7 @@ Al abrir nuevamente el programa se aplican esas configuraciones.
 
 ![aplicar las configuraciones](sqlite/load-sqliterc-light.webp){: .light }
 ![aplicar las configuraciones](sqlite/load-sqliterc-dark.webp){: .dark }
+
+{% include circle-line.html %}
+
+La línea de comandos de SQLite3 es una herramienta ligera que te permite administrar bases de datos de forma eficiente, sin necesidad de instalar programas gráficos o servidores adicionales. Es __ideal para quienes están aprendiendo__ SQL, ya que ofrece una forma rápida y directa de practicar y ejecutar consultas.
