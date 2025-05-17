@@ -116,30 +116,28 @@ graph LR
     F --> F6["<code class='hl'>my_dict.get(key, default)</code>: Retorna el valor de la clave o el por defecto si no existe"]
 ```
 
-### __Obtener elementos__
+### __Acceder a valores__
 
-Para obtener un elemento basta con escribir la **clave** entre `[]`. Veamos el siguiente ejemplo:
+Para acceder a un valor basta con escribir la **clave** entre `[]`. Por ejemplo:
 
-```python
-car = { 'name': 'Audi', 'model': 2012, 'color': 'black' }
-car['name'] # 'Audi'
-```
-{: .nolineno }
+{% capture acceder_a_valores %}
+&gt;&gt;&gt; mis_datos = {"nombre": "Marco", "edad": 32, "ciudad": "Coquimbo"}
+<span class="hl">&gt;&gt;&gt; mis_datos["nombre"]</span>
+&quot;Marco&quot;
+{% endcapture %}
+{% include terminal-wrapper.html content=acceder_a_valores %}
 
-Si intentamos acceder a una clave que no existe, obtendremos un error:
+> Cuidado con las claves inexistentes. Si intentamos acceder a una clave que no existe, obtendremos un error tipo [`KeyError`](https://docs.python.org/3/library/exceptions.html#KeyError){:target='_blank'}
+{: .prompt-warning }
 
-```py
-car['owner']
-```
-{: .nolineno }
-
-```python
+{% capture acceder_a_valores %}f
+<span class="hl">&gt;&gt;&gt; mis_datos["apodo"]</span>
 Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-    car['owner']
-KeyError: 'owner'
-```
-{: .noheader .nolineno }
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+<span class="hl">KeyError: 'apodo'</span>
+{% endcapture %}
+{% include terminal-wrapper.html content=acceder_a_valores %}
+
 
 Sin embargo, existe un método muy útil para manejar los posibles errores de accesos por claves inexistentes. Se trata de `get()` y su comportamiento es el siguiente:
 
