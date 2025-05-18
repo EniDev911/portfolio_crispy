@@ -77,3 +77,9 @@ certificates:
     url: "https://www.acreditta.com/credential/9000349f-4634-4d06-a26b-9af13d6ac952"
     image: "/assets/img/certificados/td-ruby-on-rails.webp"
     image_base64: "UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbACw7CFTFRVL48RJ8Y3SsAD2t8JSqbh5jporSSUXsRJVW2h18uAvfCynHIBtnfkm6VxHbPF4WkltCLSXnSxQcx3s77RWkcRRqBjynhKbriBHUoAAAA=="
+
+  - title: "Carlos Slim"
+    description: "Desarrollador Front-end"
+    url: "https://capacitateparaelempleo.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/73b48bbf-94e9-4045-92e9-0004f3cc0b0b"
+    image: "/assets/img/certificados/carlos-slim-frontend.webp"
+    image_base64: "UklGRpwAAABXRUJQVlA4WAoAAAAQAAAAEwAADgAAQUxQSDUAAAABP0AgadM/6niGbzUiIkJrh5pIdqp8LURAFKTDAAKwgAb8l1fSR/R/AtbG54KTdP7gNNV4AQBWUDggQAAAALADAJ0BKhQADwA/OYa5U68pJaKwCAHgJwllAABSWufIoa5+kLYAAPcruOuqEiHUYjZUT+edHgVZjt80Ng4AAAA="

@@ -44,6 +44,10 @@ em.type {
   color: var(--text-color) !important;
 }
 
+.inner-parens {
+  padding: 0 0.22em; /* Espacio dentro de los paréntesis */
+}
+
 .noheader {
 	overflow: hidden;
 	padding-top: 10px;
@@ -122,7 +126,7 @@ svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
     top: 50%;
     left: 0;
   }
-  
+
   .hr-lines:after{
     content:" ";
     height: 2px;

@@ -12,9 +12,9 @@ permalink: /categorias/python/basico/diccionarios
 
 En Python, un **diccionario** (`dict`) es usado para almacenar una colección de valores en la forma de clave-valor (*key-value*). Si vienes de otros lenguajes de programación como JavaScript, podemos decir que los diccionarios son similares a los [objetos](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Object_basics){:target='_blank'}. Los diccionarios de Python pueden almacenar tanto su clave como su valor con contenido de diferentes tipos.
 
-## __¿Qué es un Diccionario?__
+## __¿Qué es un Diccionario de Python?__
 
-Un diccionario es una colección __no ordenada__, __modificable__ e __indexada__ que __no permite duplicados__. Se define con llaves `{}` y contiene pares `clave:valor`.
+En Python, un diccionario es una estructura de datos que almacena un conjunto de pares de `clave:valor` y es una colección __no ordenada__, __modificable__ e __indexada__ que __no permite duplicados__. Se define con llaves `{}` y contiene pares de `clave:valor`.
 
 Los diccionarios funcionan de forma análoga a los diccionarios en la vida real, aunque con algunas diferencias. Por ejemplo, un diccionario de idiomas:
 
@@ -118,7 +118,7 @@ graph LR
 
 ### __Acceder a valores__
 
-Para acceder a un valor basta con escribir la **clave** entre `[]`. Por ejemplo:
+Para acceder a un valor basta con escribir la **clave** entre corchetes `[]`. Por ejemplo:
 
 {% capture acceder_a_valores %}
 &gt;&gt;&gt; mis_datos = {"nombre": "Marco", "edad": 32, "ciudad": "Coquimbo"}
@@ -130,7 +130,7 @@ Para acceder a un valor basta con escribir la **clave** entre `[]`. Por ejemplo:
 > Cuidado con las claves inexistentes. Si intentamos acceder a una clave que no existe, obtendremos un error tipo [`KeyError`](https://docs.python.org/3/library/exceptions.html#KeyError){:target='_blank'}
 {: .prompt-warning }
 
-{% capture acceder_a_valores %}f
+{% capture acceder_a_valores %}
 <span class="hl">&gt;&gt;&gt; mis_datos["apodo"]</span>
 Traceback (most recent call last):
   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
@@ -139,31 +139,32 @@ Traceback (most recent call last):
 {% include terminal-wrapper.html content=acceder_a_valores %}
 
 
-Sin embargo, existe un método muy útil para manejar los posibles errores de accesos por claves inexistentes. Se trata de `get()` y su comportamiento es el siguiente:
+Sin embargo, existe un método muy útil para manejar los posibles errores de accesos por claves inexistentes. Se trata de `.get()` y su comportamiento es el siguiente:
 
 1. Si la clave que buscamos existe, nos retorna su valor.
 2. Si la clave que buscamos no existe, nos retorna `None`, salvo que indiquemos otro valor por defecto, pero en ninguno de los casos obtendremos un error.
 
-```python
-car.get('color') # white
-car.get('colorin') # None
-car.get('colorino', 'No existe esta clave') # 'No existe esta clave'
-```
-{: .nolineno }
+{% capture acceder_a_valores_con_get %}
+<span class="hl">&gt;&gt;&gt; mis_datos.get("nombre")</span>
+&quot;Marco&quot;
+<span class="hl">&gt;&gt;&gt; mis_datos.get("apodo", "No existe esta clave")</span>
+&quot;No existe esta clave&quot;
+{% endcapture %}
+{% include terminal-wrapper.html content=acceder_a_valores_con_get %}
 
 ### __Añadir o modificar un elemento__
 
 Para añadir un elemento a un diccionario sólo es necesario hacer referencia a la `clave` y asignarle un `valor`:
 
 - Si la clave **ya existía** en el diccionario, **se remplaza** el valor existente por el nuevo.
-- Si la clave **es nueva**, **se añade** al diccionario con su valor. *No vamos a obtener un error a diferencia de las listas*.
+- Si la clave **es nueva**, **se añade** al diccionario con su valor.
 
-Paratamos del siguiente diccionario para ejemplificar las acciones:
+Partamos con el siguiente diccionario de ejemplo:
 
 ```python
-user = {
-  "name": "Marco",
-  "nickname": "Enidev911"
+usuario = {
+  "nombre": "Marco",
+  "apodo": "El Marco Polo"
 }
 ```
 {: .nolineno }
@@ -171,29 +172,27 @@ user = {
 Si queremos **añadir** el país del usuario a nuestro diccionario, usamos entre corchetes el nombre para la nueva `clave` y le asignamos el `valor`:
 
 ```python
-user['country'] = 'Chilito'
+usuario['pais'] = 'Chilito'
 ```
 {: .nolineno }
 
-
-Si por otro lado, queremos **modificar** el valor tenemos que usar el nombre de la `clave` existente y asignarle el **nuevo** `valor`:
+Por otro lado, si queremos __modificar el valor__, usamos el nombre de la clave existente y le asignamos el nuevo valor:
 
 ```python
-user['country'] = 'Chile'
+usuario['pais'] = 'Chile'
 ```
 {: .nolineno }
-
 
 ### __Obtener todas las claves de un diccionario__
 
-Mediante el método `keys()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene las **clave** del diccionario en forma de **lista**:
+Mediante el método `.keys()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene las **clave** del diccionario en forma de **lista**:
 
 ```python
 user.keys() # dict_keys(['name', 'nickname', 'country'])
 ```
 {: .nolineno }
 
-### **Obtener todos los valores de un diccionario**
+### __Obtener todos los valores de un diccionario__
 
 De forma análoga con el método `values()` podemos retornar un objeto de vista. La vista de objetos contiene los **valores** del diccionario en forma de **lista**:
 
