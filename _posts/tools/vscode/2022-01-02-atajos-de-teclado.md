@@ -14,7 +14,7 @@ Aquí algunos que definitivamente deberías incorporar a tu flujo diario ordenad
 |<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>|Abre una nueva instancia de VsCode.|
 |<kbd>Ctrl</kbd> + <kbd>N</kbd>|Crea un nuevo archivo sin guardar.|
 |<kbd>Ctrl</kbd> + <kbd>S</kbd>|Guardar el archivo.|
-|<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>|Realiza la acción __\<\<Guardar Como\>\>__.|
+|<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>|Realiza la acción __"Guardar Como"__.|
 |<kbd>Ctrl</kbd> + <kbd>O</kbd>|Abrir un archivo del explorador de archivos.|
 |<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd>|Cerrar la instancia actual de VsCode.|
 |<kbd>Ctrl</kbd> + <kbd>B</kbd>|Mostrar/Ocultar la barra lateral.|

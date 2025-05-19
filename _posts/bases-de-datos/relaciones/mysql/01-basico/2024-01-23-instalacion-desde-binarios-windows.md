@@ -211,6 +211,6 @@ ALTER USER user() IDENTIFIED BY '<new-password>';
 ```
 {: .nolineno }
 
----
+{% include circle-line.html %}
 
-Este sería un ejemplo, que explica de forma ordenada cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. **¡Espero que te sirva!** Sigue explorando y aprendiendo más sobre MySQL y otras tecnologías.
+Este sería un ejemplo, que explica de forma ordenada cómo implementar una instalación limpia de MySQL desde los binarios en Windows y configurar las opciones de inicio del servidor. ¡Espero que te sirva! __Sigue explorando y aprendiendo más sobre MySQL__ y otras tecnologías.

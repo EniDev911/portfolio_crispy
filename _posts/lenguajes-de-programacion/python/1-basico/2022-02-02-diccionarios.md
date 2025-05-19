@@ -14,7 +14,7 @@ En Python, un **diccionario** (`dict`) es usado para almacenar una colección de
 
 ## __¿Qué es un Diccionario de Python?__
 
-En Python, un diccionario es una estructura de datos que almacena un conjunto de pares de `clave:valor` y es una colección __no ordenada__, __modificable__ e __indexada__ que __no permite duplicados__. Se define con llaves `{}` y contiene pares de `clave:valor`.
+En Python, un diccionario __es una estructura de datos__ que almacena un conjunto de pares de `clave:valor` y es una colección __no ordenada__, __modificable__ e __indexada__ que __no permite duplicados__. Se define con llaves `{}` y contiene pares de `clave:valor`.
 
 Los diccionarios funcionan de forma análoga a los diccionarios en la vida real, aunque con algunas diferencias. Por ejemplo, un diccionario de idiomas:
 
@@ -97,7 +97,7 @@ Otra forma es pasar la clave como nombre de argumento y asignarle el valor:
 > Para crear un diccionario vacío, se suele recomendar el uso de `{}` frente a `dict()`, no sólo por ser más pitónico sino por tener ( en promedio ) un mejor rendimiento en tiempos de ejecución.
 {: .prompt-tip }
 
-Ya que sabemos cómo crear diccionarios, ahora seguimos con las operaciones con diccionarios. 
+Ahora que sabes cómo crear diccionarios en Python, es momento de ver las operaciones más comunes que puedes hacer con ellos.
 
 ## __Operaciones Comunes con Diccionarios__
 
@@ -130,14 +130,13 @@ Para acceder a un valor basta con escribir la **clave** entre corchetes `[]`. Po
 > Cuidado con las claves inexistentes. Si intentamos acceder a una clave que no existe, obtendremos un error tipo [`KeyError`](https://docs.python.org/3/library/exceptions.html#KeyError){:target='_blank'}
 {: .prompt-warning }
 
-{% capture acceder_a_valores %}
+{% capture cuidado_con_keyerror %}
 <span class="hl">&gt;&gt;&gt; mis_datos["apodo"]</span>
 Traceback (most recent call last):
   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
 <span class="hl">KeyError: 'apodo'</span>
 {% endcapture %}
-{% include terminal-wrapper.html content=acceder_a_valores %}
-
+{% include terminal-wrapper.html content=cuidado_con_keyerror %}
 
 Sin embargo, existe un método muy útil para manejar los posibles errores de accesos por claves inexistentes. Se trata de `.get()` y su comportamiento es el siguiente:
 

@@ -9,7 +9,7 @@ image:
     alt: "Cómo instalar MySQL en MacOS"
 ---
 
-En este post, cubriremos la instalación de MySQL en macOS, cómo configurarlo para que funcione y cómo verificar que la instalación se haya completado correctamente.
+En este artículo, cubriremos la instalación de MySQL en macOS, cómo configurarlo para que funcione y cómo verificar que la instalación se haya completado correctamente.
 
 ### **Paso 1: Descargar MySQL**
 

@@ -13,7 +13,7 @@ pin: true
 
 En este post, cubriremos la instalación de MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
 
-## **Requisitos Previos**
+## __Requisitos Previos__
 
 Antes de comenzar, asegurate de tener lo siguiente:
 
@@ -183,3 +183,7 @@ sudo apt-get remove --purge mysql-server mysql-client mysql-common mysql-server-
 sudo apt-get autoremove
 sudo apt-get autoclean
 ```
+
+{% include circle-line.html %}
+
+Este sería un ejemplo, que explica de forma ordenada cómo implementar una instalación limpia de MySQL en Ubuntu y configurar las opciones de inicio del servidor. ¡Espero que te sirva! __Sigue explorando y aprendiendo más sobre MySQL__ y otras tecnologías.

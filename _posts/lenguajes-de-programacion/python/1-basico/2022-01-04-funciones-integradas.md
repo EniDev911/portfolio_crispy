@@ -23,7 +23,7 @@ input(prompt)
 {: .nolineno }
 
 
->__`prompt`__: Una cadena de texto (*`string`*) que se muestra como un mensaje de ayuda para el usuario que interactua con el programa.
+> __`prompt`__: Una cadena de texto (*`string`*) que se muestra como un mensaje de ayuda para el usuario que interactua con el programa.
 {: .prompt-info }
 
 **Ejemplo de uso**
@@ -73,9 +73,6 @@ print("Bienvenido", "al", "Mundo", "de", "Python", sep="\n")
 print("Python", "te", "saluda", sep="\n", end="\n*-*-*-\n")
 ```
 {: .nolineno }
-
-
-
 
 ## __Funciones matemáticas__
 
