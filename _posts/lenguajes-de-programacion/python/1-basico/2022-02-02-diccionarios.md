@@ -187,35 +187,31 @@ usuario['pais'] = 'Chile'
 
 Mediante el método `.keys()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene las **clave** del diccionario en forma de **lista**:
 
-```python
-user.keys() # dict_keys(['name', 'nickname', 'country'])
-```
-{: .nolineno }
+{% capture retornar_keys %}
+<span class="hl">&gt;&gt;&gt; usuario.keys()</span>
+dict_keys(['nombre', 'apodo', 'pais'])
+{% endcapture %}
+{% include terminal-wrapper.html content=retornar_keys %}
 
 ### __Obtener todos los valores de un diccionario__
 
 De forma análoga con el método `values()` podemos retornar un objeto de vista. La vista de objetos contiene los **valores** del diccionario en forma de **lista**:
 
-```python
-user.keys() # dict_keys(['Marco', 'Enidev911', 'Chile'])
-```
-{: .nolineno }
+{% capture retornar_values %}
+<span class="hl">&gt;&gt;&gt; usuario.values()</span>
+dict_values(['Marco', 'El Marco Polo', 'Chile'])
+{% endcapture %}
+{% include terminal-wrapper.html content=retornar_values %}
 
 ### __Obtener todos los pares clave-valor de un diccionario__
 
-Mediante el método `items()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene tuplas como elementos conpuestas por pares **clave-valor** del diccionario en forma de vista:
+Mediante el método `.items()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene tuplas como elementos conpuestas por pares **clave-valor** del diccionario en forma de vista:
 
-```python
-user.items() 
-```
-{: .nolineno }
-
-El resultado:
-
-```python
-dict_items([('name', 'Marco'), ('nickname', 'Enidev911'), ('country', 'Chile')])
-```
-{: .noheader .nolineno }
+{% capture retornar_items %}
+<span class="hl">&gt;&gt;&gt; usuario.items()</span>
+dict_items([('nombre', 'Marco'), ('apodo', 'El Marco Polo'), ('pais', 'Chile')])
+{% endcapture %}
+{% include terminal-wrapper.html content=retornar_items %}
 
 ### __Borrar elementos__
 
@@ -225,7 +221,7 @@ Python nos proporciona, al menos, tres formas de borrar elementos en un dicciona
 : Mediante la sentencia `del`:
 
 ```python
-del user['country']
+>>> del usuario['pais']
 ```
 {: .nolineno }
 
@@ -233,7 +229,8 @@ del user['country']
 : Mediante el método `pop()` podemos extraer un elemento del diccionario por su clave esto retornará el valor de la clave extraida:
 
 ```python
-user.pop('country') # Chile
+>>> usuario.pop('pais')
+'Chile'
 ```
 {: .nolineno }
 
@@ -241,8 +238,9 @@ user.pop('country') # Chile
 : Mediante el método `clear()` podemos quitar todos los elementos de un diccionario:
 
 ```python
-user.clear()
-user # {}
+>>> usuario.clear()
+>>> usuario
+{}
 ```
 {: .nolineno }
 
