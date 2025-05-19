@@ -192,9 +192,24 @@ dict_keys(['nombre', 'apodo', 'pais'])
 {% endcapture %}
 {% include terminal-wrapper.html content=retornar_keys %}
 
+> Este objeto `dict_keys` no es una lista como tal, pero puede convertirse fácilmente en una usando `list(usuarios.keys())`.
+{: .prompt-info }
+
+__Ejemplo en Python interactivo para recorrer solo las claves__:
+
+{% capture for_in_keys %}
+<span class="hl">&gt;&gt;&gt; for clave in usuario.keys()
+...    print(clave)</span>
+...
+nombre
+apodo
+pais
+{% endcapture %}
+{% include terminal-wrapper.html content=for_in_keys %}
+
 ### __Obtener todos los valores de un diccionario__
 
-De forma análoga con el método `values()` podemos retornar un objeto de vista. La vista de objetos contiene los **valores** del diccionario en forma de **lista**:
+De igual forma, con el método `.values()` podemos retornar un objeto de vista. La vista de objetos contiene los **valores** del diccionario en forma de **lista**:
 
 {% capture retornar_values %}
 <span class="hl">&gt;&gt;&gt; usuario.values()</span>
@@ -202,15 +217,46 @@ dict_values(['Marco', 'El Marco Polo', 'Chile'])
 {% endcapture %}
 {% include terminal-wrapper.html content=retornar_values %}
 
+> Este objeto `dict_values` no es una lista como tal, pero puede convertirse fácilmente en una usando `list(usuarios.values())`.
+{: .prompt-info }
+
+__Ejemplo en Python interactivo para recorrer solo los valores__:
+
+{% capture for_in_values %}
+<span class="hl">&gt;&gt;&gt; for valor in usuario.values()
+...    print(clave)</span>
+...
+Marco
+El Marco Polo
+Chile
+{% endcapture %}
+{% include terminal-wrapper.html content=for_in_values %}
+
 ### __Obtener todos los pares clave-valor de un diccionario__
 
-Mediante el método `.items()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene tuplas como elementos conpuestas por pares **clave-valor** del diccionario en forma de vista:
+Mediante el método `.items()` de un diccionario podemos retornar un objeto de vista. La vista de objetos contiene __tuplas__ como elementos conpuestas por pares **clave-valor** del diccionario en forma de vista:
 
 {% capture retornar_items %}
 <span class="hl">&gt;&gt;&gt; usuario.items()</span>
 dict_items([('nombre', 'Marco'), ('apodo', 'El Marco Polo'), ('pais', 'Chile')])
 {% endcapture %}
 {% include terminal-wrapper.html content=retornar_items %}
+
+> Al igual que con `.keys()` y `.values()`, el objeto `dict_items` no es una lista directamente, pero puede convertirse en una con `list(usuario.items())`.
+{: .prompt-info }
+
+__Ejemplo en Python interactivo para recorrer claves y valores__:
+
+{% capture for_in_items %}
+<span class="hl">&gt;&gt;&gt; for clave, valor in usuario.items()
+...    print(f"{clave}: {valor}")</span>
+...
+nombre: Marco
+apodo: El Marco Polo
+pais: Chile
+{% endcapture %}
+{% include terminal-wrapper.html content=for_in_items %}
+
 
 ### __Borrar elementos__
 
