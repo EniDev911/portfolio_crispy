@@ -14,14 +14,18 @@ permalink: /categorias/python/basico/listas-y-tuplas
 
 En Python, las **listas** y las **tuplas** son dos de los tipos de datos más fundamentales para almacenar colecciones de elementos. Aunque ambos permiten almacenar múltiples elementos en una sola variable, existen diferencias clave entre ellas que determinan cuándo usar una u otra. En este post, abarcaremos en detalle qué son las listas y tuplas, sus diferencias, y cómo utilizarlas de manera eficientes en nuestros programas.
 
-## **¿Qué es una Lista?**
+## __¿Qué son las Lista?__
 
-Una **lista** en Python es un tipo de dato que representa una colección ordenada y **mutable** (es decir, que se puede modificar) de elementos. Los elementos de una lista pueden ser de **diferentes tipos**, incluyendo números, cadenas de texto, otras listas, o incluso objetos personalizados.
+Las **listas** en Python son estructuras de datos que representan una colección __ordenada__ y __mutable__ (es decir, que se puede modificar) de elementos. Los elementos de una lista pueden ser de **diferentes tipos**, incluyendo números, cadenas de texto, otras listas, o incluso objetos personalizados.
 
-> El tipo de dato **Lista** (`list`) es usado para almacenar una colección de valores. Si vienes de otros lenguajes de programación podemos decir que las listas son similares a los **Arrays**. Las listas de Python pueden almacenar valores de diferentes tipos.
+> El tipo de dato `list` es usado para almacenar una colección de valores. Si vienes de otros lenguajes de programación podemos decir que las listas son similares a los **Arrays**. Las listas de Python pueden almacenar valores de diferentes tipos.
 {: .prompt-info }
 
-### **Características de las Listas**
+Las listas son ampliamente utilizadas gracias a su capacidad para adaptarse a distintos contextos de programación. Su naturaleza __mutable__ permite modificar su contenido en tiempo de ejecución, lo que las convierte en una herramienta ideal para una gran variedad de tareas.
+
+A continuación, veamos sus principales características.
+
+### __Características de las Listas__
 
 Una lista de Python tiene las siguientes características:
 
@@ -345,5 +349,5 @@ A pesar de que las listas y las tuplas comparten muchas similitudes, hay diferen
 |**Mutabilidad**|Mutable (se pueden modificar)|Inmutable (no se pueden modificar)|
 |**Sintaxis**|Corchetes `[]`|Paréntesis `()`|
 |**Velocidad**|Más lentas debido a su mutabilidad|Más rápidas debido a su inmutabilidad|
-|**Uso**|Ideal cuando los datos necesitan cambiar|Ideal para datos constantes o clave-valor|
-|**Métodos**|Muchos métodos disponibles (`append`, `remove`, etc.)|Pocos métodos disponibles (`count`, `index`)|
+|**Uso**|Ideal cuando los datos cambian|Ideal para datos constantes|
+|**Métodos**|Muchos métodos disponibles|Pocos métodos disponibles|
