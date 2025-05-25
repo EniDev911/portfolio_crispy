@@ -4,11 +4,11 @@ author: enidev911
 categories: [Java, "01. Nivel Básico"]
 ---
 
-Java es conocido por su lema __"Write Once, Run Anywhere"__, pero detrás de esa promesa se encuentra la pieza clave: la __Máquina Virtual de Java__ (JVM). En este artículo vamos a ver cómo funciona realmente la JVM y el rol fundamental del __compilador Just-In-Time__ (JIT) en el rendimiento de las aplicaciones Java.
+Java es conocido por su lema __"Write Once, Run Anywhere"__, pero detrás de esa promesa se encuentra la pieza clave: la __Máquina Virtual de Java__ o JVM (Java Virtual Machine). En este artículo vamos a ver cómo funciona realmente la JVM y el rol fundamental del __compilador Just-In-Time__ (JIT) en el rendimiento de las aplicaciones Java.
 
 ## __¿Qué es la JVM?__
 
-La __JVM__ (Java Virtual Machine) es un entorno de ejecución que permite correr programas Java (y otros lenguajes que compilan a bytecode, como Kotlin o Scala) en cualquier sistema operativo, __sin recompilar el código fuente__.
+La __JVM__ (Java Virtual Machine) es un entorno de ejecución que permite correr programas Java (y otros lenguajes que compilan a bytecode, como Kotlin o Scala) en cualquier sistema operativo, __sin recompilar el código fuente__, es una máquina de computación abstracta que forma parte integral del __Entorno de Ejecución de Java__ ([JRE](https://es.wikipedia.org/wiki/Java_Runtime_Environment){:target='_blank'}). A diferencia de una máquina física, que ejecuta directamente el código máquina, la JVM __interpreta y ejecuta el bytecode__ de Java. Este diseño permite que las aplicaciones Java se ejecuten en cualquier dispositivo o sistema operativo que tenga una implementación de JVM.
 
 ### __Responsabilidades principales de la JVM__
 
@@ -21,13 +21,46 @@ La JVM no ejecuta directamente el código fuente Java (`.java`), sino un formato
 
 ## __¿Qué es el Bytecode?__
 
-### __La JVM: el corazón del sistema__
+El __bytecode__ de Java es el resultado del proceso de compilación del código fuente de Java. Al escribir un programa Java y compilarlo, el compilador de Java (`javac`) no convierte el código directamente en código máquina. En su lugar, lo traduce a una forma intermedia conocido como bytecode. Este bytecode es un conjunto de instrucciones que no son legibles por humanos como el código Java, pero son mucho menos complejas que el código máquina.
 
-La Java Vitual Machine (JVM) es el software que corre detrás de escena. Toma ese __bytecode__ y lo convierte en instrucciones que la computadora puede entender y ejecutar.
+### __Bytecode y la pila de Java__
 
-La JVM es lo que hace que __Java sea multiplataforma__, gracias a su lema:
+El bytecode opera en una arquitectura basada en pilas. Esto significa que la mayoría de las operaciones de código de bytes implican insertar o extraer elementos de una pila.
 
-> __"Write once, run anywhere"__ (Escribe una vez, ejecútalo en cualquier lugar).
+Por ejemplo, veamos cómo se traduce el siguiente código de Java en Bytecode:
+
+```java
+int a = 5; 
+int b = 10; 
+int suma = a + b;
+```
+{: .nolineno }
+
+Al compilarse, estas líneas de código Java se convierten en una serie de instrucciones en bytecode, que podrían verse de la siguiente manera al utilizar una herramienta como [`javap`](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javap.html){:target='_blank'}:
+
+```plaintext
+0 : iconst_5 
+1 : istore_1 
+2 : bipush 10 
+4 : istore_2 
+5 : iload_1 
+6 : iload_2 
+7 : iadd 
+8 : istore_3
+```
+{: .nolineno .noheader }
+
+Esto es lo que sucede en cada caso:
+
+1. `iconst_5` - Empuja el valor entero `5` a la pila.
+2. `istore_1` - Almacena el entero superior (`5`) de la pila en la primera variable local (`a`).
+3. `bipush 10` - Empuja el valor del del byte 10 a la pila.
+4. `istore_2` - Almacena el entero superior (`10`) de la pila en la segunda variable local (`b`). 
+5. `iload_1` y `iload_2` - Carga los enteros `a` y `b` en la pila.
+6. `iadd` - Extrae los dos números enteros superiores de la pila, los suma y vuelve a colocar el resultado (`suma`) en la pila.
+7. `istore_3` - Almacena el resultado de la pila en la tercera variable local (`suma`).
+
+> __La JVM ( el corazón del sistema )__ es el software que corre detrás de escena, es lo que hace que __Java sea multiplataforma__, gracias a su lema:  __"Write once, run anywhere"__ (Escribe una vez, ejecútalo en cualquier lugar).
 {: .prompt-love }
 
 
