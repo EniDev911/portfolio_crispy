@@ -63,12 +63,25 @@ Esto es lo que sucede en cada caso:
 > __La JVM ( el corazón del sistema )__ es el software que corre detrás de escena, es lo que hace que __Java sea multiplataforma__, gracias a su lema:  __"Write once, run anywhere"__ (Escribe una vez, ejecútalo en cualquier lugar).
 {: .prompt-love }
 
+## __¿Qué es el compilador JIT?__
+
+El compilador __JIT__ (Just-In-Time) es una tecnología de compilación utilizada en muchos lenguajes de programación como Java y otros más modernos como C#, y algunos entornos de ejecución de JavaScript (por ejemplo, el motor V8 de Google). Su objetivo principal es mejorar el rendimiento del código que se ejecuta en tiempo de ejecución, combinando ventajas tanto de la compilación treadicional como de la interpretación.
+
+### __Funcionamiento de JIT__
+
+En lugar de compilar todo el código fuente a código máquina antes de ejecutarlo (como lo haría un compilador tradicional), o interpretar línea por línea en tiempo real  (como hace un intérprete puro), el JIT hace algo intermedio:
+
+1. __Carga del código fuente o bytecode__ (como el `.class` en Java o el IL en .NET)
+2. __Interpretación inicial__: para iniciar rápidamente, algunas partes del código pueden comenzar a interpretarse.
+3. __Monitoreo en tiempo de ejecución__: el JIT identifica las partes del código que se usan con más frecuencia (hot spots).
+4. __Compilación Justo a Tiempo__: esas secciones críticas se compilan a código máquina nativo en el momento que se necesitan.
+5. __Optimización dinámica__: puede aplicar optimizaciones basadas en el contexto real de ejecución (por ejemplo, tipos de datos usados, rutas comunes, etc.).
 
 ### __¿Es Java un lenguaje lento?__
 
 Durante mucho tiempo se pensó que Java era, porque su código pasa por esta "máquina virtual". Pero hoy en día, __Java es muy optimizado__ gracias a tecnologías como el __JIT__ (Just-In-Time Compiler), que traduce las partes más usadas del programa a lenguaje nativo _mientras se ejecuta_. Es como si tu receta empezara a adaptarse automáticamentea tu cocina para ser más rápida.
 
-### __¿Pero no se supone que Java ya compila su código antes?___
+### __¿Pero no se supone que Java ya compila su código antes?__
 
 Sí, pero no a código nativo directamente. Repasemos el flujo principal:
 
