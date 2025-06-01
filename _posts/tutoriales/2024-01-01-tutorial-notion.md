@@ -57,9 +57,10 @@ Aunque Notion es una herramienta muy versatíl, tiene algunas __limitaciones en 
 
 ## __Empezando en Notion__
 
-Lo primero que se debe hacer es crear una cuenta, para esto ingresar a la [página de registro Notion](https://www.notion.so/signup){: target='_blank'}, una vez allí, selecciona la opción con la cual te quieres registrar:
+Lo primero que se debe hacer es crear una cuenta. Para esto, se debe ingresar a la [página de registro Notion](https://www.notion.so/signup){: target='_blank'}. Una vez allí, selecciona la opción con la cual te quieres registrar:
 
 ![Registrarse en Notion](tutoriales/notion-register.webp)
+_Página de registro en Notion_ 
 
 Enseguida te llegará un código de registro al correo ingresado, el cual puedes copiar y pegar.
 
