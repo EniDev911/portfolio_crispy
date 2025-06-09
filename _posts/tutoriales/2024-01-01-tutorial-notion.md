@@ -22,7 +22,7 @@ _Página oficial de Notion_
 
 ### __¿Es Notion gratuito?__
 
-Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La versión gratuita incluye **páginas** y **bloques ilimitados**, integraciones con otras aplicaciones, espacios de trabajos, entre otras cosas. __Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados__ y un __límite de carga de archivos de 5 MB por archivo__. Sin embargo, __ahora han cambiado su modelo y__, __para mantener bloques ilimitados en el plan gratuito__, __ya no se pueden añadir invitados en los espacios de trabajo__. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
+Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La __versión gratuita__ incluye **páginas** y **bloques ilimitados**, integraciones con otras aplicaciones, espacios de trabajos, entre otras cosas. __Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados__ y un __límite de carga de archivos de 5 MB por archivo__. Sin embargo, __ahora han cambiado su modelo y__, __para mantener bloques ilimitados en el plan gratuito__, __ya no se pueden añadir invitados en los espacios de trabajo__. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
 
 ## __Ventajas y Desventajas de Notion__
 
@@ -213,7 +213,7 @@ Estos son algunos ejemplos de propiedades:
 
 En Notion, puedes compartir tus páginas con otras personas haciéndola pública. Esto es útil para difundir información con otras personas o crear documentos accesibles en línea.
 
-### **Instrucciones:**
+### __Instrucciones:__
 
 - Abre la página en Notion.  
 - Haz clic en **"Compartir"** (arriba a la derecha).  
@@ -241,3 +241,22 @@ En Notion, puedes compartir tus páginas con otras personas haciéndola pública
 En la versión gratuita, tu dominio siempre tendrá `notion.site`, pero se puede cambiar el nombre para que cuando publiques una página se vea como `minombre.notion.site`. Para ello debes entrar a **configuraciones** y en la opción **Sitios** actualiza el nombre de dominio:
 
 ![Cambiar el nombre de dominio](tutoriales/notion-update-domain.webp)
+
+## __Atajos de Teclado__
+
+Aunque Notion permite hacer __casi todo en clics__ y menús, aprender sus atajos de teclado puede aumentar tu flujo de trabajo.
+
+| Acción                            | Atajo de teclado                                                 |
+| --------------------------------- | ---------------------------------------------------------------- |
+| Cambiar entre modo claro y oscuro | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>                |
+| Duplicar bloque                   | <kbd>Ctrl</kbd> + <kbd>D</kbd>                                   |
+| Insertar enlace                   | <kbd>Ctrl</kbd> + <kbd>K</kbd>                                   |
+| Crear nueva página                | <kbd>Ctrl</kbd> + <kbd>N</kbd>                                   |
+| Alternar checklist completado     | <kbd>Ctrl</kbd> + <kbd>Enter</kbd>                               |
+| Mover bloque arriba/abajo         | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>↑</kbd> / <kbd>↓</kbd> |
+| Abrir búsqueda rápida             | <kbd>Ctrl</kbd> + <kbd>P</kbd>                                   |
+| Negrita                           | <kbd>Ctrl</kbd> + <kbd>B</kbd>                                   |
+| Cursiva                           | <kbd>Ctrl</kbd> + <kbd>I</kbd>                                   |
+| Subrayado                         | <kbd>Ctrl</kbd> + <kbd>U</kbd>                                   |
+| Comentario (en base de datos)     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>                |
+| Copiar el link del bloque actual  | <kbd>Ctrl</kbd> + <kbd>L</kbd>                                   |
