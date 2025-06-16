@@ -1,5 +1,5 @@
 ---
-title: "Gestionar tu trabajo en Notion 🧱"
+title: "Gestionar tu trabajo en Notion"
 description: "**Notion** es una de las herramientas más versátiles para la productividad"
 categories: [Tutoriales, Productividad]
 image:
@@ -260,3 +260,4 @@ Aunque Notion permite hacer __casi todo en clics__ y menús, aprender sus atajos
 | Subrayado                         | <kbd>Ctrl</kbd> + <kbd>U</kbd>                                   |
 | Comentario (en base de datos)     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>                |
 | Copiar el link del bloque actual  | <kbd>Ctrl</kbd> + <kbd>L</kbd>                                   |
+
