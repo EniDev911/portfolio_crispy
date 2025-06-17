@@ -63,7 +63,7 @@ git init
 {% tabs gh-repo-create %}
 {% tab gh-repo-create terminal %}
 ```terminal
-gh repo clone --public -s=. -r=origin
+gh repo create --public -s=. -r=origin
 ```
 > Si no haz utilizado antes [gh-cli](https://cli.github.com/){: target='_blank' }, hechale un ojo a mi siguiente [post de gh-cli](/gh-cli/)
 {: .prompt-tip }

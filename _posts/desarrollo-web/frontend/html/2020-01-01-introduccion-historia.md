@@ -105,6 +105,15 @@ En1 __enero de 2011__, el WHATWG cambió el nombre de su estándar de vida "HTML
 - __W3C__ continuará el trabajo de especificación HTML5, enfocándose en un único estándar definido.
 - __WHATWG__ continuará su trabajo con HTML5 como un "estándar de vida".
 
+### __Año 2014: Recomendaciones de 3WC - HTML5__
+
+En diciembre de __2012__, el W3C designó HTML5 como recomendación candidata. En __septiembre de 2014__, el W3C trasladó HTML5 a recomendación propuesta. El criterio para avanzar a la recomendación del W3C es "dos implementaciones 100% completas y totalmente interoperables". El __28 de octubre de 2014__, HTML5 se publicó como una recomendación W3C estable, significa que el proceso de especificación está completo.
+
+### __Año 2016: Recomendaciones candidata de W3C - HTML5.1__
+
+En __noviembre de 2016__, el __W3C__ publicó __HTML5.1__ como una recomendación candidata, marcando el inicio de un nuevo enfoque más ágil y evolutivo en el desarrollo de HTML. En lugar de esperar largos periodos entre versiones como en el pasado, HTML5.1 introdujo un modelo de __actualizaciones incrementales__, incorporando mejoras y nuevas características en base a su madurez.
+
+
 ## __¿Qué es HTML?__
 
 Cuando accedemos a una página web, lo que realmente está ocurriendo es que nuestro navegador web está pidiendo un documento de texto al sistema (máquina) donde está almacenada esa página web.
