@@ -133,7 +133,7 @@ Para subir los archivos generados y servirlo a Github Pages, utilizamos el coman
 npm run deploy
 ```
 
-Y que pasa ahora, nos encontramos una gran sorpresa. Cuando vamos a visitar nuestra página en la url `https://<usuario>.github.io/<repo>`, encontraremos que nose visualiza como debería la aplicación.
+¿Y qué pasa ahora? Nos encontramos una gran sorpresa. Al visitar nuestra página en la URL `https://<usuario>.github.io/<repo>`, descubrimos que la página no se visualiza correctamente.
 
 Es fácil detectar el problema que sucede, basta con abrir la consola con <kbd>F12</kbd> y ver los mensajes en la consola:
 
