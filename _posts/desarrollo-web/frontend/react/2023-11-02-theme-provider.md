@@ -11,7 +11,7 @@ En React, uno de los patrones más comunes es el uso de un **Theme Provider** pa
 
 En este post veremos cómo implementar un Theme Provider en **React** con **TypeScript** usando el contexto de React (`context API`) y algunos estilos globales.
 
-### Crear la Aplicación de React
+### __Crear la Aplicación de React__
 
 Para crear una aplicación de React configurada con TypeScript utilizando [Vite](https://vite.dev/){: target='_blank'}, puedes usar el siguiente comando:
 
@@ -32,7 +32,7 @@ Luego de forma opcional, inicia el servidor de desarrollo para ver la aplicació
 npm run dev
 ```
 
-### Estructura de Archivos
+### __Estructura de Archivos__
 
 A pesar de que vite nos crea la estructura y la configuración, recomiendo organizar los archivos de la carpeta `src` de la siguiente manera:
 
@@ -50,9 +50,8 @@ src/
 ```
 {: .noheader .nolineno .p-0 }
 
----
 
-### Creación del Contexto del Tema
+### __Creación del Contexto del Tema__
 
 Primero, vamos a crear el archivo `ThemeContext.tsx` dentro de la carpeta `context`. Este archivo se encargará de definir el contexto para el tema y la función para alternar entre temas.
 
@@ -110,9 +109,8 @@ Resumiendo el código anterior, tenemos lo siguiente:
 - `toggleTheme`: Esta función cambia el tema actual.
 - `useTheme`: Este hook personalizado nos permite acceder al contexto desde cualquier componente.
 
----
 
-### Crear el Componente de Cambio de Tema
+### __Crear el Componente de Cambio de Tema__
 
 Ahora vamos abrir o crear (si aún no lo haces) el componente `ThemeToggle` que permitirá al usuario alternar entre el tema claro y el tema oscuro:
 
@@ -135,9 +133,8 @@ export default ThemeToggle;
 {: .nolineno file="ThemeToggle" }
 {% endraw %}
 
----
 
-### Definir los estilos
+### __Definir los estilos__
 
 Ahora vamos a aplicar los estilos de los temas usando [**variables CSS**](https://developer.mozilla.org/es/docs/Web/CSS/Using_CSS_custom_properties){: target='_blank' }. En lugar de definir los colores en un objeto de JavaScript, utilizaremos las variables de CSS para cada tema. Luego, cambiamos las clases `light` y `dark` en el `body` de la aplicación:
 
@@ -183,9 +180,8 @@ button:hover {
 ```
 {: .nolineno file="styles.css" }
 
----
 
-### Uso del Contexto en los Componentes
+### __Uso del Contexto en los Componentes__
 
 Dentro de nuestro componente `App.tsx`, vamos a usar el contexto para aplicar el tema y permitir que el usuario lo cambie con un botón:
 
@@ -215,9 +211,8 @@ export default App;
 {: .nolineno file="App.tsx" }
 {% endraw %}
 
----
 
-### Renderizar la Aplicación en main.tsx
+### __Renderizar la Aplicación en main.tsx__
 
 Finalmente, en `main.tsx`, renderizamosla aplicación asegurándonos de que el `ThemeProvider` esté envolviendo el componente `App`.
 
@@ -241,9 +236,8 @@ createRoot(document.getElementById('root')!).render(
 {: .nolineno file="main.tsx" }
 {% endraw %}
 
----
 
-### Persistir las Preferencia del usuario
+### __Persistir las Preferencia del usuario__
 
 Vamos a modificar el contexto del tema para usar [`localStorage`](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage){: target='_blank' }, y se recupere cuando el componente se monte.
 
@@ -308,7 +302,7 @@ Y si observamos bien, solo hemos agregado 2 líneas:
 
 El resto se mantiene y ya tenemos guardada la preferencia del usuario en `localStorage`.
 
-### Ejemplo en CodeSandbox
+### __Ejemplo en CodeSandbox__
 
 Puedes ver el ejemplo funcionando en el siguiente CodeSandBox:
 
