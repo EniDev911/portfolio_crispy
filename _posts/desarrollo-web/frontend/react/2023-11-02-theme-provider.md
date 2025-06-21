@@ -3,7 +3,9 @@ title: 🌙 Implementando un Theme Provider en React
 author: enidev911
 categories: [Desarrollo Web, React]
 tags: [desarrollo web, react]
-image: posters/react-theme-provider.png
+image:
+    path: posters/react-theme-provider.webp
+    lqip: data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSCQAAAABH0CQbePPvO3XiIg4HAYiybhvpsSRTDSlJIjof4x6Aeqv1QVWUDggQgAAADADAJ0BKhQACwA/OYa5U68pJaKwCAHgJwlpAABanu4pVWAA/kN2RrlP54QyFX0ZjVFnA6uXfbDweqbzF7Q9+HgQAA==
 pin: true
 ---
 

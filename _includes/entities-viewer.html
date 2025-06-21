@@ -1,0 +1,86 @@
+<div id="entity-viewer" style="max-width: 700px; margin: auto; font-family: sans-serif;">
+  <h2>🔍 Visualizador de Entidades HTML</h2>
+  <input type="text" id="entity-search" placeholder="Buscar entidad o símbolo..." 
+         style="padding: 0.5rem; width: 100%; margin-bottom: 1rem; font-size: 1rem;" />
+
+  <table style="width: 100%; border-collapse: collapse;" border="1">
+    <thead>
+      <tr>
+        <th style="padding: 0.5rem;">Nombre</th>
+        <th style="padding: 0.5rem;">Entidad</th>
+        <th style="padding: 0.5rem;">Resultado</th>
+      </tr>
+    </thead>
+    <tbody id="entity-table">
+      <!-- Las filas serán insertadas por JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+  const entities = [
+    { name: 'Menor que', entity: '&lt;', char: '<' },
+    { name: 'Mayor que', entity: '&gt;', char: '>' },
+    { name: 'Ampersand', entity: '&amp;', char: '&' },
+    { name: 'Comillas dobles', entity: '&quot;', char: '"' },
+    { name: 'Comilla simple', entity: '&apos;', char: "'" },
+    { name: 'Copyright', entity: '&copy;', char: '©' },
+    { name: 'Marca registrada', entity: '&reg;', char: '®' },
+    { name: 'Euro', entity: '&euro;', char: '€' },
+    { name: 'Carpeta abierta', entity: '&#x1f4c1;', char: '📁' },
+    { name: 'Espacio no separable', entity: '&nbsp;', char: '\u00A0' },
+    { name: 'Cara sonriente con ojos cerrados', entity: '&#x1f606;', char: '😆' },
+    { name: 'Cara sonriente con gafas de sol', entity: '&#x1f60e;', char: '😎' },
+  ];
+
+  function renderTable(filter = '') {
+    const tbody = document.getElementById('entity-table');
+    tbody.innerHTML = '';
+
+    const filtered = entities.filter(e => 
+      e.name.toLowerCase().includes(filter) ||
+      e.entity.includes(filter) ||
+      e.char.includes(filter)
+    );
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="3" style="padding: 0.5rem;">No se encontraron coincidencias.</td></tr>';
+      return;
+    }
+
+filtered.forEach(e => {
+  const row = document.createElement('tr');
+
+  // Nombre
+  const nameCell = document.createElement('td');
+  nameCell.textContent = e.name;
+  nameCell.style.padding = '0.5rem';
+  row.appendChild(nameCell);
+
+  // Entidad como código visible
+  const codeCell = document.createElement('td');
+  const codeTag = document.createElement('code');
+  codeTag.textContent = e.entity;
+  codeCell.style.padding = '0.5rem';
+  codeCell.appendChild(codeTag);
+  row.appendChild(codeCell);
+
+  // Resultado interpretado
+  const resultCell = document.createElement('td');
+  resultCell.innerHTML = e.entity;
+  resultCell.style.padding = '0.5rem';
+  row.appendChild(resultCell);
+
+  tbody.appendChild(row);
+});
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('entity-search');
+    renderTable();
+
+    input.addEventListener('input', function () {
+      renderTable(this.value.toLowerCase());
+    });
+  });
+</script>
