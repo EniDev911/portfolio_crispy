@@ -12,7 +12,6 @@
       </tr>
     </thead>
     <tbody id="entity-table">
-      <!-- Las filas serán insertadas por JavaScript -->
     </tbody>
   </table>
 </div>
@@ -31,6 +30,7 @@
     { name: 'Espacio no separable', entity: '&nbsp;', char: '\u00A0' },
     { name: 'Cara sonriente con ojos cerrados', entity: '&#x1f606;', char: '😆' },
     { name: 'Cara sonriente con gafas de sol', entity: '&#x1f60e;', char: '😎' },
+    { name: 'Cerveza', entity: '&#x1f37a;', char: '🍺' },
   ];
 
   function renderTable(filter = '') {
@@ -51,21 +51,16 @@
 filtered.forEach(e => {
   const row = document.createElement('tr');
 
-  // Nombre
   const nameCell = document.createElement('td');
   nameCell.textContent = e.name;
   nameCell.style.padding = '0.5rem';
   row.appendChild(nameCell);
-
-  // Entidad como código visible
   const codeCell = document.createElement('td');
   const codeTag = document.createElement('code');
   codeTag.textContent = e.entity;
   codeCell.style.padding = '0.5rem';
   codeCell.appendChild(codeTag);
   row.appendChild(codeCell);
-
-  // Resultado interpretado
   const resultCell = document.createElement('td');
   resultCell.innerHTML = e.entity;
   resultCell.style.padding = '0.5rem';
