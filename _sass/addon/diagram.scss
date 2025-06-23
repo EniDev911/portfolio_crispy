@@ -3,7 +3,7 @@
   align-items: center;
   font-family: sans-serif;
   margin: 8px 0 14px 0;
-  overflow: auto;
+  overflow-x: auto;
   // Remueve todos los márgenes y separaciones entre figuras
   > * {
     margin: 0;
