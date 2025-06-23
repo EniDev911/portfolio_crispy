@@ -113,6 +113,18 @@ Podemos aplicar distintos estilos utilizando el cajón de herramientas de la for
 
 ![Aplicar estilos](diagramas/drawio-aplicar-estilos.webp)
 
+Para mostrar cómo representar nuevas formas en __Draw.io__, vamos a modificar este ejemplo. Usaremos una entidad `Pedido`, que se relaciona con una __entidad débil__ llamada `DetallePedido` (se dice entidad debíl porque depende de otra entidad, si no tienes pedidos no tiene sentido).
+
+Añadimos la entidad débil:
+
+![Añadir entidad debil](diagramas/drawio-entidad-debil.webp)
+_La entidad `DetallePedido` se dibuja con __doble borde__ para marcarla como débil_
+
+Además, ahora puedes observar que `DetallePedido` se conecta con la entidad `Producto`, que indica qué productos están incluidos en cada pedido.
+
+> De esta forma, reflejamos una relación común en bases de datos: un pedido puede incluir varios productos, y cada producto puede estar en múltiples pedidos.
+{: .prompt-info }
+
 ## __Buenas Prácticas al Diseñar__
 
 - Usa __nombres claros__ y __singulares__ para entidades: `Producto`, no `Productos`
