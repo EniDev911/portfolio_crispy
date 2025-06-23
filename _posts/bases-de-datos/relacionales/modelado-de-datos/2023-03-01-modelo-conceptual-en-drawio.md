@@ -14,7 +14,7 @@ Un modelo conceptual es la representación abstracta de los datos relevantes de 
 - __Atributos__ (ej. nombre, precio)
 - __Relaciones__ (ej. Compra, Tiene)
 
-> La creación del modelo conceptual es el primer paso fundamental en el diseño de una base de datos, es el primer paso antes de pasar al modelo lógico o físico. En esta etapa se identifican las entidades, atributos y relaciones sin preocuparse aún por detalles técnicos como tipos de datos o claves foráneas
+> La creación del __modelo conceptual es el primer paso fundamental en el diseño de una base de datos__. En esta etapa se identifican las entidades, atributos y relaciones sin preocuparse aún por detalles técnicos como tipos de datos o claves foráneas. Es una __fase previa al diseño del modelo lógico o físico__.
 {: .prompt-info }
 
 ## __Cómo Comenzar con Draw.io__
