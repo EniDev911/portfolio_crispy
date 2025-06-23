@@ -30,8 +30,10 @@ __1\. Accede a [https://draw.io](https://draw.io){:target='_blank'}__
 _pantalla principal_
 
 __2\. Ve al menú izquierdo y selecciona__
-  - **Entity Relation** para trabajar con símbolos de bases de datos.
+  - **Relación de la entidad** para trabajar con símbolos de bases de datos.
   - Usa rectángulos para entidades, óvalos para atributos y rombos para relaciones.
+
+![Toolkit de Relación de la entidad](diagramas/drawio-toolkit-erd.webp)
 
 ### __Entidades, Atributos y Relaciones__
 
