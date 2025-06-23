@@ -88,7 +88,7 @@ Para obtener la información completa de los pedidos junto a la información del
 ```sql
 SELECT pedidos.id, clientes.nombre, pedidos.fecha_pedido, pedidos.total
 FROM pedidos
-JOIN cientes
+JOIN clientes
 ON pedidos.id = clientes.id;
 ```
 {: .nolineno }

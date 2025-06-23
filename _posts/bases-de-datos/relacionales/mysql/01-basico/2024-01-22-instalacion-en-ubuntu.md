@@ -9,6 +9,7 @@ image:
   lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBhQBD37+nEsZBT2bIAA/uqLY7we9otIo6VE4hK5kLetUTtViPXpgpvzYttrY9gvIaDi5xEVH7zwYWp7jdhO+itEYAAA
   alt: "Cómo Instalar MySQL en Ubuntu"
 pin: true
+permalink: /mysql/instalacion-en-ubuntu
 ---
 
 En este post, cubriremos la instalación de MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
