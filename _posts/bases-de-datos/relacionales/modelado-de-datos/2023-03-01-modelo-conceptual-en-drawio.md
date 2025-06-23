@@ -2,6 +2,9 @@
 title: "Crear un Modelo Conceptual en Draw.io"
 author: enidev911
 description: "En este artículo aprenderás a crear **un modelo conceptual** de base de datos utilizando la herramienta gratuita [draw.io (ahora diagrams.net)](https://draw.io){:target='_blank'}. Este tipo de modelo permite representar entidades, atributos y relaciones antes de implementar tu base de datos en sistemas como MySQL, PostgreSQL o SQLite."
+image:
+  path: posters/drawio-diagramas.webp
+  lqip: data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAAsAPzleyV8vI6qmGAHgJwllAFR+h6II8uS+US1roSAA/t6sJSnrDFEQXY+jDrxAUFNqlpB4KOMJ1Y6TI6kLqW4HrwOy7QAAAA==
 categories: [Bases de Datos Relacionales, "Modelado de Datos"]
 tags: [Bases de Datos, "Modelado de Datos"]
 ---
@@ -21,12 +24,14 @@ Un modelo conceptual es la representación abstracta de los datos relevantes de 
 
 Existen muchas herramientas para crear diagramas, pero en este artículo vamos a utilizar [Draw.io](https://draw.io){:target='_blank'}, una herramienta gratuita para crear diagramas. Permite exportar, compartir y colaborar fácilmente, lo que lo convierte en una excelente opción para crear modelos conceptuales. Para ello, sigue estos pasos:
 
-1. Accede a [https://draw.io](https://draw.io){:target='_blank'}
-2. Selecciona **"Decide later"** si no deseas usar Google Drive o dispositivos locales.
-3. Crea un nuevo archivo en blanco.
-4. Ve al menú izquierdo y selecciona:
-   - **Entity Relation** para trabajar con símbolos de bases de datos.
-   - Usa rectángulos para entidades, óvalos para atributos y rombos para relaciones.
+__1\. Accede a [https://draw.io](https://draw.io){:target='_blank'}__
+
+![Pantalla principal de Draw.io](diagramas/drawio-main.webp)
+_pantalla principal_
+
+__2\. Ve al menú izquierdo y selecciona__
+  - **Entity Relation** para trabajar con símbolos de bases de datos.
+  - Usa rectángulos para entidades, óvalos para atributos y rombos para relaciones.
 
 ### __Entidades, Atributos y Relaciones__
 
@@ -68,9 +73,9 @@ __4. Relaciones__
   <div class="entity">Producto</div>
 </div>
 
-### __Ejemplo: Modelo Conceptual de Cliente y Producto__
+### __Ejemplo de Modelo Conceptual de Cliente y Producto__
 
-En este ejemplo definiremos dos entidades principales y su relación:
+En este ejemplo básico definiremos dos entidades principales y su relación:
 
 - __Entidad__: `Cliente`
    - __Atributos__: `ID_Cliente`, `Nombre`, `Correo`
@@ -103,6 +108,10 @@ Para finalizar vamos a definir los atributos de la entidad cliente, añadimos la
 Ahora repite el proceso en la otra entidad `Producto` y el resultado sería el siguiente:
 
 ![Modelo de ejemplo](diagramas/drawio-cliente-producto.webp)
+
+Podemos aplicar distintos estilos utilizando el cajón de herramientas de la forma seleccionada.
+
+![Aplicar estilos](diagramas/drawio-aplicar-estilos.webp)
 
 ## __Buenas Prácticas al Diseñar__
 
