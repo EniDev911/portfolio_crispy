@@ -49,10 +49,42 @@ Si todo va bien, la salida será: `root`.
 
 ## __Tip Extra__
 
-Si necesitas editar el archivo `/etc/sudoers`, __no uses Nano o Vim directamente__. Siempre usa:
+> Si necesitas editar el archivo `/etc/sudoers`, __no uses Nano o Vim directamente__ sin precaución, ya que es un archivo __crítico para la seguridad del sistema__.
+{: .prompt-danger }
+
+
+Primero debemos tener instalado el paquete `sudo`, ingresa como superusuario y ejecútalo:
 
 ```terminal
-sudo visudo
+su -
+apt update
+apt install sudo
 ```
 
-Esto valida la sintaxis antes de guardar, evitando que bloquees el sistema.
+Una vez instalado el paquete, la forma recomendada de modificar `/etc/sudoers` es usando el comando:
+
+```terminal
+visudo
+```
+
+> Esto valida la sintaxis antes de guardar, evitando que bloquees el sistema.
+{: .prompt-tip }
+
+Dentro de visudo, añade la siguiente línea (reemplazando tu_usuario por tu nombre de usuario):
+
+```bash
+tu_usuario ALL=(ALL) ALL
+```
+{: .nolineno file="sudoers" }
+
+De modo que quede algo así:
+
+```bash
+# /etc/sudoers
+...
+root ALL=(ALL) ALL
+tu_usuario ALL=(ALL) ALL
+...
+```
+{: file="sudoers" .nolineno }
+
