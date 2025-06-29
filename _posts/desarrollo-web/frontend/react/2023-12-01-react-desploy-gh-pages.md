@@ -20,7 +20,7 @@ Doy por hecho que ya cuentas con las siguientes herramientas instaladas en tu si
 - [Git](https://git-scm.com/){: target='_blank' }: Para manejar el control de versiones de tu proyecto y poder subirlo a GitHub.
 - [Cuenta en GitHub](https://github.com/){: target='_blank'}: Para crear un repositorio y desplegar tu aplicación en GitHub Pages.
 
-### Crear la Aplicación de React
+### __Crear la Aplicación de React__
 
 Para crear una aplicación de React utilizando [Vite](https://vite.dev/){: target='_blank'}, puedes usar el siguiente comando:
 
@@ -142,7 +142,7 @@ Es fácil detectar el problema que sucede, basta con abrir la consola con <kbd>F
 
 Como podemos observar el mensaje "**Failed to load resource**" que aparece en la consola, indica que el navegador no pudo cargar un archivo o recurso en a página para funcionar correctamente. Este error puede ocurrir por diversas razones, podemos tener problemas con la red, errores en la ruta de los archivos (lo que es más común), permisos incorrectos, o recursos que ya no existen en el servidor. Para solucionarlo debemos configurar Vite.
 
-### Configurar vite para Gh Pages
+### __Configurar vite para Gh Pages__
 
 En este paso, configuraremos `Vite` para que funcione bien en GiHub Pages, ya que GitHub Pages sirve la aplicación desde un subdirectorio. Esto significa que tenemos que ajustar las rutas base en la configuración de Vite. Abrimos el archivo `vite.config.js` en la raíz de nuestro proyecto, y configura el `base` de la siguiente manera:
 
@@ -166,4 +166,59 @@ npm run deploy
 
 Abre la URL en tu navegador para asegurarte de que todo está funcionando correctamente. En la siguiente URL podemos ver el resultado de este ejemplo: [https://enidev911.github.io/react-vite-gh-pages/](https://enidev911.github.io/react-vite-gh-pages/){: target='_blank'}.
 
-¡Y eso es todo! Ahora tienes una aplicación de React desplegada en GitHub Pages utilizando Vite. Este proceso es rápido, fácil y eficiente, aprovechando las características de Vite para crear aplicaciones modernas y rápidas. Además, **GitHub Pages** ofrece una forma gratuita de alojar tus proyectos frontend.
+## 🚀 __Deploy automático con GitHub Actions__
+
+Aunque `gh-pages` funciona bien con el comando `npm run dev`, podemos __automatizar más este proceso__ cada vez que hagas un `push` a la rama `main` o `gh-pages` utilizando __Github Actions__. Esto evita tener que hacer el deploy manualmente.
+
+### __Crea el archivo del workflow__
+
+En la raíz del proyecto, crea un archivo en la siguiente ruta:
+
+```
+.github/workflows/deploy.yml
+```
+
+Abre el archivo y agrega lo suguiente:
+
+{% raw %}
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Cambia si tu rama principal tiene otro nombre
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Build del proyecto
+        run: npm run build
+
+      - name: Deploy a GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+```
+{: file='deploy.yml' }
+{% endraw %}
+
+Como resultado, cada vez que haces `git push` a `main`, GitHub Actions construye tu aplicación con Vite y la __despliega automáticamente a GitHub Pages__. Puedes seguir el estado del despliegue desde la pestaña Actions de tu repositorio.
+
+{% include circle-line.html %}
+
+¡Y eso es todo! Ahora tienes una __aplicación de React__ desplegada en __GitHub Pages__ utilizando Vite. Este proceso es rápido, fácil y eficiente. Además, **GitHub Pages** ofrece una excelente forma (gratuita) de alojar proyectos frontend.
