@@ -1,5 +1,11 @@
 projects:
   - title: "Website"
+    description: "Fullstack Java"
+    url: "https://fullstack-java.mcherrera.dev"
+    image: "/assets/img/proyectos/fs-java.webp"
+    image_base64: "UklGRjwAAABXRUJQVlA4IDAAAADQAgCdASoUAAoAPzmGuVOvKSWisAgB4CcJZwAAe/QAAP7seuYYvw3gEmigogY0AAA="
+
+  - title: "Website"
     description: "Condominio espacio uno 3"
     url: "https://condominioespaciouno3.cl/"
     image: "/assets/img/proyectos/condominio.webp"
