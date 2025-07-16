@@ -21,9 +21,9 @@ Antes de comenzar, asegurate de tener lo siguiente:
 - Una instalación de **Ubuntu** (esta guía es aplicable a versiones **Ubuntu 20.04.4 LTS** y versiones más recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
 - Acceso a una cuenta con privilegios **sudo**.
 
-## **Comenzar Instalación**
+## __Comenzar Instalación__
 
-### **Paso 1: Actualizar el Sistema**
+### __Paso 1: Actualizar el Sistema__
 
 Es fundamental que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que cuentas con los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
 
@@ -39,7 +39,7 @@ Después, actualiza todos los paquetes instalados con el siguiente comando:
 sudo apt upgrade -y
 ```
 
-### **Paso 2: Instalar MySQL**
+### __Paso 2: Instalar MySQL__
 
 Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados. Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
   
@@ -48,7 +48,6 @@ sudo apt install mysql-server
 ```
 
 ![Paso 1](mysql/mysql-ubuntu-install-step-1.png)
-
 
 Concluida la instalación, el [demonio](https://es.wikipedia.org/wiki/Daemon_(inform%C3%A1tica)){: target='_blank' } de MySQL se iniciará automáticamente. Para verificar si está ejecutándose el servidor, usamos el siguiente comando:
 
@@ -62,7 +61,7 @@ Con el siguiente comando podemos verificar en qué puerto está corriendo MySQL:
 cat /etc/services | grep mysql
 ```
 
-### **Paso 3: Configurar MySQL**
+### __Paso 3: Configurar MySQL__
 
 En Debian y derivados, el paquete mysql-server incluye el script Perl **`mysql_secure_installation`**, el cual permite mejorar la seguridad de la instalación por defecto. Es recomendable correr este script en todas las instalaciones de servidores MySQL para sistemas en producción. En resumen nos permite:
 
@@ -92,13 +91,13 @@ Normalmente, a root solo se le debe permitir conectarse desde 'localhost'. Para 
 
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-3.png)
 
-Luego nos preguntá si queremos eliminar la base de datos de prueba, esto es opcional.
+Luego nos preguntá si queremos eliminar la base de datos de prueba, esto es __Opcional__.
 
-![script de seguridad](mysql/mysql-ubuntu-secure-installation-4.png)
+![script de seguridad](mysql/mysql-ubuntu-secure-installation-4.webp)
 
 Luego nos pregunta si queremos recargar la tabla de privilegios. Pondremos si (Y).
 
-![script de seguridad](mysql/mysql-ubuntu-secure-installation-5.png)
+![script de seguridad](mysql/mysql-ubuntu-secure-installation-5.webp)
 
 
 ### **Paso 4: Configurar Métodos de Autenticación**
@@ -140,7 +139,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password;
 **Segundo** cambiamos el password (La función **`user()`** devuelve al usuario en sessión):
 
 ```sql
-ALTER USER user() IDENTIFIED BY 'Strong_Password;
+ALTER USER user() IDENTIFIED BY '-Strong_Password*';
 ```
 {: .nolineno }
 
