@@ -2,13 +2,25 @@
 title: "Command Line For SQLite3 (línea de comandos) para ejecutar SQL"
 categories: [Bases de Datos Relacionales, SQLite]
 tags: [Bases de Datos Relacionales, SQLite]
+image:
+  path: posters/sqlite-cli-shell.webp
+  lqip: data:image/webp;base64,UklGRpYAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBUAAAABF9D/iAgQZNtMYmi7v88FIvqfSy4AVlA4IFoAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJYgCdABuxpDp2c2dbBoAA/mFM6qUC24fxX3gBWhW85NEtVhEZh7nBiA92rtoJgZGSQbGINpYYi7eesK2p6wp84AA=
 ---
 
-SQLite incluye una herramienta de línea de comandos simple llamado __`sqlite3`__, que permite a los usuarios interactuar directamente con bases de datos SQLite y ejecutar instrucciones SQL. Esta utilidad es especialmente útil para realizar pruebas rápidas, consultas, y tareas de administración sin necesidad de una interfaz gráfica.
+SQLite incluye una herramienta de línea de comandos simple llamado __`sqlite3`__, que permite a los usuarios interactuar directamente con bases de datos SQLite y ejecutar instrucciones SQL. Esta herramienta es especialmente útil para realizar pruebas rápidas, consultas, y tareas de administración sin necesidad de una interfaz gráfica.
 
-Al ejecutar el comando __`sqlite3`__ seguido del nombre de una base de datos ( por ejemplo: `mi_base_de_datos.db` ), el programa __abrirá la base de datos__ especificada __o la creará si no existe__. A continuación, mostrará un breve mensaje de bienvenida y quedará en espera de que el usuario indtroduzca instrucciones SQL.
+Al ejecutar el comando __`sqlite3`__ seguido del nombre de una base de datos ( por ejemplo: `mi_base_de_datos.db` ), el programa __abrirá la base de datos__ especificada __o la creará si no existe__. A continuación, mostrará un breve mensaje de bienvenida y quedará en espera de que el usuario introduzca instrucciones SQL. Por ejemplo, una conexión básica a una base de datos, sería el siguiente caso:
 
-## __¿Qué es la línea de comandos de SQLite3?__
+{% capture example1 %}
+<span class="hl">$ sqlite3 mi-db.sqlite</span>
+SQLite version 3.40.1 2022-12-28 14:03:47
+Enter ".help" for usage hints.
+<span class="hl">sqlite&gt; </span>
+{% endcapture %}
+
+{% include terminal-wrapper.html content=example1 %}
+
+## __¿Qué es la línea de comandos para SQLite3?__
 
 La **interfaz de línea de comandos** (_Command Line Interface_) es un programa que permite interactuar con bases de datos SQLite mediante comandos SQL.
 
@@ -18,7 +30,7 @@ Este programa está disponible para los principales sistemas operativos ( Window
 
 La instalación de SQLite3 es sencilla y varía ligeramente dependiendo del sistema operativo:
 
-#### __Windows__
+#### __En Windows__
 
 1. Ve al sitio oficial de SQLite: [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
 2. Descarga el archivo **"sqlite-tools"** correspondiente a tu sistema (por ejemplo, `sqlite-tools-win32-x86`).
@@ -28,7 +40,7 @@ La instalación de SQLite3 es sencilla y varía ligeramente dependiendo del sist
 > Opcional: Agrega la ruta de SQLite a las variables de entorno para poder usarlo desde cualquier ubicación del sistema.
 {: .prompt-info }
 
-#### __macOS__
+#### __En macOS__
 
 Puedes instalar SQLite fácilmente usando Homebrew:
 
@@ -39,7 +51,7 @@ brew install sqlite
 
 Luego, ejecuta el comando `sqlite3` en la terminal para comenzar.
 
-#### __Linux ( Debian/Ubuntu )__
+#### __En Linux ( Debian/Ubuntu )__
 
 En la mayoría de las distribuciones Linux, SQLite está disponible en los repositorios oficiales:
 
@@ -70,7 +82,7 @@ Para crear una base de datos, debes abrir una nueva __Terminal__ o ventana de __
 sqlite3 sistema.db
 ```
 
-> **Si la base de datos no existe, creará el archivo de base de datos una vez que tengamos como mínimo creada una tabla**.
+> Si la base de datos no existe, **se creará el archivo de base de datos una vez que tengamos como mínimo creada una tabla**.
 {: .prompt-info }
 
 El comando anterior abre un __entorno interactivo__ y se ve de la siguiente manera:

@@ -78,9 +78,7 @@ Otra opción es restaurar bases de datos usando el programa `pg_restore` a trav�
 pg_restore -U <user> -d <dbname> -v "backup.dump"
 ```
 
----
-
-## Mejores Prácticas
+## __Mejores Prácticas__
 
 Aquí podemos proponer una variedad de recomendaciones, considerando como importantes las siguientes:
 
@@ -90,7 +88,7 @@ Aquí podemos proponer una variedad de recomendaciones, considerando como import
 
 - **Pruebas de Restauración**: Realizar pruebas periódicas de restauración para garantizar que las copias de seguridad sean válidas y puedas recuperar los datos en caso de emergencia.
 
-### Crear un Script de Copia de Seguridad
+### __Crear un Script de Copia de Seguridad__
 
 Primero, necesitamos crear un script que ejecute la copia de seguridad de la base de datos PostgreSQL. Podemos usar `pg_dump` dentro del script para realizar una copia de seguridad lógica de la base de datos.
 

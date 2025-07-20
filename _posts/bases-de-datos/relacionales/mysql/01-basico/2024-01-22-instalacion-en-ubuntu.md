@@ -23,7 +23,7 @@ Antes de comenzar, asegurate de tener lo siguiente:
 
 ## __Comenzar Instalación__
 
-### __Paso 1: Actualizar el Sistema__
+### __1. Actualizar el Sistema__
 
 Es fundamental que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que cuentas con los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
 
@@ -39,7 +39,7 @@ Después, actualiza todos los paquetes instalados con el siguiente comando:
 sudo apt upgrade -y
 ```
 
-### __Paso 2: Instalar MySQL__
+### __2. Instalar MySQL__
 
 Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados. Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
   
@@ -61,7 +61,7 @@ Con el siguiente comando podemos verificar en qué puerto está corriendo MySQL:
 cat /etc/services | grep mysql
 ```
 
-### __Paso 3: Configurar MySQL__
+### __3. Configurar MySQL__
 
 En Debian y derivados, el paquete mysql-server incluye el script Perl **`mysql_secure_installation`**, el cual permite mejorar la seguridad de la instalación por defecto. Es recomendable correr este script en todas las instalaciones de servidores MySQL para sistemas en producción. En resumen nos permite:
 
@@ -100,7 +100,7 @@ Luego nos pregunta si queremos recargar la tabla de privilegios. Pondremos si (Y
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-5.webp)
 
 
-### **Paso 4: Configurar Métodos de Autenticación**
+### __4. Configurar Métodos de Autenticación
 
 En los sistemas Ubuntu con MySQL 5.7 (y versiones posteriores), el usuario `root` de MySQL se configura para la autenticación usando el complemento `auth_socket` de manera predeterminada en lugar de una contraseña. Esto en muchos casos proporciona mayor seguridad y utilidad, pero también puede generar complicaciones cuando deba permitir que un programa externo (como phpMyAdmin) acceda al usuario.
 
