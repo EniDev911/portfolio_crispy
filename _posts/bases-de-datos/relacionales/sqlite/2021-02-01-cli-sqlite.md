@@ -37,7 +37,7 @@ La instalación de SQLite3 es sencilla y varía ligeramente dependiendo del sist
 3. Extrae el archivo `.zip` en una carpeta, por ejemplo `C:\sqlite`.
 4. Abre la terminal ( símbolo del sistema o PowerShell ), navega a esa carpeta y ejecuta `sqlite3` para iniciar el programa.
 
-> Opcional: Agrega la ruta de SQLite a las variables de entorno para poder usarlo desde cualquier ubicación del sistema.
+> __Opcional__s: Agrega la ruta de SQLite a las variables de entorno para poder usarlo desde cualquier ubicación del sistema.
 {: .prompt-info }
 
 #### __En macOS__
@@ -216,7 +216,6 @@ Estos comandos de puntos se utilizan normalmente para cambiar el formato de sali
 |`.clone` **NEWDB**|Clona la base de datos actual en `NEWDB` (directorio)|.|
 |`.databases`|Lista las bases de datos adjuntas|.| 
 
-
 ### __Esquema de la base de datos__
 
 Para ver el esquema, donde figuran las sentencias SQL ejecutadas en la creación de tablas, ejecuta el comando `.schema` o `.fullschema`:
@@ -262,15 +261,21 @@ La función `readfile(x)` lee todo el contenido de un archivo y devuelve ese con
 
 ```sql
 CREATE TABLE imagenes(nombre TEXT,tipo TEXT,imagen BLOB);
+
 INSERT INTO imagenes(nombre,tipo,imagen)
-  VALUES('icon_folder','png',readfile('C:\\Users\\home\\Pictures\\folder.png'));
+VALUES(
+   'icon_folder',
+   'png',
+   readfile('C:\\Users\\home\\Pictures\\folder.png')
+);
 ```
 {: .nolineno }
 
 La función `writefile(x, y)` crea un archivo llamado (`x`) y escribe el `BLOB` (`y`) y devuelve el número de bytes escritos:
 
 ```sql
-SELECT writefile('folder.png', imagen) FROM imagenes WHERE nombre = 'icon_folder';
+SELECT writefile('folder.png', imagen)
+FROM imagenes WHERE nombre = 'icon_folder';
 ```
 {: .nolineno }
 
@@ -278,7 +283,7 @@ SELECT writefile('folder.png', imagen) FROM imagenes WHERE nombre = 'icon_folder
 
 La línea de comandos de `sqlite3` permite importar archivos CSV fácilmente y consultarlos como si fueran una base de datos. Esto es útil para analizar datos sin necesidad de convertirlos a otro formato o cargarlos en una base de datos existente.
 
-> 👉 **¡Ideal para analizar datos rápido sin herramientas adicionales!**
+> ¡Ideal para analizar datos rápido sin herramientas adicionales!
 {: .prompt-tip }
 
 Para hacer el análisis de un archivo CSV, abre una terminal y ejecuta `sqlite3` sin argumentos. Esto iniciará **SQLite en la memoria** en vez de crear una base de datos en el disco, lo que significa que los datos se cargarán solo mientras la sesión esté activa. A continuación tienes los comandos que debes ejecutar para importar el CSV:
@@ -321,24 +326,27 @@ Auriculares,Accesorios,81000,1,81000,2024-08-30
 
 ### __Consultas SQL rápidas sobre el CSV__
 
-**💡 Ejemplo**: Ver las primeras 5 filas:
+__Ver las primeras 5 filas__:
 ```sql
 SELECT * FROM ventas LIMIT 5;
 ```
 {: .nolineno }
-**💡 Ejemplo**: Total de ventas por categoría:
+
+__Total de ventas por categoría__:
 ```sql
 SELECT 'Categoría', SUM(Total) AS Ventas_Totales
 FROM ventas
 GROUP BY 'Categoría';
 ```
 {: .nolineno }
-**💡 Ejemplo**: Ventas en enero de 2024:
+
+__Ventas en enero de 2024__:
 ```sql
 SELECT * FROM ventas WHERE Fecha_Venta LIKE '2024-01%';
 ```
 {: .nolineno }
-**💡 Ejemplo**: Productos más caros vendidos:
+
+__Productos más caros vendidos__:
 ```sql
 SELECT * FROM ventas ORDER BY Precio DESC LIMIT 5;
 ```
@@ -346,19 +354,45 @@ SELECT * FROM ventas ORDER BY Precio DESC LIMIT 5;
 
 ### __Guardar los resultados en un nuevo CSV__
 
-Si después de analizar los datos quieres guardar los resultados en otro archivo CSV, usa:  
+Si después de analizar los datos quieres guardar los resultados en otro archivo CSV, usa:
 
 ```sql
 .mode csv
 .output resumen.csv
+
 SELECT 'Categoría', SUM(Total) AS Ventas_Totales
-FROM ventas
-GROUP BY 'Categoría';
+FROM ventas GROUP BY 'Categoría';
+
 .output stdout -- Volver a cambiar la salida al modo normal
 ```
 {: .nolineno }
 
 Esto creará un archivo **resumen.csv** con el total de ventas por categoría.  
+
+## __Exportar datos desde SQLite a otros formatos__
+
+SQLite permite exportar a otros formatos como __JSON__, __CSV__. Esto resulta útil cuando necesitas compartir información fuera de la base de datos.
+
+### __Exportar a JSON__
+
+SQLite permite exportar directamente a JSON si usas una versión 3.33 o superior, puedes exportar tus datos a JSON con el siguiente comando:
+
+```bash
+sqlite3 mi_base.db -json "SELECT * FROM ventas;" > ventas.json
+```
+{:.nolineno}
+
+### __Expotar a CSV__
+
+El formato CSV es ideal para hojas de cálculo u otras herramientas que aceptan datos tabulares, puedes exportar a CSV con el siguiente comando:
+
+```bash
+sqlite3 -header -csv mi_base_db "SELECT * FROM ventas;" > ventas.csv
+```
+{:.nolineno}
+
+- `-header`: incluye la fila con nombres de columnas.
+- `-csv`: define el formato delimmitado por comas.
 
 ## __Configurar SQLite CLI__
 
