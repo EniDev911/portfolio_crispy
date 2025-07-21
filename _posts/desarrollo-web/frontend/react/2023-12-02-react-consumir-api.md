@@ -276,7 +276,7 @@ export default App;
 {: .nolineno file="App.tsx" }
 {% endraw %}
 
-## __6. Repositorio__
+## __7. Repositorio__
 
 Pasa por el repositorio, ahí encontrarás el código completo por si quieres revisar la solución o clonarlo para experimentar por tu cuenta.
 
