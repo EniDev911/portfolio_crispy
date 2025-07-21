@@ -6,8 +6,9 @@ tags: [python]
 pin: true
 img_path: 'python'
 image:
-    path: "https://enidev911.github.io/fullstack-python/assets/img/python-input-card.png"
-    alt: "input python"
+    path: "posters/python-entrada-y-salida.webp"
+    lqip: data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJZQC+SYqCyW8bq7v+0iAAAP7L9cK2UvNHXSmKSsz+2i78OpCPnad40Rt400Q7a1l52I5jVV4YiX4ACYAAAA== 
+    alt: "Funciones de entrada y salida en Python"
 ---
 
 ## **Entrada de datos en Python (input)**
