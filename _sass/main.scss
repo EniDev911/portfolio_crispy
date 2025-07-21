@@ -40,8 +40,10 @@ em.type {
  border: 1px solid var(--mask-bg);
 }
 
-.highlighter-rouge {
-  overflow: hidden;
+
+
+.highlight {
+  max-height: 350px;
 }
 
 .bgerr .err {
@@ -105,7 +107,7 @@ em.type {
 svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
 
 .highlight {
-  max-height: 700px;
+  max-height: 400px;
 }
 
 .frame img {

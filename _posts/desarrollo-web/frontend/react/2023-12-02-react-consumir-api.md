@@ -3,14 +3,22 @@ title: ⚛️ Consumir API en React
 author: enidev911
 categories: [Desarrollo Web, React]
 tags: [desarrollo web, react]
-image: posters/react-axios-api.png
+image:
+  path: posters/react-axios-api.png
 ---
 
-En este artículo, aprenderemos a consumir una API usando React especificamente la API de Rick and Morty. Esta API es excelente para practicar, ya que es una API púiblica que devuelve datos de personajes, episodios y ubicaciones de la serie animada.
+En este artículo, aprenderemos a consumir una API usando React específicamente la API de Rick and Morty. Esta API es excelente para practicar, ya que es una __pública__ y __gratuita__, y devuelve información de personajes, episodios y ubicaciones de la serie animada.
 
-### Crear el Proyecto con Vite
+Vamos a construir una pequeña app que liste los personajes y muestre su información. Todo desde 0.0.
 
-Para crear un nuevo proyecto de React y configurado con TypeScript utilizando [Vite](https://vite.dev/){: target='_blank'}, puedes usar el siguiente comando:
+## __Requisitos Previos__
+
+- Tener instalado __Node.js__ y __npm__ o __yarn__.
+- Conocimientos básicos con los hooks `useState` y `useEffect`.
+
+## __1. Crear el proyecto con Vite__ (recomendado)
+
+Para crear un nuevo proyecto con una plantilla de React y configurado con TypeScript utilizando [Vite](https://vite.dev/){: target='_blank'}, puedes usar el siguiente comando:
 
 ```terminal
 npm create vite@latest rick-and-morty-api -- --template react-ts
@@ -29,7 +37,10 @@ Luego de forma opcional, inicia el servidor de desarrollo para ver la aplicació
 npm run dev
 ```
 
-### Estructura de Archivos
+![React Vite StartApp](desarrollo-web/vite-react-startapp-light.png){: .light }
+![React Vite StartApp](desarrollo-web/vite-react-startapp-dark.png){: .dark }
+
+## __2. Estructura de Archivos__
 
 A pesar de que vite nos crea la estructura y la configuración, recomiendo organizar los archivos de la carpeta `src` de la siguiente manera:
 
@@ -47,17 +58,14 @@ src/
 ```
 {: .noheader .nolineno .p-0 }
 
----
 
-### Creación un Hook personalizado para la API
+## __3. Crear un hook personalizado__
 
-Ahora vamos a crear un **hook personalizado** llamado `useRickAndMortyAPI` que nos permita consumir la API de **Rick and Morty** y gestionar el estado de carga y error.
+Ahora vamos a crear un **hook personalizado** llamado `useRickAndMortyAPI`, que nos permitirá consumir la API de manera reutilizable, y gestionar el estado de carga como los posibles errores.
 
-#### Definir la Estructura de los Datos
+Para ello, primero definiremos las interfaces necesarias para describir los datos que devuelve la API. Esta API nos entrega una lista de personajes junto con detalles como su nombre, especie e imagen, además de información sobre la paginación. Por lo tanto, vamos a tipar correctamente esa estructura para aprovechar las ventajas de TypeScript.
 
-Primero, vamos a definir las interfaces para los datos que vamos a recibir de la API. La API de Rick and Morty devuelve una lista de personajes y su información en un formato específico, así que vamos a crear una interfaz para representar esta estructura de datos.
-
-Creamos una nueva carpeta llamada `hooks` dentro de `src/` y dentro de ella, creamos el archivo `useRickAndMortyAPI.ts` y agregamos lo siguiente:
+Creamos una nueva carpeta llamada `hooks` dentro de `src/` y dentro de ella, cream un archivo `useRickAndMortyAPI.ts` y escribimos lo siguiente:
 
 {% raw %}
 ```ts
@@ -78,6 +86,11 @@ interface ApiResponse {
   };
 }
 
+/**
+ * Hook personalizado para consumir la API
+ * @param url URL de la APU
+ * @returns characters (array), loading (boolean), error (string|null)
+ */
 const useRickAndMortyAPI = (url: string) => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -116,13 +129,11 @@ Resumiendo el código anterior, tenemos lo siguiente:
 - `useEffect`: Se usa para ejecutar la función `fetchCharacters` cuando el componente se monta o cual la URL cambia (en este caso, cuando cambiamos la página de personajes).
 - `axios.get`: Se usa para realizar solicitudes HTTP a la API. El tipo de respuesta esperado es `Apiresponse`, que contiene una lista de personajes.
 
----
+## __4. Usar el hook en un componente__
 
-### Crear el Componente para Mostrar los Personajes
+A continuación, vamos a crear un componente llamado `CharacterList`, el cual utilizará el hook `useRickAndMortyAPI` para obtener y mostrar los personajes.
 
-Ahora vamos a crear un componente llamado `CharacterList` que use el hook `useRickAndMortyAPI` para obtener y mostrar los personajes.
-
-Creamos el archivo  `CharacterList.tsx` dentro de `src/componentes` y aquí está el código para el componente `CharacterList`:
+Crea un archivo `CharacterList.tsx` dentro de `src/componentes`, y escribimos el siguiente código para el componente:
 
 {% raw %}
 ```tsx
@@ -186,11 +197,9 @@ Resumiendo el código anterior, tenemos lo siguiente:
 
 - Cuando haces clic en el botón <kbd>Anterior</kbd> o <kbd>Siguiente</kbd>, decrementamos o incrementamos el valor de `page`, lo que también cambia la URl y hace que el hook se ejecute de nuevo.
 
----
+## __5. Agregar estilos básicos__
 
-### Agregar Estilos Básicos
-
-Para mejorar la apariencia de nuestra aplicación, podemos agregar algunos estilos. Vamos a agregar o remplazar los estilos en `src/App.css` con los siguientes estilos:
+Para mejorar la apariencia de nuestra aplicación, podemos añadir algunos estilos simples. Vamos a editar o remplazar los estilos en `src/App.css` con los siguientes estilos:
 
 ```css
 .character-list {
@@ -247,15 +256,16 @@ Para mejorar la apariencia de nuestra aplicación, podemos agregar algunos estil
 ```
 {: .nolineno file="App.css" }
 
----
+## __6. Importar el componente en App.tsx__
 
-### Importar el Componente en App.tsx
+Finalmente, integramos todo en el componente `App.tsx` para mostrar la lista de personajes en pantalla.
 
-Finalmente, integramos todo en el componente `App.tsx` para mostrar la lista de personajes:
+Abre el archivo `src/App.tsx` y reemplaza su contenido con el siguiente:
 
 {% raw %}
 ```tsx
 import CharacterList from "./components/CharacterList";
+import './App.css';
 
 function App() {
   return <CharacterList />
@@ -265,3 +275,30 @@ export default App;
 ```
 {: .nolineno file="App.tsx" }
 {% endraw %}
+
+## __6. Repositorio__
+
+Pasa por el repositorio, ahí encontrarás el código completo por si quieres revisar la solución o clonarlo para experimentar por tu cuenta.
+
+{% include github-repo.html owner="mc-herrera-90" repo="rick-and-morty-api" %}
+
+Si te interesa seguir mejorando esta app, podrías:
+
+* Agregar una barra de **búsqueda por nombre**.
+* Implementar **filtros por especie o estado**.
+* Usar **React Router** para ver el detalle de cada personaje.
+
+¡El universo de Rick and Morty y el de React tienen mucho por explorar! 🚀
+
+{% include circle-line.html %}
+
+En este artículo construimos paso a paso una pequeña aplicación en **React** para consumir la API pública de **Rick and Morty**. Aprendimos a:
+
+* Crear un **hook personalizado** para centralizar la lógica de consumo de datos.
+* Usamos axios para hacer las peticiones HTTP de forma sencilla y elegante.
+* Manejar estados de **carga** y **error** de forma eficiente.
+* Utilizar **paginación** para navegar entre diferentes páginas de resultados.
+
+Además, lo hicimos aprovechando el tipado de **TypeScript** y buenas prácticas.
+
+Este tipo de ejercicios no solo nos ayuda a mejorar nuestras habilidades con React, sino también a escribir código limpio y reutilizable.
