@@ -3,6 +3,33 @@ layout: page
 ---
 
 <style>
+  #filters {
+    margin: 30px 0;
+  }
+
+  .filter-btn {
+    margin: 5px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background-color: #6c63ff;
+    color: #fff;
+  }
+
+  .gallery-item {
+    display: block;
+  }
+
+  .gallery-item.hidden {
+    display: none;
+  }
+
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -49,10 +76,14 @@ layout: page
   }
 
 </style>
-
+<div id="filters" style="margin-bottom: 20px; text-align:center;">
+  <button class="filter-btn" data-filter="all">Todos</button>
+  <button class="filter-btn" data-filter="blog">Blogs</button>
+  <button class="filter-btn" data-filter="landing">Landing Pages</button>
+</div>
 <div class="gallery">
   {% for project in site.data.portfolio[page.key] %}
-  <div class="gallery-item">
+  <div class="gallery-item {{ project.category }}">
     <a href="{{ project.url }}" target="_blank">
       <img 
         src="data:image/webp;base64,{{ project.image_base64 }}"
@@ -69,13 +100,32 @@ layout: page
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll('img[data-src]');
     images.forEach(img => {
       const highQualityImage = img.getAttribute('data-src');
-
       img.onload = () => img.src = highQualityImage;
       img.src = highQualityImage;
+    });
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".gallery-item");
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        items.forEach(item => {
+          if (filter === "all" || item.classList.contains(filter)) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+        });
+      });
     });
   });
 </script>

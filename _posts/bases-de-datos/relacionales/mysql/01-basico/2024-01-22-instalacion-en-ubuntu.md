@@ -100,7 +100,7 @@ Luego nos pregunta si queremos recargar la tabla de privilegios. Pondremos si (Y
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-5.webp)
 
 
-### __4. Configurar Métodos de Autenticación
+### __4. Configurar Métodos de Autenticación__
 
 En los sistemas Ubuntu con MySQL 5.7 (y versiones posteriores), el usuario `root` de MySQL se configura para la autenticación usando el complemento `auth_socket` de manera predeterminada en lugar de una contraseña. Esto en muchos casos proporciona mayor seguridad y utilidad, pero también puede generar complicaciones cuando deba permitir que un programa externo (como phpMyAdmin) acceda al usuario.
 
