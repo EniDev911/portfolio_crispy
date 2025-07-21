@@ -76,10 +76,25 @@ layout: page
   }
 
 </style>
+{% assign all_items = site.data.portfolio[page.key] %}
+{% assign categories = "" | split: "," %}
+
+{% for item in all_items %}
+  {% if item.category and item.category != "" %}
+    {% unless categories contains item.category %}
+      {% assign categories = categories | push: item.category %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
 <div id="filters" style="margin-bottom: 20px; text-align:center;">
   <button class="filter-btn" data-filter="all">Todos</button>
-  <button class="filter-btn" data-filter="blog">Blogs</button>
-  <button class="filter-btn" data-filter="landing">Landing Pages</button>
+  <!-- <button class="filter-btn" data-filter="blog">Blogs</button> -->
+  <!-- <button class="filter-btn" data-filter="landing">Landing Pages</button> -->
+  {% for category in categories %}
+    {% assign cat_url = category | slugify %}
+    <button class="filter-btn" data-filter="{{ category }}">{{ category }}</button>
+  {% endfor %}
 </div>
 <div class="gallery">
   {% for project in site.data.portfolio[page.key] %}

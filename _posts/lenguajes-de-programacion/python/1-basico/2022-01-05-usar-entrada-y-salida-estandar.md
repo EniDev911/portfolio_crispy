@@ -3,15 +3,12 @@ title: "Python 🐍 : Entrada y Salida (I/O)"
 author: enidev911
 categories: [Python, "01. Básico"]
 tags: [python]
-pin: true
-img_path: 'python'
 image:
-    path: "posters/python-entrada-y-salida.webp"
-    lqip: data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJZQC+SYqCyW8bq7v+0iAAAP7L9cK2UvNHXSmKSsz+2i78OpCPnad40Rt400Q7a1l52I5jVV4YiX4ACYAAAA== 
-    alt: "Funciones de entrada y salida en Python"
+    path: posters/python-entrada-y-salida.webp
+    lqip: data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJZQC+SYqCyW8bq7v+0iAAAP7L9cK2UvNHXSmKSsz+2i78OpCPnad40Rt400Q7a1l52I5jVV4YiX4ACYAAAA==
 ---
 
-## **Entrada de datos en Python (input)**
+## __Entrada de datos en Python (input)__
 
 Los desarrolladores a menudo tenemos la necesidad de interactuar con los usuarios, ya sea para obtener datos o para proporcionar algún tipo de resultado y mostrarlo por la consola. La mayoría de los programas actuales utilizan un cuadro de diálogo como una forma de pedirle al usuario que proporcione algún tipo de entrada. Mientras que Python una función incorporada para leer la entrada estándar desde el teclado.
 

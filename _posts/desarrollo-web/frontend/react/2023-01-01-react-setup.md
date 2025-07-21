@@ -3,22 +3,25 @@ title: 💻 Set up para React
 author: enidev911
 categories: [Desarrollo Web, React]
 tags: [desarrollo web, react]
+image:
+    path: posters/react-setup.webp
+    lqip: data:image/webp;base64,UklGRpAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSA8AAAABD9D/iAgMQkT/gwAAAAAAVlA4IFoAAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZwC90AqTAlDqOVAAAP65+XcSQMUd3v2PQu4V5Qko7vhmMyao5vOlxLRfOp27Cwu06unt8eeLYry5OKh5TE7RAAA=
 ---
 
 Cuando inicias en React, tienes que configurar previamente un entorno de desarrollo y con ello poner en marcha tu primer proyecto. Siguiendo unos sencillos paso podemos comenzar a crear aplicaciones modernas y dinámicas en poco tiempo.
 
-## __🔧 Requisitos Previos__
+## __Requisitos Previos__
 
 Antes de comenzar, debemos tener instaladas las siguientes herramientas en nuestra máquina:
 
 - [Node.js](https://nodejs.org/en/){:target='_blank'}: Necesitarás **Node.js 14.18.0** o superior para este y otros turoriales que publicaré. [Vite](https://vite.dev/){: target='_blank' } requiere al menos esta versión.
 - [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}): Son administradores de paquetes que te permiten gestionar las dependencias de un proyecto. **npm** viene preinstalado con **Node.js**, pero puedes optar por otra alternativa.
 
-## __Cómo Crear un Proyecto de React__
+## __Formas de crear un proyecto de react__
 
 Existen varias maneras de crear y configurar un proyecto de React, sin embargo la forma más tradicional y en su momento era la forma más sencilla es usando el paquete oficial `create-react-app`, que configura todo automáticamente.
 
-### **Usando create-react-app** ( No recomendado )
+### __Usando create-react-app__ ( No recomendado )
 
 1. Abrimos una nueva terminal o símbolo de sistema y ejecuta el siguiente comando:
 
@@ -26,7 +29,7 @@ Existen varias maneras de crear y configurar un proyecto de React, sin embargo l
 npx create-react-app <nombre-proyecto>
 ```
 
-Este comando creará una carpeta con el nombre del proyecto `<nombre-proyecto>` y descargará todas las dependencias necesarias para empezar.
+- Este comando creará una carpeta con el nombre del proyecto `<nombre-proyecto>` y descargará todas las dependencias necesarias para empezar.
 
 {: start="2" }
 2. Una vez de haya completado la instalación, navegamos a la carpeta del proyecto generado:
@@ -44,9 +47,10 @@ npm start
 
 Esto iniciará el servidor de desarrollo y abrirá automáticamente la aplicación en el navegador en <http://localhost:3000>. Ahora podrás ver los cambios en tiempo real al modificar archivos del proyecto.
 
+![Aplicación con create-react-app](react/create-react-app-start.webp)
+
 > El comando `create-react-app` fue un proyecto increíblemente útil en su momento, ya que configuraba automáticamente un entorno de desarrollo completo, pero **ha quedado en desuso** de facto para algunas versiones recientes de Node.js, y a menudo tiene problemas de compatibilidad con sus dependencias.
 {: .prompt-warning }
-
 
 ### __Usando Vite__ ( Recomendado )
 
@@ -58,12 +62,11 @@ Esto iniciará el servidor de desarrollo y abrirá automáticamente la aplicaci�
 npm create vite@latest <nombre-proyecto> -- --template react
 ```
 
-Aquí:
+- Aquí:
+    - `<nombre-proyecto>`: El nombre de tu proyecto.
+    - `--template react`: Especifica que quieres usar el template de React.
 
-- `<nombre-proyecto>`: El nombre de tu proyecto.
-- `--template react`: Especifica que quieres usar el template de React.
-
-El comando `npm create vite@latest` descargará y ejecutará la última versión de Vite, y configurará un proyecto con la plantilla de React. Esto significa que habrá creado la estructura de carpetas y configuración necesaria para iniciar nuestro proyecto.
+- El comando `npm create vite@latest` descargará y ejecutará la última versión de Vite, y configurará un proyecto con la plantilla de React. Esto significa que habrá creado la estructura de carpetas y configuración necesaria para iniciar nuestro proyecto.
 
 {: start="2" }
 2. A partir de aquí, tendremos que entrar al directorio raíz del proyecto e instalar las dependencias con npm (la instrucción anterior ya nos habrá sugerido estos comandos):
@@ -80,7 +83,7 @@ npm install
 npm run dev
 ```
 
-El template básico de React en Vite, proporciona una estructura mínima con la que puedes empezar a trabajar de inmediato. Incluye un archivo `App.jsx` que se renderiza como la página de inicio:
+- El template básico de React en Vite, proporciona una estructura mínima con la que puedes empezar a trabajar de inmediato. Incluye un archivo `App.jsx` que se renderiza como la página de inicio:
 
 ![React Vite StartApp](desarrollo-web/vite-react-startapp-light.png){: .light }
 ![React Vite StartApp](desarrollo-web/vite-react-startapp-dark.png){: .dark }
