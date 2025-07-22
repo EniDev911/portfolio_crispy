@@ -1,15 +1,16 @@
 ---
-title: ⚛️ Consumir API en React
+title: ⚛️ Conectar con API en React
 author: enidev911
 categories: [Desarrollo Web, React]
 tags: [desarrollo web, react]
 image:
-  path: posters/react-axios-api.png
+  path: posters/react-api-rick-and-morty.webp
+  lqip: data:image/webp;base64,UklGRooAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBMAAAABD/D+/4iIIBZMduZvnUFE/9MOAFZQOCBQAAAAsAMAnQEqFAALAD85hrlTryklorAIAeAnCWMAwNwiItTsEeTtYAAA/s1Fu8tXu1wsNWOTzsGuxcjB7aj2mML6iQS2lESOWeawgNjKrRueAAA=
 ---
 
-En este artículo, aprenderemos a consumir una API usando React específicamente la API de Rick and Morty. Esta API es excelente para practicar, ya que es una __pública__ y __gratuita__, y devuelve información de personajes, episodios y ubicaciones de la serie animada.
+En este artículo, aprenderemos a consumir una API usando React específicamente la API de Rick and Morty. Esta API es excelente para practicar, ya que es una API __pública__ y __gratuita__, y devuelve información de personajes, episodios y ubicaciones de la serie animada.
 
-Vamos a construir una pequeña app que liste los personajes y muestre su información. Todo desde 0.0.
+Vamos a construir una pequeña app que liste los personajes y muestre su información. Todo desde cero.
 
 ## __Requisitos Previos__
 
@@ -88,7 +89,7 @@ interface ApiResponse {
 
 /**
  * Hook personalizado para consumir la API
- * @param url URL de la APU
+ * @param url URL de la API
  * @returns characters (array), loading (boolean), error (string|null)
  */
 const useRickAndMortyAPI = (url: string) => {
@@ -126,7 +127,7 @@ Resumiendo el código anterior, tenemos lo siguiente:
   - `characters`: Almacena los personajes obtenidos de la API.
   - `loading`: Indica si la petición aún esta en curso.
   - `error`: Almacena cualquier mensaje de error si la solicitud falla.
-- `useEffect`: Se usa para ejecutar la función `fetchCharacters` cuando el componente se monta o cual la URL cambia (en este caso, cuando cambiamos la página de personajes).
+- `useEffect`: Se usa para ejecutar la función `fetchCharacters` cuando el componente se monta o cuando la URL cambia (en este caso, cuando cambiamos la página de personajes).
 - `axios.get`: Se usa para realizar solicitudes HTTP a la API. El tipo de respuesta esperado es `Apiresponse`, que contiene una lista de personajes.
 
 ## __4. Usar el hook en un componente__
