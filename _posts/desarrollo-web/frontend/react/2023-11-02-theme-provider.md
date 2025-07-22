@@ -7,6 +7,7 @@ image:
     path: posters/react-theme-provider.webp
     lqip: data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSCQAAAABH0CQbePPvO3XiIg4HAYiybhvpsSRTDSlJIjof4x6Aeqv1QVWUDggQgAAADADAJ0BKhQACwA/OYa5U68pJaKwCAHgJwlpAABanu4pVWAA/kN2RrlP54QyFX0ZjVFnA6uXfbDweqbzF7Q9+HgQAA==
 pin: true
+permalink: '/react/theme-provider/'
 ---
 
 En React, uno de los patrones más comunes es el uso de un **Theme Provider** para gestionar el tema visual de la aplicación. Con esto podemos cambiar el aspecto de la interfaz de usuario según el tema (oscuro o claro) y permite que el usuario elija su preferencia de forma persistente.
