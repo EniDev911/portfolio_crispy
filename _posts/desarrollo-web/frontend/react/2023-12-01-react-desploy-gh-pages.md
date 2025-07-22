@@ -7,7 +7,7 @@ image: posters/deploy-react-vite-gh-pages.png
 pin: true
 ---
 
-## __Cómo desplegar una aplicación de React con Vite__
+## __Desplegar una aplicación de React con Vite__
 
 Si has creado una aplicación de React usando Vite y quieres desplegarla en GitHub Pages, este tutorial te guiará paso a paso para hacerlo de forma sencilla. GitHub Pages es una excelente opción para alojar proyectos frontend estáticos de manera gratuita. A continuación te muestro cómo hacerlo.
 
@@ -20,7 +20,7 @@ Doy por hecho que ya cuentas con las siguientes herramientas instaladas en tu si
 - [Git](https://git-scm.com/){: target='_blank' }: Para manejar el control de versiones de tu proyecto y poder subirlo a GitHub.
 - [Cuenta en GitHub](https://github.com/){: target='_blank'}: Para crear un repositorio y desplegar tu aplicación en GitHub Pages.
 
-### __Crear la Aplicación de React__
+## __1. Crear la Aplicación de React__
 
 Para crear una aplicación de React utilizando [Vite](https://vite.dev/){: target='_blank'}, puedes usar el siguiente comando:
 
@@ -48,17 +48,15 @@ El template básico de React en Vite te proporciona una estructura mínima con l
 
 Para efecto de aprendizaje, no vamos a modificar ningún componente, seguiremos con los pasos para desplegar la aplicación.
 
-{% include circle-line.html %}
+## __2. Configurar el Repositorio__
 
-### __Configurar el Repositorio__
-
-**1. Inicializamos un nuevo repositorio, en la raíz del proyecto ejecutamos el siguiente comando**:
+Inicializamos un nuevo repositorio, en la raíz del proyecto ejecutamos el siguiente comando**:
 
 ```terminal
 git init
 ```
 
-**2. Creamos un nuevo repositorio usando [gh-cli](https://cli.github.com/){: target='_blank' } basado en nuestro proyecto**:
+Ahora, crea un nuevo repositorio usando [gh-cli](https://cli.github.com/){: target='_blank' } (necesitas instalar gh-cli) basado en nuestro proyecto:
 
 {% tabs gh-repo-create %}
 {% tab gh-repo-create terminal %}
@@ -79,7 +77,7 @@ $ gh repo clone --public -s=. -r=origin
 {% endtab %}
 {% endtabs %}
 
-**3. Preparamos los archivos y subimos al repositorio remoto creado**:
+Preparamos los archivos y subimos al repositorio remoto creado:
 
 ```terminal
 git add .
@@ -87,9 +85,7 @@ git commit -m "f commit"
 git push -u origin main
 ```
 
-{% include circle-line.html %}
-
-### __Instalar el paquete de gh-pages__
+## __3. Instalar el paquete de gh-pages__
 
 En el caso de Vite, necesitamos instalar [gh-pages](https://www.npmjs.com/package/gh-pages){: target='_blank' } para desplegar los archivos generados en la carpeta `dist` a Github Pages.
 
@@ -115,7 +111,7 @@ En la sección de `scripts` del `package.json` añadimos el comando `deploy`:
 - `build`: El comando que genera los archivos de producción en la carpeta `dist`.
 - `deploy`: Usa el paquete `gh-pages` para subir el contenido de la carpeta `dist` a la rama `gh-pages` en el repositorio de Github.
 
-#### Construir la aplicación
+## __4. Construir la aplicación__
 
 Ahora podríamos construir la aplicación usando Vite. abrimos la terminal y corremos el siguiente comando:
 
@@ -125,7 +121,7 @@ npm run build
 
 Esto generará los archivos estáticos de producción en la carpeta `dist`.
 
-#### Desplegar a Github Pages
+## __5. Desplegar a Github Pages__
 
 Para subir los archivos generados y servirlo a Github Pages, utilizamos el comando que definimos `deploy`:
 
@@ -142,7 +138,7 @@ Es fácil detectar el problema que sucede, basta con abrir la consola con <kbd>F
 
 Como podemos observar el mensaje "**Failed to load resource**" que aparece en la consola, indica que el navegador no pudo cargar un archivo o recurso en a página para funcionar correctamente. Este error puede ocurrir por diversas razones, podemos tener problemas con la red, errores en la ruta de los archivos (lo que es más común), permisos incorrectos, o recursos que ya no existen en el servidor. Para solucionarlo debemos configurar Vite.
 
-### __Configurar vite para Gh Pages__
+## __6. Configurar vite para Gh Pages__
 
 En este paso, configuraremos `Vite` para que funcione bien en GiHub Pages, ya que GitHub Pages sirve la aplicación desde un subdirectorio. Esto significa que tenemos que ajustar las rutas base en la configuración de Vite. Abrimos el archivo `vite.config.js` en la raíz de nuestro proyecto, y configura el `base` de la siguiente manera:
 
@@ -166,11 +162,11 @@ npm run deploy
 
 Abre la URL en tu navegador para asegurarte de que todo está funcionando correctamente. En la siguiente URL podemos ver el resultado de este ejemplo: [https://enidev911.github.io/react-vite-gh-pages/](https://enidev911.github.io/react-vite-gh-pages/){: target='_blank'}.
 
-## 🚀 __Deploy automático con GitHub Actions__
+## __Deploy automático con GitHub Actions__
 
 Aunque `gh-pages` funciona bien con el comando `npm run dev`, podemos __automatizar más este proceso__ cada vez que hagas un `push` a la rama `main` o `gh-pages` utilizando __Github Actions__. Esto evita tener que hacer el deploy manualmente.
 
-### __Crea el archivo del workflow__
+### __1. Crea el archivo del workflow__
 
 En la raíz del proyecto, crea un archivo en la siguiente ruta:
 
@@ -216,6 +212,104 @@ jobs:
 ```
 {: file='deploy.yml' }
 {% endraw %}
+
+Ahora, si ejecutamos un `git push` a la rama `main` y revisamos la ejecución del workflow en GitHub Actions, veremos un error de permisos.
+
+
+> ![Problemas de permisis](github/gh-actions-permmisions.webp)
+{:.prompt-danger}
+
+## __Solucionar problemas de permisos__
+
+En el error que aparece en GitHub Action, sucede cuando estamos intentando hacer un **push al repositorio desde GitHub Actions**, pero la acción falla con este mensaje:
+
+```
+remote: Permission to mc-herrera-90/rick-and-morty-api.git denied to github-actions[bot].
+fatal: unable to access 'https://github.com/mc-herrera-90/rick-and-morty-api.git/': The requested URL returned error: 403
+```
+
+__¿Qué significa?__
+
+El bot `github-actions[bot]` **no tiene permiso de escritura** en el repositorio, por eso **no puede hacer el push** al branch `gh-pages`.
+
+__Solución__
+
+Debes configurar un **token de acceso con permiso de escritura**. Aquí hay dos opciones recomendadas:
+
+### __Opción 1: Habilitar los permisos en el Workflow__
+
+Modifica tu workflow y asegúrate de que uses el `GITHUB_TOKEN` integrado, **pero habilita los permisos necesarios**. Asegúrate de definir los permisos en el workflow:
+
+```yaml
+permissions:
+  contents: write
+```
+{: .nolineno }
+
+__Ejemplo completo__:
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write  # 👈 necesario para hacer push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Build del proyecto
+        run: npm run build
+
+      - name: Deploy a GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+```
+{:file="deploy.yml"}
+
+
+### __Opción 2: Crear un Personal Access Token (PAT)__
+
+1. Ve a [https://github.com/settings/tokens](https://github.com/settings/tokens){:target='_blank'}
+2. Crea un **token clásico** con:
+
+   * `repo`
+   * `workflow`
+3. Ve a tu repositorio → **Settings > Secrets and variables > Actions**
+4. Crea un secret llamado `GH_TOKEN` (o similar) con ese valor.
+
+Y luego cambia en tu workflow:
+
+{% raw %}
+```yaml
+with:
+  personal_token: ${{ secrets.GH_TOKEN }}
+  publish_dir: ./build
+```
+{: .nolineno }
+{% endraw %}
+
+> **No uses directamente `https://` con usuario y contraseña o token embebido**, eso puede ser inseguro.
+{:.prompt-warning}
 
 Como resultado, cada vez que haces `git push` a `main`, GitHub Actions construye tu aplicación con Vite y la __despliega automáticamente a GitHub Pages__. Puedes seguir el estado del despliegue desde la pestaña Actions de tu repositorio.
 
