@@ -9,6 +9,7 @@ image:
   lqip: data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBMAAAABD9D/iAgICQjN/8WyBxH9z+QCAFZQOCBeAAAAsAMAnQEqFAALAD85hrxULykmIzAIAeAnCWwAAFtiav5uaCFRuAAA/uqLXyEPWtCZUj4tVmuH1JwDzu+Riq2UIC7ZzsRFykWjB1P5ERlcXou6UeS5K3UkfwbXneAAAA==
 tags: [Bases de Datos]
 pin: true
+permalink: '/mysql/filtrar-y-ordenar-datos/'
 ---
 
 Cuando trabajamos con bases de datos, a menudo necesitamos extraer información específica y mostrarla de manera ordenada. Para lograr esto, MySQL nos brinda las cláusula `WHERE` para filtrar datos y `ORDER BY` para ordenarlos según nuestros criterios. En este post, profundizaremos en estas cláusulas y veremos cómo combinarlas para crear consultas más efectivas. Pero antes de sumergirnos en el código, vamos a preparar un escenario que contextualice el uso de estas herramientas.
@@ -296,8 +297,17 @@ Esta consulta te devolverá solo los posts de la categoría **Trabajo** que est�
 Ahora, necesito ver todos los posts que están en estado **Borrador** y fueron creados después del **1 de febrero de 2025**, para hacer una revisión y decidir si se publican o no.
 
 ```sql
-SELECT * FROM posts WHERE estado = 'Borrador' AND fecha_publicacion > '2025-02-01' ORDER BY fecha_publicacion DESC;
+SELECT * FROM posts 
+WHERE estado = 'Borrador'
+  AND fecha_publicacion > '2025-02-01'
+ORDER BY fecha_publicacion DESC;
 ```
 {: .nolineno }
 
 Esta consulta filtrará todos los posts que están en estado **Borrador** y cuya fecha de publicación es posterior al **1 de febrero de 2025**, ordenándolos por la fecha de publicación más reciente. Esto te permitirá revisar primero los posts más nuevos que todavía están en proceso de edición.
+
+{% include circle-line.html %}
+
+En este artículo aprendimos a usar las cláusulas `WHERE` y `ORDER BY` en MySQL para filtrar y ordenar datos de forma eficiente. En 2 escenarios distintos, ya sea para encontrar productos específicos o mostrar publicaciones recientes, dominar estas herramientas es clave para consultas más precisas.
+
+Sigue explorando para mejorar tus habilidades en SQL y trabajar con datos de forma más poderosa.
