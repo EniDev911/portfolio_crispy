@@ -1,18 +1,18 @@
 ---
 title: "MySQL 🐬 : Comandos Básicos"
 author: enidev911
-description: "Los **comandos básicos de MySQL** son fundamentales para interactuar con las bases de datos y realizar operaciones"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 mermaid: true
 image:
   path: posters/mysql-comandos-basicos.webp
-  lqip: data:image/webp;base64,UklGRpAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4ICoAAACwAgCdASoUAAsAPzmGuVOvKSWisAgB4CcJaQAAeyAA/u3FTL7V/ahCwAA=
+  lqip: data:image/webp;base64,UklGRoAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBUAAAABF9D/iAgQZNtMYmi7v88FIvqfSy4AVlA4IEQAAAAQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQAALJSVN7wAA/uqMZSCDGYI3LG5n8dklI+kzvPrch/tg24u7I+SCEAAAAA==
 tags: [Bases de Datos, MySQL]
+permalink: '/mysql/comandos-basicos/'
 ---
 
-Como sabemos, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para gestionar bases de datos. SQL permite realizar diversas operaciones sobre bases de datos, como la creación, manipulación, consulta y control de los datos. Existen diferentes **grupos de comandos** dentro SQL, los cuales se organizan en distintos **sub-lenguajes** que cumplen roles específicos y nos ayudan a realizar tareas de forma más eficiente. Cada sub-lenguaje tiene un próposito determinado, desde la definición de estructuras de bases de datos hasta la manipulación de datos y la gestión de permisos.
+Como probablemente ya sabes, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para trabajar y gestionar bases de datos. Nos permite realizar una variedad de operaciones, como crear estructuras, consultar información, modificar datos y gestionar el acceso. Dentro de SQL, __los comandos se agrupan en distintos sublenguajes__, cada uno con un propósito específico. Estos sublenguajes están pensados para facilitar tareas concretas, desde definir la estructura de una base de datos, hasta manipular sus datos o gestionar permisos de acceso, todo de forma más ordenada y eficiente.
 
-A continuación tenemos un diagrama que nos muestra esos **sublenguajes**:
+A continuación, tenemos un diagrama que nos muestra esos **sublenguajes**:
 
 ```mermaid
 ---
@@ -28,9 +28,11 @@ graph TD
     E-->ED[GRANT<br />DENY<br />REVOKE]
 ```
 
-## **Comandos de Definición de Datos (DDL)**
+## __Comandos de Definición de Datos (DDL)__
 
-Los comandos de definición de datos nos permiten crear y modificar la estructura de las base de datos y las tablas.
+__Los comandos DDL__ nos permiten crear y modificar la estructura de las bases de datos, como sus tablas, columnas, tipos de datos y relaciones. También se utilizan para definir otros objetos importantes, como índices, vistas, procedimientos, usuarios, etc. En versiones más recientes, es posible crear roles (conjuntos de permisos) para facilitar la gestión de privilegios.
+
+![DDL](mysql/mysql-ddl.webp)
 
 ### **Crear una Base de Datos**
 
@@ -43,9 +45,10 @@ CREATE DATABASE tienda;
 
 Este comando crea una base de datos llamada `tienda`, donde podemos almacenar los datos relacionados con una tienda.
 
-**Nota Importante: Seleccionar la Base de Datos**
+> Siempre que se crea una base de datos, es necesario seleccionarla antes de trabajar con sus objetos usando el comando `USE nombre_bd;`.
+{: .prompt-info }
 
-Después de crear una base de datos, debemos seleccionarla para comenzar a trabajar en ella. Para hacerlo, usamos el comando `USE`:
+Después de crear una base de datos, debemos seleccionarla para trabajar con ella. Para hacerlo, usamos el comando `USE`:
 
 ```sql
 USE tienda;
@@ -58,9 +61,9 @@ USE tienda;
 ![set prompt mysql](mysql/mysql-set-prompt-light.png){: .light }
 ![set prompt mysql](mysql/mysql-set-prompt-dark.png){: .dark }
 
-### **Crear una Tabla**
+### **Crear una tabla**
 
-Después de crear la base de datos y seleccionarla, podemos definir las tablas que contendrán los datos. Aquí usamos el comando `CREATE TABLE`:
+Después de crear y seleccionar la base de datos, podemos comenzar a definir las tablas que almacenarán la información. Para ello, utilizamos el comando `CREATE TABLE`:
 
 ```sql
 CREATE TABLE productos (
@@ -74,27 +77,26 @@ CREATE TABLE productos (
 
 Este comando crea una tabla llamada `productos` con las columnas `id`, `nombre`, `precio` y `cantidad`.
 
-**Nota sobre el Tipo de Dato para Precios**
+> Si bien usamos tipo `INT` para almacenar precios en este ejemplo, considerando que en **Chile** los valores monetarios se suelen manejar sin decimales porque es una manera más sencilla de representarlos (por ejemplo, representando $10.000 como 10000). Es importante tener en cuenta que, dependiendo del formato de la moneda en un país, podrías necesitar ajustar el tipo de datos. Por ejemplo el tipo de dato `DECIMAL(10, 2)` se usa para almacenar valores monetarios con dos decimales, lo cual es útil para la mayoría de las monedas que manejan centavos.
+{: .prompt-info }
 
-Si bien usamos `INT` para almacenar precios en este ejemplo, considerando que en **Chile** los valores monetarios se suelen manejar sin decimales porque es una manera más sencilla de representarlos (por ejemplo, representando $10.000 como 10000). Es importante tener en cuenta que, dependiendo del formato de la moneda en un país, podrías necesitar ajustar el tipo de datos. Por ejemplo el tipo de dato `DECIMAL(10, 2)` se usa para almacenar valores monetarios con dos decimales, lo cual es útil para la mayoría de las monedas que manejan centavos.
-
-**Ver la Estructura de una Tabla**
+#### **Ver estructura de una tabla**
 
 Después de crear una tabla, es común querer revisar su estructura para asegurarte de que las columnas y tipos de datos estén correctos. Para ello, podemos utilizar el comando `DESCRIBE`. Este comando te muestra información detallada sobre la estructura de una tabla, incluyendo el nombre de las columnas, los tipos de datos y otros detalles importantes:
 
 ```sql
-DESCRIBE productos
+DESCRIBE productos;
 ```
 {: .nolineno }
 
 ![mysql describe productos](mysql/mysql-describe-productos-light.png){: .light }
 ![mysql describe productos](mysql/mysql-describe-productos-dark.png){: .dark }
 
-### **Modificar una Tabla**
+### **Modificar una tabla**
 
 El comando `ALTER` se utiliza para modificar la estructura de una tabla ya existente. Con `ALTER`, podemos agregar, eliminar columnas existentes, o cambiar el tipo de datos de las columnas.
 
-**Agregar una Columna a una Tabla**
+#### __Agregar columna a una tabla__
 
 Si necesitamos agregar una nueva columna a una tabla, como por ejemplo, agregar una columna `descripcion` para detallar el producto, lo podemos hacer de la siguiente manera:
 
@@ -104,7 +106,7 @@ ADD descripcion TEXT;
 ```
 {: .nolineno }
 
-**Modificar el Tipo de Dato de una Columna**
+#### __Modificar el tipo de dato de una columna__
 
 Si deseamos cambiar el tipo de datos de una columna (por ejemplo, cambiar el tipo de una columna `precio` de `INT` a `DECIMAL`), usamos el siguiente comando:
 
@@ -116,7 +118,7 @@ MODIFY precio DECIMAL(10, 2);
 
 Este comando cambia el tipo de la columna `precio` a `DECIMAL(10, 2)` para permitir decimales en los precios.
 
-**Eliminar una Columna de una Tabla**
+#### __Eliminar una columna de una tabla__
 
 Si decides que ya no necesitas una columna específica, puedes eliminarla con el siguiente comando:
 
@@ -128,7 +130,7 @@ DROP COLUMN descripcion;
 
 Este comando elimina la columna `descripcion` de la tabla `productos`.
 
-**Renombrar una Tabla**
+### __Renombrar una Tabla__
 
 Si deseas cambiar el nombre de una tabla, podemos usar el comando `RENAME TABLE`:
 
@@ -139,7 +141,7 @@ RENAME TABLE productos TO productos_nuevos;
 
 Este comando renombra la tabla `productos`a `productos_nuevos`.
 
-### **Eliminar una Tabla**
+### __Eliminar una tabla__
 
 Si necesitas eliminar una tabla que ya no se usa, puedes hacerlo con el comando `DROP TABLE`:
 
@@ -149,9 +151,13 @@ DROP TABLE productos;
 {: .nolineno }
 
 
-## **Comandos de Manipulación de Datos (DML)**
+## __Comandos de Manipulación de Datos (DML)__
 
-Los comandos de manipulación de datos se utilizan para realizar operaciones sobre los datos que se encuentran dentro de las tablas de la base de datos. Las operaciones principales en este grupo son el **CRUD**, un acrónimo que representa:
+Los comandos de manipulación de datos se utilizan para realizar operaciones sobre los datos que se encuentran dentro de las tablas de la base de datos.
+
+![DML](mysql/mysql-dml.webp)
+
+Las operaciones principales en este grupo son el **CRUD**, un acrónimo que representa:
 
 - **C**: Create (Crear): Insertar nuevos registros en la base de datos.
 - **R**: Read (Leer): Consultar los datos existentes en la base de datos.
@@ -160,7 +166,7 @@ Los comandos de manipulación de datos se utilizan para realizar operaciones sob
 
 Estas operaciones permiten gestionar y manipular los datos almacenados en las tablas, desde agregar nuevos registros hasta modificarlos o eliminarlos según sea necesario.
 
-### **Insertar Datos en una Tabla**
+### __Insertar datos en una tabla__
 
 Para agregar información a una tabla, usamos el comando `INSERT INTO`:
 
@@ -172,7 +178,7 @@ VALUES ('Camiseta', 19990, 100);
 
 Este comando agrega un producto llamado `'Camiseta'` con un precio de `19990` (en el caso de que estemos usando un tipo `INT` para los precios) y una cantidad de `100` unidades en la tabla `productos`.
 
-**Insertar Varios Registros de una Vez**
+### __Insertar múltiples registros__
 
 En lugar de insertar registros uno a uno, podemos insertar múltiples registros al mismo tiempo:
 
@@ -185,7 +191,7 @@ VALUES
 ```
 {: .nolineno }
 
-### **Consultar Datos de una Tabla**
+### __Consultar datos de una tabla__
 
 Para leer los datos almacenados, usamos el comando `SELECT`. Podemos consultar todos los productos de la siguiente forma:
 
@@ -199,7 +205,7 @@ Este comando muestra todos los registros de la tabla `productos`, es decir, todo
 ![mysql select productos](mysql/mysql-select-productos-light.png){: .light }
 ![mysql select productos](mysql/mysql-select-productos-dark.png){: .dark }
 
-### **Actualizar Información de Registros**
+### __Actualizar información de registros__
 
 Para actualizar información de un producto o registro, podemos usar el comando `UPDATE`. Por ejemplo, para actualizar la cantidad de camisetas disponibles:
 
@@ -212,11 +218,10 @@ WHERE id = 1;
 
 Este comando cambia la cantidad del producto con `id` igual a `1` a `120`unidades.
 
-**Nota importante: Tener Cuidado con el `WHERE`**
+> Es muy importante el uso de la cláusula `WHERE` al realizar una actualización en una tabla. Si olvidas incluir el `WHERE`, el comando **actualizará todos los registros de la tabla**.
+{: .prompt-danger }
 
-Es muy importante el uso de la cláusula `WHERE` al realizar una actualización en una tabla. Si olvidas incluir el `WHERE`, el comando **actualizará todos los registros de la tabla**.
-
-### **Eliminar Datos de una Tabla**
+### __Eliminar datos de una tabla__
 
 Si queremos eliminar un producto o registro, usamos el comando `DELETE`:
 
@@ -228,11 +233,11 @@ DELETE FROM productos WHERE id = 1;
 > Nunca olvides el `WHERE` en este tipo de operaciones.
 {: .prompt-danger }
 
-## **Comandos de Control de Datos (DCL)**
+## __Comandos de Control de Datos (DCL)__
 
 Los comandos de control de datos se utilizan para gestionar los permisos de los usuarios y la seguridad de la base de datos. En MySQL, los permisos (privilegios) determinan qué operaciones puede realizar un usuario en una base de datos. Administrar correctamente los privilegios es esencial para un administrador de base datos (DBA).
 
-### **Conceder Privilegios a un Usuario**
+### __Conceder privilegios a un usuario__
 
 Antes de conceder privilegios, asegúrate de crear un usuario:
 
@@ -260,7 +265,7 @@ Este comando concede todos los privilegios sobre la base de datos `tienda` al us
 ![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-dark.png){: .dark }
 ![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-light.png){: .light }
 
-### **Revocar Permisos de un Usuario**
+### __Revocar Permisos de un usuario__
 
 Para revocar los privilegios de un usuario, se puede utilizar el comando `REVOKE` de la siguiente manera:
 
@@ -269,7 +274,7 @@ REVOKE ALL PRIVILEGES ON tienda.* FROM 'mcherrera'@'localhost';
 ```
 {: .nolineno }
 
-### **Aplicar Cambios de Privilegios**
+### __Aplicar cambios de privilegios__
 
 Después de otorgar o revocar privilegios, es recomendable ejecutar el siguiente comando para que los cambios surtan efecto:
 
@@ -287,9 +292,7 @@ DROP USER 'mcherrera'@'localhost';
 ```
 {: .nolineno }
 
-
-
-#### **Resumen de Comandos**
+#### __Resumen de los comandos aplicados__
 
 | Acción|Comando SQL|
 |:------|:----------|

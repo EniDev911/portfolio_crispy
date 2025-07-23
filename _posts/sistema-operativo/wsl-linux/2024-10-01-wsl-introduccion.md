@@ -20,7 +20,7 @@ Si eres un desarrollador o entusiasta de Linux y trabajas en Windows, **Windows 
 
 ## __¿Qué es WSL?__
 
-Ahora es posible utilizar algunas distribuciones de GNU/Linux como [__Ubuntu__](https://ubuntu.com/desktop/wsl){:target='_blank'} o [__Debian__](https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux){:target='_blank'} de nuestro __Windows__.
+Ahora es posible utilizar algunas distribuciones de GNU/Linux como [__Ubuntu__](https://ubuntu.com/desktop/wsl){:target='_blank'} o [__Debian__](https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux){:target='_blank'} en nuestro __Windows__.
 
 WSL es una capa de compatibilidad que permite ejecutar un entorno Linux directamente en Windows, sin necesidad de una máquina virtual o un arranque dual. Esto significa que puedes utilizar aplicaciones de Linux junto con aplicaciones de Windows, todo desde la misma interfaz. En la siguiente captura, podemos ver un sistema GNU/Linux Debian, ejecutándose en Windows Terminal:
 
