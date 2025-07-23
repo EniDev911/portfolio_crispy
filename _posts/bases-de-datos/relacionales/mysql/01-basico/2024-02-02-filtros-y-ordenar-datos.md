@@ -23,7 +23,7 @@ Imagina que eres el administrador de **ElectroShop**, una tienda en línea que s
 - `precio`: Precio del producto.
 - `stock`: Cantidad disponible en inventario.
 
-### **Paso 1: Crear la Base de Datos y la Tabla**
+### **PASO 1: Crear la base de datos y la tabla**
 
 Para empezar a trabajar, lo primero es crear la base de datos:
 
@@ -32,14 +32,14 @@ CREATE DATABASE tienda_electroshop;
 ```
 {: .nolineno }
 
-**Selecciona la Base de Datos**
+Ahora, selecciona la base de datos:
 
 ```sql
 USE tienda_electroshop;
 ```
 {: .nolineno }
 
-**Crear la Tabla Productos**
+A continuación, crea la tabla `productos`:
 
 ```sql
 CREATE TABLE productos (
@@ -52,7 +52,7 @@ CREATE TABLE productos (
 ```
 {: .nolineno }
 
-### **Paso 2: Insertar algunos datos de ejemplo**
+### __PASO 2: Insertar algunos datos de ejemplo__
 
 Algunos datos de ejemplos, cambia a la pestaña `SQL` para ver el código:
 
@@ -82,11 +82,14 @@ INSERT INTO productos (id, nombre, categoria, precio, stock) VALUES
 {% endtabs %}
 
 
-## **La Cláusula WHERE: Filtrar Datos**
+## __Cláusula WHERE para filtrar datos__
 
-La cláusula `WHERE` te permite definir condiciones para seleccionar únicamente los registros que cumplan ciertos criterios.
+La cláusula `WHERE` se utiliza para especificar una condición que deben cumplir los registros que deseas obtener. Actúa como un colador que deja pasar solo los datos que cumplen con ciertos criterios, descartando todo lo demás que no encaja con lo que estás buscando.
 
-### **La Situación**
+![Cláusula Where](mysql/mysql-img-clausula-where.webp){:.light}
+![Cláusula Where](mysql/mysql-img-clausula-where-dark.webp){:.dark}
+
+### __La Situación__
 
 Recientemente, has notado algunas situaciones en tu tienda que requieren atención:
 
@@ -130,7 +133,7 @@ WHERE categoria = 'Tecnología'
 ![mysql filtros productos](mysql/mysql-where-electroshop-1-light.png){: .light }
 ![mysql filtros productos](mysql/mysql-where-electroshop-1-dark.png){: .dark }
 
-## **La Cláusula ORDER BY: Ordenar Resultados**
+## __Cláusula ORDER BY__
 
 Después de filtrar los datos, es fundamental poder ordenarlos de forma que la información sea fácil de analizar.
 
@@ -191,7 +194,7 @@ ORDER BY nombre ASC;
     - `ORDER BY nombre ASC`: Organiza los productos alfabéticamente para facilitar una revisión rápida y comparativa.
 
 
-## **Consejos y Buenas Prácticas**
+## __Consejos y buenas prácticas__
 
 **Usar Alias y Comentarios**
 
@@ -228,7 +231,7 @@ CREATE INDEX idx_categoria_precio ON productos(categoria, precio);
 
 Imagina que eres el administrador de un blog, tienes la responsabilidad de gestionar y analizar el contenido publicado. Con el tiempo, las publicaciones se acumulan y es necesario tener una forma eficiente de acceder a ellas. Ya sea para ver qué publicaciones están activas, saber quién las escribió, etc.
 
-### **Paso 1: Crear la Base de Datos y la Tabla**
+### __PASO 1: Crear la base de datos y la tabla__
 
 Para preparar el escenario, debes tener la base de datos con la tabla adecuada para almacenar los posts. En este caso, la tabla `posts` tendrá la información sobre el título, el autor, el estado de la publicación (si está publicada, borrador, etc), la fecha de publicación y más:
 
@@ -249,7 +252,7 @@ CREATE TABLE posts (
 ```
 {: .nolineno }
 
-### **Paso 2: Insertar algunos datos de ejemplo**
+### __PASO 2: Insertar algunos datos de ejemplo__
 
 Algunos datos de ejemplos, pega el código en tu editor o terminal:
 
@@ -276,8 +279,7 @@ Recientemente, has notado algunas situaciones en tu blog que requieren atención
 **Publicaciones Pendientes de Revisión**
 : Además, tienes varios posts que están en estado de **Borrador** y necesitas revisarlos para decidir si deben ser publicados o si requieren cambios. Para esto, necesitas filtrar todos los posts que estén en estado **Borrador** y que hayan sido creados después de una fecha específica, como **el 1 de febrero de 2025**.
 
-
-#### **1. Filtrar Posts por Categoría y Estado:**
+#### __1. Filtrar posts por categoría y estado:__
 
 Quiero obtener todos los posts de la categoría **Trabajo** que ya están **publicados**. Para esto, utilizo el comando `WHERE` para filtrar por categoría y estado.
 
@@ -289,7 +291,7 @@ SELECT * FROM posts WHERE categoria = 'Trabajo' AND estado = 'Publicado';
 
 Esta consulta te devolverá solo los posts de la categoría **Trabajo** que estén **publicados**, lo cual te ayudará a enfocarte en el contenido que ya está disponible para los usuarios.
 
-#### **2. Filtrar Posts por Estado 'Borrador' y Fecha de Publicación:**
+#### __2. Filtrar posts por estado 'borrador' y fecha de publicación:__
 
 Ahora, necesito ver todos los posts que están en estado **Borrador** y fueron creados después del **1 de febrero de 2025**, para hacer una revisión y decidir si se publican o no.
 
