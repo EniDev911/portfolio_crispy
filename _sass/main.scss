@@ -57,7 +57,7 @@ em.type {
 
 .noheader {
 	overflow: hidden;
-	padding-top: 10px;
+	padding-top: 0;
 
 	.code-header {
    display: none;
@@ -144,6 +144,50 @@ svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
     top: 50%;
     right: 0;
   }
+}
+
+pre code[class$="cmd"] {
+	display: block;
+	padding: 1.2%;
+	padding-top: 35px;
+	width: 100%;
+	background-color: #000;
+  max-height: 400px;
+  color: #fafafa;
+	// box-shadow: 3px 3px 8px #222;
+	position: relative;
+	border: 1px solid #393535;
+	user-select: none;
+  overflow: auto !important;
+	&:before {
+		content: "Símbolo del sistema";
+		color: #000;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		height: 30px;
+		font-size: 16px !important;
+		top: 0;
+		right: 0;
+		left: 0px;
+		padding: 5px;
+		background-color: #fafafa;
+		/* Imagen de fondo antes del contenido */
+		background-image: url('https://upload.wikimedia.org/wikipedia/en/e/ef/Command_prompt_icon_%28windows%29.png');
+		background-size: 20px 20px; /* Ajusta el tamaño de la imagen */
+		background-repeat: no-repeat;
+		background-position: 6px center; /* Ajusta la posición de la imagen */
+		padding-left: 30px;
+    // max-width: fit-content;
+    overflow: hidden;
+	}
+  @media(width >= 792px) {
+      font-size: 17px;
+  }
+}
+
+.fit-content {
+  width: fit-content;
 }
 
 @import 'addon/printer';
