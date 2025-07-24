@@ -177,6 +177,30 @@ MySQL [(none)]&gt; <span style="color: gray;">-- Aquí puedes escribir tus sente
 </div>
 </div>
 
+## __Opciones para el cliente de línea de comandos__
+
+El cliente MySQL admite una gran variedad de opciones que pueden especificarse tanto en la línea de comandos como guardar preferencias en los archivos de configuración (`my.cnf`, `my.ini`) usando las directivas `[mysql]` y `[client]`.
+
+Además de las opciones populares que ya mencionamos como `-u`, `-p`, `h` o `-P`, existen muchas otras menos conocidas pero muy útiles para tareas específicas, como configurar el formato de resultados, activar el modo silencioso (evitando entre otras cosas, el mensaje de bienvenida), leer variables desde archivos externos o cambiar el comportamiento del historial.
+
+A continuación se muestra una tabla con algunas de las más utilizadas, junto con una breve descripción:
+
+| Opción                    | Descripción                                                               |
+| ------------------------- | ------------------------------------------------------------------------- |
+| `-u, --user`              | Especifica el nombre de usuario.                                          |
+| `-p[password]`            | Solicita o especifica la contraseña.                                      |
+| `-h, --host`              | Define el hostname del servidor al que se conecta.                        |
+| `-P, --port`              | Puerto TCP/IP para la conexión (por defecto 3306).                        |
+| `-D, --database`          | Nombre de la base de datos a usar directamente al iniciar sesión.         |
+| `-e, --execute`           | Ejecuta una sentencia SQL directamente desde la línea de comandos.        |
+| `--ssl-mode`              | Controla el uso de SSL/TLS en la conexión (`REQUIRED`, `DISABLED`, etc.). |
+| `--default-character-set` | Establece el conjunto de caracteres de la conexión (como `utf8mb4`).      |
+| `--column-type-info`      | Muestra información adicional de tipo de columna con los resultados.      |
+| `--show-warnings`         | Muestra advertencias después de cada consulta.                            |
+| `--silent`                | Reduce la salida al mínimo (útil para scripts).                           |
+| `--table`                 | Formatea la salida en forma de tabla (cuando se redirige desde scripts).  |
+| `--pager`                 | Permite usar un paginador como `less` para navegar los resultados.        |
+
 ## __Comandos especiales__
 
 Cuando iniciamos una sesión interactiva desde el cliente de terminal **mysql**, podemos ver un listado de comandos que realizan diferentes tareas, para ello debemos ejecutar el comando `help`:
@@ -259,7 +283,6 @@ mysql&gt;
 \! status
 ```
 {: .nolineno }
-
 
 
 Al ejecutar el comando anterior, se imprimirá el estado y la información del servidor como lo muestra el siguiente bloque:
@@ -428,5 +451,5 @@ Desde cómo localizar el binario del cliente en distintas plataformas, hasta eje
 
 __Recursos adicionales__
 
-* [Documentación oficial de MySQL CLI](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+* [Documentación oficial de MySQL CLI](https://dev.mysql.com/doc/refman/8.0/en/mysql.html){:target='_blank'}
 * [Guía de comandos rápidos de MySQL](https://devhints.io/mysql){:target='_blank'}
