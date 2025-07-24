@@ -16,6 +16,10 @@
 @import 'layout/category-tag';
 @import "addon/diagram";
 
+body {
+  word-spacing: 2px;
+}
+
 .print-url {
   display: none;
 }
@@ -39,7 +43,6 @@ em.type {
  font-weight: 600;
  border: 1px solid var(--mask-bg);
 }
-
 
 
 .highlight {
