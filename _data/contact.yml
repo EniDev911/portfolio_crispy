@@ -1,12 +1,10 @@
-#  The contact options.
-
 - type: github
   icon: "fab fa-github"
   url: https://github.com/mc-herrera-90
 
 - type: linkedin
   icon: "fa-brands fa-linkedin-in"
-  url: https://www.linkedin.com/in/enidev911/
+  url: https://www.linkedin.com/in/mc-herrera90/
 
 - type: email
   icon: "fas fa-envelope"

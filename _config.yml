@@ -32,6 +32,8 @@ github:
 twitter:
   username: mc__herrera # change to your twitter username
 
+linkedin:
+  username: mc-herrera90
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
@@ -40,7 +42,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://x.com/mc__herrera # change to your twitter homepage
-    - https://www.linkedin.com/in/mcherrera911/ # change to your github homepage
+    - https://www.linkedin.com/in/mc-herrera90/ # change to your github homepage
     # Uncomment below to add more social links
     - https://web.facebook.com/marco.contreras911/
 
