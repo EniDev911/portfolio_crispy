@@ -2,7 +2,7 @@
 title: "MySQL 🐬 : Cliente de línea de Comandos"
 author: enidev911
 pin: true
-description: "El cliente MySQL es una herramienta de línea de comandos que permite ejecutar consultas y gestionar bases de datos MySQL directamente desde la terminal."
+description: "El cliente MySQL es una herramienta de línea de comandos fundamental para desarrolladores y administradores, que permite conectarse a servidores locales o remotos, ejecutar consultas SQL, gestionar bases de datos de forma directa y automatizar tareas desde la terminal."
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 tags: [Bases de Datos]
 image:
@@ -185,21 +185,159 @@ Además de las opciones populares que ya mencionamos como `-u`, `-p`, `h` o `-P`
 
 A continuación se muestra una tabla con algunas de las más utilizadas, junto con una breve descripción:
 
-| Opción                    | Descripción                                                               |
-| ------------------------- | ------------------------------------------------------------------------- |
-| `-u, --user`              | Especifica el nombre de usuario.                                          |
-| `-p[password]`            | Solicita o especifica la contraseña.                                      |
-| `-h, --host`              | Define el hostname del servidor al que se conecta.                        |
-| `-P, --port`              | Puerto TCP/IP para la conexión (por defecto 3306).                        |
-| `-D, --database`          | Nombre de la base de datos a usar directamente al iniciar sesión.         |
-| `-e, --execute`           | Ejecuta una sentencia SQL directamente desde la línea de comandos.        |
-| `--ssl-mode`              | Controla el uso de SSL/TLS en la conexión (`REQUIRED`, `DISABLED`, etc.). |
-| `--default-character-set` | Establece el conjunto de caracteres de la conexión (como `utf8mb4`).      |
-| `--column-type-info`      | Muestra información adicional de tipo de columna con los resultados.      |
-| `--show-warnings`         | Muestra advertencias después de cada consulta.                            |
-| `--silent`                | Reduce la salida al mínimo (útil para scripts).                           |
-| `--table`                 | Formatea la salida en forma de tabla (cuando se redirige desde scripts).  |
-| `--pager`                 | Permite usar un paginador como `less` para navegar los resultados.        |
+| Opción                    | Descripción                                                                                  |
+|--------------------------|----------------------------------------------------------------------------------------------|
+| `-u, --user`              | Especifica el nombre de usuario para autenticarse.                                           |
+| `-p[password]`            | Solicita o especifica la contraseña del usuario. Si se omite, la pedirá de forma interactiva.|
+| `-h, --host`              | Define el hostname del servidor MySQL al que se desea conectar.                             |
+| `-P, --port`              | Puerto TCP/IP utilizado para la conexión (por defecto 3306).                                |
+| `-D, --database`          | Selecciona directamente la base de datos al iniciar la sesión.                              |
+| `-e, --execute`           | Ejecuta una sentencia SQL directamente desde la línea de comandos.                          |
+| `-H, --html`              | Devuelve el resultado en formato HTML (útil para reportes y exportación visual).            |
+| `--ssl-mode`              | Controla el uso de SSL/TLS en la conexión (`REQUIRED`, `DISABLED`, `VERIFY_CA`, etc.).      |
+| `--default-character-set`| Establece el conjunto de caracteres de la conexión (por ejemplo, `utf8mb4`).                 |
+| `--column-type-info`     | Muestra información adicional sobre los tipos de columnas en los resultados.                |
+| `--show-warnings`        | Muestra las advertencias generadas por el servidor tras ejecutar una consulta.              |
+| `--silent`               | Minimiza la salida a lo estrictamente necesario, ideal para scripts automatizados.          |
+| `--table`                | Formatea los resultados en una tabla legible cuando se visualiza en consola.                |
+| `--pager`                | Permite canalizar la salida a un programa como `less`, útil para navegar grandes resultados.|
+
+Estas opciones puedes combinarse para diferentes tareas según las necesidades que se requiera, ya sea en desarrollo, scripting o administración.
+
+### __Conectarse en modo silencioso__
+
+El modo silencioso (`--silent`) suprime la salida adicional como encabezados, bordes y mensajes decorativos. Es especialmente útil en scripts o cuando se desea procesar los resultados en otro programa sin ruido visual. Ejemplo:
+
+```terminal
+mysql -u usuario -p --silent
+```
+
+> Puedes usar la opción `-s` como abreviación de `--silent`.
+{:.prompt-tip .fit-content }
+
+<pre><code class="language-cmd">C:\Users\mcherrera&gt; mysql -u root -p <span style='background: #ff04'>--silent</span>
+Enter password: ****
+MySQL [(none)]>
+</code></pre>
+
+### __Volcar los resultados de una consulta en HTML__
+
+El cliente de línea de comandos de MySQL permite exportar los resultados de una consulta directamente en formato HTML usando el parámetro `-H`. Esto es útil para generar reportes visuales o incrustar resultados en páginas web de forma rápida.
+
+```terminal
+mysql -u usuario -p -D nombre_bd -e "SELECT ... FROM ..." -H > reporte.html
+```
+
+![salida en HTML](mysql/mysql-output-html.webp)
+
+
+### __Conexión directa a una base de datos y cargar scripts__
+
+La opción `-D` permite especificar directamente a la base de datos que queremos conectarnos, evitando el uso de la sentencia `USE`. De esta forma, se puede automatiza la ejecución de scripts o consultas SQL almacenadas en archivos SQL externos.
+
+__Ejemplo de cargar un SQL externo__:
+
+```terminal
+mysql -u usuario -p -D nombre_bd < script.sql
+```
+
+Supongamos que ya tenemos una base de datos y queremos crear una tabla llamada `medicamento` con algunos registros de prueba.
+
+Para ello, escribiremos el siguiente archivo SQL y lo ejecutaremos directamente sobre la base de datos usando la opción `-D`.
+
+```sql
+CREATE TABLE IF NOT EXISTS medicamento (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  presentacion VARCHAR(50),
+  stock INT DEFAULT 0
+);
+
+INSERT INTO medicamento (nombre, presentacion, stock) VALUES
+('Paracetamol', '500mg comprimido', 120),
+('Ibuprofeno', '200mg cápsula', 80),
+('Amoxicilina', '250mg/5ml suspensión', 50);
+
+SELECT * FROM medicamento;
+```
+{: file="medicamentos.sql" }
+
+Ahora, con el siguiente comando ejecutamos el contenido de ese archivo sobre la base de datos `clinica_los_alerces`:
+
+<pre><code class="language-cmd">C:\Users\mcherrera&gt; mysql -u root -p <span style='background: #ff04;'>-D clinica_los_alerces < medicamentos.sql</span>
+Enter password: ****
+id      nombre  presentacion    stock
+1       Paracetamol     500mg comprimido        120
+2       Ibuprofeno      200mg cápsula   80
+3       Amoxicilina     250mg/5ml suspensión    50
+</code></pre>
+
+### __Cambiar el delimitador de sentencias__
+
+En MySQL, el delimitador predeterminado para separar sentencias SQL es el punto y coma (`;`). Sin embargo, podemos cambiarlo por un delimitador personalizado usando la opción `--delimiter` al iniciar el cliente de línea de comandos de MySQL. Por ejemplo:
+
+```terminal
+mysql -u usuario -p --delimiter=.
+```
+
+Esto abre el cliente MySQL utilizando el punto (`.`) como nuevo delimitador de sentencias. Así, deberás finalizar cada instrucción con un `.` en lugar de `;`.
+
+<pre><code class="language-cmd">C:\Users\mcherrera&gt; mysql -u root -p -s <span style='background: #ff04'>--delimiter=.</span>
+Enter password: ****
+MySQL [(none)]&gt; <span style='background: #ff04'>SHOW DATABASES.</span>
+Database
+clinica_los_alerces
+mysql
+performance_schema
+sys
+tienda_electroshop
+MySQL [(none)]&gt;</code></pre>
+
+### __Cambiar el delimitador temporalmente__
+
+En caso de que no cambiamos el delimitador en un principio, al definir un procedimiento almacenado que incluye múltiples sentencias SQL, lo más probable es que se produzca un error. En estos casos, cambiar el delimitador de forma temportal es útil para evitar que el cliente interprete erróneamente el `;` dentro del cuerpo del procedimiento como el final de toda la sentencia:
+
+```sql
+DELIMITER //
+
+CREATE PROCEDURE ejemplo()
+BEGIN
+  SELECT ...;
+  SELECT ....;
+END //
+
+DELIMITER ;
+```
+{: .nolineno }
+
+<pre><code class="language-cmd">MySQL [(test)]&gt; <span style='background: #ff04'> DELIMITER //</span>
+MySQL [(test)]&gt; CREATE PROCEDURE ejemplo()
+    -> BEGIN
+    ->   SELECT 'Primera línea';
+    ->   SELECT 'Segunda línea';
+    -> END //
+Query OK, 0 rows affected (0.053 sec)
+MySQL [(test)]&gt; <span style='background: #ff04'> DELIMITER ;</span>
+MySQL [(test)]&gt; CALL ejemplo;
++----------------+
+| Primera línea  |
++----------------+
+| Primera línea  |
++----------------+
+1 row in set (0.038 sec)
+
++----------------+
+| Segunda línea  |
++----------------+
+| Segunda línea  |
++----------------+
+1 row in set (0.039 sec)</code></pre>
+
+
+Aquí, el delimitador temporal `//` evita que MySQL termine prematuramente la ejecución al encontrar `;`.
+
+> `DELIMITER` no es parte del lenguaje SQL estándar. Es una instrucción del __cliente de MySQL__ que se utiliza para cambiar cómo este interpreta esa entrada.
+{:.prompt-info}
 
 ## __Comandos especiales__
 
