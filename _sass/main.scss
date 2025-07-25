@@ -30,6 +30,15 @@ blockquote ul, ol {
 
 h2 {
   margin-bottom: 2rem;
+  span {
+    strong {
+    code[class*="highlighter-rouge"] {
+        font-size: inherit;
+        line-height: inherit;
+        border-radius: 20px;
+      }
+    }
+  }  
 }
 em {
 	margin: 0 0.30rem;

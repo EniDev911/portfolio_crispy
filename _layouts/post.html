@@ -13,7 +13,14 @@ tail_includes:
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip><strong>{{ page.title | markdownify }}</strong></h1>
+    <h1 data-toc-skip> 
+      <strong class="d-flex align-items-baseline">
+        {% if page.icon %}
+          <i class="{{ page.icon }} me-2" style="color: {{ page.icon_color | default: 'inherit' }}"></i>
+        {% endif %}
+        {{ page.title | markdownify }}
+      </strong>
+    </h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description | markdownify }}</p>
     {% endif %}

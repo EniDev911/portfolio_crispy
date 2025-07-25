@@ -76,16 +76,6 @@ export function UserCard({ user, url, children }) {
 ```
 {:file='UserCard.css'}
 {% endtab %}
-{% tab exclassname PREVIEW %}
-<iframe
-  src="https://stackblitz.com/edit/vitejs-vite-2lruvmga?embed=1&file=src%2Fcomponents%2FUserCard.jsx&hideNavigation=1&view=preview"
-  width="100%"
-  height="500"
-  frameborder="0"
-  allowfullscreen
-  style="border-radius: 8px; margin-top: 1em;"
-></iframe>
-{% endtab %}
 {% endtabs %}
 
 Si observas al principio estamos importando desde javascript un archivo `.css` y que no lo guardamos en un objeto o elemento, sino que simplemente importamos el archivo. Esto es algo especial de React. Lo que estamos haciendo es importar un archivo CSS que se añadirá de forma global en el bloque `<style>` en nuestro HTML.
@@ -166,17 +156,29 @@ export function UserCard({ user, url, children }) {
 ```
 {:file='UserCard.css'}
 {% endtab %}
-{% tab excssmodule PREVIEW %}
-<iframe
-  src="https://stackblitz.com/edit/vitejs-vite-ngj556f4?embed=1&file=src%2FUserCard.jsx&hideNavigation=1&view=preview"
-  width="100%"
-  height="500"
-  frameborder="0"
-  allowfullscreen
-  style="border-radius: 8px; margin-top: 1em;"
-></iframe>
-{% endtab %}
 {% endtabs %}
 
+Al importar el archivo `UserCard.module.css` lo estamos guardando en un objeto `styles` que contendrá las clases utilizadas en ese archivo `.module.css`.
 
-Al importar el archivo `UserCard.module.css` lo estamos guardando en un objeto `styles` que contendrá las clases utilizadas en ese archivo `.module.css`
+## __Estilos dinámicos__
+
+En muchos casos nos encontramos con una situación donde queremos dar estilo dependiendo del estado o de la lógica de javascript. En este caso, no nos sirve simplemente lo anterior, sino que tenemos que utilizar algún mecanismo que nos permita mezclarlo.
+
+En React, la forma más cómoda de hacerlo, probablemente sea desde JSX en un atributo `style`. Observa que tenemos un dato `color` en javascript y queremos hacerlo llegar al CSS. Este dato podría ser dinámico, obtenerse desde una fuente externa de datos o generarse en la lógica javascript:
+
+```jsx
+export function UserCard() {
+  /* ... */
+
+  const color = "red";
+
+  return (
+    <article className={styles.usercard} style={{ "--bg-color": color }}>
+      <!-- ... -->
+    </article>
+  );
+}
+```
+{: .nolineno }
+
+Mediante un atributo `style` creamos la variable CSS `--bg-color` que existirá para todo el elemento `<article>`.

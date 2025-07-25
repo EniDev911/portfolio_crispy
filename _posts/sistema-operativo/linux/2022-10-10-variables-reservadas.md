@@ -64,7 +64,7 @@ echo $HOME
 {% endtab %}
 {% endtabs %}
 
-### **Variable $PATH**
+## __Variable $PATH__
 
 Esta variable `$PATH` especifica una lista de directorios en los que el sistema busca ejecutables cuando se escribe un comando.
 
@@ -85,14 +85,13 @@ echo $PATH
 {% endtab %}
 {% endtabs %}
 
-
 **Ejemplo de cómo añadir un directorio al $PATH**
 
 ```terminal
 export PATH=$PATH:/home/usuario/mis_scripts
 ```
 
-### **Varaiable $RANDOM**
+## __Variable $RANDOM__
 
 Esta variable `$RANDOM` genera un número aleatorio entre 0 y 32767 cada vez que se usa.
 
@@ -132,14 +131,11 @@ echo $PWD
 {% endtab %}
 {% endtabs %}
 
----
+## __Otras Variables Importantes__
 
-## **Otras Variables Importantes**
-
-### **Variable $LINENO**
+### __Variable $LINENO__
 
 Esta variable contiene el número de línea en la que se encuentra el script que se está ejecutando. Es útil para hacer depuración.
-
 
 **Ejemplo de uso en scripts**
 
