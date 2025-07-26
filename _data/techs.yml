@@ -1,0 +1,48 @@
+row1:
+  - name: React
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg
+    tooltip: Biblioteca para interfaces web
+  - name: Node.js
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg
+    tooltip: Entorno backend JavaScript
+  - name: MongoDB
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg
+    tooltip: Base de datos NoSQL
+  - name: Vite
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg
+    tooltip: Build tool ultrarrápido
+  - name: MySQL
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg
+    tooltip: Base de datos relacional
+  - name: Docker
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg
+    tooltip: Contenedores portables
+  - name: Java
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg
+    tooltip: Lenguaje backend robusto
+  - name: TypeScript
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg
+    tooltip: JS tipado
+
+row2:
+  - name: GitHub
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg
+    tooltip: Hosting de código y CI
+  - name: HTML5
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg
+    tooltip: Lenguaje de marcado web
+  - name: CSS3
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg
+    tooltip: Estilos y diseño visual
+  - name: Python
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg
+    tooltip: Lenguaje versátil
+  - name: PostgreSQL
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg
+    tooltip: BD SQL robusta
+  - name: Bash
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg
+    tooltip: Automatización por terminal
+  - name: Tailwind
+    logo: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg
+    tooltip: Framework de utilidades CSS

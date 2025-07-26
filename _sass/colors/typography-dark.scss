@@ -1,8 +1,11 @@
 /*
- * The main dark mode styles
+ * Colores para el modo oscuro
  */
 
  @mixin dark-scheme {
+  --tech-glow: 97, 218, 251;
+
+
   /* Framework color */
   --main-bg: rgb(27, 27, 30);
   --mask-bg: rgb(68, 69, 70);

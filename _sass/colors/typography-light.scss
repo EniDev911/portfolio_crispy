@@ -1,8 +1,9 @@
 /*
- * The syntax light mode typography colors
+ * Colores para el modo claro
  */
 
  @mixin light-scheme {
+  --tech-glow: 0, 0, 0; 
   /* Framework color */
   --main-bg: white;
   --mask-bg: #c1c3c5;

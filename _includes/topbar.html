@@ -10,8 +10,7 @@
 
       {% if paths.size == 0 or page.layout == 'home' %}
         <!-- index page -->
-        <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
-
+        <!-- <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span> -->
       {% else %}
         {% for item in paths %}
           {% if forloop.first %}

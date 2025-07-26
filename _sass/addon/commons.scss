@@ -723,10 +723,9 @@ $btn-mb: 0.5rem;
     display: block;
     width: 7rem;
     height: 7rem;
-    overflow: hidden;
-    box-shadow: var(--avatar-border-color) 0 0 0 5px;
+    // overflow: hidden;
+    // box-shadow: var(--avatar-border-color) 0 0 0 5px;
     transform: translateZ(0); /* fixed the zoom in Safari */
-
     img {
       transition: transform 0.5s;
 
