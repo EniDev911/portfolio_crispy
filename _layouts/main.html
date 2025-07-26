@@ -438,7 +438,7 @@ refactor: true
   }
 
 .about {
-  padding: 10px 0 20px 0;
+  padding: 10px 0 0 0;
 }
 
 .about-container {
@@ -486,6 +486,20 @@ refactor: true
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 16px;
+}
+@keyframes fade-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1.hr-lines {
+  animation: fade-slide-in 1.2s ease forwards;
 }
 
 </style>

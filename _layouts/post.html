@@ -14,9 +14,9 @@ tail_includes:
 <article class="px-1">
   <header>
     <h1 data-toc-skip> 
-      <strong class="d-flex align-items-baseline">
+      <strong class="d-flex align-items-center">
         {% if page.icon %}
-          <i class="{{ page.icon }} me-2" style="color: {{ page.icon_color | default: 'inherit' }}"></i>
+          <i class="{{ page.icon }}" style="color: {{ page.icon_color | default: 'inherit' }}; margin-right: 0.81rem;"></i>
         {% endif %}
         {{ page.title | markdownify }}
       </strong>
