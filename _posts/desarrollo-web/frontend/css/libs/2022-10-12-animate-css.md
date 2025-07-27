@@ -189,7 +189,7 @@ formulario.addEventListener('submit', function (e) {
 {% endtab %}
 {% endtabs %}
 
-Aquí esta el resultado, prueba presionar el botón si escribir:
+Aquí está el resultado. Prueba presionar el botón sin escribir:
 
 <style>
   .mensaje-error {
@@ -380,3 +380,7 @@ Pasa por el repositorio, ahí encontrarás el código completo por si quieres re
 {% include github-repo.html owner="mc-herrera-90" repo="demo-animate-css" %}
 
 🚀 [https://mc-herrera-90.github.io/demo-animate-css/](https://mc-herrera-90.github.io/demo-animate-css/){:target='_blank'}
+
+{% include circle-line.html %}
+
+Animate.css es una librería ligera y sencilla de utilizar para agregar animaciones a tu sitio web con solo unas clases CSS. Personalizable y compatible con cualquier proyecto moderno, es una excelente opción para mejorar la experiencia visual sin complicaciones.
