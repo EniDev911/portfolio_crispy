@@ -22,7 +22,7 @@ collections:
     output: true
     permalink: /proyectos/:name/
 ```
-{:file="_config.yml"}
+{: .nolineno file="_config.yml"}
 
 > - `output: true`: indica que Jekyll debe generar páginas individuales para cada item.
 > - `permalink`: define la estructura de URL de cada item.  
@@ -31,7 +31,7 @@ collections:
 
 ## __2. Crea carpetas por cada colección__
 
-Por convención, toda colección debe comenzar con guión bajo: `_proyectos/`, `_recursos`, etc.
+Por convención, toda colección debe comenzar con guión bajo: `_proyectos/`, `_recursos/`, etc.
 
 En la raíz del proyecto, crea un archivo en `_proyectos/app-movil.md` y agrega lo siguiente:
 
@@ -46,7 +46,7 @@ layout: proyecto
 
 Desarrollamos una app móvil híbrida con Ionic para mejorar la logística de distribución.
 ```
-{:file="_proyectos/app-movil.md}
+{:file="_proyectos/app-movil.md"}
 {% endraw %}
 
 ## __3. Crear un layout personalizado__

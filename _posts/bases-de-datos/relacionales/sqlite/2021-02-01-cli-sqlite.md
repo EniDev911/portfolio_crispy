@@ -37,7 +37,7 @@ La instalación de SQLite3 es sencilla y varía ligeramente dependiendo del sist
 3. Extrae el archivo `.zip` en una carpeta, por ejemplo `C:\sqlite`.
 4. Abre la terminal ( símbolo del sistema o PowerShell ), navega a esa carpeta y ejecuta `sqlite3` para iniciar el programa.
 
-> __Opcional__s: Agrega la ruta de SQLite a las variables de entorno para poder usarlo desde cualquier ubicación del sistema.
+> __Opcional__: Agrega la ruta de SQLite a las variables de entorno para poder usarlo desde cualquier ubicación del sistema.
 {: .prompt-info }
 
 #### __En macOS__
