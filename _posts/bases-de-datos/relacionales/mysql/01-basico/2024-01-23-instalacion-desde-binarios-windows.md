@@ -20,7 +20,7 @@ Existen varias formas de instalar MySQL en Windows, descargando el instalador of
 - Una cuenta con permisos de administrador.
 - Instalación de [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170){:target='_blank'} actualizada.
 
-## __1. Descargar y Extraer los Binarios de MySQL__
+## __1. Descargar y extraer binarios de MySQL__
 
 - Abrimos el navegador y vamos a la página oficial de descargas de MySQL: <a href="https://dev.mysql.com/downloads/" target="_blank">https://dev.mysql.com/downloads/</a>
 - En la sección de **MySQL Community Server**, selecciona la versión de MySQL a instalar.
@@ -35,53 +35,80 @@ Existen varias formas de instalar MySQL en Windows, descargando el instalador of
 ![descarga de los binarios](mysql/download-binary-mysql-light.png){: .light }
 ![descarga de los binarios](mysql/download-binary-mysql-dark.png){: .dark }
 
-- Una vez descargado el archivo, extraemos su contenido en una carpeta de preferencia. Por ejemplo: `C:\mysql`.
+- Una vez descargado el archivo, extraemos su contenido en una carpeta de preferencia. Por ejemplo:
+  ```
+  C:\mysql
+  ```
+  {: .noheader .fit-content }
 
 ## __2. Configurar MySQL__
 
 ### __Crear la carpeta de datos__
 
-- En la carpeta dónde has extraído los binarios de MySQL, creamos una carpeta llamada `data`.
-  - **¿Para qué sirve la carpeta `data`?** Esta carpeta es donde MySQL almacena todas las bases de datos y sus respectivos archivos de configuración. Aquí se guardan las tablas, índices y cualquier dato que ingreses en MySQL, por lo que es fundamental para el funcionamiento del sistema.
+- Dentro de la carpeta que descomprimiste los binarios de MySQL, crea una carpeta llamada `data/`.
+  - **¿Para qué sirve la carpeta `data/`?** Esta carpeta es donde MySQL almacena todas las bases de datos y sus respectivos archivos de configuración. Aquí se guardan las tablas, índices y cualquier dato que ingreses en MySQL, por lo que es fundamental para el funcionamiento del sistema.
 - La ruta completa sería algo así como `C:\mysql\data`.
 
 ### __Crear el archivo de configuración__
 
 - En la misma carpeta dónde has extraído los binarios, crea un archivo `my.ini`.
   - **¿Para qué sirve el archivo `my.ini`?** Este archivo de configuración afecta directamente el comportamiento del servidor MySQL. Permite definir ubicaciones de archivos, puertos de conexión y otros parámetros importantes que optimizan el rendimiento.
-- La ruta completa sería algo así como `C:\mysql\my.ini`.
+- La ruta completa sería algo así como la siguiente:
+  ```
+  C:\mysql\my.ini
+  ```
+  {: .noheader .fit-content}
 
-Un ejemplo básico de configuración que puedes definir en este archivo:
+### __Opciones para el servidor \[mysqld\]__
+
+La directiva `[mysqld]` dentro del archivo de configuración, afectan directamente el comportamiento del __servidor MySQL__. Aquí puedes establecer rutas, puertos, motor de almacenamiento, límites de conexión, entre otros parámetros.
+
+Un ejemplo básico de opciones que puedes definir:
 
 ```ini
-[mysqld] # <== En esta directiva, defines las opciones para del servidor.
-basedir=C:/mysql
-datadir=C:/mysql/data
-port=3306
+[mysqld]
+basedir=C:/mysql # Ruta de instalación de MySQL
+datadir=C:/mysql/data # Ruta donde se almacenan los datos
+port=3306  # Puerto por defecto para conexiones
 
 # Otras opciones recomendadas
-default_storage_engine=INNODB
-max_connections=200
-sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+default_storage_engine=INNODB # Motor de almacenamiento por defecto
+max_connections=200 # Número máximo de conexiones simultáneas
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES # Reflas de validación SQL
+```
+{: .nolineno file="my.ini" }
+
+### __Opciones para los clientes \[client\]__
+
+La directiva `[client]` dentro del archivo de configuración, afectan a __todas las herramientas cliente de MySQL__, como `mysql`, `mysqldump`, `mysqladmin`, etc. Aquí puedes configurar valores predeterminados para conexión, como el usuario, puerto o incluso la contraseña (no recomendado):
+
+```ini
+[client]
+port=3306 # Puerto por defecto que se conectarán los clientes
+user=root # Usuario predeterminado para conectarse
+password=miclave123 # No se recomienda guardar contraseñas aquí
 ```
 {: .nolineno file="my.ini" }
 
 > Para ver más información y las configuraciones que se pueden definir en estos archivos, revisa este [**artículo**](https://dev.mysql.com/doc/refman/8.4/en/option-files.html){:target='_blank'}
 {: .prompt-tip }
 
-### __Inicializar la base de datos__
+## __Inicializar la base de datos del sistema__
+
+Antes de poder iniciar el servidor MySQL por primera vez, es necesario inicializar el directorio de datos. Este proceso configura los archivos básicos necesarios para que MySQL funcione correctamente.
 
 - Abrimos un **Símbolo del sistema** (cmd) como administrador.
 - Navega hasta la carpeta dónde has extraído los binarios con el comando `cd`. Ejemplo:
+  ```
+  cd C:\mysql\bin
+  ```
+  {: .noheader .fit-content }
 
-```console
-cd C:\mysql\bin
-```
 - Ahora, ejecuta el siguiente comando para inicializar el directorio de datos de MySQL. Ejemplo:
-
-```console
-mysqld --initialize --console
-```
+  ```bash
+  mysqld --initialize --console
+  ```
+  {: .noheader .nolineno .fit-content }
 
 - **Explicación de lo que realiza el comando anterior**:
   - Inicializa el directorio de datos de MySQL y crea las tablas del sistema.
@@ -181,7 +208,7 @@ NOMBRE_SERVICIO: mysql
         TIPO               : 10  WIN32_OWN_PROCESS
         TIPO_INICIO        : 2   AUTO_START
         CONTROL_ERROR      : 1   NORMAL
-<span class="hl">        NOMBRE_RUTA_BINARIO: C:\mysql\bin\mysqld mysql</span>
+        <span class="hl">NOMBRE_RUTA_BINARIO: C:\mysql\bin\mysqld mysql</span>
         GRUPO_ORDEN_CARGA  :
         ETIQUETA           : 0
         NOMBRE_MOSTRAR     : mysql
