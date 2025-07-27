@@ -166,6 +166,7 @@ En muchos casos nos encontramos con una situación donde queremos dar estilo dep
 
 En React, la forma más cómoda de hacerlo, probablemente sea desde JSX en un atributo `style`. Observa que tenemos un dato `color` en javascript y queremos hacerlo llegar al CSS. Este dato podría ser dinámico, obtenerse desde una fuente externa de datos o generarse en la lógica javascript:
 
+{% raw %}
 ```jsx
 export function UserCard() {
   /* ... */
@@ -180,5 +181,6 @@ export function UserCard() {
 }
 ```
 {: .nolineno }
+{% endraw %}
 
 Mediante un atributo `style` creamos la variable CSS `--bg-color` que existirá para todo el elemento `<article>`.
