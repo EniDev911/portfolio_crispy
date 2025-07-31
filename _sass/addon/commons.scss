@@ -2,6 +2,10 @@
   The common styles
   */
 
+  :root {
+    font-size: 17px;
+  }
+
   html {
     @media (prefers-color-scheme: light) {
       &:not([data-mode]),
@@ -24,8 +28,6 @@
         @include light-scheme;
       }
     }
-
-    font-size: 18px;
   }
 
   body {
@@ -35,6 +37,7 @@
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     font-family: $font-family-base;
+    word-spacing: 2px;
   }
 
   /* --- Typography --- */
@@ -50,12 +53,13 @@
 
       @if $i < 5 {
         $factor: 0.38rem;
-
+        font-weight: bold;
+        font-family: "Liter", sans-serif;
         @if $i == 1 {
           $factor: 0.23rem;
         }
 
-        font-size: 1rem + (5 - $i) * $factor;
+        font-size: 1rem + (6 - $i) * $factor;
         } @else {
           font-size: 1rem;
         }
@@ -280,6 +284,7 @@
 
       > table {
         min-width: 100%;
+        width: 100%;
         overflow-x: auto;
         border-spacing: 0;
 

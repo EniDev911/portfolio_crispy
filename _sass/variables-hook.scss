@@ -1,5 +1,7 @@
 /*
   Appending custom SCSS variables will override the default ones in `_sass/addon/variables.scsss`
 */
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-$code-font-size: 0.85rem;
+$code-font-size: 0.8rem;
+$font-family-base: "Sansation", sans-serif;
