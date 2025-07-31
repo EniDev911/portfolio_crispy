@@ -34,15 +34,15 @@ Las reglas de __preferencias de usuario__ se utilizan como una media query norma
 
 ```css
 @media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-color: white;
-        --background-color: black;
-    }
+	:root {
+		--foreground-color: white;
+		--background-color: black;
+	}
 }
 
 body {
-    background: var(--background-color, white);
-    color: var(--foreground-color, black);
+	background: var(--background-color, white);
+	color: var(--foreground-color, black);
 }
 ```
 {:.nolineno file="estilos.css"}
@@ -56,8 +56,8 @@ Si buscas algo más rápido y práctico, tienes la función `light-dark()`. Esta
 
 ```css
 body {
-    background: light-dark(white, black);
-    color: light-dark(black, white);
+	background: light-dark(white, black);
+	color: light-dark(black, white);
 }
 ```
 {: .nolineno file="estilos.css"}
@@ -77,10 +77,10 @@ En CSS tenemos una característica que permite notificar al desarrollador web si
 }
 
 .button {
-    box-shadow: 0 0 10px 5px #000a inset;
-    background: red;
-    border-radius: 5px;
-    transition: transform var(--animation-timing, 2s);
+	box-shadow: 0 0 10px 5px #000a inset;
+	background: red;
+	border-radius: 5px;
+	transition: transform var(--animation-timing, 2s);
 }
 
 .button:hover {
@@ -99,13 +99,13 @@ La característica `prefers-reduced-data` nos permite recuperar del sistema o na
 
 ```css
 @media(prefers-reduced-data: reduce) {
-    :root {
-        --preferred-background: linear-gradient(120deg, steelblue, blue, black);
-    }
+	:root {
+		--preferred-background: linear-gradient(120deg, steelblue, blue, black);
+	}
 
-    body {
-        background: var(--preferred-background, url(/assets/background.png));
-    }
+	body {
+		background: var(--preferred-background, url(/assets/background.png));
+	}
 }
 ```
 {: .nolineno file="estilos.css"}
@@ -118,18 +118,18 @@ Con esta media query, deberíamos poder modificar la opacidad de los elementos p
 
 ```css
 @media (prefers-reduced-transparency: reduce) {
-    :root {
-        --opacity: 100%;
-    }
+	:root {
+		--opacity: 100%;
+	}
 
-    body {
-        background: linear-gradient(200deg, black, peru, hotpink);
-    }
+	body {
+		background: linear-gradient(200deg, black, peru, hotpink);
+	}
 
-    .container {
-        background: rgb(0% 0% 100% / var(--opacity, 15%));
-        padding: 0.5rem 2rem;
-    }
+	.container {
+		background: rgb(0% 0% 100% / var(--opacity, 15%));
+		padding: 0.5rem 2rem;
+	}
 }
 ```
 {: .nolineno file="estilos.css" }
