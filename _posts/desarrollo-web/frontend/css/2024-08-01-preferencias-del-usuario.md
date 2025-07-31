@@ -26,7 +26,7 @@ Veamos algunas reglas de __preferencias de usuario__ que existen:
 
 ## Dark mode / Light mode
 
-Una de las caracterpisticas más recurrentes en interfaces de usuario es la posibilidad de elegir un __dark mode__ o __light mode__, es decir, un sistema que permita al usuario seleccionar un __tema claro__ (generalmente con fondo blanco) o un __tema oscuro__ (generalmente con fondo negro).
+Una de las características más recurrentes en interfaces de usuario es la posibilidad de elegir un __dark mode__ o __light mode__, es decir, un sistema que permita al usuario seleccionar un __tema claro__ (generalmente con fondo blanco) o un __tema oscuro__ (generalmente con fondo negro).
 
 Aunque podemos hacer esto de forma __manual__, existe una regla `@media` especial denominada `prefers-color-scheme` donde podemos detectar si el usuario tiene preferencia por uno de estos dos valores (establecido en las opciones del sistema operativo) y ofrecer un tema con un esquema de colores apropiado.
 

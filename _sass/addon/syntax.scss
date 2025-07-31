@@ -73,7 +73,7 @@ html {
   padding-top: 0.58rem;
   padding-bottom: 0.58rem;
   max-height: 350px;
-
+  tab-size: 2;
   pre {
     margin-bottom: 0;
     font-size: $code-font-size;
@@ -119,6 +119,7 @@ html {
     -ms-hyphens: none;
     hyphens: none;
     color: var(--code-color);
+    tab-size: 2;
 
     &.highlighter-rouge {
       font-size: $code-font-size;

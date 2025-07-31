@@ -1,6 +1,5 @@
 ---
 title: "Node.js: Leer y Escribir archivos JSON"
-author: enidev911
 categories: [Desarrollo Web, "Node.js"]
 tags: [desarrollo web, nodejs]
 ---
