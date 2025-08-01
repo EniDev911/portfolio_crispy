@@ -1,21 +1,44 @@
 ---
-title: React Router 
+title: "Routing en React guía práctica de React Router"
 categories: [Desarrollo Web, React]
+icon: "fa fa-react"
+icon_color: "#61DBFB"
+image:
+  path: posters/react-router-v6.webp
+  lqip: data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJYwCsACFbUpV58MRpMLAAAP4lfJkjXyl4LQ8YyzrBjCIZ7r73mq00YUSCNgkdkWPDhFTbDELgw8dle9SFgAAA
 tags: [desarrollo web, react]
 ---
 
-[React Router](https://reactrouter.com/){:target='_blank'} es una librería estándar para el enrutamiento en React. Permite la navegación entre vistas de varios componentes en una aplicación React, permite cambiar la URL del navegador y mantiene la la interfaz de usuario sincronizada con la URL.
+[React Router](https://reactrouter.com/){:target='_blank'} es una librería estándar para integrar el enrutamiento en aplicaciones de React. Permite la navegación entre vistas de varios componentes, permite actualizar la URL del navegador y mantiene la la interfaz de usuario sincronizada con la ruta actual.
 
 Con React Router, puedes crear una aplicación de página única SPA (_Single Page Application_) con múltiples páginas que se renderizan dinámicamente sin necesidad de recargar la página completa. Permite gestionar la navegación, gestionar rutas anidadas, pasar parámetros y gestionar el historial del navegador.
 
-## ¿Cómo funciona?
+## ¿Cómo funciona React Router?
 
-Cuando el usuario hace clic en un enlace o escribe directamente la URL en la barra de direcciones del navegador, React Router actualiza la interfaz sin recargar toda la página, esto se logra manipulando el historial de navegación y utilizando componentes para cambiar el contenido dinámicamente, todo del lado del cliente. Veamos la siguiente ilustración:
+Cuando el usuario hace clic en un enlace o escribe directamente la URL en la barra de direcciones del navegador, React Router actualiza la interfaz sin recargar toda la página, esto se logra manipulando el historial de navegación y utilizando componentes para cambiar el contenido dinámicamente, todo del lado del cliente.
+
+__Veamos la siguiente ilustración__:
 
 ![Web root](react/rr-web-root.webp)
 
 ![Web about](react/rr-web-about.webp)
 
+Como puedes observar, la interfaz se actualiza pero no se vuelve a dibujar toda la página. Supongamos que tenemos el proyecto con la siguiente estructura de rutas configuradas:
+
+```jsx
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/contact" element={<Contact />} />
+</Routes>
+```
+{: .nolineno .fit-content }
+
+Cuando el usuario va a `http://miweb.com/about`, React Router hace lo siguiente:
+
+1. __Lee la URL__ → `/about`
+2. __Busca coincidencia__ → encuentra `path="/about"`
+3. __Renderiza__ el componente → `<About />`
 
 ## Setup para usar React Router
 
@@ -67,14 +90,14 @@ src/
 │
 ├── main.jsx
 ├── App.jsx
-├── pages/
-│   ├── Home.jsx
-│   ├── About.jsx
-│   └── NotFound.jsx
-└── components/
-    └── Navbar.jsx
+└── pages/
+    ├── Home.jsx
+    ├── About.jsx
+    └── NotFound.jsx
 ```
 {: .noheader .fit-content }
+
+Por ahora, estas serán nuestras páginas principales.
 
 ## Componentes de React Router
 
@@ -138,7 +161,7 @@ Al envolver `<App />` dentro de `<BrowserRouter>`, le damos acceso a todas las f
 - Usar `<Link>` para nevagación sin recargar la página.
 - Usar los hooks de navegación y parámetros.
 
-## Crear rutas en App.jsx
+## Crear rutas
 
 A partir de React Router v6, las rutas se pueden defenir de forma más declarativa con `<Routes>` y `<Route>`. A continuación, tienes el componente `App.jsx` y en las otras tabs el contenido de las páginas (componentes a renderizar) que importamos en `App.jsx`:
 
@@ -350,9 +373,17 @@ __A continuación, tenemos el resultado__:
 
 {% include embed/video.html src="react-router-demo2.webm" %}
 
-Pasa por el siguiente repostorio para revisar el código generado hasta ahora.
+Pasa por el siguiente repostorio para revisar el código hasta ahora:
 
 {% include github-repo.html owner="mc-herrera-90" repo="react-router-demo/tree/1-uso-de-enrutador-y-rutas" %}
+
+Aquí puedes ver el ejemplo funcional hasta ahora en un entorno interactivo:
+
+<iframe 
+  src="https://stackblitz.com/github/mc-herrera-90/react-router-demo/tree/1-uso-de-enrutador-y-rutas?embed=1&file=src%2FApp.jsx&view=preview" 
+  style="width:100%; max-width: 1200px; height:60vh; border:none; border-radius:8px; overflow:hidden;"
+  allowfullscreen
+></iframe>
 
 ## Navegación Programática
 
@@ -376,6 +407,7 @@ navigate('/ruta-a-la-que-quieres-ir');
 
 Vamos a trabajar en una nueva página en `pages/Contact.jsx` y creamos un formulario de contacto que al enviarse correctamente redirige a una página de agradecimiento:
 
+{% raw %}
 ```jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -399,12 +431,12 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simular validación simple
+    // Simular validación simple (que no haya campos vacíos)
     if (form.nombre && form.email && form.mensaje) {
       console.log('Formulario enviado:', form);
 
       // Redirigir al usuario a la página de agradecimiento
-      navigate('/gracias');
+      navigate('/thanks');
     } else {
       alert('Por favor completa todos los campos.');
     }
@@ -414,8 +446,8 @@ export default function Contact() {
     <section>
       <h1>Contacto</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre:</label>
+        <div style={{ marginBotton: '1rem' }}>
+          <label>Nombre:</label><br/>
           <input
             type="text"
             name="nombre"
@@ -423,8 +455,8 @@ export default function Contact() {
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>Email:</label>
+        <div style={{ marginBotton: '1rem' }}>
+          <label>Email:</label><br/>
           <input
             type="email"
             name="email"
@@ -432,8 +464,8 @@ export default function Contact() {
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>Mensaje:</label>
+        <div style={{ marginBotton: '1rem' }}>
+          <label>Mensaje:</label><br/>
           <textarea
             name="mensaje"
             value={form.mensaje}
@@ -447,8 +479,9 @@ export default function Contact() {
 }
 ```
 {: file="pages/Contact.jsx"}
+{% endraw %}
 
-Y ahora nos falta crear esa página que se renderizará cuando la URL cambie a `/gracias`. Usaremos un componente funcional de React en `pages/Thanks.jsx` con el siguiente contenido para mostrar al usuario:
+Y ahora nos falta crear esa página que se renderizará cuando la URL cambie a `/thanks`. Usaremos un componente funcional de React en `pages/Thanks.jsx` con el siguiente contenido para mostrar al usuario:
 
 {% raw %}
 ```jsx
@@ -464,45 +497,230 @@ export default function Thanks() {
 {: file="pages/Thanks.jsx"}
 {% endraw %}
 
+Por último, añadimos estas nuevas rutas dentro del componente `<Routes>` en `App.jsx` y en la barra de navegación añadimos este nuevo enlace:
 
-## Usar useParams
-
-Este es un hook que devuelve un __objeto__ de pares clave/valor con los parámetros dinámicos de la URL actual que coincidieron con `<Route path>`. las rutas secundarias heredan todos los parámetros de las rutas principales.
-
-
-{% tabs demo-useparams %}
-{% tab demo-useparams ProfilePage %}
+{% tabs demo-rr-contact %}
+{% tab demo-rr-contact App %}
 ```jsx
-import { useParams } from 'react-router-dom';
-
-export default function ProfilePage() {
-    let { userId } = useParams();
-    return <p>El parámetro en la URL actual es: {userId}</p>
-}
-```
-{: .nolineno }
-{% endtab %}
-{% tab demo-useparams App %}
-```jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact' // Importamos la página
+import Thanks from './pages/Thanks' // Importamos la página
+import NotFound from './pages/NotFound'
 
 export default function App() {
-    return (
-        <Routes>
-            <Route path="users">
-                <Route path=":userId" element={<ProfilePage/>}>
-            </Route>
-        </Routes>
-    )
-};
+  return (
+    <>
+      <Navbar /> 
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />  {/* 👈 aquí agregamos la ruta */}
+        <Route path="/thanks" element={<Thanks />} />  {/* 👈 aquí agregamos la otra ruta */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
 ```
-{: .nolineno file="App.jsx" }
+{:file="App.jsx"}
+{% endtab %}
+{% tab demo-rr-contact Navegación %}
+{% raw %}
+```jsx
+import { Link } from 'react-router-dom'
+
+export default function Navbar() {
+	return (
+		<nav style={{ padding: '1rem', background: '#282c34' }}>
+			<Link to="/" style={{ marginRight: '1rem', color: '#fff' }}>
+					Inicio
+			</Link>
+			<Link to="/about" style={{ color: '#fff' }}>
+					Acerca de
+			</Link>
+			<Link to="/contact" style={{ color: '#fff' }}> {/* 👈 aquí agregamos el nuevo link */}
+					Contacto
+			</Link>
+		</nav>
+  )
+}
+```
+{:file="components/Navbar.jsx" }
+{% endraw %}
 {% endtab %}
 {% endtabs %}
 
 
-<iframe 
-  src="https://stackblitz.com/edit/vitejs-vite-ngj556f4?ctl=1&embed=1&file=src%2Fpages%2FProfilePage.jsx" 
-  style="width:100%; max-width: 1200px; height:80vh; border:none; border-radius:12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); overflow:hidden;"
-  allowfullscreen
-></iframe>
+__El resultado, lo puedes ver a continuación__:
+
+{% include embed/video.html src="react-router-demo3.webm" %}
+
+## Rutas dinámicas
+
+Además de definir rutas estáticas como `/`, `/about` o `/contact`, React Router nos permite trabajar con rutas dinámicas.
+
+Estas rutas nos permiten reutilizar una misma plantilla de una página para mostrar distintos contenidos según el valor del parámetro recibido. Para acceder a estos parámetros desde el componente, React Router nos ofrece el hook `useParams`.
+
+Este es un hook que devuelve un __objeto__ de pares clave/valor con los parámetros dinámicos de la URL actual que coincidieron con `<Route path>`. las rutas secundarias heredan todos los parámetros de las rutas principales.
+
+### Agregar la sección de Servicios
+
+Siguiendo con nuestra aplicación, vamos a crear:
+- Una nueva página en `pages/Services.jsx`
+- Una segunda página en `pages/ServiceDetail.jsx` y se encargará de mostrar el detalle de cada servicio, capturando el parámetro proporcionado en la URL.
+
+Primero, agreguemos estas nuevas rutas dentro de `<Routes>` para de una vez estén disponible:
+
+{% tabs demo-useparams %}
+{% tab demo-useparams Rutas nuevas %}
+```jsx
+import Services from './pages/Services'
+import ServiceDetail from './pages/ServiceDetail'
+
+(
+  <Routes>
+    <Route path="/services" element={<Services>}>
+    <Route path="/services/:name" element={<ServiceDetail/>}>
+  </Routes>
+)
+```
+{: .nolineno .fit-content }
+{% endtab %}
+{% tab demo-useparams App.jsx %}
+```jsx
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Thanks from './pages/ServiceDetail'
+import Services from './pages/Services' // Importamos la página
+import ServiceDetail from './pages/ServiceDetail' // Importamos la página
+import NotFound from './pages/NotFound'
+
+export default function App() {
+  return (
+    <>
+      <Navbar /> 
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/thanks" element={<Thanks />} />
+        <Route path="/services" element={<Contact />} />  {/* 👈 aquí agregamos la ruta */}
+        <Route path="/services/:name" element={<Thanks />} />  {/* 👈 aquí agregamos la otra dinámica */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
+```
+{:file="App.jsx"}
+{% endtab %}
+{% endtabs %}
+
+En la página `Services.jsx`, vamos a mostrar los siguientes servicios de ejemplos:
+
+{% raw %}
+```jsx
+import { Link } from 'react-router-dom'
+
+export default function Services() {
+
+  const servicios = [
+    { nombre: 'diseño web', emoji: '🎨', descripcion: 'Diseño moderno y responsivo para tu sitio.' },
+    { nombre: 'ecommerce', emoji: '🛒', descripcion: 'Tiendas online eficientes y seguras.' },
+    { nombre: 'seo', emoji: '🚀', descripcion: 'Optimización para motores de búsqueda.' }
+  ]
+
+  return (
+    <section style={{ textAlign: 'center' }}>
+      <h2 style={{ fontSize: '2.5rem'}}>Nuestros Servicios</h2>
+      <div style={{ marginTop: '1rem'}}>
+        {servicios.map(servicio => (
+          <div key={servicio.nombre} style={{ display: 'inline-block', margin: '1rem' }}>
+            <div style={{ fontSize: '2rem' }}>{servicio.emoji}</div>
+            <h3>{servicio.nombre.toUpperCase()}</h3>
+            <Link to={`/services/${servicio.nombre}`}>Ver más</Link>
+          </div>
+        ))}
+      </div>
+    </section> 
+  )
+}
+```
+{: file="pages/Services.jsx" }
+{% endraw %}
+
+Para mostrar el detalle y cargar más información. En lugar de tener los datos de los servicios directamente en el componente, los almacenaremos en un archivo externo en `data/servicios.json` y que luego cargaremos desde nuestro componente. Para revisar el contenido del json debes cambiar a la pestaña izquierda:
+
+{% tabs demo-use-params2 %}
+{% tab demo-use-params2 ServiceDetail %}
+```jsx
+import { useParams } from 'react-router-dom'
+import servicios from '../data/servicios.json'
+
+export default function ServiceDetail () {
+  const { name } = useParams();
+  const servicio = servicios[name];
+
+  if (!servicio) <p>Servicio no encontrado.</p>
+
+  return (
+    <div style={{ padding: '2rem', maxWidth: '600px', margin: 'auto' }}>
+      <h2>{servicio.titulo}</h2>
+      <p>{servicio.descripcion}</p>
+      <h3>Beneficios: </h3>
+      <ul>
+        {servicios.beneficios.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+```
+{: file="pages/ServiceDetail.jsx"}
+{% endtab %}
+{% tab demo-use-params2 json %}
+```json
+{
+  "diseno-web": {
+    "titulo": "🎨 Diseño Web",
+    "descripcion": "Creamos sitios web modernos, responsivos y visualmente atractivos para tu marca o negocio.",
+    "beneficios": [
+      "Diseño adaptable a móviles y tablets",
+      "Optimización para velocidad de carga",
+      "Fácil mantenimiento y escalabilidad"
+    ]
+  },
+  "ecommerce": {
+    "titulo": "🛒 E-commerce",
+    "descripcion": "Desarrollamos plataformas de comercio electrónico seguras y rápidas para impulsar tus ventas.",
+    "beneficios": [
+      "Integración con pasarelas de pago",
+      "Panel de administración personalizado",
+      "Soporte para múltiples productos y categorías"
+    ]
+  },
+  "seo": {
+    "titulo": "🚀 SEO",
+    "descripcion": "Mejoramos tu visibilidad en motores de búsqueda para que más clientes te encuentren.",
+    "beneficios": [
+      "Auditoría técnica SEO",
+      "Optimización de contenido",
+      "Estrategias de posicionamiento orgánico"
+    ]
+  }
+}
+```
+{: file="data/servicios.json"}
+{% endtab %}
+{% endtabs %}
