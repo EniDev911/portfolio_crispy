@@ -380,7 +380,7 @@ Pasa por el siguiente repostorio para revisar el código hasta ahora:
 Aquí puedes ver el ejemplo funcional hasta ahora en un entorno interactivo:
 
 <iframe 
-  src="https://stackblitz.com/github/mc-herrera-90/react-router-demo/tree/1-uso-de-enrutador-y-rutas?embed=1&file=src%2FApp.jsx" 
+  src="https://stackblitz.com/edit/mc-herrera-90-react-router-demo-e9vcsbec?embed=1&file=src%2FApp.jsx&hideNavigation=1&view=editor" 
   style="width:100%; max-width: 1200px; height:60vh; border:none; border-radius:8px; overflow:hidden;"
   allowfullscreen
 ></iframe>
@@ -802,23 +802,37 @@ export default function Services() {
 
 ### Implementación del filtro
 
-A continuación, implementaremos la funcionalidad de filtro por __tipo de servicio__ (web, ecommerce, seo, etc.), aprovechando los datos que ya tenemos. Cada vez que el usuario haga clic en uno de estos botones, actualizaremos el parámetro `tipo` en la URL usando el hook `useSearchParams`, y luego mostraremos solamente los servicios que correspondan a ese tipo.
+A continuación, implementaremos la funcionalidad de filtro por __tipo de servicio__ (web, ecommerce, seo, etc.), aprovechando los datos que ya tenemos. Cada vez que el usuario haga clic en uno de estos botones, actualizaremos el parámetro `tipo` en la URL usando el hook `useSearchParams`, y luego mostraremos solamente los servicios que correspondan a ese tipo. El flujo sería mas menos como lo siguiente:
 
-También añadiremos un botón de "Todos" para limpiar el filtro y volver a ver todos los servicios disponibles.
+![react](react/react-router-services-filter.webp)
+
+También añadiremos un botón de "Todos" para limpiar el filtro y volver a ver todos los servicios disponibles. El componente quedaría de la siguiente manera:
 
 {% raw %}
 ```jsx
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom';
 
 export default function Services() {
   const [searchParams, setSearchParams] = useSearchParams();
   const filtro = searchParams.get("tipo")
 
+  const servicios = [
+    { nombre: 'diseño web', emoji: '🎨', tipo: 'web', descripcion: 'Diseño moderno y responsivo para tu sitio.' },
+    { nombre: 'ecommerce', emoji: '🛒', tipo: 'ecommerce', descripcion: 'Tiendas online eficientes y seguras.' },
+    { nombre: 'seo', emoji: '🚀', tipo: 'seo', descripcion: 'Optimización para motores de búsqueda.' },
+
+    { nombre: 'landing page', emoji: '📄', tipo: 'web', descripcion: 'Páginas de aterrizaje que convierten.' },
+    { nombre: 'carrito avanzado', emoji: '🧾', tipo: 'ecommerce', descripcion: 'Funcionalidades personalizadas para tu tienda.' },
+    { nombre: 'auditoría SEO', emoji: '🔍', tipo: 'seo', descripcion: 'Diagnóstico completo de tu posicionamiento.' },
+    { nombre: 'branding', emoji: '💼', tipo: 'web', descripcion: 'Construye una imagen profesional para tu marca.' },
+    { nombre: 'pasarela de pago', emoji: '💳', tipo: 'ecommerce', descripcion: 'Integración con medios de pago populares.' }
+  ];
+
   // Si hay filtro, aplicalo
   const serviciosFiltrados = filtro
     ? servicios.filter(s => s.tipo === filtro)
     : servicios
-
+ 
   return (
     <section style={{ textAlign: 'center' }}>
       <h2 style={{ fontSize: '2.5rem' }}>Nuestros Servicios</h2>
@@ -845,3 +859,16 @@ export default function Services() {
 ```
 {:file="pages/Services.jsx"}
 {% endraw %}
+
+__Observa la siguiente demostración__:
+
+{% include embed/video.html src='react-router-demo5.webm' %}
+
+
+{% include circle-line.html %}
+
+En esta guía práctica vimos cómo React Router nos permite crear experiencias dinámicas y fluidas en nuestras aplicaciones. Usamos sus componentes principales para definir rutas, crear enlaces de navegación y mostrar contenido dinámico en una aplicación de React. Además, exploramos hooks esenciales como `useNavigate` para redirigir programáticamente, `useParams` para mostrar contenido según la URL, y `useSearchParams` para implementar filtros manteniendo el estado en la barra del navegador.
+
+Con solo unos pocos hooks, ya podemos construir interfaces más inteligentes, reutilizables y fáciles de navegar.
+
+Esto es solo el comienzo. React Router tiene mucho más por explorar… pero ahora ya tienes una base para seguir creando.
