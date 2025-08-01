@@ -81,7 +81,7 @@ npm install react-router-dom
 > `npm install --save-dev @types/react-router-dom`
 {: .prompt-info .fit-content }
 
-## Estructrura del proyecto
+## Estructura del proyecto
 
 Tu carpeta `src` la puedes estructurar de la siguiente manera:
 
@@ -380,7 +380,7 @@ Pasa por el siguiente repostorio para revisar el código hasta ahora:
 Aquí puedes ver el ejemplo funcional hasta ahora en un entorno interactivo:
 
 <iframe 
-  src="https://stackblitz.com/github/mc-herrera-90/react-router-demo/tree/1-uso-de-enrutador-y-rutas?embed=1&file=src%2FApp.jsx&view=preview" 
+  src="https://stackblitz.com/github/mc-herrera-90/react-router-demo/tree/1-uso-de-enrutador-y-rutas?embed=1&file=src%2FApp.jsx" 
   style="width:100%; max-width: 1200px; height:60vh; border:none; border-radius:8px; overflow:hidden;"
   allowfullscreen
 ></iframe>
@@ -663,6 +663,7 @@ Para mostrar el detalle y cargar más información. En lugar de tener los datos 
 
 {% tabs demo-use-params2 %}
 {% tab demo-use-params2 ServiceDetail %}
+{% raw %}
 ```jsx
 import { useParams } from 'react-router-dom'
 import servicios from '../data/servicios.json'
@@ -671,7 +672,7 @@ export default function ServiceDetail () {
   const { name } = useParams();
   const servicio = servicios[name];
 
-  if (!servicio) <p>Servicio no encontrado.</p>
+  if (!servicio) return <p>Servicio no encontrado.</p>
 
   return (
     <div style={{ padding: '2rem', maxWidth: '600px', margin: 'auto' }}>
@@ -688,6 +689,7 @@ export default function ServiceDetail () {
 }
 ```
 {: file="pages/ServiceDetail.jsx"}
+{% endraw %}
 {% endtab %}
 {% tab demo-use-params2 json %}
 ```json
