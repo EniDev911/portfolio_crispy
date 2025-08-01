@@ -802,6 +802,10 @@ export default function Services() {
 
 ### Implementación del filtro
 
+A continuación, implementaremos la funcionalidad de filtro por __tipo de servicio__ (web, ecommerce, seo, etc.), aprovechando los datos que ya tenemos. Cada vez que el usuario haga clic en uno de estos botones, actualizaremos el parámetro `tipo` en la URL usando el hook `useSearchParams`, y luego mostraremos solamente los servicios que correspondan a ese tipo.
+
+También añadiremos un botón de "Todos" para limpiar el filtro y volver a ver todos los servicios disponibles.
+
 {% raw %}
 ```jsx
 import { useSearchParams } from 'react-router-dom'
@@ -837,7 +841,6 @@ export default function Services() {
       </div>
     </section>
   )
-
 }
 ```
 {:file="pages/Services.jsx"}
