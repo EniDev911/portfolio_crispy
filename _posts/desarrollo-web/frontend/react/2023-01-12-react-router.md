@@ -726,3 +726,119 @@ export default function ServiceDetail () {
 {: file="data/servicios.json"}
 {% endtab %}
 {% endtabs %}
+
+__Observa la siguiente la demostración__:
+
+{% include embed/video.html src="react-router-demo4.webm" %}
+
+## Filtros dinámicos
+
+En secciones anteriores, ya vimos cómo usar algunos hooks como `useNavigate`, que permite redirigir al usuario de forma programática, y `useParams` para acceder a parámetros de la URL y mostrar el detalle de un servicio.
+
+Ahora, vamos axplorar otro hook importante: `useSearchParams`, que nos permite __leer y modificar los parámetros de búsqueda__ (_query string_) en la URL, como `?=tiposeo`
+
+Esto es muy útil cuando queremos __filtrar contenido__ en una misma página, sin necesidad de rutas adicionales. En nuestro caso, lo aplicaremos para filtrar los sevicios disponibles por tipo.
+
+### Agregar nuevos servicios
+
+Vamos a modificar el conjunto de servicios en `pages/Services.jsx` y dejarlo de la siguiente forma:
+
+{% tabs demo-rr-new-services %}
+{% tab demo-rr-new-services Servicios %}
+```jsx
+const servicios = [
+  { nombre: 'diseño web', emoji: '🎨', tipo: 'web', descripcion: 'Diseño moderno y responsivo para tu sitio.' },
+  { nombre: 'ecommerce', emoji: '🛒', tipo: 'ecommerce', descripcion: 'Tiendas online eficientes y seguras.' },
+  { nombre: 'seo', emoji: '🚀', tipo: 'seo', descripcion: 'Optimización para motores de búsqueda.' },
+
+  { nombre: 'landing page', emoji: '📄', tipo: 'web', descripcion: 'Páginas de aterrizaje que convierten.' },
+  { nombre: 'carrito avanzado', emoji: '🧾', tipo: 'ecommerce', descripcion: 'Funcionalidades personalizadas para tu tienda.' },
+  { nombre: 'auditoría SEO', emoji: '🔍', tipo: 'seo', descripcion: 'Diagnóstico completo de tu posicionamiento.' },
+  { nombre: 'branding', emoji: '💼', tipo: 'web', descripcion: 'Construye una imagen profesional para tu marca.' },
+  { nombre: 'pasarela de pago', emoji: '💳', tipo: 'ecommerce', descripcion: 'Integración con medios de pago populares.' }
+];
+```
+{: .nolineno .fit-content }
+{% endtab %}
+{% tab demo-rr-new-services Pages/Services.jsx %}
+{% raw %}
+```jsx
+import { Link } from 'react-router-dom'
+
+export default function Services() {
+
+  const servicios = [
+    { nombre: 'diseño web', emoji: '🎨', tipo: 'web', descripcion: 'Diseño moderno y responsivo para tu sitio.' },
+    { nombre: 'ecommerce', emoji: '🛒', tipo: 'ecommerce', descripcion: 'Tiendas online eficientes y seguras.' },
+    { nombre: 'seo', emoji: '🚀', tipo: 'seo', descripcion: 'Optimización para motores de búsqueda.' },
+
+    { nombre: 'landing page', emoji: '📄', tipo: 'web', descripcion: 'Páginas de aterrizaje que convierten.' },
+    { nombre: 'carrito avanzado', emoji: '🧾', tipo: 'ecommerce', descripcion: 'Funcionalidades personalizadas para tu tienda.' },
+    { nombre: 'auditoría SEO', emoji: '🔍', tipo: 'seo', descripcion: 'Diagnóstico completo de tu posicionamiento.' },
+    { nombre: 'branding', emoji: '💼', tipo: 'web', descripcion: 'Construye una imagen profesional para tu marca.' },
+    { nombre: 'pasarela de pago', emoji: '💳', tipo: 'ecommerce', descripcion: 'Integración con medios de pago populares.' }
+  ];
+
+  return (
+    <section style={{ textAlign: 'center' }}>
+      <h2 style={{ fontSize: '2.5rem'}}>Nuestros Servicios</h2>
+      <div style={{ marginTop: '1rem'}}>
+        {servicios.map(servicio => (
+          <div key={servicio.nombre} style={{ display: 'inline-block', margin: '1rem' }}>
+            <div style={{ fontSize: '2rem' }}>{servicio.emoji}</div>
+            <h3>{servicio.nombre.toUpperCase()}</h3>
+            <Link to={`/services/${servicio.nombre}`}>Ver más</Link>
+          </div>
+        ))}
+      </div>
+    </section> 
+  )
+}
+```
+{: file="pages/Services.jsx" }
+{% endraw %}
+{% endtab %}
+{% endtabs %}
+
+### Implementación del filtro
+
+{% raw %}
+```jsx
+import { useSearchParams } from 'react-router-dom'
+
+export default function Services() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filtro = searchParams.get("tipo")
+
+  // Si hay filtro, aplicalo
+  const serviciosFiltrados = filtro
+    ? servicios.filter(s => s.tipo === filtro)
+    : servicios
+
+  return (
+    <section style={{ textAlign: 'center' }}>
+      <h2 style={{ fontSize: '2.5rem' }}>Nuestros Servicios</h2>
+
+      <div style={{ margin: '1rem 0' }}>
+        <button onClick={() => setSearchParams({ tipo: 'web' })}>Web</button>{' '}
+        <button onClick={() => setSearchParams({ tipo: 'ecommerce' })}>Ecommerce</button>{' '}
+        <button onClick={() => setSearchParams({ tipo: 'seo' })}>SEO</button>{' '}
+        <button onClick={() => setSearchParams({})}>Todos</button>
+      </div>
+
+      <div style={{ marginTop: '1rem' }}>
+        {serviciosFiltrados.map(servicio => (
+          <div key={servicio.nombre} style={{ display: 'inline-block', margin: '1rem' }}>
+            <div style={{ fontSize: '2rem' }}>{servicio.emoji}</div>
+            <h3>{servicio.nombre.toUpperCase()}</h3>
+            <Link to={`/services/${servicio.nombre}`}>Ver más</Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+
+}
+```
+{:file="pages/Services.jsx"}
+{% endraw %}
