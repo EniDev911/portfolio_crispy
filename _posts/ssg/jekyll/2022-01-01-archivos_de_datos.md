@@ -6,51 +6,47 @@ image:
   lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbAAAW/bMEUBYJxa/AAD+6nn1h8C8WZROLPLs/enWA+lNeYL/DGgSkj1C2/0HMv+bBrreGn7YIuodvitiqHeb3FrfxlMzLxCgRVXFAAA=
 ---
 
-## __¿Para qué sirve la carpeta _data?__ 
+## ¿Para qué sirve la carpeta _data?
 
 Es una carpeta especial que Jekyll reconoce automáticamente. Todo lo que pongas ahí queda disponible para que lo uses en cualquier parte del sitio. 
 
 > Es como tener una mini base de datos, pero hecha con archivos simples como `.yml`, `.json` o `.csv`, que puedes consultar desde cualquier parte de tu sitio.
 {: .prompt-tip }
 
-¿Para qué sirve en la práctica? Para separar el contenido repetitivo y estructurado del resto del sitio. Algunos ejemplos comunes:
+¿Para qué sirve en la práctica?
+: Para separar el contenido repetitivo y estructurado del resto del sitio. Algunos ejemplos comunes:
+: - Miembros del equipo (`team.json`)
+  - Proyectos (`portfolio.yml`)
 
-- Miembros del equipo (`team.json`)
-- Proyectos (`portfolio.yml`)
+## Setup para Jekyll
 
-## __1. Crear un proyecto Jekyll__
+Antes de comenzar con los ejemplos, asegúrate de tener lo siguiente:
+
+1. **Ruby** (__versión 3.2__ o superior)
+2. [**Jekyll**](https://jekyllrb.com/){:target='_blank'}
+
+### 1. Crear un proyecto Jekyll
 
 Si aún no tienes un sitio Jekyll andando, crea un proyecto básico:
 
 ```terminal
-jekyll new equipo-demo --blank
-cd equipo-demo
+jekyll new jekyll-data-demo
+cd jekyll-data-demo
 ```
 
-Dentro del proyecto, usamos Bundler para generar un Gemfile, y luego añadimos Jekyll como dependencia para gestionarlo correctamente:
+Una vez generado el proyecto, puedes servirlo en local con el siguiente comando:
 
 ```terminal
-bundle init
-bundle add jekyll
-```
-
-Una vez instaladas las dependencias, usa Bundler para construir el proyecto y servirlo en local:
-
-```terminal
-bundle exec jekyll serve
+jekyll serve
 ```
 
 Eso va a levantar tu sitio en <http://localhost:4000>.
 
-![new project jekyll](https://fullstack-python.mcherrera.dev/assets/img/notas/nuevo_proyecto.png)
+{% include embed/video.html src='init-jekyll-data-demo.webm' %}
 
-## __2. Usar un archivo de datos__
+### 2. Usar un archivo de datos
 
-Dentro del proyecto, busca la carpeta `_data`:
-
-![Folder data](jekyll/data-folder.webp){:w="600" }
-
-Y dentro de ella, creá un archivo llamado `team.yml`:
+Dentro del proyecto, en la raíz, crea una carpeta llamada `_data`. Dentro de ella, crea un archivo llamado `team.yml`:
 
 ```yml
 - nombre: Ana González
@@ -67,15 +63,15 @@ Y dentro de ella, creá un archivo llamado `team.yml`:
 ```
 {:file="_data/team.yml"}
 
+![Folder data](jekyll/crear-un-archivo-de-datos.gif)
 
-## __3. Crear una página que use esos datos__
+### 3. Mostrar esos datos
 
 En la raíz del proyecto, crea un archivo `equipo.md` y pega lo siguiente:
 
 {% raw %}
 ```markdown
 ---
-layout: default
 permalink: /equipo/
 ---
 
@@ -96,13 +92,15 @@ permalink: /equipo/
 > Jekyll expone este archivo como `site.data.team`, lo que nos permite recorrer sus miembros en lugar de escribir cada uno a mano.
 {: .prompt-info }
 
-Ahora ve al sitio en <http://localhost:4000/equipo>.
+A continuación, abre <http://localhost:4000/equipo/> en tu navegador para ver el resultado.
 
 ![Mostrando los datos del team](jekyll/show-data-team.webp)
 
-## __4. Crear una navegación con _data__
+## Otro caso de uso para `_data`
 
-Hasta ahora usamos la carpeta `_data` para mostrar el equipo, pero también la podemos usar para manejar algo tan básico como el __menú de navegación__ del sitio. Esto te permitirá agregar, quitar o cambiar enlaces sin tener que meterte a modificar el HTML del layout.
+Hasta ahora, usamos la carpeta `_data` para mostrar datos desde un archivo `.yml`.
+
+Ahora continuaremos con el __menú de navegación__ del sitio, pero esta vez utilizando un archivo `.json`. Esto te permitirá agregar, quitar o cambiar enlaces sin tener que meterte a modificar el HTML del _layout_.
 
 Crea un archivo llamado `_data/navigation.json`
 
@@ -159,15 +157,157 @@ En tu layout principal, recorremos los datos así:
 {: .nolineno file="_layouts/default.html" }
 {% endraw %}
 
-![Mostrando los datos de navegación](jekyll/show-data-navigation.webp)
+![Mostrando los datos de navegación](jekyll/menu-de-navegacion-con-datos.gif)
 
 > El uso es idéntico al de __YAML__ porque Jekyll interpreta automáticamente el formato de los archivos `.json`, `.yml` o `.csv`. Lo importante es que esté en la carpeta `_data`.
 {: .prompt-info }
 
+## Multiidioma en tu sitio de Jekyll
+
+### 1. ¿Cómo funciona la estrategia?
+
+- Tienes una versión del sitio por idioma, como:
+
+```
+/es/index.html
+/en/index.html
+```
+{: .fit-content .noheader }
+
+- Los archivos `.yml` de `_data` contienen las traducciones.
+- El botón solo **redirecciona** entre las versiones, no cambia dinámicamente el idioma (recordar que Jekyll genera HTML estático).
+- Usar `includes` y `layouts` compartidos que adapten su contenido según el idioma actual.
+
+###  2. Estructura de carpetas sugerida:
+
+```
+_data/
+  es.yml
+  en.yml
+es/
+  index.md
+en/
+  index.md
+_layouts/
+  default.html
+_includes/
+  nav.html
+  lang-switch.html
+```
+{: .fit-content .noheader }
+
+
+### 3. Escribir la misma estructura en ambos archivos
+
+```yaml
+title: "Bienvenido"
+nav:
+  home: "Inicio"
+  about: "Acerca de"
+```
+{:file="_data/es.yml" }
+
+
+```yaml
+title: "Welcome"
+nav:
+  home: "Home"
+  about: "About"
+```
+{:file="_data/en.yml" }
+
+
+### 4. Definir el idioma en el front-matter
+
+Para el español:
+
+{% raw %}
+```markdown
+---
+layout: default
+lang: es
+---
+# {{ site.data[page.lang].title }}
+```
+{:file="es/index.md"}
+{% endraw %}
+
+Para el inglés:
+
+{% raw %}
+```markdown
+---
+layout: default
+lang: en
+---
+# {{ site.data[page.lang].title }}
+```
+{:file="en/index.md"}
+{% endraw %}
+
+> El ejemplo anterior muestra archivos `.md`, pero te recomiendo que uses `.html`
+{: .prompt-tip .fit-content}
+
+### 5. Reemplazar valores donde corresponda
+
+{% raw %}
+```liquid
+<nav>
+  <ul>
+    <li><a href="/{{ page.lang }}/">{{ site.data[page.lang].nav.home }}</a></li>
+    <li><a href="/{{ page.lang }}/about">{{ site.data[page.lang].nav.about }}</a></li>
+  </ul>
+</nav>
+```
+{:file="_includes/nav.html"}
+{% endraw %}
+
+### 6. Crear enlaces para cambiar el idioma
+
+{% raw %}
+```liquid
+{% if page.lang == "es" %}
+  <a href="/en{{ page.url }}">English</a>
+{% else %}
+  <a href="/es{{ page.url }}">Español</a>
+{% endif %}
+```
+{: file="_includes/lang-switch.html"}
+{% endraw %}
+
+
+### 7. Ejemplo mínimo en el Layout
+
+{% raw %}
+```html
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ site.data[page.lang].title }}</title>
+</head>
+<body>
+  {% include nav.html %}
+  {% include lang-switch.html %}
+  <main>
+    {{ content }}
+  </main>
+</body>
+</html>
+```
+{: file="_layouts/default.html" }
+{% endraw %}
+
+### Resultado
+
+* Al visitar `/es/`, ves el sitio en español con un botón para cambiar a inglés.
+* Al visitar `/en/`, ves el sitio en inglés con un botón para volver al español.
+
 {% include circle-line.html %}
 
-Y así como hicimos con el equipo y la navegación, puedes seguir organizando contenido en la carpeta `_data`.
+Con esto concluimos el artículo, explorando las ventajas que ofrece Jekyll al trabajar con archivos de datos. Ya sea para mostrar miembros de un equipo o construir un menú de navegación dinámico, la carpeta `_data` te permite organizar contenido de forma clara y reutilizable.
 
+A partir de aquí, puedes seguir expandiendo su uso para mantener tu sitio más limpio, modular y fácil de mantener.
 
 Ideal para:
 
