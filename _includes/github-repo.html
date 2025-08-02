@@ -1,57 +1,95 @@
 <style>
   @import url('https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css');
 
- .github-card {
-  border: 1px solid #e1e4e8;
-  border-radius: 8px;
-  padding: 1rem;
-  max-width: 400px;
-  margin-bottom: 15px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  .github-card {
+    border: 1px solid var(--main-border-color, #ccc);
+    border-radius: 8px;
+    max-width: 500px;
+    margin-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
+  }
 
-.github-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+  .github-tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
 
-.github-link {
-  text-decoration: none;
-  color: var(--text-color) !important;
-}
+  .github-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+  }
 
-.github-link:hover * {
-  color: var(--text-color) !important;
-}
-.github-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0.9rem 0;
-}
+  .github-tab:last-child {
+    border-right: none;
+  }
 
-.github-header h4 {
+  .github-tab:hover {
+    background-color: #eaeaea;
+    color: #212121;
+  }
+
+  .github-tab-content {
+    display: none;
+  }
+
+  .github-tab-content.active {
+    display: block;
+    padding: 1rem;
+  }
+
+  .github-tab.active {
+    background-color: #e1e4e8; /* Color más claro para la tab activa */
+    color: var(--prompt-info-icon-color, #c1c1c1);
+  }
+
+  .github-link {
+    text-decoration: none;
+    color: var(--text-color) !important;
+  }
+
+  .github-card a.github-link:hover,
+  .github-card a.github-link:hover * {
+    color:  #0f6597 !important;
+  }
+
+  
+  .github-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .github-header h4 {
     font-size: x-large !important;
     margin: 0;
-}
-.github-icon {
-  font-size: 1.5rem;
-}
+  }
 
-.github-description {
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
+  .github-icon {
+    font-size: 1.5rem;
+  }
 
-.github-language {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.95rem;
-  color: var(--color-primary);
-}
+  .github-description {
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+  }
+
+  .github-language {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+  }
 </style>
+
 <div
   class="github-repo"
   data-owner="{{ include.owner }}"
@@ -64,4 +102,3 @@
   <script src="{{ '/assets/js/github-repo.js' | relative_url }}"></script>
   {% assign page.github_repo_script_loaded = true %}
 {% endunless %}
-

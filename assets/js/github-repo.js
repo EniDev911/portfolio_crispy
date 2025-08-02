@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let repo = el.dataset.repo;
     let branch = null;
 
-    // Si incluye "/tree/", separar repo y branch
     if (repo.includes('/tree/')) {
       const parts = repo.split('/tree/');
       repo = parts[0];
@@ -12,16 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      // Primero obtenemos información general del repo
       const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
       if (!response.ok) throw new Error('No se pudo cargar el repositorio');
-
       const repoData = await response.json();
 
-      // Si se especificó una rama, comprobar si existe
       if (branch) {
         const branchResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/branches/${branch}`);
-        if (!branchResponse.ok) throw new Error(`La rama '${branch}' no existe en el repositorio`);
+        if (!branchResponse.ok) throw new Error(`La rama '${branch}' no existe`);
       }
 
       const languageIcons = {
@@ -40,29 +36,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const language = repoData.language?.toLowerCase();
       const iconClass = languageIcons[language] || 'fas fa-code';
+      const githubUrl = branch
+        ? `${repoData.html_url}/tree/${branch}`
+        : repoData.html_url;
 
-      // Usamos la URL con rama si está definida
-      const repoUrl = branch ? `${repoData.html_url}/tree/${branch}` : repoData.html_url;
+      const sandboxUrl = branch
+        ? `https://codesandbox.io/s/github/${owner}/${repo}/tree/${branch}`
+        : `https://codesandbox.io/s/github/${owner}/${repo}`;
 
       el.innerHTML = `
         <div class="github-card">
-          <a href="${repoUrl}" target="_blank" rel="noopener noreferrer" class="github-link">
-            <div class="github-header">
-              <i class="fab fa-github github-icon" aria-hidden="true"></i>
-              <h4>${repoData.name}</h4>
-            </div>
-            <p class="github-description">${repoData.description || ''}</p>
-            ${
-              repoData.language
-                ? `<div class="github-language">
-                     <i class="${iconClass}" aria-hidden="true"></i>
-                     <span>${repoData.language}</span>
-                   </div>`
-                : ''
-            }
-          </a>
+          <div class="github-tabs">
+            <button class="github-tab" data-tab="github">GitHub</button>
+            <button class="github-tab" data-tab="codesandbox">CodeSandbox</button>
+          </div>
+          <div class="github-tab-content active" data-content="github">
+            <a href="${githubUrl}" target="_blank" class="github-link">
+              <div class="github-header">
+                <i class="fab fa-github github-icon"></i>
+                <h4>${repoData.name}</h4>
+              </div>
+              <h6 class="ps-4"><i class="fas fa-code-branch"></i> ${branch}</h6>
+              <p class="github-description">${repoData.description || ''}</p>
+              ${
+                repoData.language
+                  ? `<div class="github-language">
+                      <i class="${iconClass}"></i>
+                      <span>${repoData.language}</span>
+                    </div>`
+                  : ''
+              }
+            </a>
+          </div>
+          <div class="github-tab-content" data-content="codesandbox">
+            <a href="${sandboxUrl}" target="_blank" class="github-link">
+              <div class="github-header">
+                <i class="fas fa-code github-icon"></i>
+                <h4>Abrir en CodeSandbox</h4>
+              </div>
+              <p class="github-description">Explora el proyecto en línea.</p>
+            </a>
+          </div>
         </div>
       `;
+
+      // Activación de tabs
+      el.querySelectorAll('.github-tab').forEach((tabBtn) => {
+        tabBtn.addEventListener('click', () => {
+          const target = tabBtn.dataset.tab;
+          el.querySelectorAll('.github-tab').forEach(btn => btn.classList.remove('active'));
+          el.querySelectorAll('.github-tab-content').forEach(tab => tab.classList.remove('active'));
+          tabBtn.classList.add('active');
+          el.querySelector(`.github-tab-content[data-content="${target}"]`).classList.add('active');
+        });
+      });
     } catch (error) {
       el.innerHTML = `<div class="github-card">Error: ${error.message}</div>`;
     }

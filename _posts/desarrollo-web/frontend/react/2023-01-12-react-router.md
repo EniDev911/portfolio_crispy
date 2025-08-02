@@ -373,17 +373,9 @@ __A continuación, tenemos el resultado__:
 
 {% include embed/video.html src="react-router-demo2.webm" %}
 
-Pasa por el siguiente repostorio para revisar el código hasta ahora:
+Pasa por el siguiente repostorio para revisar la rama con el código trabajado hasta ahora:
 
 {% include github-repo.html owner="mc-herrera-90" repo="react-router-demo/tree/1-uso-de-enrutador-y-rutas" %}
-
-Aquí puedes ver el ejemplo funcional hasta ahora en un entorno interactivo:
-
-<iframe 
-  src="https://stackblitz.com/edit/mc-herrera-90-react-router-demo-e9vcsbec?embed=1&file=src%2FApp.jsx&hideNavigation=1&view=editor" 
-  style="width:100%; max-width: 1200px; height:60vh; border:none; border-radius:8px; overflow:hidden;"
-  allowfullscreen
-></iframe>
 
 ## Navegación Programática
 
@@ -864,6 +856,9 @@ __Observa la siguiente demostración__:
 
 {% include embed/video.html src='react-router-demo5.webm' %}
 
+Por último, revisa en el repositorio, en la rama "2-uso-de-hooks", lo que hemos hecho hasta ahora.
+
+{% include github-repo.html owner="mc-herrera-90" repo="react-router-demo/tree/2-uso-de-hooks" %}
 
 {% include circle-line.html %}
 
