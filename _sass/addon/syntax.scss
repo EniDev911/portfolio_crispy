@@ -223,11 +223,14 @@ html {
 
     display: flex;
     justify-content: space-between;
+    position: relative;
     align-items: center;
     height: $code-header-height;
     margin-left: 0.75rem;
     margin-right: 0.25rem;
     border-bottom: 1px solid var(--code-header-muted-color);
+
+
     /* the label block */
     span {
       line-height: $code-header-height;

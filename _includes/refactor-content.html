@@ -208,10 +208,18 @@
       {% capture _label %}
         <span data-label-text="{{ _label_text | strip }}"><i class="{{ _label_icon }}"></i></span>
       {% endcapture %}
-      {% capture _button_copy %}
+      {% capture _buttons %}
         <button aria-label="copy" data-title-succeed="{{ site.data.locales[include.lang].post.button.copy_code.succeed }}">
           <i class="far fa-clipboard"></i>
         </button>
+        <div class="d-none">
+          <button onclick="createPen({
+		          html: this.parentElement.parentElement.nextSibling.textContent,
+		          title: this.parentElement.parentElement.parentElement.getAttribute('pen-title')
+          })">
+            <i class="fab fa-codepen"></i>
+          </button>
+        </div>
       {% endcapture %}
       {% capture _button_expand %}
         <button aria-label="expand" class="position-absolute top-0 end-0 btn expand-btn z-index-5 d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="expandir" data-bs-placement="left">
@@ -222,7 +230,7 @@
         | append: _snippet
         | append: '<div class="code-header">'
         | append: _label
-        | append: _button_copy
+        | append: _buttons
         | append: '</div>'
         | append: '<div class="highlight position-relative code-container"><code>'
       %}

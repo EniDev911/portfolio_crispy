@@ -40,4 +40,83 @@ Vamos a comenzar con una estructura mínima con un html muy básico:
 </body>
 </html>
 ```
-{:file="index.html"}
+{:file="index.html" .pen pen-title="Estructura básica"}
+
+Lo más relevante en el código anterior, es la vinculación con la hoja de estilo y la estructura del menú.
+
+## Estilos recomendados
+
+Lo interesante viene a continuación en las reglas de estilos, usamos flexbox para alinear los elementos del menú, también algunas media queries y para darle funcionalidad, usamos la pseudoclase `:target`:
+
+```css
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedores flex, y bg */
+header,
+nav,
+.nav-list {
+  display: flex;
+  background: #333;
+}
+
+/* Elementos ocultos para desktop */
+.menu-icon,
+.menu-close {
+  display: none;
+}
+
+header {
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+}
+
+.nav-list {
+  list-style: none;
+  gap: 25px;
+}
+
+@media(max-width: 768px) {
+  /* Mobile */
+
+  /* Mostrar el icono hamburguesa */
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-list {
+    /* Ocultamos el menu por defecto */
+    display: none;
+    /* ---------- */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  /* Mostramos el menu y el botón para cerrarlo */
+  #menu:target,
+  #menu:target .menu-close {
+    display: flex;
+  }
+
+  .menu-close {
+    align-self: flex-start;
+  }
+}
+```
+

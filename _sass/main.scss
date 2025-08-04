@@ -66,6 +66,14 @@ em.type {
  }
 }
 
+.pen {
+  .d-none {
+    display: block !important;
+    position: absolute;
+    right: 2.2rem;
+  }
+}
+
 .window {
   display: flex;
   border: 1px solid #ccc6;
