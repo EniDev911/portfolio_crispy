@@ -9,18 +9,39 @@ categories: [Bases de Datos Relacionales, "Modelado de Datos"]
 tags: [Bases de Datos, "Modelado de Datos"]
 ---
 
-## __¿Qué entendemos por Modelo Conceptual?__
+## ¿Qué entendemos por Modelo Conceptual?
 
-Un modelo conceptual es la representación abstracta de los datos relevantes de un sistema. Aquí se definen:
+Un modelo conceptual es la representación abstracta de los datos relevantes de un sistema. Aquí se identifican conceptos claves como:
 
-- __Entidades__ (ej. Usuario, Producto)
-- __Atributos__ (ej. nombre, precio)
-- __Relaciones__ (ej. Compra, Tiene)
+__Entidades__
+: Representan objetos o conceptos importantes en el dominio (por ejemplo, Cliente, Producto, Pedido). Para representar una entidad, debes usar un rectángulo y puede tener o no un borde:
+
+<div class="modelo-er ps-3">
+  <div class="entity">Entidad</div>&nbsp;&nbsp;o&nbsp;&nbsp;
+  <div class="entity" style="border-radius: 8px;">Entidad</div>
+</div>
+
+__Atributos__
+: Describen las características de una entidad (por ejemplo, nombre, dirección, precio). Estos se representan mediante óvalos:
+
+<div class="modelo-er ps-3">
+  <div class="key-attribute">Atributo clave</div>&nbsp;
+  <div class="simple-attribute">Atributo</div>
+</div>
+
+__Relaciones__
+: Describen las conexiones entre entidades (por ejemplo, un cliente __realiza__ un pedido). Estas se representan mediante rombos:
+
+<div class="modelo-er ps-3">
+  <div class="relationship"><span>Relación</span></div>
+</div>
+<br/>
 
 > La creación del __modelo conceptual es el primer paso fundamental en el diseño de una base de datos__. En esta etapa se identifican las entidades, atributos y relaciones sin preocuparse aún por detalles técnicos como tipos de datos o claves foráneas. Es una __fase previa al diseño del modelo lógico o físico__.
 {: .prompt-info }
 
-## __Cómo Comenzar con Draw.io__
+
+## Cómo Comenzar con Draw.io
 
 Existen muchas herramientas para crear diagramas, pero en este artículo vamos a utilizar [Draw.io](https://draw.io){:target='_blank'}, una herramienta gratuita para crear diagramas. Permite exportar, compartir y colaborar fácilmente, lo que lo convierte en una excelente opción para crear modelos conceptuales. Para ello, sigue estos pasos:
 
@@ -43,9 +64,7 @@ __1. Entidad__
 
 <div class="modelo-er">
   <div class="entity">Entidad</div>&nbsp;&nbsp;o&nbsp;&nbsp;
-  <div class="entity" style="border-radius: 8px;">
-  Entidad
-</div>
+  <div class="entity" style="border-radius: 8px;">Entidad</div>
 </div>
 
 __2. Entidad con atributo clave__
