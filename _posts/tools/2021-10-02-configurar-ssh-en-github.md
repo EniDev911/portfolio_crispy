@@ -1,11 +1,13 @@
 ---
-title: "Github: Configurar clave SSH"
+title: "GitHub: Configurar llaves SSH 🔑"
 author: enidev911
-categories: [Kit Tools, Github]
+icon: "fab fa-github"
+categories: [Kit Tools, GitHub]
 image:
   path: posters/github-ssh.webp
   lqip: data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADwAwCdASoUAAsAPpE6l0eloyIhMAgAsBIJaQDE98ADJBC6S2Eu3hCgAP75F+v3r/812STLvVahP9a+/bhjEy+yCP779iBwh/eYjMwuMJdrXV5iHL/+++G/Klt/hhz996GhSaB29Uf+7t9BBcsRRkqQMPO/9UY0RPTngcj1QvS5Dz0K+NRD0LDEFkAAAA==
 tags: [tools, github, ssh]
+permalink: /github/configurar-ssh/
 ---
 
 Cuando estamos trabajando con GitHub y deseamos interactuar con los repositorios desde nuestra máquina de forma frecuente, utilizar una clave SSH es una opción segura y conveniente de autenticarte y comunicarte con tus repositorios en GitHub. SSH permite que tu conexión con GitHub sea cifrada y sin necesidad de ingresar tus credenciales.

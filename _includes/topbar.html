@@ -8,18 +8,19 @@
     <nav id="breadcrumb" aria-label="Breadcrumb">
       {% assign paths = page.url | split: '/' %}
 
-      {% if paths.size == 0 or page.layout == 'home' %}
+      {% if paths.size == 0 or page.layout == 'categories' %}
         <!-- index page -->
-        <!-- <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span> -->
+        <a href="{{ '/' | relative_url }}">
+          <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
+        </a>
       {% else %}
         {% for item in paths %}
           {% if forloop.first %}
-            <span>
-              <a href="{{ '/' | relative_url }}">
-                {{ site.data.locales[include.lang].tabs.home | capitalize }}
+            <!-- <span>
+              <a href="{{ '/categories' | relative_url }}">
+                {{ site.data.locales[include.lang].tabs.categories | capitalize }}
               </a>
-            </span>
-
+            </span> -->
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
               <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
