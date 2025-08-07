@@ -3,53 +3,115 @@ title: "Jekyll: Usar Colecciones"
 categories: [SSG, Jekyll]
 ---
 
-Si ya te sientes encantado y cómodo usando `_post/`, `_data/` y layouts en Jekyll, es hora de conocer las colecciones.
+Si ya te sientes cómodo y entusiasmado utilizando Jekyll y el sistema de `_posts/`, ha llegado el momento de dar el siguiente paso: conocer __las colecciones__.
 
-Las colecciones te permiten agrupar contenido por tipo (como proyectos, cursos, tutoriales) y tratarlos de forma independiente a los posts del blog.
+## ¿Qué es una colección en Jekyll?
 
-Entonces, ¿Cuál es la diferencia?. Piensa en:
+Si bien el sistema de `_posts/` en Jekyll es perfecto para manejar entradas de blog, llega un punto en que necesitarás algo más flexible para organizar otro tipo de contenido. Aquí es donde entran las **colecciones**.
 
-- Utilizar __publicaciones__ (`_post/`) cuando quieras escribir artículos independiente, con fecha de publicación.
-- Utilizar __colecciones__ cuando quieras agrupar contenido relacionado, que pueda tener su propia página, pero la fecha no es importante.
+Una colección te permite agrupar contenido por tipo, por ejemplo proyectos, tutoriales, cursos y gestionarlo de forma separada al blog. Cada colección puede tener su propia estructura, diseño, URLs y lógica de presentación, lo que te da mucho más control sobre cómo se organiza y muestra la información en tu sitio.
 
-## __1. Crear una colección__
+### ¿Cuándo usar colecciones?
 
-En el archivo `_config.yml` en la raíz del proyecto, podemos declarar todas las colecciones que necesites:
+En Jekyll, tanto los posts como las colecciones te permiten gestionar contenido dinámico, pero están pensados para distintos propósitos. Entonces, ¿Cuál es la diferencia?. Piensa en:
+
+- Utilizar __publicaciones__ cuando quieras escribir artículos independiente, con fecha de publicación. Los posts viven en la carpeta `_posts/` y deben llevar fecha en el nombre del archivo (`2022-01-02-mi-post.md`).
+- Utilizar __colecciones__ cuando quieras agrupar contenido relacionado, que pueda tener su propia página, pero la fecha no es importante. Las colecciones se definen en `_config.yml` y cada una vive en su propia carpeta (como `_proyectos/`, `_tutoriales/`, etc.).
+
+A continuación, podemos ver otras características a tener en cuenta entre los posts y las colecciones:
+
+| Característica                         | **Posts** (`_posts/`)                   | **Colecciones** (`_nombre/`)                      |
+| -------------------------------------- | --------------------------------------- | ------------------------------------------------- |
+| 📅 Organización por fecha              | Sí (orden cronológico)                  | Opcional (no depende de la fecha)                 |
+| 🔁 Uso típico                          | Entradas de blog, noticias              | Proyectos, tutoriales, cursos, documentación      |
+| 🗂️ Carpeta                            | `_posts/`                               | `_coleccion/` (ej: `_proyectos/`)                 |
+| 📄 Formato del nombre del archivo      | Requiere fecha (`AAAA-MM-DD-titulo.md`) | Sin fecha necesaria (`titulo.md`)                 |
+| 🔍 Soporte para categorías y etiquetas | Sí                                      | Sí, pero debes configurarlo manualmente           |
+| 🧭 Paginación automática               | Sí                                      | No (requiere configuración manual si se necesita) |
+| 🛠️ Configuración en `_config.yml`     | No es necesaria                         | Sí (debes declarar cada colección)                |
+| 🖼️ Plantillas personalizadas          | Generalmente usa la misma para todos    | Puedes usar distintas por colección               |
+| 🌐 URLs personalizadas                 | Limitado                                | Totalmente personalizables                        |
+
+## Crear un nuevo proyecto
+
+Si aún no tienes un sitio Jekyll andando, pone en marcha un nuevo proyecto con los siguientes comandos:
+
+```terminal
+jekyll new nombre-sitio --blank
+cd nombre-sitio
+bundle init
+bundle add jekyll
+jekyll s
+```
+
+__Demostración rápida__:
+
+{% include embed/video.html src='new-project-jekyl-collection.mp4' %}
+
+## Cómo crear y usar colecciones en Jekyll
+
+Ya que hemos creado un proyecto de Jekyll y sabemos que una colección es un grupo de documentos relacionados, pero para que podamos usar colecciones, debemos indicarle a Jekyll ciertas configuraciones para que pueda reconocerla y procesarla correctamente.
+
+### 1. Configura una colección
+
+Primero, abre el archivo `_config.yml` que se encuentra en la raíz del proyecto, ya que en este archivo podemos configurar una o más colecciones:
 
 ```yml
 collections:
   proyectos:
     output: true
-    permalink: /proyectos/:name/
+    permalink: /:collection/:name/
 ```
 {: .nolineno file="_config.yml"}
 
-> - `output: true`: indica que Jekyll debe generar páginas individuales para cada item.
-> - `permalink`: define la estructura de URL de cada item.  
-> - Para más detalles sobre estas opciones, revisa en la documentacipon oficial de [Jekyll sobre colecciones](https://jekyllrb.com/docs/collections/){:target='_blank'}.
+> - `output: true`: Le indica a Jekyll que debe generar páginas individuales por cada documento.
+> - `permalink`: Configura la URL en función del nombre de la colección y del documento.
+> - Para más detalles sobre estas opciones, revisa en la documentación oficial de [Jekyll sobre colecciones](https://jekyllrb.com/docs/collections/){:target='_blank'}.
 {: .prompt-info }
 
-## __2. Crea carpetas por cada colección__
+### 2. Crea carpetas por cada colección
 
-Por convención, toda colección debe comenzar con guión bajo: `_proyectos/`, `_recursos/`, etc.
+Ahora, crea una carpeta en la raíz del proyecto con el nombre de la colección, __precedido por un guion bajo__.
 
-En la raíz del proyecto, crea un archivo en `_proyectos/app-movil.md` y agrega lo siguiente:
-
-{% raw %}
-```markdown
----
-title: App Móvil
-cliente: Fundación Innova
-fecha: 2022-01-02
-layout: proyecto
----
-
-Desarrollamos una app móvil híbrida con Ionic para mejorar la logística de distribución.
+```bash
+.
+├── 📄 _config.yml
+├── 📁 _data
+├── 📁 _drafts
+├── 📁 _includes
+├── 📁 _layouts
+├── 📁 _posts
+├── 📁 _proyectos # 👈 Aquí crea la carpeta
+├── 📁 _sass
+├── 📁 _site
+├── 📁 assets
+├── 📄 Gemfile
+├── 📄 Gemfile.lock
+└── 📄 index.md
 ```
-{:file="_proyectos/app-movil.md"}
-{% endraw %}
+{:.fit-content .noheader}
 
-## __3. Crear un layout personalizado__
+> No olvides que toda colección debe comenzar con guión bajo: `_proyectos/`, `_recursos/`, etc.
+{: .prompt-info }
+
+Dentro de la carpeta, crea archivos con extensión `.md` por ejemplo `_proyectos/nombre-proyecto.md` y define algunos datos en el [front-matter](https://jekyllrb.com/docs/front-matter/){:target='_blank'}. Por ejemplo:
+
+{% tabs demo-collection %}
+{% tab demo-collection primer documento %}
+```markdown
+{% include markdown/innova.md %}
+```
+{:file="_proyectos/innova.md"}
+{% endtab %}
+{% tab demo-collection segundo documento %}
+```markdown
+{% include markdown/agroconnect.md %}
+```
+{:file="_proyectos/agroconnect.md"}
+{% endtab %}
+{% endtabs %}
+
+### 3. Crear un layout personalizado
 
 Es una buena idea tener un layout personalizado para las colecciones. Por ejemplo, tener algo así:
 
@@ -66,6 +128,7 @@ layout: default
   <div>{{ content }}</div>
 </article>
 ```
+{:file="_layouts/proyecto.html"}
 {% endraw %}
 
 Por último, crea una página para mostrar los artículos:

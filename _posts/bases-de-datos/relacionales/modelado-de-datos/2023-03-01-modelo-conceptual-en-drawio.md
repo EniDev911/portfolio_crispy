@@ -41,7 +41,7 @@ __Relaciones__
 {: .prompt-info }
 
 
-## Cómo Comenzar con Draw.io
+## Cómo comenzar con Draw.io
 
 Existen muchas herramientas para crear diagramas, pero en este artículo vamos a utilizar [Draw.io](https://draw.io){:target='_blank'}, una herramienta gratuita para crear diagramas. Permite exportar, compartir y colaborar fácilmente, lo que lo convierte en una excelente opción para crear modelos conceptuales. Para ello, sigue estos pasos:
 
@@ -56,9 +56,9 @@ __2\. Ve al menú izquierdo y selecciona__
 
 ![Toolkit de Relación de la entidad](diagramas/drawio-toolkit-erd.webp)
 
-### __Entidades, Atributos y Relaciones__
+### Entidades, Atributos y Relaciones
 
-Una __entidad__ puede representarse como un __rectángulo__, ya sea con o sin bordes, dependiendo del estilo que elijas para tus diagramas, los __atributos__ se representan con óvalos y las __relaciones__ con rombos.
+Aquí encontrarás lo necesario para comenzar a crear tus diagramas conceptuales. A continuación, se presentan algunos ejemplos básicos sobre cómo utilizar estos símbolos:
 
 __1. Entidad__
 
@@ -94,9 +94,9 @@ __4. Relaciones__
   <div class="entity">Producto</div>
 </div>
 
-### __Ejemplo de Modelo Conceptual de Cliente y Producto__
+### Crear un modelo conceptual
 
-En este ejemplo básico definiremos dos entidades principales y su relación:
+En este ejemplo básico definiremos dos entidades principales Cliente y Producto y su relación:
 
 - __Entidad__: `Cliente`
    - __Atributos__: `ID_Cliente`, `Nombre`, `Correo`
@@ -146,9 +146,10 @@ Además, ahora puedes observar que `DetallePedido` se conecta con la entidad `Pr
 > De esta forma, reflejamos una relación común en bases de datos: un pedido puede incluir varios productos, y cada producto puede estar en múltiples pedidos.
 {: .prompt-info }
 
-## __Buenas Prácticas al Diseñar__
+## __Buenas Prácticas al diseñar__
 
-- Usa __nombres claros__ y __singulares__ para entidades: `Producto`, no `Productos`
+- Usa __nombres claros__ y _### Crear un modelo conceptual
+_singulares__ para entidades: `Producto`, no `Productos`
 - __Relaciona entidades con verbos__: `Compra`, `Contiene`
 - Añade atributos claves como `id_cliente`, `fecha`, etc.
 - No mezclar atributos con relaciones.
