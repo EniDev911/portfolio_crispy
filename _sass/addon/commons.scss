@@ -52,7 +52,7 @@
       }
 
       @if $i < 5 {
-        $factor: 0.38rem;
+        $factor: 0.29rem;
         font-weight: bold;
         font-family: "Liter", sans-serif;
         @if $i == 1 {

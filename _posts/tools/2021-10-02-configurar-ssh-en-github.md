@@ -12,6 +12,16 @@ permalink: /github/configurar-ssh/
 
 Cuando estamos trabajando con GitHub y deseamos interactuar con los repositorios desde nuestra máquina de forma frecuente, utilizar una clave SSH es una opción segura y conveniente de autenticarte y comunicarte con tus repositorios en GitHub. SSH permite que tu conexión con GitHub sea cifrada y sin necesidad de ingresar tus credenciales.
 
+## Pasos para configurar una clave SSH en GitHub
+
+Antes de seguir con los pasos, verifica si ya tienes una clave SSH existente. Abre una terminal o Git Bash y ejecuta:
+
+```terminal
+ls -al ~/.ssh
+```
+
+Busca archivos como `id_rsa` y `id_rsa.pub` o `id_ed1234` y `id_ed1234.pub`. Si existen, puedes reutilizarlos. Si no, genera una nueva clave.
+
 ### 1. Generar una nueva clave SSH
 
 Para generar un par de claves SSH (clave pública y privada), utilizaremos la herramienta de línea de comandos `ssh-keygen`, incluida por defecto en sistemas Linux, macOS y disponible en Windows a través de Git Bash.
@@ -140,7 +150,7 @@ Una vez que tengamos la clave copiada en el portapapeles, el siguiente paso es r
 
 - Vamos a nuestra cuenta en GitHub e iniciamos sesión.
 - Dirigite a la [configuración de llaves SSH y GPG](https://github.com/settings/keys){: target='_blank' }
-- Damos clic en el botón <a href="https://github.com/settings/ssh/new" target="_blank" class="border-0"><kbd style="background: green; color: white">New SSH key</kbd></a>.
+- Haz clic en el botón <a href="https://github.com/settings/ssh/new" target="_blank" class="border-0"><kbd style="background: green; color: white">New SSH key</kbd></a>.
 - En el campo `title` agrega una etiqueta descriptiva para la clave nueva.
 - En el campo `Key` pega la clave que está contenida en el portapapeles con <kbd>ctrl</kbd> + <kbd>v</kbd>.
 
@@ -161,8 +171,78 @@ Hi <tu-usuario>! You've successfully authenticated, but GitHub does not provide 
 ```
 {: .noheader .nolineno }
 
+> El resultado anterior confirma que tu clave SSH está bien configurada y puedes usarla para usar comandos como `git clone`, `git pull`, `git push`.
+{: .prompt-info }
+
+## Consejos para mejorar la gestión de claves SSH
+
+Usar claves SSH para autenticación es una práctica segura, pero con el tiempo puedes terminar con muchas claves, nombres confusos o errores al conectar. Aquí te dejo algunos consejos para mantenerlas ordenadas y bajo control desde Bash.
+
+### 1. Guardar tus claves con nombres descriptivos
+
+En lugar de usar el nombre predeterminado `id_rsa`, nómbralas según el servicio o propósito:
+
+```
+~/.ssh/github_ed25519
+~/.ssh/servidor_empresa_rsa
+~/.ssh/aws_personal_key
+```
+{:.fit-content .noheader}
+
+### 2. Crear un archivo para facilitar conexiones
+
+Crea el archivo `~/.ssh/config` para definir accesos rápidos por alias:
+
+
+```bash
+Host github
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_ed26520
+
+Host empresa
+  HostName 192.168.1.100
+  User mcherreraa
+  IdentityFile ~/.ssh/servidor_empresa_rsa
+```
+{: file=".ssh/config" }
+
+Ahora, simplemente conectas con algún servidor a través del siguiente comando:
+
+```terminal
+ssh github
+```
+
+La línea anterior se traduce internamente a algo así como:
+
+```terminal
+ssh -i ~/.ssh/github_ed26520 git@github.com
+```
+
+Como resultado, debería mostrar en el caso de github un mensaje:
+
+```
+Hi <tu usuario>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+{: .noheader }
+
+### 3. Limpieza rápida de claves en uso
+
+Para ver qué claves están activas, ejecuta el siguiente comando:
+
+```terminal
+ssh-add -l
+```
+
+Para eliminar todas:
+
+```terminal
+ssh-add -D
+```
+
 {% include circle-line.html %}
 
 Configurar claves SSH en GitHub no solo mejora la seguridad, sino que también incrementa la productividad al evitar el ingreso constante de credenciales, facilitando el trabajo frecuente con repositorios.
 
 Y eso es todo, ¡espero que este artículo haya sido de utilidad!
+

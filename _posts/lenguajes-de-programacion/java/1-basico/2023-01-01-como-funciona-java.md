@@ -1,16 +1,17 @@
 ---
-title: "Java ♨️ : Como funciona Java"
+title: "Java : Como funciona el entorno de Java ⚙️"
 author: enidev911
+icon: "fa fa-java"
 categories: [Java, "01. Nivel Básico"]
 ---
 
-Java es conocido por su lema __"Write Once, Run Anywhere"__, pero detrás de esa promesa se encuentra la pieza clave: la __Máquina Virtual de Java__ o JVM (Java Virtual Machine). En este artículo vamos a ver cómo funciona realmente la JVM y el rol fundamental del __compilador Just-In-Time__ (JIT) en el rendimiento de las aplicaciones Java.
+Java es conocido por su lema __"Write Once, Run Anywhere"__, pero detrás de esa promesa se encuentra la pieza clave: la __Máquina Virtual de Java__ o JVM (_Java Virtual Machine_). En este artículo vamos a ver cómo funciona realmente la JVM y el rol fundamental del __compilador Just-In-Time__ (JIT) en el rendimiento de las aplicaciones Java.
 
-## __¿Qué es la JVM?__
+## ¿Qué es la JVM?
 
 La __JVM__ (Java Virtual Machine) es un entorno de ejecución que permite correr programas Java (y otros lenguajes que compilan a bytecode, como Kotlin o Scala) en cualquier sistema operativo, __sin recompilar el código fuente__, es una máquina de computación abstracta que forma parte integral del __Entorno de Ejecución de Java__ ([JRE](https://es.wikipedia.org/wiki/Java_Runtime_Environment){:target='_blank'}). A diferencia de una máquina física, que ejecuta directamente el código máquina, la JVM __interpreta y ejecuta el bytecode__ de Java. Este diseño permite que las aplicaciones Java se ejecuten en cualquier dispositivo o sistema operativo que tenga una implementación de JVM.
 
-### __Responsabilidades principales de la JVM__
+### Responsabilidades principales de la JVM
 
 - Cargar clases
 - Verificar bytecode
@@ -19,7 +20,7 @@ La __JVM__ (Java Virtual Machine) es un entorno de ejecución que permite correr
 
 La JVM no ejecuta directamente el código fuente Java (`.java`), sino un formato intermedio llamado __bytecode__ (`.class`), que es más compacto y portátil.
 
-## __¿Qué es el Bytecode?__
+## ¿Qué es el Bytecode?
 
 El __bytecode__ de Java es el resultado del proceso de compilación del código fuente de Java. Al escribir un programa Java y compilarlo, el compilador de Java (`javac`) no convierte el código directamente en código máquina. En su lugar, lo traduce a una forma intermedia conocido como bytecode. Este bytecode es un conjunto de instrucciones que no son legibles por humanos como el código Java, pero son mucho menos complejas que el código máquina.
 
@@ -61,7 +62,7 @@ Esto es lo que sucede en cada caso:
 7. `istore_3` - Almacena el resultado de la pila en la tercera variable local (`suma`).
 
 > __La JVM ( el corazón del sistema )__ es el software que corre detrás de escena, es lo que hace que __Java sea multiplataforma__, gracias a su lema:  __"Write once, run anywhere"__ (Escribe una vez, ejecútalo en cualquier lugar).
-{: .prompt-love }
+{: .prompt-love .mt-2 }
 
 ## __¿Qué es el compilador JIT?__
 
