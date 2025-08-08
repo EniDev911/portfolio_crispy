@@ -1,5 +1,5 @@
 ---
-title: "Spring Boot🍃 : Introducción"
+title: "Spring Boot 🍃 : Introducción"
 icon: "fa fa-java"
 categories: [Java, "Spring Boot"]
 image:
@@ -12,7 +12,7 @@ permalink: /springboot/introduccion
 
 Spring Boot es una herramienta del ecosistema de Spring que facilita enormemente la creación de aplicaciones Java al eliminar la complejidad de configuración inicial y ofrecer soluciones predefinidas para tareas comunes. Esto permite centrarse directamente en el desarrollo de la lógica de negocio.
 
-Una características útil de Spring Boot es que ofrece dependencias de "inicio" que ayudan a simplificar la configuración de compilación para que pueda crear rápidamente aplicaciones Spring de nivel de producción.
+Una características útil de Spring Boot es que ofrece dependencias de "inicio" que ayudan a simplificar la configuración de compilación para que puedas crear rápidamente aplicaciones Spring de nivel de producción.
 
 > En resumen, __Spring Boot simplifica la creación de aplicaciones independientes utilizando el framework Spring al crear automáticamente configuraciones repetitivas__ para iniciar una aplicación.
 {: .prompt-love }

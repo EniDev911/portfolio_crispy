@@ -1,5 +1,6 @@
 ---
-title: "Python 🐍 : Instalación en los Diferentes Sistemas Operativos"
+title: "Python : Instalación en los Diferentes Sistemas Operativos"
+icon: "fa fa-python"
 description: "Instala Python con facilidad: en **Windows**, usa el instalador oficial; en **macOS**, Homebrew o la web oficial; en **Linux**, el gestor de paquetes."
 categories: [Python, "01. Básico"]
 image:
@@ -10,9 +11,9 @@ permalink: /categorias/python/basico/instalacion
 
 En esta guía, cubriremos la instalación de Python en **Windows**, **macOS** y **Linux**, usando distintas herramienta. También revisaremos los requisitos del sistema y algunos consejos para una instalación sin problemas.
 
-## __Instalación en Windows__
+## Instalación en Windows
 
-### __🖥️ Requisitos para Windows__
+### Requisitos
 
 - **Sistema operativo**: Windows 7 o superior (se recomienda Windows 10/11).
 - **Arquitectura**: 32 bits o 64 bits (preferible 64 bits). 
@@ -42,7 +43,7 @@ pip --version
 </div>
 
 
-### __Instalación silenciosa__
+### Instalación silenciosa
 
 Todas las opciones disponibles desde la interfaz de usuario del instalador (como en el caso anterior) también pueden especificarse desde la línea de comandos.
 
@@ -65,7 +66,7 @@ python-3.12.1.exe /passive InstallAllUsers=1
 
 {% include circle-line.html %}
 
-## __Instalación en Linux__
+## Instalación en Linux
 
 Para instalar Python 3 en Linux específicamente en distribuciones basadas en Debian, abre una nueva Terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y sigue estos pasos:
 

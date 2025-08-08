@@ -16,7 +16,7 @@ tail_includes:
     <h1 data-toc-skip> 
       <strong class="d-flex align-items-center">
         {% if page.icon %}
-          <i class="{{ page.icon }}" style="color: {{ page.icon_color | default: 'inherit' }}; margin-right: 0.81rem;"></i>
+          <i class="{{ page.icon }} fs-1" style="color: {{ page.icon_color | default: 'inherit' }}; margin-right: 0.81rem;"></i>
         {% endif %}
         {{ page.title | markdownify }}
       </strong>
