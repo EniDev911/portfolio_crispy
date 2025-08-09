@@ -131,3 +131,12 @@ La siguiente tarea es establecer nuevos comandos para ejecutar con NPM en la sec
  },
 ```
 {:file="package.json" .nolineno }
+
+
+Para trabajar e interactuar con Husky, debemos ejecutar el siguiente comando en la terminal:
+
+```terminal
+npx husky init
+```
+
+El comando anterior, creará una carpeta nueva en la raíz de nuestro proyecto llamada `.husky`.
