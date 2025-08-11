@@ -1,6 +1,7 @@
 ---
 title: "¿Qué es Husky y cómo configurarlo en tu proyecto Git?"
 categories: [Kit Tools, Git]
+description: Guía práctica para configurar Husky en tu proyecto y aprovechar los hooks de Git para automatizar tareas como validación de commits y ejecución de linters.
 tags: [git, husky, hooks, automatización, desarrollo]
 image:
   path: posters/configurar-husky.webp
@@ -9,7 +10,9 @@ image:
 
 ¿Alguna vez te ha pasado que alguien hace un *commit* sin pasar los linters o rompe el código porque no corrió las pruebas?
 
-Aquí es donde entra **Husky**, una herramienta que ayuda a mantener tu proyecto limpio y saludable desde el momento en que alguien hace un commit. Antes de comenzar, activaremos algunos conceptos sobre los _hooks_ de Git.
+Aquí es donde entra **Husky**, una herramienta que ayuda a mantener tu proyecto limpio y saludable desde el momento en que alguien hace un commit.
+
+Antes de comenzar, activaremos algunos conceptos sobre los _hooks_ de Git.
 
 ## ¿Qué es un hook en Git?
 
@@ -28,9 +31,36 @@ Git proporciona una serie de _hooks_ predefinidos, y puedes personalizarlos para
 - `post-commit`: Se ejecuta después de que se ha confirmado un cambio. Puedes usarlo para realizar tareas adicionales después de que se ha realizado un commit.
 - `post-receive`: Se ejecuta en el repositorio remoto después de recibir nuevos cambios. Puede ser útil para realizar acciones en el servidor después de que se hayan empujado cambios en el repositorio remoto.
 
-Para aprovechar los _hooks_ en un repositorio Git, debes escribir scripts personalizados y colocarlos en la carpeta `.git/hooks/` del repositorio. Git utiliza estos scripts automáticamente en función de los eventos correspondientes.
+Para aprovechar los _hooks_ en un repositorio Git, debes escribir scripts personalizados y colocarlos en la carpeta `.git/hooks/` del repositorio. Git utiliza estos scripts automáticamente en función de los eventos correspondientes. Observa la siguiente demostración:
 
-![Ejemplo de pre-commit](../gif/pre-commit.gif)
+![Ejemplo de pre-commit](../gif/git-hooks-demo.gif)
+_Demostración básica de hooks nativos de Git_
+
+### Ventajas y Desventajas de usar los hooks nativos de Git
+
+Git incluye de forma nativa el sistema de _hooks_. Estos _hooks_ son altamente personalizables y potentes, lo que los hace ideales para automatizar tareas como validación de código, formateo o verificación de mensajes de commit.
+
+Sin embargo, aunque los _hooks_ nativos son una herramienta poderosa, también presentan ciertas limitaciones, especialmente cuando se trabaja en equipos o proyectos que requieren consistencia y facilidad de configuración.  A continuación, se detallan las principales ventajas y desventajas:
+
+#### Ventajas
+
+| Ventaja                           | Explicación                                                                                      |
+| --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Sin dependencias externas**     | No necesitas instalar nada adicional. Git ya incluye soporte para hooks en `.git/hooks/`.        |
+| **Rendimiento ligeramente mejor** | Al no depender de Node.js o `npx`, puede ser un poco más rápido.                                 |
+| **Más control**                   | Puedes escribir los scripts en cualquier lenguaje soportado por tu sistema (bash, Python, etc.). |
+| **Menos archivos en el proyecto** | No necesitas carpetas como `.husky/` o paquetes npm relacionados.                                |
+
+#### Desventajas
+
+| Desventaja                      | Explicación                                                                                                                                        |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **No se comparten por defecto** | Los hooks de Git están en `.git/hooks/`, que está fuera del control de Git. Por lo tanto, **no se versionan** ni se comparten entre colaboradores. |
+| **Mantenimiento manual**        | Si quieres cambiar los hooks, cada miembro del equipo tiene que copiar los nuevos manualmente.                                                     |
+| **Difícil de automatizar**      | Requiere scripts adicionales para propagar hooks (por ejemplo, usando plantillas de repositorio o scripts post-clone).                             |
+| **Menor integración con npm**   | No es tan fácil ejecutar scripts definidos en `package.json`.                                                                                      |
+
+Aunque los _hooks_ nativos de Git son poderosos, al trabajar en equipo presentan más desventajas que ventajas, especialmente cuando se comparan con herramientas como [Husky](https://typicode.github.io/husky/get-started.html){:target='_blank'}, que facilitan la gestión compartida y reproducible de hooks.
 
 > **Husky** es una herramienta de **JavaScript** que te permite **agregar fácilmente Git hooks** a tu proyecto.
 {: .prompt-info }
@@ -46,11 +76,9 @@ Algunas características clave de Husky:
 3. __Soporte de varios hooks__: Husky es compatible con una variedad de _hooks_ de Git, como `pre-commit`, `pre-push`, `post-merge`, entre otros. Esto permite ejecutar acciones personalizadas en diferentes etapas del ciclo de vida de Git.
 4. __Instalación automática de hooks__: Husky puede configurar automáticamente los _hooks_ de Git durante la instalación, eliminando la necesidad de configuración manual y mejorando la consistencia y coherencia en los equipos de desarrollos.
 
-## Instalación
+## Preparar el terreno
 
-Antes de comenzar con la instalación y configuración de Husky, asegúrate de tener los siguiente:
-
-- `git` y `Node.js` instalados
+Antes de comenzar con la instalación y configuración de Husky, asegúrate de que tienes [`git`](https://git-scm.com/){:target='_blank'} y [`Node.js`](https://nodejs.org/en/download){:target='_blank'} instalados:
 
 <div class="language-plaintext highlighter-rouge">
 <div class="code-header">
@@ -67,31 +95,32 @@ v22.17.1
 </div>
 </div>
 
-
 ### 1. Inicializar un proyecto
 
-En caso de que ya tengas un proyecto con JavaScript, lo más probable es que ya tengas un archivo `package.json`, sino puedes inicializar uno con el siguiente comando:
+En caso de que no tengas un archivo `package.json`, puedes crearlo con el siguiente comando:
 
 ```terminal
 npm init -y
 ```
 
-### 2. Instalar Husky
+### 2. Instalar e inicializar Husky
 
-Ahora, tenemos que instalar Husky como dependencias de desarrollo:
+A continuación, instalamos Husky como dependencia de desarrollo ejecutando:
 
 ```terminal
 npm install --save-dev husky
 ```
 
-Para trabajar e interactuar con Husky, debemos ejecutar el siguiente comando en la terminal:
+Para habilitar e iniciar la configuración de Husky en el proyecto, debemos ejecutar el siguiente comando en la terminal:
 
 ```terminal
 npx husky init
 ```
 
-El comando anterior, creará una carpeta nueva en la raíz de nuestro proyecto llamada `.husky`.
+> El comando `init` simplifica la configuración de husky en un proyecto. Crea un script `pre-commit` en el directorio `.husky/` y actualiza el __script prepare__ en `package.json`.
+{:.prompt-info}
 
+Observa que ahora, en el archivo `package.json`, se ha agregado el script prepare:
 
 ```json
 "scripts": {
@@ -100,9 +129,18 @@ El comando anterior, creará una carpeta nueva en la raíz de nuestro proyecto l
 ```
 {:file="package.json" .nolineno }
 
+> Este script se ejecutará automáticamente después de que alguien corre `npm install`.
+{: .prompt-info }
+
 ### 3. Validar mensajes de commit
 
-Ahora necesitamos instalar `commitlint` y `commitlint/cli`:
+Hasta ahora, ya tenemos una configuración básica de Husky para ejecutar _hooks_ de Git en nuestro proyecto. Pero tener _hooks_ por sí solos no basta, necesitamos herramientas que realicen tareas concretas durante esos _hooks_.
+
+Una de esas tareas clave es __validar los mensajes de commit__. Aquí es donde entra en juego [`Commitlint`](https://commitlint.js.org/){:target='_blank'}.
+
+__Commitlint__ es una herramienta que verifica que tus mensajes de `commit` sigan un formato establecido.
+
+Ahora, necesitamos instalar las siguientes dependencias:
 
 {% tabs install-commitlint %}
 {% tab install-commitlint bash,git-bash %}
@@ -117,34 +155,22 @@ npm install --save-dev @commitlint/cli @commitlint/config-conventional
 {% endtab %}
 {% endtabs %}
 
-- `@commitlint/config-conventional`: Esta dependencia proporciona una configuración predefenida para Commitlint badasa en las convenciones convencionales de mensajes para los `commit`.
+- `@commitlint/config-conventional`: Esta dependencia proporciona una configuración predefenida para Commitlint basada en las convenciones de [_Conventional commit_](https://www.conventionalcommits.org/en/v1.0.0/){:target='_blank'} para los `commit`.
 
 - `@commitlint/cli`: Esta dependencia es la interfaz de línea de comandos para CommitLint. Proporciona herramientas para ejecutar la validación de mensajes de `commit` de acuerdo con las reglas establecidas en la configuración de Commitlint. Puedes usar este __CLI__ (_Command Line Interface_) para verificar si tus mensajes de `commit` cumplen con las convenciones configuradas.
 
-Hasta aquí, nuestro archivo `package.json` debe lucir parecido a lo siguiente:
+Hasta aquí, dentro del archivo package.json, la sección de dependencias de desarrollo (devDependencies) debería incluir las herramientas que hemos instalado, como Husky y Commitlint, y lucir más o menos así:
 
 ```json
-{
-  "name": "husky",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "husky": "^9.1.7"
-  }
+"devDependencies": {
+  "@commitlint/cli": "^19.8.1",
+  "@commitlint/config-conventional": "^19.8.1",
+  "husky": "^9.1.7"
 }
 ```
-{:file="package.json"}
+{:file="package.json" .nolineno }
 
-Las reglas convencionales son las siguientes:
+Algunas de las principales reglas del estándar son las siguientes:
 
 1. `chore`: Cambios en tareas, configuración, y otros aspectos relacionados con el mantenimiento del proyecto.
 2. `docs`: Cambios en la documentación.
@@ -153,40 +179,56 @@ Las reglas convencionales son las siguientes:
 5. `style`: Cambios que no afectan el significado del código (espacios en blanco, formato, punto y coma que faltan, etc.).
 6. `test`: Añadir o modificar pruebas.
 
-Luego crea un archivo `.commitlintrc.json` para más velocidad ejecuta esto en la terminal:
+En la raíz de tu proyecto, crea un nuevo archivo llamado `.commitlintrc.json`:
 
-````terminal
+{% tabs create-config-file %}
+{% tab create-config-file bash,git-bash %}
+```terminal
 touch .commitlintrc.json
 ```
+{% endtab %}
+{% tab create-config-file cmd %}
+```terminal
+type nul > .commitlintrc.json
+```
+{% endtab %}
+{% endtabs %}
 
-Agrega lo siguiente:
+Abre ese archivo, y agrega la configuración básica para decirle a Commitlint que use las reglas estándar del Conventional Commits para validar los mensajes:
 
 ```json
 {
-  "extends": ["@commitlint/config-conventional"],
-  "rules": {
-      "type-enum": [2, "always", ["ci", "chore", "docs", "ticket","feat", "fix", "perf", "refactor", "revert", "style"]]
-  }
+  "extends": ["@commitlint/config-conventional"]
 }
 ```
 {: file=".commitlintrc.json" }
 
-> - `"extends": ["@c.../conf..."]`: Esto indica que estás extendiendo de la configuración basada en el estandar de `commits` [___Conventional Commits___](https://www.conventionalcommits.org/en/v1.0.0/){:target="_blank"}
-> - `"rules"`: Esta clave se usa para sobrescribir o personalizar reglas que heredas desde la configuración base de `@commitlint/config-conventional`.
+> - `"extends": ["@c.../conf..."]`: Esto indica que estás extendiendo de la configuración basada en el estándar de `commits` [___Conventional Commits___](https://www.conventionalcommits.org/en/v1.0.0/){:target="_blank"}
 {: .prompt-info }
 
-__Detalle de la regla__:
+Una vea creado y configurado el archivo `.commitlintrc.json`, el siguiente paso definir el hook de Git en husky, específicamente en el hook `commit-msg`: 
 
-```json
-"type-enum": [2, "always", ["...tipos"]]
+```terminal
+touch .husky/commit-msg
+chmod +x .husky/commit-msg
+
 ```
-{:  .nolineno file=".commitlintrc.json" }
 
-- `2` = __nivel de error__ -> Si no se cumple, lanza un error (impide el `commit`).
-- `"always"`: La regla __siempre se aplica__
-- `["ci", "chore", ...]` = Lista de tipos válidos de `commit`.
+> Este comando, crea el archivo para el hook y le asigna permisos de ejecución (importante ese segundo paso).
+{: .prompt-info }
 
-Commitlint verifica si sus mensajes de `commit` cumplen con el [formato convencional](https://www.conventionalcommits.org/en/v1.0.0/){:target="_blank"}
+Y pega el siguiente comando, y así Commitlint pueda validar automáticamente el mensaje del commit:
+
+```bash
+npx --no-install commitlint --edit "$1"
+```
+{:file="commit-msg"}
+
+Cuando Git ejecuta el _hook_ `commit-msg`, le pasa como argumento (`$1`) el archivo que contiene el mensaje del commit. Ese archivo es temporal y lo usa Git antes de finalizar el commit.
+
+Entonces, este comando le dice a Commitlint:
+
+> "Lee el mensaje de este commit desde el archivo `$1`, y valida si cumple con las reglas definidas en `.commitlintrc.json`."
 
 Observa la siguiente simulación, donde trataremos de realizar un `commit` que no cumple con las convenciones:
 
@@ -213,7 +255,12 @@ mcherrera@dev:~$ <span class="hl">git commit -m "add gitignore"</span>
 </div>
 </div>
 
-Entonces, esto nos obliga a que la primera palabra debe ser uno de los elementos de las reglas que específicamos dentro del archivo `.commitlintrc.json` y el alcance es el __módulo/componente__ en el que está trabajando.
+Como puedes ver, Husky junto con Commitlint nos han detenido y nos invitan amablemente a revisar la [página oficial de Commitlint en GitHub](https://github.com/conventional-changelog/commitlint/#what-is-commitlint){:target='_blank'} para conocer los formatos de mensajes de commit válidos.
+
+![convención de commits](husky/convencion-de-commit.webp)
+_Readme de Commitlint en GitHub_
+
+Entonces, esto significa que la primera palabra del mensaje de commit debe coincidir con uno de los tipos definidos en el estándar __Conventional Commits__. Además, puedes indicar opcionalmente el (scope), que va entre paréntesis, indicando el módulo o componente en el que estás trabajando.
 
 Para el caso anterior, para pasar la validación, debemos respetar la convención:
 
@@ -224,7 +271,7 @@ Para el caso anterior, para pasar la validación, debemos respetar la convenció
 </div>
 <div class="highlight p-2">
 <code><pre style="overflow: inherit;">
-mcherrera@dev:~$ <span class="hl">git commit -m "chore: add gitignore"</span>
+mcherrera@dev:~$ <span class="hl">git commit -m "chore(gitignore): agregado nueva entrada"</span>
 [main c537a0e] chore: add gitignore
  1 file changed, 1 insertion(+)
  create mode 100644 .gitignore
@@ -232,3 +279,73 @@ mcherrera@dev:~$ <span class="hl">git commit -m "chore: add gitignore"</span>
 </div>
 </div>
 
+### ¿Cómo sobrescribir o extender las reglas?
+
+En algunos casos, necesitamos añadir o modificar algunas de las reglas existentes, y para llevar a cabo este proceso, se puede añadir una sección `"rules"` justo después de `"extends"` para personalizar o desactivar reglas según tus necesidades. Cada regla se define mediante un arreglo que contiene:
+
+__Nivel__:
+
+- `0`: desactiva la regla.
+- `1`: advertencia (warning).
+-  `2`: error (fail si no se cumple).
+
+__Condición__:
+
+- `"always"`: siempre debe cumplirse.
+- `"never"`: no debe cumplirse.
+
+__Valor__:
+
+Puede ser un número, un formato de texto, un array con valores válidos, etc., dependiendo de la regla.
+
+### Cómo funciona esto
+
+Commitlint combina primero las reglas del paquete extendido (`@commitlint/config-conventional`) y luego aplica las reglas personalizadas definidas en `"rules"`, sobrescribiendo cualquier valor previo. Esto te permite mantener la configuración base y ajustarla a tus necesidades de forma controlada.
+
+```json
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
+    "header-max-length": [1, "always", 30],
+    "scope-case": [2, "always", "lower-case"],
+    "subject-full-stop": [2, "never", "."]
+  }
+}
+```
+{: file=".commitlintrc.json"}
+
+__Detalle de la regla__:
+
+
+```json
+"header-max-length": [1, "always", 30]
+```
+{:  .nolineno file=".commitlintrc.json" }
+
+> Esta regla establece que el encabezado del commit y que no debe exceder los 30 caracteres. El nivel 1 significa advertencia (warning): si se supera, Commitlint lo señalará, pero no bloqueará el `commit`.
+{: .prompt-info }
+
+```json
+"scope-case": [2, "always", "lower-case"]
+```
+{:  .nolineno file=".commitlintrc.json" }
+
+> Esta regla exige que el scope esté siempre en minúsculas (lower-case).  
+> El __nivel 2 indica que se considera un error__; el commit será rechazado si no se cumple.
+{: .prompt-info }
+
+```json
+"subject-full-stop": [2, "never", "."]
+```
+{:  .nolineno file=".commitlintrc.json" }
+
+> - Esta regla se encarga del `subject` del mensaje (la parte después de type(scope):).
+> - Esta regla prohíbe que el subject termine con un punto (.).
+> - Si el mensaje finaliza con un punto, Commitlint lo marcará como error y no permitirá el commit.
+{: .prompt-info }
+
+{% include circle-line.html %}
+
+En esta guía práctica configuramos Husky y Commitlint para aplicar convenciones estrictas en los mensajes de commit, garantizando consistencia y claridad en el historial de Git.
+
+Finalmente, configuramos el hook `commit-msg` de Git en Husky para que ejecute commitlint cada vez que se realiza un `commit`, asegurando que todos los mensajes cumplan las reglas establecidas.
