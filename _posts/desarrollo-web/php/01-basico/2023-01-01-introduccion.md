@@ -1,6 +1,7 @@
 ---
 title: "Introducción al Lenguaje"
 icon: "fa fa-php"
+icon_color: "#515f9c"
 categories: [Desarrollo Web, "PHP 01. Básico"]
 image:
   path: posters/php-introduccion-al-lenguaje.webp
@@ -55,15 +56,49 @@ print date("m/d/Y");
 **Continuidad y Futuro**
 : Las versiones recientes han seguido incorporando mejoras en seguridad, tipado y optimización, desmotrando que PHP sigue adaptándose a las necesidades de la web moderna.
 
-## Características Técnicas Destacadas
+## Características técnicas destacadas
 
 Al ser un lenguaje del lado del servidor, PHP procesa el código antes de enviar el resultado al cliente. Esto permite trabajar de manera segura con datos sensibles, lo que añade una capa de seguridad al desarrollo web.
 
-### **Integridad Sencilla con HTML**
+### Integridad sencilla con HTML
 
-PHP se integra de manera nativa en HTML, lo que facilita la creación de páginas dinámicas sin tener que abandonar el formato familiar del lenguaje de marcado.
+PHP se integra de manera nativa en HTML, lo que facilita la creación de páginas dinámicas sin tener que abandonar el formato familiar del lenguaje de marcado. 
 
-### **Conectividad y Gestión de Bases de Datos**
+```php
+<!DOCTYPE html>
+<html>
+<body>
+    <h1><?php
+        $hora = date('H');
+        if ($hora < 12) {
+            echo "¡Buenos días!";
+        } else if ($hora < 18) {
+            echo "¡Buenas tardes!";
+        } else {
+            echo "¡Buenas noches!";
+        }
+    ?></h1>
+    <p>La fecha y hora actual es: <?php echo date('d-m-Y H:i:s'); ?></p>
+</body>
+</html>
+
+```
+{: .nolineno file="index.php" }
+
+El bloque `<?php ... ?>` se ejecuta en el servidor y se inserta directamente dentro del HTML enviado al navegador lo siguiente.
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>¡Buenas noches!</h1>
+    <p>La fecha y hora actual es: 12-08-2025 19:09:51</p>
+</body>
+</html>
+```
+{: .nolineno .noheader .fit-content }
+
+### Conectividad y gestión de bases de datos
 
 PHP facilita la interacción con múltiples sistemas de bases de datos, siendo MySQL uno de los más comunes. Su soporte para PDO (PHP Data Object) garantiza una conexión segura y eficiente con diversas bases de datos. Por ejemplo:
 
@@ -85,43 +120,52 @@ try {
 ```
 {: .nolineno }
 
-**Soporte para Programación Orientada a Objetos (POO)**
+### Soporte para POO
 
-PHP permite organizar el código en clases y objetos, facilitando el mantenimiento y la escalabilidad de las aplicaciones. Este enfoque modular es especialmente útil en proyectos grandes y complejos. Un ejemplo de esto en código a continuación:
+PHP permite programación orientada a objetos, puedes organizar el código en clases y objetos, facilitando el mantenimiento y la escalabilidad de las aplicaciones. Este enfoque modular es especialmente útil en proyectos grandes y complejos. Un ejemplo de esto en código a continuación:
 
 ```php
 <?php
 class Usuario {
-    private $nombre;
-    private $email;
+	private $nombre;
+	private $email;
 
-    public function __construct($nombre, $email) {
-        $this->nombre = $nombre;
-        $this->email = $email;
-    }
+  public function __construct($nombre, $email) {
+		$this->nombre = $nombre;
+		$this->email = $email;
+  }
 
-    public function mostrarInfo() {
-        return "Nombre: {$this->nombre}, Email: ${$this->email}";
-    }
+  public function mostrarInfo() {
+		return "Nombre: {$this->nombre}, Email: {$this->email}";
+  }
 }
 
-// Creación de una instancia de la clase Usuario
-$usuario = new Usuario("Marco", "marco@example.com");
+$usuario = new Usuario("marco", "contacto@mcherrera.dev");
 echo $usuario->mostrarInfo();
 ?>
 ```
 {: .nolineno }
 
-## **Ventajas y Casos de Uso**
+## Ventajas de PHP
 
-**Facilidad de Aprendizaje**
+### Facilidad de Aprendizaje
 
-La sintaxis de PHP es sencilla y se integra perfectamente con HTML, lo que lo convierte en una excelente opción para quienes inician en la programación web.
+La sintaxis de PHP es sencilla y se integra perfectamente con HTML. Gracias a esta característica, es posible construir sitios web dinámicos con interacción básica, como formularios, listas o manejo de datos, sin tener que dominar arquitecturas o frameworks complejos desde el inicio. Por eso, PHP sigue siendo una opción muy popular para quienes dan sus primeros pasos en la programación web y buscan una curva de aprendizaje amigable.
 
-**Flexibilidad y Escalabilidad**
+
+### Flexibilidad y Escalabilidad
 
 PHP se adapta tanto a pequeños proyectos como a aplicaciones empresariales complejas. Su capacidad para manejar grandes volúmenes de datos y tráfico lo hace ideal para desarrollar desde blogs hasta plataformas de comercio electrónico.
 
-**Rendimiento Mejorado**
+Gracias a su madurez, amplia comunidad y la gran cantidad de herramientas, frameworks y extensiones disponibles, PHP puede manejar eficientemente desde sitios personales o blogs sencillos hasta plataformas robustas de comercio electrónico, sistemas de gestión de contenidos y aplicaciones web a gran escala.
 
-Con las versiones más recientes, PHP ha experimentado mejoras significativas en rendimientos, optimizando el uso de recursos y reduciendo los tiempos de respuesta.
+### Rendimiento Mejorado
+
+En los últimos años, PHP ha experimentado mejoras significativas en rendimientos. A partir de PHP 7, el motor _Zend Engine_ fue optimizado para consumir menos memoria y ejecutar el código mucho más rápido, llegando a duplicar la velocidad en comparación con versiones anteriores. Estas mejoras se traducen en una ejecución más eficiente de las aplicaciones, permitiendo manejar mayor cantidad de peticiones simultáneas y reducir los tiempos de respuesta del servidor.
+
+Además, PHP sigue evolucionando con nuevas versiones que incorporan optimizaciones internas, soporte para compilación _Just-In-Time_ (JIT) y mejoras en el manejo de tipos, lo que contribuye a un código más rápido y robusto. Estas características hacen que PHP sea una opción competitiva para aplicaciones modernas, donde el rendimiento es crucial, sin sacrificar la facilidad de desarrollo.
+
+{% include circle-line.html %}
+
+En resumen, PHP es un lenguaje versátil y accesible, ideal para aprender fundamentos importantes del desarrollo web. Su integración sencilla con HTML, rendimiento mejorado y amplio soporte lo convierten en una opción perfecta para principiantes y veteranos para uso en proyectos profesionales. Dar los primeros pasos con PHP es abrir la puerta al mundo del desarrollo web y la creación de sitios y aplicaciones dinámicas.
+

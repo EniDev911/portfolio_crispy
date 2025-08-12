@@ -171,3 +171,9 @@ A continuación veremos como realizar una consulta para obtener datos de la tabl
 $sql = "SELECT id, nombre FROM usuarios";
 ?>
 ```
+
+## Conexión por PDO
+
+> Asegúrate de tener habilitado PDO para mysql en el archivo `php.ini`:
+> - `extension_dir="C:\php\ext"`
+> - `extension=pdo_mysql`
