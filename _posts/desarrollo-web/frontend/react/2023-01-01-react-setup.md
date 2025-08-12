@@ -1,5 +1,7 @@
 ---
-title: 💻 Set up para React
+title: "Set up para React"
+icon: "fa fa-react"
+icon_color: "#61DBFB"
 author: enidev911
 categories: [Desarrollo Web, React]
 tags: [desarrollo web, react]
@@ -10,18 +12,18 @@ image:
 
 Cuando inicias en React, tienes que configurar previamente un entorno de desarrollo y con ello poner en marcha tu primer proyecto. Siguiendo unos sencillos paso podemos comenzar a crear aplicaciones modernas y dinámicas en poco tiempo.
 
-## __Requisitos Previos__
+## Requisitos Previos
 
 Antes de comenzar, debemos tener instaladas las siguientes herramientas en nuestra máquina:
 
 - [Node.js](https://nodejs.org/en/){:target='_blank'}: Necesitarás **Node.js 14.18.0** o superior para este y otros turoriales que publicaré. [Vite](https://vite.dev/){: target='_blank' } requiere al menos esta versión.
 - [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}): Son administradores de paquetes que te permiten gestionar las dependencias de un proyecto. **npm** viene preinstalado con **Node.js**, pero puedes optar por otra alternativa.
 
-## __Formas de crear un proyecto de react__
+## Formas de crear un proyecto de react
 
 Existen varias maneras de crear y configurar un proyecto de React, sin embargo la forma más tradicional y en su momento era la forma más sencilla es usando el paquete oficial `create-react-app`, que configura todo automáticamente.
 
-### __Usando create-react-app__ ( No recomendado )
+### Usando `create-react-app` ( No recomendado )
 
 1. Abrimos una nueva terminal o símbolo de sistema y ejecuta el siguiente comando:
 
@@ -52,7 +54,7 @@ Esto iniciará el servidor de desarrollo y abrirá automáticamente la aplicaci�
 > El comando `create-react-app` fue un proyecto increíblemente útil en su momento, ya que configuraba automáticamente un entorno de desarrollo completo, pero **ha quedado en desuso** de facto para algunas versiones recientes de Node.js, y a menudo tiene problemas de compatibilidad con sus dependencias.
 {: .prompt-warning }
 
-### __Usando Vite__ ( Recomendado )
+### Usando Vite ( Recomendado )
 
 [**Vite**](https://vite.dev/){: target='_blank' } es una herramienta de desarrollo moderna y rápida que se utiliza para crear proyectos de front-end, y es ideal para trabajar con React debido a su rápida configuración y **hot-reloading** eficiente. Una vez teniendo los [**requsitos previos**](#-requisitos-previos) en nuestro equipo, iremos al directorio donde queramos ubicar nuestro proyecto y realizamos los siguientes pasos:
 
@@ -87,3 +89,7 @@ npm run dev
 
 ![React Vite StartApp](desarrollo-web/vite-react-startapp-light.png){: .light }
 ![React Vite StartApp](desarrollo-web/vite-react-startapp-dark.png){: .dark }
+
+{% include circle-line.html %}
+
+En resumen, después de crear tu proyecto con CRA (__Create React App__) o __Vite__, lo siguiente es empezar a jugar con tu `App` principal, crear componentes en `src/` y dar forma a tu interfaz. Con Vite, arrancas más rápido y con un entorno más ligero.
