@@ -76,7 +76,7 @@ Para mostrar un ejemplo de la diferencia entre una imagen en **formato PNG** o *
 
 Las herramientas WebP son utilidades de línea de comandos que permiten convertir imágenes de varios formatos (como PNG, JPEG y TIFF) a WebP. Estas herramientas se utilizan normalmente en la terminal o en el símbolo del sistema y ofrecen opciones para ajustar la configuración de compresión, la calidad y otros parámetros para optimizar las imágenes según sus requisitos específicos. Con las herramientas WebP, puede realizar conversiones por lotes, ajustar la calidad de las imágenes y automatizar las tareas de procesamiento de imágenes mediante secuencias de comandos o procesos de compilación.
 
-### Instalacióm de WebP
+### Instalación de WebP
 
 {% tabs install_webp %}
 {% tab install_webp macos %}

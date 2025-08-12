@@ -9,7 +9,7 @@ image:
 tags: [desarrollo web, react]
 ---
 
-[React Router](https://reactrouter.com/){:target='_blank'} es una librería estándar para integrar el enrutamiento en aplicaciones de React. Permite la navegación entre vistas de varios componentes, permite actualizar la URL del navegador y mantiene la la interfaz de usuario sincronizada con la ruta actual.
+[React Router](https://reactrouter.com/){:target='_blank'} es la librería estándar para gestionar el enrutamiento en aplicaciones de React. Facilita la navegación entre diferentes vistas, actualiza la URL del navegador y mantiene la interfaz de usuario sincronizada con la ruta actual.
 
 Con React Router, puedes crear una aplicación de página única SPA (_Single Page Application_) con múltiples páginas que se renderizan dinámicamente sin necesidad de recargar la página completa. Permite gestionar la navegación, gestionar rutas anidadas, pasar parámetros y gestionar el historial del navegador.
 

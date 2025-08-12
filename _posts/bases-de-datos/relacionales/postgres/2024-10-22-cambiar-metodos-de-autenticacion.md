@@ -5,7 +5,7 @@ categories: [Bases de Datos Relacionales, Postgres, "Extras/Trucos"]
 tags: [Bases de Datos]
 ---
 
-## __Localizar el Archivo de Configuración_
+## Localizar el archivo de configuración
 
 Por lo general, el archivo de configuración `pg_hba.conf` se encuentra en el directorio de datos de PostgreSQL. La ubicación más común es: `/etc/postgresql/<version>/main/pg_hba.conf`{: .filepath}.
 
