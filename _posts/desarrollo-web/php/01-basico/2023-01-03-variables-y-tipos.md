@@ -1,6 +1,7 @@
 ---
-title: "PHP : Variables y sus Tipos"
-author: enidev911
+title: "Variables y sus Tipos"
+icon: "fa fa-php"
+icon_color: "#515f9c"
 categories: [Desarrollo Web, "PHP 01. Básico"]
 image:
   path: posters/php-variables-y-sus-tipos.webp
@@ -10,11 +11,11 @@ tags: [desarrollo web, php]
 
 Antes de adentrarnos en el manejo avanzado de PHP, es fundamental comprender cómo se almacenan y manipulan los datos. En este post exploraremos en profundidad qué son las variables en PHP, cómo se declaran y cuáles son los diferentes tipos de datos que podrás utilizar. Desde simples cadenas de texto hasta estructuras complejas como arrays y objetos (estos últimos temas los veremos más adelante).
 
-## **Variables en PHP**
+## Variables en PHP
 
 En PHP y en el mundo de la programación, una variable es un contenedor que almacena datos. Su uso es esencial para manipular información, ya que permite guardar valores, procesarlos y reutilizarlos en distintas partes de la aplicación.
 
-### **Características Clave**
+### Características Clave
 
 **Tipado Dinámico**
 : En PHP no es necesario declarar el tipo de dato; PHP lo determina automáticamente según el valor asignado.
@@ -34,11 +35,11 @@ $numero = 42;
 {: .nolineno }
 
 
-## **Tipos de Datos en PHP**
+## Tipos de Datos en PHP
 
 PHP admite varios tipos de datos que permiten representar distintas formas de información. A continuación, se detallan los tipos básicos y algunas características relevantes de cada uno.
 
-### **Tipos Escalares**
+### Tipos Escalares
 
 **String**
 
@@ -78,7 +79,7 @@ $esValido = true;
 ```
 {: .nolineno }
 
-### **Tipos Compuestos**
+### Tipos Compuestos
 
 **Array (estos temas los veremos más adelante)**
 

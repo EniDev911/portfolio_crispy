@@ -10,7 +10,7 @@ image:
 
 En Windows, la forma más fácil de instalar PostgreSQL es utilizando el [**instalador oficial de EnterpriseDB**](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads){: target='_blank' }, que incluye **PostgreSQL** y **PgAdmin** (una interfaz gráfica para administrar bases de datos) y otras herramientas.
 
-## __Instalar PostgreSQL y pgAdmin en Windows__
+## Instalar PostgreSQL y pgAdmin en Windows
 
 1. Descarga el archivo ejecutable de instalación de la versión más reciente y compatible con tu sistema operativo desde la [página de descarga](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads){:target='_blank'}.
 2. Ejecuta el archivo ejecutable descargado y sigue el asistente de instalación.
@@ -20,11 +20,11 @@ En Windows, la forma más fácil de instalar PostgreSQL es utilizando el [**inst
 > Por último comprobamos que tanto **PostgreSQL** y **pgAdmin** estén instalados correctamente.
 {: .prompt-info }
 
-## __Instalar PostgreSQL y pgAdmin en Linux 🐧__
+## Instalar PostgreSQL y pgAdmin en Linux
 
 Ahora, vamos a cubrir la instalación de __PostgreSQL__ y __pgAdmin__ en Linux.
 
-### __Paso 1: Actualizar el Sistema__
+### Paso 1: Actualizar el Sistema
 
 Primero, actualiza los repositorios del sistema:
 
@@ -32,7 +32,7 @@ Primero, actualiza los repositorios del sistema:
 sudo apt update
 ```
 
-### __Paso 2: Instalar PostgreSQL__
+### Paso 2: Instalar PostgreSQL
 
 Segundo, instalar PostgreSQL con algunos paquetes adicionales:
 

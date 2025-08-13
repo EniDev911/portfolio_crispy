@@ -15,11 +15,11 @@ Resulta especialmente útil en páginas de aterrizaje, componentes interactivos 
 > Usa las animaciones con moderación. Un exceso puede distraer al usuario y afectar la experiencia. Elige animaciones que __refuercen la interfaz__, no que compitan con el contenido.
 {: .prompt-warning } 
 
-## __Instalación__
+## Instalación
 
 Antes de comenzar a usar Animate.css, necesitas incluirla en tu proyecto. Puedes hacerlo de distintas formas:
 
-### __Opción 1 : Vía CDN__
+### 1. Vía CDN
 
 Para usar a través de una __CDN__ agrega esto a tu `<head>`:
 
@@ -28,7 +28,7 @@ Para usar a través de una __CDN__ agrega esto a tu `<head>`:
 ```
 {: .nolineno }
 
-### __Opción 2 : Con npm__
+### 2. Con npm
 
 Para tener la librería instalada en el proyecto, usa __npm__:
 
@@ -43,7 +43,7 @@ import 'animate.css';
 ```
 {:.nolineno .noheader .fit-content}
 
-## __Cómo usar las animaciones__
+## Cómo usar las animaciones
 
 Una vez incluida la librería, solo se necesita dos clases:
 
@@ -131,7 +131,7 @@ Puedes animar un formulario completo cuando se carga la página o cuando aparece
 > __Recomendación__: `fadeInUp`, `slideInDown`, o `zoomIn` son animaciones suaves ideales para formularios.
 {: .prompt-tip }
 
-### __Reforzar validaciones__
+### Reforzar validaciones
 
 También puedes usar las animaciones para __destacar campos con errores__ después de la validación, como un pequeño rebote o sacudida y aplicar esa clase solo si hay un error usando JavaScript:
 
@@ -230,7 +230,7 @@ formulario.addEventListener('submit', function (e) {
 });
 </script>
 
-### __Controlar duración, retraso y repetición__
+### Controlar duración, retraso y repetición
 
 Podemos manejar el comportamiento de la animación a través de variables CSS para definir la duración, el retraso y las iteraciones de la animación. Esto hace que Animate.css sea muy flexible y personalizable. Ejemplo:
 
@@ -308,7 +308,7 @@ document.elemento.style.setProperty('--animate-duration', '5s');
 ```
 {: .nolineno }
 
-## __Clases de utilidad__
+## Clases de utilidad
 
 A continuación tienes algunas clases que puedes ir experimentando y sirven para configurar rápido una animación.
 
@@ -328,13 +328,13 @@ animate__delay-5s => animate__faster # 500ms v
 {: .nolineno }
 
 
-## __Accesibilidad con media queries__
+## Accesibilidad con media queries
 
 Siempre considera la accesibilidad. Algunas personas prefieren reducir o desactivar las animaciones. Apóyate en `prefers-reduced-motion` que es una __media query__ de CSS que detecta su el usuario ha activado la opción del sistema para reducir el movimiento.
 
 Con esta media query puedes condicionar tus animaciones para que __se desactiven__, __reduzcan__ o se __remplacen__ cuando el usuario lo solicite.
 
-### __Opcion 1 : Desactivar las animaciones__
+### 1. Desactivar las animaciones
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -345,7 +345,7 @@ Con esta media query puedes condicionar tus animaciones para que __se desactiven
 ```
 {: .nolineno }
 
-### __Opcion 2 : Reducir la duración__
+### 2. Reducir la duración
 
 ```css
 @media (prefers-reduced-motion: reduce) {
