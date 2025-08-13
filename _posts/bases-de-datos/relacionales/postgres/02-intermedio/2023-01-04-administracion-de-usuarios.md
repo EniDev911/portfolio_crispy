@@ -3,28 +3,63 @@ title: "Administración de Usuarios y Roles"
 icon: "🐘"
 categories: [Bases de Datos Relacionales, Postgres, "Intermedio"]
 permalink: /postgres/administracion-de-usuarios
+image:
+  path: posters/administrar-usuarios-postgres.webp
+  lqip: data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJZwC/OBEDEqd4OwMAAP7NlqGD6PSb3698ElWFMiTth2jkpsNXEinI/O14jatgs9mrUGUtfQAAAA==
 ---
 
-## ¿Qué son los roles en PostgreSQL?
+## ¿Qué es un rol en PostgreSQL?
 
-PostgreSQL usa un sistema basado en __roles__ para manejar la autenticación y autorización. Un __rol__ puede representar lo siguiente:
+PostgreSQL usa un sistema basado en __roles__ para manejar la autenticación y autorización. Un __rol__ puede representar:
 
 - Un __usuario__ (si tiene el atributo `LOGIN`).
 - Un __grupo__ de permisos (sin `LOGIN`).
 - Una combinación de ambos.
 
-En otras palabras, todo el control de acceso en PostgreSQL (lectura, escritura, conexión, etc) está mediado por __roles__.
+En otras palabras, todo el control de acceso en PostgreSQL (lectura, escritura, conexión, etc) está mediado por __roles__. En la siguiente imagen se puede apreciar como se representa:
 
-> PostgreSQL no usa la palabra __"usuario"__ internamente. __Todo es un rol__, y los que pueden iniciar sesión son tratados como usuarios.
-{: .prompt-info }
+![roles en postgres](postgres/postgres_roles.webp)
+_modelo de control de acceso basado en roles en PostgreSQL_
 
+Esta imagen representa el modelo de control de acceso basado en **roles** en PostgreSQL, mostrando cómo un rol puede acceder a una base de datos, sus esquemas y los objetos dentro de esos esquemas.
 
-## Crear Roles
+__Elementos de la imagen__:
 
-En Postres no existen los usuarios y los grupos como tal, sino que tenemos roles. Cada instalación de Postgres nos brinda una aplicación para crear roles, el cuál se puede usar invocando el
-nombre del programa `createuser` que es un _wrapper_ que permite crear un roles de forma sencilla y directa.
+1. **PG\_ROLE (rol de PostgreSQL)**:
 
-Para poder crear un usuario (ROLE) **es necesario tener permisos de super usuario** o al menos el privilegio de **CREATROLE**.
+   * Representa un **rol** o **usuario** que se conecta al sistema de base de datos.
+   * Este rol necesita tener los permisos adecuados para acceder y operar dentro de la base de datos.
+
+2. **Base de Datos** (capa externa):
+
+   * El primer nivel de acceso. El rol necesita el privilegio de **conexión** (`CONNECT`) a la base de datos para entrar.
+
+3. **Esquema** (capa intermedia):
+
+   * Dentro de una base de datos hay **esquemas**, que actúan como contenedores para organizar objetos como tablas, vistas, funciones, etc.
+   * El rol necesita permiso de **uso** (`USAGE`) sobre el esquema para poder ver y utilizar los objetos dentro de él.
+
+4. **Objetos del Esquema** (capa interna):
+
+   * Incluyen tablas, vistas, funciones, secuencias, etc.
+   * El rol necesita permisos específicos sobre cada objeto, como:
+
+     * `SELECT` para consultar una tabla
+     * `INSERT`, `UPDATE`, `DELETE` para modificarla
+     * `EXECUTE` para ejecutar funciones
+
+Para que un rol en PostgreSQL pueda acceder a un objeto como una tabla, necesita tener permisos en **tres niveles**:
+
+1. Permiso para entrar a la **base de datos**.
+2. Permiso para acceder al **esquema**.
+3. Permiso para interactuar con los **objetos del esquema**.
+
+> En PostgreSQL __todo es un rol__, y los que pueden iniciar sesión son tratados como "usuarios".
+{: .prompt-info .mt-3 }
+
+## Roles predefenidos
+
+Como se mencionó anteriormente, en PostgreSQL no existen los usuarios y los grupos como entidades separadas. En su lugar, se utilizan __roles__, que pueden actuar tanto como usuarios individuales o como grupos, dependiendo de cómo se configuren. 
 
 Para ver los roles existentes:  
 
@@ -32,6 +67,7 @@ Para ver los roles existentes:
 SELECT rolname from pg_roles;
 ```
 {: .nolineno }
+
 
 ```
           rolname
@@ -49,9 +85,55 @@ SELECT rolname from pg_roles;
  pg_execute_server_program
  pg_signal_backend
  pg_checkpoint
- solo_lectura
 ```
 {: .noheader  }
+
+> Para ejecutar la consulta anterior, debes tener permisos de superusuario.
+{: .prompt-info .fit-content }
+
+La mayoría de los roles que se muestran son roles __predefinidos__ que ya vienen incluidos en PostgreSQL. Estos roles pueden ser asignados a otros roles o usuarios para otorgar permisos específicos sin necesidad de conceder privilegios de superusuario. A continuación, se explica la función de cada uno:
+
+__`postgres`__
+: Es el rol de superusuario por defecto que se crea durante la instalación. Tiene **todos los privilegios**
+
+__`pg_database_owner`__
+: Da permisos sobre todas las bases de datos que el rol haya creado. Similar a ser dueño de todas tus bases de datos.
+
+__`pg_read_all_data`__
+: Permite leer **todas las tablas** y **vistas** de todas las bases de datos (acceso global de solo lectura).
+
+__`pg_monitor`__
+: Acceso de solo lectura a funciones y vistas de monitoreo (ideal para herramientas de observabilidad o DevOps).
+
+__`pg_read_all_settings`__
+: Permite leer la configuración del servidor (`SHOW ALL`, por ejemplo). No puede cambiarla.
+
+__`pg_stat_scan_tables`__
+: Permite hacer escaneos de tablas para ver estadísticas, sin acceder a los datos.
+
+__`pg_read_server_files`__
+: Permite leer archivos del sistema de archivos del servidor (como logs o archivos CSV para importar). ⚠Riesgoso si se mal utiliza.
+
+__`pg_write_server_files`__
+: Permite escribir archivos en el servidor. Igual de sensible.
+
+__`pg_execute_server_program`__
+: Permite ejecutar programas del sistema operativo desde el servidor PostgreSQL (`COPY`, comandos externos, etc.). Muy delicado.
+
+__`pg_signal_backend`__
+: Permite enviar señales (como `pg_cancel_backend` o `pg_terminate_backend`) a otros procesos del servidor.
+
+### Crear nuevos roles
+
+Cada instalación de PostgreSQL incluye una herramienta para crear roles llamada `createuser`, que es un _wrapper_ (envoltorio) que facilita la creación de roles de forma sencillapermite crear un roles de forma sencilla y directa desde la línea de comandos.
+
+Veamos un ejemplo rápido para crear un rol para un nuevo usuario y que pueda conectarse al servidor:
+
+```terminal
+createuser --interactive -P -W
+```
+
+Para poder crear un nuevo rol (usuario), es necesario contar con privilegios de __superusuario__ o, al menos, con el permiso `CREATEROLE`.
 
 Crear un rol sin permisos de conexión (grupo):
 
