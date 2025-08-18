@@ -10,15 +10,28 @@ tail_includes:
 ---
 
 {% include lang.html %}
+<style>
+    .icon-sm {
+      font-size: 3.5rem;
+    }
 
+    @media (min-width: 768px) {
+      .icon-sm {
+        font-size: 2.8rem;
+      }
+    }
+</style>
 <article class="px-1">
   <header>
-    <h1 data-toc-skip> 
-      <strong class="d-flex align-items-center">
-        {% if page.icon %}
-          <i class="{{ page.icon }} fs-1" style="color: {{ page.icon_color | default: 'inherit' }}; margin-right: 0.81rem;"></i>
-        {% endif %}
+    <h1 data-toc-skip class="display-5">
+      <strong class="d-flex flex-column flex-md-row align-items-center justify-content-center">
         {{ page.title | markdownify }}
+        {% if page.icon %}
+          <i 
+            class="{{ page.icon }} icon-sm mt-3 mt-md-0 ms-md-3" 
+            style="color: {{ page.icon_color | default: 'inherit' }}">
+          </i>
+        {% endif %}
       </strong>
     </h1>
     {% if page.description %}

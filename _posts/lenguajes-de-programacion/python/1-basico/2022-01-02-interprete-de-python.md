@@ -1,5 +1,6 @@
 ---
-title: "Python 🐍 : Usando el Intérprete y Ejecutando Instrucciones"
+title: "Usando el Intérprete y Ejecutando Instrucciones"
+icon: "python"
 description: "El **Intérprete de Python** es el programa encargado de ejecutar instrucciones o archivos con código de Python y es una pieza clave para el desarrollo rápido."
 categories: [Python, "01. Básico"]
 image:

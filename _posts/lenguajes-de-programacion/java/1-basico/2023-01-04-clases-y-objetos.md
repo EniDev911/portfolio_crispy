@@ -1,11 +1,13 @@
 ---
-title: "Java ♨️ : Clases y Objetos"
+title: "Clases y Objetos"
+icon: "fa fa-java"
 author: enidev911
 categories: [Java, "01. Nivel Básico"]
 mermaid: true
 ---
 
 En Java, **las clases** son plantillas para crear objetos, y **los objetos** son instancias de esas clases. En otras palabras, una clase define las propiedades y comportamientos de los objetos, mientras que un objeto es una entidad creada a partir de esa plantilla.
+
 
 **Definiendo una Clase:**
 
@@ -29,7 +31,9 @@ public class Vehiculo {
 ```
 {: file="Vehiculo.java" }
 
-**Creando un objeto**
+### Creando un objeto
+
+En Java, los objetos se crean utilizando la palabra clave `new`, que asigna memoria para el objeto y devuelve una referencia al mismo.
 
 ```java
 public class Main {

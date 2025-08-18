@@ -1,6 +1,6 @@
 ---
 title: "Administración de Usuarios y Roles"
-icon: "🐘"
+icon: "postgresql"
 categories: [Bases de Datos Relacionales, Postgres, "Intermedio"]
 permalink: /postgres/administracion-de-usuarios
 image:

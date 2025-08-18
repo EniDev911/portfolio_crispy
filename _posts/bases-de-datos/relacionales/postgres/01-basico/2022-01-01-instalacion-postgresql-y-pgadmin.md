@@ -1,6 +1,6 @@
 ---
-title: "PostgreSQL 🐘: Instalación PostgreSQL y PgAdmin"
-author: enidev911
+title: "Instalación PostgreSQL y PgAdmin"
+icon: "postgresql"
 categories: [Bases de Datos Relacionales, Postgres, "Básico"]
 tags: [Bases de Datos]
 image:

@@ -1,6 +1,6 @@
 ---
 title: "Crear un Modelo Conceptual en Draw.io"
-author: enidev911
+icon: "drawio"
 description: "En este artículo aprenderás a crear **un modelo conceptual** de base de datos utilizando la herramienta gratuita [draw.io (ahora diagrams.net)](https://draw.io){:target='_blank'}. Este tipo de modelo permite representar entidades, atributos y relaciones antes de implementar tu base de datos en sistemas como MySQL, PostgreSQL o SQLite."
 image:
   path: posters/drawio-diagramas.webp
@@ -146,7 +146,7 @@ Además, ahora puedes observar que `DetallePedido` se conecta con la entidad `Pr
 > De esta forma, reflejamos una relación común en bases de datos: un pedido puede incluir varios productos, y cada producto puede estar en múltiples pedidos.
 {: .prompt-info }
 
-## __Buenas Prácticas al diseñar__
+## Buenas Prácticas al diseñar
 
 - Usa __nombres claros__ y _### Crear un modelo conceptual
 _singulares__ para entidades: `Producto`, no `Productos`

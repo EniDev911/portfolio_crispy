@@ -1,5 +1,6 @@
 ---
-title: "Python 🐍 : Variables y Tipos de Datos"
+title: "Variables y Tipos de Datos"
+icon: "python"
 description: "Las **variables** en Python almacenan datos, y los **tipos** definen el formato de esos datos, como números, texto o colecciones."
 author: enidev911
 categories: [Python, "01. Básico"]
@@ -15,11 +16,11 @@ permalink: /categorias/python/basico/variables-y-tipos
 
 En el mundo de la programación, las variables son conceptos fundamentales que actúan como contenedores para almacenar datos. En Python, las variables son sencillas de usar y entender, lo que hace que sea un lenguaje amigable para quienes están comenzando a programar. En este artículo, exploraremos qué son las variables en Python, cómo se usan, y algunas de las características más interesantes sobre las variables.
 
-## __¿Qué es una Variable?__
+## ¿Qué es una Variable?
 
 Las variables son uno de los conceptos fundamentales tanto en Matemáticas como en programación. __Aunque se usan en distintos contextos__, la idea general es la misma: __una variable es un valor que puede cambiar o variar__.
 
-### __Variables en Matemáticas__
+### Variables en Matemáticas
 
 El concepto de "variable" en las matemáticas es usado a través de símbolos que forman parte de una formula. Normalmente las variables se representan mediante letras del alfabeto latino (x, y, z, n, j, etc). Dependiendo del contexto, las variables significan cosas distintas. Por ejemplo en el caso del Álgebra, una variable representa una cantidad desconocida que se relaciona con otras y que en algunos casos podemos averiguar. Consideremos por ejemplo la siguiente ecuación:
 
@@ -58,8 +59,8 @@ En Python, puedes declarar una variable simplemente asignándole un valor. No ne
 Python 3.9.1 (main, Dec 27 2022, 14:58:32) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 <span class="hl">&gt;&gt;&gt; edad = 33</span>
-<span class="hl">&gt;&gt;&gt; nombre = "Marco"</span>
-<span class="hl">&gt;&gt;&gt; altura = 1.80</span>
+<span class="hl mt-1">&gt;&gt;&gt; nombre = "Marco"</span>
+<span class="hl mt-1">&gt;&gt;&gt; altura = 1.80</span>
 {% endcapture %}
 {% include terminal-wrapper.html content=code_variables %}
 
@@ -114,7 +115,7 @@ Traceback (most recent call last):
 {% endcapture %}
 {% include terminal-wrapper.html content=code_str2 %}
 
-### __Conocer los Tipos de Datos__
+### Conocer los Tipos de Datos
 
 En Python, existen **funciones integradas** como `type()` que permiten conocer el tipo de dato de una variable. Esto es útil en un lenguaje de tipado dinámico como Python, donde no es necesario declarar explícitamente el tipo de una variable. Además de `type()`, otras funciones como `isinstance()` permiten verificar si un objeto es una instancia de tipo específico, proporcionando mayor flexibilidad y control al trabajar con datos.
 

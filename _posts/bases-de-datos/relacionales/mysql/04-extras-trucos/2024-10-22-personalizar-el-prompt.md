@@ -1,11 +1,12 @@
 ---
-title: "MySQL 🐬 : Personalizar el prompt"
+title: "Personalizar el prompt"
+icon: "fab fa-mysql"
 author: enidev911
 categories: [Bases de Datos Relacionales, "MySQL", "Extras/Trucos"]
 tags: [MySQL]
 ---
 
-## **¿Qué es el Prompt?**
+## ¿Qué es el Prompt?
 
 El "**prompt**" visualmente es el conjunto de caracteres que se muestra en la línea de comandos para indicar que está en la espera de órdenes. En todos los intérpretes de comandos, los "prompts" no son fijos y se pueden configurar según las necesidades del usuario.
 

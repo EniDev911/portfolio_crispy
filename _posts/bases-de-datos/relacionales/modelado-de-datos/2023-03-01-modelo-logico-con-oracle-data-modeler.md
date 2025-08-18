@@ -1,6 +1,5 @@
 ---
 title: "Crear un Modelo Lógico con Oracle Data Modeler"
-author: enidev911
 description: "Un __modelo lógico de datos__ es una representación estructurada y detallada de los datos que maneja un sistema. En este artículo, te voy a explicar para qué sirve y cómo puedes crear uno usando una herramienta gratuita llamada __Oracle Data Modeler__."
 categories: [Bases de Datos Relacionales, "Modelado de Datos"]
 tags: [Bases de Datos, "Modelado de Datos"]

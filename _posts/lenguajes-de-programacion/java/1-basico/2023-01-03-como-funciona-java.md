@@ -1,5 +1,5 @@
 ---
-title: "Java : Como funciona el entorno de Java ⚙️"
+title: "Cómo funciona el entorno de Java"
 author: enidev911
 icon: "fa fa-java"
 categories: [Java, "01. Nivel Básico"]

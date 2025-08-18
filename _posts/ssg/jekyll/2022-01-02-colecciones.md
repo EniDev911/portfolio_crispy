@@ -1,6 +1,7 @@
 ---
 title: "Jekyll: Usar Colecciones"
 categories: [SSG, Jekyll]
+icon: "jekyll"
 ---
 
 Si ya te sientes cómodo y entusiasmado utilizando Jekyll y el sistema de `_posts/`, ha llegado el momento de dar el siguiente paso: conocer __las colecciones__.
