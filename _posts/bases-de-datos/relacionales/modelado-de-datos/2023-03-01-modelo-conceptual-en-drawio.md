@@ -148,8 +148,18 @@ Además, ahora puedes observar que `DetallePedido` se conecta con la entidad `Pr
 
 ## Buenas Prácticas al diseñar
 
-- Usa __nombres claros__ y _### Crear un modelo conceptual
-_singulares__ para entidades: `Producto`, no `Productos`
-- __Relaciona entidades con verbos__: `Compra`, `Contiene`
+- Usa __nombres claros__ y __singulares__ para entidades. Ejemplo:
+  - ✅ `Producto`
+  - ✖️ `Productos`
+- __Relaciona entidades con verbos__: `Compra`, `Contiene`. Ejemplo:
+<div class="modelo-er">
+  <div class="entity">Usuario</div>
+  <div class="connector-line"></div>
+  <div class="relationship"><span>Presta</span></div>
+  <div class="connector-line"></div>
+  <div class="connector-line"></div>
+  <div class="entity">Libro</div>
+</div>
+
 - Añade atributos claves como `id_cliente`, `fecha`, etc.
 - No mezclar atributos con relaciones.

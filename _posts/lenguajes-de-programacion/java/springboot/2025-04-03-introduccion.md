@@ -1,6 +1,6 @@
 ---
-title: "Spring Boot 🍃 : Introducción"
-icon: "fa fa-java"
+title: "Introducción"
+icon: "springboot"
 categories: [Java, "Spring Boot"]
 image:
     path: posters/spring-boot-introduccion.webp
