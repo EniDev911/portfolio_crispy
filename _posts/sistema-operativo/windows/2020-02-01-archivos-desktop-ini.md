@@ -1,12 +1,14 @@
 ---
 title: "Windows : Archivos Desktop.ini"
+icon: "fa-brands fa-windows"
+icon_color: "#08b1ff"
 categories: ["Sistemas Operativos", "Windows"]
 ---
 
 ¿Sabías que puedes **cambiar el ícono de tus carpetas** y que esa personalización se mantenga incluso en **discos externos**? 🚀  
 Sí, y todo gracias a un archivo oculto que casi nadie conoce: **`Desktop.ini`**.
 
-## __¿Qué es un archivo Desktop.ini?__
+## ¿Qué es un archivo Desktop.ini?
 
 Es un archivo de configuración (oculto por defecto) que Windows usa para recordar cómo debe verse una carpeta. Es como un "maquillaje" de tus carpetas. Este archivo te permite lo siguiente:
 
@@ -17,7 +19,7 @@ Es un archivo de configuración (oculto por defecto) que Windows usa para record
 
 ¿Tienes un disco duro externo con carpetas para música, backups, proyectos o videos? Ponerles íconos distintos te permite identificarlas **al instante**, sin leer nombres.
 
-### __¿Cómo hacer este archivo?__
+### ¿Cómo hacer este archivo?
 
 Para crear un archivo `Desktop.ini` a través de la interfaz gráfica es muy sencillo, siguiendo estos pasos:
 
@@ -34,7 +36,7 @@ Y luego desmarca la casilla __"ocultar archivos protegidos del sistema"__:
 
 ![desmarcar opción](windows/ocultar-archivos-protegidos-del-sistema.webp)
 
-### __¿Cómo hacer este archivo con CMD?__
+### ¿Cómo hacer este archivo con CMD?
 
 Para crear un archivo `desktop.ini` como archivo de sistema en Windows usando la consola (CMD), puedes seguir estos pasos:
 
@@ -84,7 +86,7 @@ echo IconResource="\assets\ico\linux.ico" >> desktop.ini
 attrib +r .
 ```
 
-### ⚠️ __Tip para que funcione bien en discos externos__
+### Tips para que funcione bien en discos externos
 
 - Asegurate de que el ícono esté **dentro de la misma carpeta** o en una ruta accesible desde el mismo dispositivo.
 - Podés copiar un archivo `.ico` personalizado y enlazarlo desde `Desktop.ini`.
@@ -96,6 +98,6 @@ Ejemplo de contenido de un `Desktop.ini`:
 IconResource=icono.ico,0
 ```
 
-### 😎 En resumen:
+{% include circle-line.html %}
 
-`Desktop.ini` no es basura ni algo que borrar. Es un pequeño genio oculto que te permite tener un **sistema visual personalizado y más organizado**, ideal para creativos, organizados, y amantes del orden.
+En resumen, `Desktop.ini` no es basura ni algo que borrar. Es un pequeño genio oculto que te permite tener un **sistema visual personalizado y más organizado**, ideal para creativos, organizados, y amantes del aspecto visual.
