@@ -6,6 +6,8 @@ assets/img/.DS_Store
 test.*
 demo.*
 *:Zone.Identifier
+uml/
+out/
 
 .DS_Store
 **/**/.DS_Store

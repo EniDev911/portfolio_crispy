@@ -1,7 +1,7 @@
 ---
 title: "Crear un Modelo Conceptual en Draw.io"
 icon: "drawio"
-description: "En este artículo aprenderás a crear **un modelo conceptual** de base de datos utilizando la herramienta gratuita [draw.io (ahora diagrams.net)](https://draw.io){:target='_blank'}. Este tipo de modelo permite representar entidades, atributos y relaciones antes de implementar tu base de datos en sistemas como MySQL, PostgreSQL o SQLite."
+description: "En este artículo aprenderás a crear **un modelo conceptual** de base de datos utilizando la herramienta gratuita [draw.io (ahora diagrams.net)](https://draw.io){:target='_blank'}. Este tipo de modelo permite representar entidades, atributos y relaciones antes de implementar tu base de datos en un sistema gestor de bases de datos como MySQL, PostgreSQL o SQLite."
 image:
   path: posters/drawio-diagramas.webp
   lqip: data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAAsAPzleyV8vI6qmGAHgJwllAFR+h6II8uS+US1roSAA/t6sJSnrDFEQXY+jDrxAUFNqlpB4KOMJ1Y6TI6kLqW4HrwOy7QAAAA==
