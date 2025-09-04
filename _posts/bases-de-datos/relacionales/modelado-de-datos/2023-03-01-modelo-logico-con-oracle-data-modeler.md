@@ -11,9 +11,9 @@ Cuando estás empezando a **diseñar una base de datos**, es normal sentirse un 
 En el modelado de datos, el proceso se divide en __tres etapas fundamentales__, cada una con un propósito específico para diseñar y construir un sistema de manera eficiente.
 
 
-![etapas del modelado de datos](https://www.plantuml.com/plantuml/svg/RP1DRjH048NtFaKfh2EIIIGa5YW_4oEa8A7CBBEfT1UUrhIhhEes4K58N80LGh13i6UL8_Wcd80Zq7RRPB3mhggUtlUvJq94ZMtjYo9i7JUeM8EIYSYL9tXN09oXsLOgBTjpyQBmwEAeN9JB_Y9gISVjmVBuoUbXsfR2SUNk20wFnscUkCfbogImE4YBrGQjt3gk86fBnViT5rILsy5ZthBUEBDb2W4M_r2F_aTDdUbx-B6ztzy-VOMNOibBQcP3JMpHN_Cr__hm0ouuEekMGXwloADnmjDy6jNTj542DEhOk0OzXJt0i5CrWtsPO9VTVUMCJAGrtdWCy1QC-BPc70dd7j_GK5-ZEWoFNujstvdmhr583YPB3UHBwMjdrCyJjUn-XXtgYxhnL1D7DAwxPo26rVEpPJvs7zawGxsKDD7LxYwdylMLYY6RjiHH-apog2hIR56w7bCK3-y0--c-YVlFHaDu2cj5svgXinYNKoWNfD1SiJWXjctj_m00){:.light}
+![etapas del modelado de datos](https://www.plantuml.com/plantuml/svg/ZPF1RjD048RlVefLSwwQH2bfgn2rTcA4L2IKvDZBU7TmLrdFMhDh8eegyG8y1DmvzH7y9Zm9wzI6197Guqx-V_x_cyZNpWFxgZ2HMsigWQ4GZD83vGR5vqY8sB92JgonB383SXrcgIM_r0ye1XVXjR0LgSGo8OjXFmoMzw3iHbCkF5SOFUxi1cQxsUvztjZhpqRZcq5uh-wrN1Cw9uPx2QFsjQz_ZA8_DKycsNJo8MY4R4IlMz7qdLLeR4WYYQMlm4pE6jLqSfPDx-YE_kNv-UMxc9FN2XIwLdzOkK03KbjwWVJ6iyugRvqeMPFK9PZVhXC1RgUcwCNnR9x6Hna7yVbysEyOR-kdN4jx3B0rD5rMa9cG-AdvgIe8kXw77Oc1ZxYjNW1hS47FzJV25rWNw0Awt3bJ2tnhcygYbrpCNoMNHs7Jyt4w67UmQVt37OVj34t-sw8qM21vaBf-8e4abc_YMUi-xAk_aj8IcpFPqkj2Fpml-A_nFLk9AXX2fcti0J_FaVVWK-ssy6cQNYQZADhvzq-LtT3fjBlFbLWng4fkmwDss6dQDLT_KqRNIAhvh7y1){:.light}
 
-![etapas del modelado de datos](https://www.plantuml.com/plantuml/dsvg/NP1DRjH048NtFaKfh2EOW8HWWV8JZ922X3AppARINNXQqwwoghk924BY0gmGWXs2FQiSmJVX11o1xh7D3BPNLVNqliy-3X4rfjPNOUEuGyKMb4n4RZp1-mhW5CscKKbipyIBmht5a_AMYwWb7RVrUVsuNkHjBHoNxfPWyMYSvedBeKoP58uUvCLoZLPk73SGDL7rOSy5LULcwx7NSb9QLcjdDamXmD5_r8TpQiddplpiFkpWp_VFt-2LMFAIczbG5nFwAxxYtnz_mdEEpgAbC8oNvD4uuMa-YUgkKvG0dJeshaDFuG0mx5NDO5yds4L_rpWZ4sc5rnu3l0CZFhMC8-7CurlQrhUe3iFzDwBz3oRyPnIoWobI8_b2IksC-cMYrlsli4TzsNQUMkA8nlLt3CImV75wFXpxJsoTeI8bNNIjknrIm_MrYY6RjyHHIYPxD0tfO56xWgcgtN-0mtnVnyDdeo4yXPMYJMRRMOtBAJGKvD1SiJecjgdrVm40){:.dark}
+![etapas del modelado de datos](https://www.plantuml.com/plantuml/dsvg/ZPJ1RXCn48Rl-nIZzi2fQXAbf4LXrUucYv2AX98SUt7i8RNYdLdPNYAAa7W17WBkdFe8UHEU13lTXOr4Gezs_czcld6qryuBw-lI96wjgH9Mb61HUa4hW_0v0SZOAhGv6xQmD4Akmrt1vEVw0Q5_6KuphadbR0aj37hXOdul56yqhS3R6fCldTh2MjxiwZvLFCsooRJ805uq5z88on33KB9YO2Thoo6_kDToJUWS3FOc63QdlNgXP_9NusIyJCSVGWPa3Bq-xKs6evj--euL6WwDIMBbQs76vp6LZi-NwHtTqR-ONrz_m9IyLaAXQ_A7apCqGcgcPqHllDNBshE3ocgIkXBc3tK2mdN6R2sFElQpY-cWrphURXzNMl8nmGQ8ion4U6a7d-9FTKcYdUCmaHln4NUZby9guKBURhyJFWETeGlgCgvfN_YMuyXmcbzEN-PNHsMBYr7H7xMonVQdEoxR0h7_sx8oM29v8VNsaG09vc-oIKCVvhRVI6c9SKrSULtgXwS2_mNVMvQe0X1wSiI3_cg5Ta--q6udNnJ5LJvCaixhdodUq5dQxkSLT1irVurqOOMgPNUWfCctUEXm6EykfLFY6ad5ZyLl){:.dark}
 
 ## ¿Qué es entonces el modelo lógico?
 
@@ -150,4 +150,11 @@ Datamodeler permite generar automáticamente un modelo relacional partiendo de u
 
 
 Al hacer clic en la opción anterior, se despliega un menú donde se debe seleccionar qué elementos del modelo lógico se desean convertir a un modelo relacional, por defecto todo el modelo lógico se encuentra seleccionado, asegurarse de no seleccionar la opción __Aplicar Traducción de Nombre__ en la pestaña de __Opciones Generales__ ya que esto genera cambios automáticos no deseados sobre ciertos nombres. Esta configuración se debe ver de la siguiente manera:
+
+### 5. Generación automática del DDL
+
+Una vez se hace clic sobre la anterior opción, se despliega un menú en el que se deben seleccionar el motor de la base de datos Oracle a utilizar y el modelo relacional del que se quiere generar el DDL.
+
+
+{% include circle-line.html %}
 
