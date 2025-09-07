@@ -1,11 +1,11 @@
 ---
-title: "Instalación en los Diferentes Sistemas Operativos"
+title: "Instalación de Python"
 icon: "python"
 description: "Instala Python con facilidad: en **Windows**, usa el instalador oficial; en **macOS**, Homebrew o la web oficial; en **Linux**, el gestor de paquetes."
 categories: [Python, "01. Básico"]
 image:
     path: "posters/python-instalacion.webp"
-    lqip: data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZQCsAB5TNeuOMY4AAP6/w0vQ+vGtZ2d+5B1BGMHo+JyRLzQHQnaNOxZctf24PqxUCoAA
+    lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPzmIulOvKSWisAgB4CcJZgCdAB87I8BCy/pQAgD+oMJm1X2r2TfzZNbTXWf9L+N8znXHbn++k1kUTW1sld+ooGg9QcWvAsCRQ1T95CFRs5YbzhLIwHy1D4MAAAA=
 permalink: /categorias/python/basico/instalacion
 ---
 
@@ -21,15 +21,13 @@ En esta guía, cubriremos la instalación de Python en **Windows**, **macOS** y 
 - **RAM**: Mínimo **512 MB** (se recomienda **1GB** o más).
 - **Permisos de administrador** para la instalación.
 
-### __Usando el instalador__
+### Usando el instalador
 
-1. Descargar el archivo ejecutable de instalación de la versión más reciente de Python que sea compatible con tu sistema operativo desde la [página de descargas](https://www.python.org/downloads/){:target='_blank' class='link'}
-2. Ejecuta el archivo ejecutable de instalación de Python que se descargó anterioremente.<br>
-    Selecciona las siguientes opciones en la ventana del instalador de Python para configurar los pasos de instalación.
-    1. Elija agregar el archivo ejecutable de Python a la ruta.
-    1. Seleccione **install Now**.
-3. En el menú inicio, abra una ventana del símbolo de sistema.
-4. Comprobamos que tanto **Python** como **pip** estén instalados correctamente con los siguientes comandos:
+1. Descargar el archivo ejecutable de instalación de la versión más reciente de Python que sea compatible con tu sistema operativo desde la [página de descargas](https://www.python.org/downloads/ "Página oficial de descargas"){:target='_blank' class='link'}
+2. Ejecuta el archivo de instalación de Python que se descargó anterioremente. Selecciona las siguientes opciones en la ventana del instalador de Python para configurar los pasos de instalación.
+    - Elija agregar el archivo ejecutable de Python a la ruta.
+    - Seleccione **install Now**.
+3. En una nueva ventana del símbolo de sistema (CMD) comprobamos que tanto **Python** como **pip** estén instalados correctamente con los siguientes comandos:
 
 ```bat
 python --version
@@ -139,7 +137,35 @@ python3 -m ensurepip --upgrade
 
 {% include circle-line.html %}
 
-Hasta aquí con esta guía donde hemos cubierto la **instalación de Python** en los diferentes sistemas operativos. Con estos pasos, ya tienes Python instalado en tu sistema operativo. Ahora puedes comenzar a programar y explorar las múltiples posibilidades que ofrece este lenguaje.
+## Primer “Hello World” en Python
+
+Para comprobar que Python está correctamente instalado, podemos crear el clásico programa que muestra un sencillo pero fabuloso “Hello World”:
+
+Crea un archivo `hello.py` y agrega:
+
+```python
+print("¡Hello World!")
+```
+{: file="hello.py"}
+
+Luego, abrimos la terminal o consola y ejecutamos:
+
+```terminal
+python hello.py
+```
+
+> En algunos sistemas con Linux puede ser `python3 hello.py` si `python` apunta a Python 2.
+{: .prompt-info }
+
+Si todo funciona, verás en la consola:
+
+<pre><code class="language-cmd">C:\Users\mcherrera&gt; <span style='background: #ff04'>python hello.py</span>
+¡Hello World!
+</code></pre>
+
+Con esto confirmamos que tu instalación de Python está lista para empezar a programar.
+
+Hasta aquí hemos cubierto la **instalación de Python** en los diferentes sistemas operativos. Con estos pasos, ya tienes Python instalado en tu sistema operativo. Ahora puedes comenzar a programar y explorar las múltiples posibilidades que ofrece este lenguaje.
 
 ¡Sigue avanzando y aprendiendo! ✌️
 

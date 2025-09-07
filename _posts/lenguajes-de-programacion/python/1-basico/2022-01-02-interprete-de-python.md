@@ -12,7 +12,7 @@ permalink: /categorias/python/basico/usando-el-interprete
 
 En este artículo, exploraremos qué es el **intérprete de Python**, cómo funciona y por qué es una pieza clave en la ejecución de programas creados en este lenguaje. También cubriremos (aunque no en profundidad) los diferentes tipos de intérpretes disponibles y cómo usarlos en **modo interactivo** o a través de **scripts**.
 
-## __¿Qué es el Intérprete de Python?__
+## ¿Qué es el Intérprete de Python?
 
 El intérprete de Python es un software que se encarga de leer y ejecutar el código escrito en Python línea a línea, actúa como un traductor que convierte el código fuente en un formato comprensible para la máquina, pero en lugar de traducir todo el contenido de una vez (como haría un compilador), lo hace por fragmentos conforme se necesita, similar a un intérprete humano que traduce discurso por discurso en una conversación en lugar de todo un libro de una sola vez.
 
@@ -21,11 +21,11 @@ Cuando ejecutas instrucciones o un programa en Python, sigue estas etapas:
 ![funcionamiento del intérprete de python](python/funcionamiento-del-interprete-de-python.webp){: .light }
 ![funcionamiento del intérprete de python](python/funcionamiento-del-interprete-de-python-dark.webp){: .dark }
 
-### __Etapa 1. Lectura del Código Fuente__
+### Etapa 1. Lectura del Código Fuente
 
 El primer paso es cuando el intérprete de Python **recibe el código fuente**, que es el archivo con extensión `.py`. Este archivo contiene las instrucciones que el programador ha escrito en el lenguaje Python. En esta etapa, el intérprete simplemente carga el contenido del archivo en memoria para comenzar a procesarlo.
 
-### __Etapa 2. Compilación a Bytecode y Traducción en la PVM__
+### Etapa 2. Compilación a Bytecode y Traducción en la PVM
 
 Una vez el ecosistema de Python recibe el código fuente, el siguiente paso es **compilar** este código. La compilación no significa que el código se convierta en código máquina directamente (como en otros lenguajes como **C** o **JAVA**). El código es convertido a **bytecode**, que es un formato intermedio.
 
@@ -34,7 +34,7 @@ Una vez el ecosistema de Python recibe el código fuente, el siguiente paso es *
 
 Luego la **Python Virtual Machine** (PVM) interpreta y ejecuta el bytecode. 
 
-### __Etapa 3. Ejecución e Interacción__
+### Etapa 3. Ejecución e Interacción
 
 Luego que la **PVM** interpreta y ejecuta el bytecode, se comunica con el sistema para realizar acciones como mostrar texto en pantalla, leer archivos o acceder a la red.
 
@@ -56,7 +56,7 @@ graph TD;
 
 En un lenguaje compilado por otra parte, el compilador lee el programa y lo traduce al mismo tiempo, antes de ejecutar cualquiera de las instrucciones. En este caso, al programa de alto nivel se le llama el **código fuente**, y al programa traducido el **código de objeto** o el **código ejecutable**. Una vez compilado el programa, puede ejecutarlo repetidamente sin volver a traducirlo.
 
-## __Modo Interactivo__
+## Modo Interactivo
 
 En el **modo interactivo** de Python, podemos abrir una sesión en la que es posible ejecutar instrucciones directamente, realizar cálculos, operaciones y probar pequeños fragmentos de código y construir pequeños programas, pero una vez que se cierre la sesión interactiva no podemos reutilizar aquellos programas.
 
@@ -74,13 +74,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 > El símbolo `>>>` indica que Python está esperando una instrucción. Podemos escribir código y ver su resultado inmediatamente.
 {: .prompt-info }
 
-## __Usando Python como una Calculadora__
+## Usando Python como una calculadora
 
 Como para abrir el apetito, antes de escribir grandes programas o desarrollar aplicaciones complejas, podemos empezar a jugar con Python de una manera sencilla, usándolo como una calculadora.
 
 En su modo interactivo, Python resulta ser una potente calculadora que nos permite realizar desde operaciones matemáticas básicas hasta cálculos avanzados. Lo mejor es que los resultados se pueden ver de inmediato sin necesidad de escribir un programa completo.
 
-### __Operaciones Básicas__
+### Operaciones básicas
 
 Para probarlo, veamos algunas operaciones básicas:
 
@@ -100,7 +100,7 @@ Para probarlo, veamos algunas operaciones básicas:
 > **Ojo** la división en Python siempre devuelve un número de punto flotante (o con decimal, si lo quieres ver de esa manera por ahora), incluso si el resultado es un número entero.
 {: .prompt-info }
 
-### __División entera y módulo__
+### División entera y módulo
 
 Solo si queremos la parte entera de una división, usa `//`:
 
@@ -120,7 +120,7 @@ Para obtener el residuo de una división, usamos el `%`:
 
 {% include terminal-wrapper.html content=modulo_division %}
 
-### __Potencias y Raíces__
+### Potencias y raíces
 
 Elevar un número a una potencia es muy fácil con `**`:
 
@@ -157,7 +157,7 @@ Para funciones matemáticas más avanzadas, tenemos un módulo especializado `ma
 > Por ahora, completa los ejemplos y experimenta con el modo interactivo. En los próximos posts, profundizaremos en temas más avanzados, como los **módulos**, **variables**, etc.
 {: .prompt-info }
 
-## __Modo Scripts__
+## Modo Scripts
 
 El **modo scripts** se usa cuando se necesita ejecutar programas completos almacenados en archivos `.py`. El script se guarda y ejecuta desde una Terminal o símbolo del sistema, resultando en la ejecución del programa y la impresión del resultado en pantalla.
 

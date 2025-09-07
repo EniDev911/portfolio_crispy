@@ -1,16 +1,16 @@
 ---
-title: "Introducción al Lenguaje"
+title: "PHP: Introducción"
 icon: "fa fa-php"
 icon_color: "#515f9c"
 categories: [Desarrollo Web, "PHP 01. Básico"]
 image:
   path: posters/php-introduccion-al-lenguaje.webp
   lqip: data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBMAAAABD9D/iAgICQjN/8WyBxH9z+QCAFZQOCBsAAAAEAQAnQEqFAALAD85hLlTryilorAIAeAnCWQAnQAd+3hn83L9/5Ic44AAyyZyI5kLn7CkmLma5GQLTAxSZPz7378kjKUL/66YaNtm7TPQ42E9qoiwjKMK1P7KZCnaC0BNOxbQG3ep4P2uAAAA
-tags: [desarrollo web, php]
+tags: [php]
 permalink: /php-basico/introduccion
 ---
 
-Antes de adentrarnos en el aprendizaje en el ecosistema de PHP, exploraremos qué es este lenguaje, su fascinante historia y evolución, así como sus principales características técnicas. Descubrirás cómo un conjunto de simples scripts terminó convirtiéndose en una herramienta esencial para el desarrollo web moderno. Además , conocerás curiosidades y aspectos técnicos que resaltan su impacto en la comunidad.
+Antes de adentrarnos en el aprendizaje de PHP, exploraremos qué es este lenguaje, su fascinante historia y evolución, así como sus principales características técnicas y cómo un conjunto de simples scripts terminó convirtiéndose en una herramienta esencial para el desarrollo web moderno. Además , conocerás curiosidades y aspectos técnicos que resaltan su impacto en la comunidad.
 
 ## ¿Qué es PHP?
 
@@ -19,10 +19,24 @@ PHP es, ante todo, un **lenguaje de scripting interpretado del lado del servidor
 
 ## Evolución de PHP
 
+Según el Manual de PHP, escrita por el Grupo de Documentación de PHP, Lerdorf creó PHP Tools en algún momento entre septiembre y noviembre de 1994. Lerdorf describió cómo empezó todo en un artículo para la revista [Web Techniques](https://web.archive.org/web/19990117005231/http://www.webtechniques.com/features/1998/02/lerdorf/lerdorf.shtml){:target="_blank"}:
+
+{% include note.html 
+    image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rasmus_Lerdorf_August_2014_%28cropped%29.JPG/1024px-Rasmus_Lerdorf_August_2014_%28cropped%29.JPG" 
+    author="Rasmus Lerdorf" 
+    subtitle="Creador de PHP" 
+    tag="PHP" 
+    text="PHP comenzó como un simple contenedor CGI escrito en Perl que usaba para registrar quién había accedido a mi currículum en línea. Luego, lo reescribí en C para acelerarlo y consumir menos recursos. Al mismo tiempo, necesitaba una forma de integrar mi página de inicio con una base de datos, así que diseñé el Intérprete de Formularios (IF), una herramienta para integrar consultas SQL en páginas web y gestionar la entrada de formularios." 
+    date="c. 1994–1995" 
+%}
+
 #### De scripts personales a una herramienta poderosa
 
 __1994 - El Comienzo Humilde__
-: PHP nació cuando [Rasmus Lerdorf](https://es.wikipedia.org/wiki/Rasmus_Lerdorf){: target='_blank' } desarrolló un conjunto de scripts CGI para gestionar y rastrear las visitas en su página web personal. Originalmente conocido como *Personal Home Page Tools*, esta iniciativa fue la semilla de lo que más tarde se transformaría en PHP.
+: PHP nació cuando [Rasmus Lerdorf](https://es.wikipedia.org/wiki/Rasmus_Lerdorf){: target='_blank' } desarrolló un conjunto de scripts [CGI](https://es.wikipedia.org/wiki/Interfaz_de_entrada_com%C3%BAn){:target="_blank"} para gestionar y rastrear las visitas en su página web personal. Originalmente conocido como *Personal Home Page Tools*, esta iniciativa fue la semilla de lo que más tarde se transformaría en PHP.
+
+![CV Rasmus Lerdorf](php/rasmus-lerdorf-cv.webp)
+_Página de inicio de Lerdorf_
 
 **1995 - PHP/FI (el nacimiento)**
 : La primera versión de PHP se centró en interpretar formularios y generar contenido dinámico. Aunque básico, PHP/FI sentó las bases para funcionalidades posteriores, demostrando el potencial de integrar código en HTML para crear páginas web interactivas. El siguiente ejemplo de script refleja su uso en esa época:
@@ -68,20 +82,19 @@ PHP se integra de manera nativa en HTML, lo que facilita la creación de página
 <!DOCTYPE html>
 <html>
 <body>
-    <h1><?php
-        $hora = date('H');
-        if ($hora < 12) {
-            echo "¡Buenos días!";
-        } else if ($hora < 18) {
-            echo "¡Buenas tardes!";
-        } else {
-            echo "¡Buenas noches!";
-        }
+  <h1><?php
+			$hora = date('H');
+			if ($hora < 12) {
+				echo "¡Buenos días!";
+			} else if ($hora < 18) {
+				echo "¡Buenas tardes!";
+			} else {
+				echo "¡Buenas noches!";
+			}
     ?></h1>
     <p>La fecha y hora actual es: <?php echo date('d-m-Y H:i:s'); ?></p>
 </body>
 </html>
-
 ```
 {: .nolineno file="index.php" }
 

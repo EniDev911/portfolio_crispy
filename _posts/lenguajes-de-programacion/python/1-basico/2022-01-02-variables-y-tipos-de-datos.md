@@ -29,7 +29,7 @@ $$ x + 3 = 4 $$
 
 En este caso, la variable `x` representa una cantidad desconocida pero de la que se sabe si se le suma 3 obtiene 4. Resolviendo la ecuación, entendemos inmediatamente que la variable `x` estaba representando realmente el número 1.
 
-### __Variables en Programación__
+### Variables en Programación
 
 En programación también existe el concepto de "variable", __parecido pero no idéntico al concepto matemático__. En términos simples, una variable en programación es un nombre que se asocia a un valor y que se almacena en la memoria principal (RAM) de tu computadora mientras el programa esté en ejecución. Este valor puede ser cualquier cosa: un **número**, una **cadena de texto**, una **colección**, y cualquier tipo de dato que sea válido en el lenguaje de programación que usemos.
 

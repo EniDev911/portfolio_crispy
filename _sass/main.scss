@@ -122,6 +122,16 @@ svg[id^="mermaid-"] { min-width: 400px; max-width: 800px; font-size: 20px; }
   max-height: 400px;
 }
 
+a[target="_blank"]::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f35d"; /* fa-up-right-from-square */
+  margin-left: 0.3em;
+  font-size: 0.75em;
+  display: inline-block; /* necesario para que funcione vertical-align */
+  vertical-align: super; /* lo sube como superíndice */
+}
+
 .frame img {
   border: 1px solid #ccc;
   border-radius: 8px;

@@ -92,7 +92,7 @@ __Homebrew__:
 ```
 {: .noheader .fit-content }
 
-## __Abrir una conexión__
+## Abrir una conexión
 
 Una vez tenemos localizado el programa, podemos conectarnos a cualquier servidor MySQL que tengamos acceso. Para ello, abrimos una terminal y ejecutamos el programa `mysql` pasando como argumentos las opciones básicas de conexión (`host`, `user`, `password`, etc).
 
@@ -107,7 +107,7 @@ Otros parámetros comunes son:
 | `-D nombre_bd`   | Conectarse directamente a una base de datos     |
 | `--protocol=tcp` | Forzar el uso de TCP/IP                         |
 
-### __Conectarse a un servidor local__
+### Conectarse a un servidor local
 
 A continuación, probaremos una conexión local:
 
@@ -137,7 +137,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 <span style='background: #ff04;'>mysql&gt;</span> <span style="color: gray;">-- Aquí puedes escribir sentencias SQL</span></code></pre>
 
-### __Conectarse a un servidor remoto__
+### Conectarse a un servidor remoto
 
 Para conectarse a un servidor remoto, simplemente necesitamos indicar la dirección IP o nombre de dominio del servidor MySQLcon el parámetro `-h`. También es habitual especificar opciones adicionales en ciertos casos, como el puerto si no es el predeterminado (`3306`):
 
@@ -177,7 +177,7 @@ MySQL [(none)]&gt; <span style="color: gray;">-- Aquí puedes escribir tus sente
 </div>
 </div>
 
-## __Opciones para el cliente de línea de comandos__
+## Opciones para el cliente de línea de comandos
 
 El cliente MySQL admite una gran variedad de opciones que pueden especificarse tanto en la línea de comandos como guardar preferencias en los archivos de configuración (`my.cnf`, `my.ini`) usando las directivas `[mysql]` y `[client]`.
 
@@ -204,7 +204,7 @@ A continuación se muestra una tabla con algunas de las más utilizadas, junto c
 
 Estas opciones puedes combinarse para diferentes tareas según las necesidades que se requiera, ya sea en desarrollo, scripting o administración.
 
-### __Conectarse en modo silencioso__
+### Conectarse en modo silencioso
 
 El modo silencioso (`--silent`) suprime la salida adicional como encabezados, bordes y mensajes decorativos. Es especialmente útil en scripts o cuando se desea procesar los resultados en otro programa sin ruido visual. Ejemplo:
 
@@ -220,7 +220,7 @@ Enter password: ****
 MySQL [(none)]>
 </code></pre>
 
-### __Volcar los resultados de una consulta en HTML__
+### Volcar los resultados de una consulta en HTML
 
 El cliente de línea de comandos de MySQL permite exportar los resultados de una consulta directamente en formato HTML usando el parámetro `-H`. Esto es útil para generar reportes visuales o incrustar resultados en páginas web de forma rápida.
 
@@ -231,7 +231,7 @@ mysql -u usuario -p -D nombre_bd -e "SELECT ... FROM ..." -H > reporte.html
 ![salida en HTML](mysql/mysql-output-html.webp)
 
 
-### __Conexión directa a una base de datos y cargar scripts__
+### Conexión directa a una base de datos y cargar scripts
 
 La opción `-D` permite especificar directamente a la base de datos que queremos conectarnos, evitando el uso de la sentencia `USE`. De esta forma, se puede automatiza la ejecución de scripts o consultas SQL almacenadas en archivos SQL externos.
 
