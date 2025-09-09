@@ -125,13 +125,31 @@ macOS no tiene soporte nativo, pero gracias a los contenedores podemos trabajar 
    Ejemplo:
 
    ```terminal
-   docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=TuClaveSegura123" \
-      -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
+   docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=TuClaveSegura123" \
+      -p 1433:1433 --name sqlserver -d \
+      mcr.microsoft.com/mssql/server:2022-latest
    ```
 
+> La variable de entorno antes era `SA_PASSWORD` pero está en desuso. Actualmente es `MSSQL_SA_PASSWORD`.
+{: .prompt-info }
+
+{:start="3"}
 3. **Conexión al contenedor**
    Una vez corriendo, se puede acceder con cualquier cliente compatible. La ventaja aquí es que la instalación queda aislada y es fácil de reiniciar o eliminar.
 
+   Desde Docker podemos ejecutar una sesión interactiva y conectar con el cliente `sqlcmd` con:
+
+   ```terminal
+   docker exec -it sqlserver bash
+   ```
+
+   Ahora podemos conectarnos con el cliente `sqlcmd` usando el siguiente comando:
+
+   ```terminal
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'TuClaveSegura123' -C
+   ```
+
+{% include embed/video.html src="mssql-docker-sqlcmd.mp4" %}
 
 {% include circle-line.html %}
 
