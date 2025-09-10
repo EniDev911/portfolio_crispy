@@ -5,39 +5,38 @@
     id="topbar"
     class="d-flex align-items-center justify-content-between px-lg-3 h-100"
   >
-    <nav id="breadcrumb" aria-label="Breadcrumb">
-      {% assign paths = page.url | split: '/' %}
+<nav id="breadcrumb" aria-label="Breadcrumb">
 
-      {% if page.layout == 'categories' %}
-        <!-- index page -->
-        <!-- <a href="{{ '/' | relative_url }}">
-          <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
-        </a> -->
-      {% else %}
-        {% for item in paths %}
-          {% if forloop.first %}
-            <span>
-              <a href="{{ '/categories' | relative_url }}">
-                {{ site.data.locales[include.lang].tabs.categories | capitalize }}
-              </a>
-            </span>
-          {% elsif forloop.last %}
-            {% if page.collection == 'tabs' %}
-              <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
-            {% else %}
-              <span>{{ page.title }}</span>
-            {% endif %}
+  <!-- Raíz "Categorías" -->
+  <span>
+    <a href="{{ '/categories/' | relative_url }}">
+      {{ site.data.locales[include.lang].tabs.categories | capitalize }}
+    </a>
+  </span>
 
-          {% elsif page.layout == 'category' or page.layout == 'tag' %}
-            <span>
-              <a href="{{ item | relative_url }}">
-                {{ site.data.locales[include.lang].tabs[item] | default: page.title }}
-              </a>
-            </span>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    </nav>
+  {% if page.layout == 'category' %}
+    <!-- Página de categoría individual -->
+    <span>{{ page.title }}</span>
+
+  {% elsif page.layout == 'post' %}
+    <!-- Página de post: mostramos todas las categorías asociadas -->
+    {% for cat in page.categories %}
+      {% assign cat_slug = cat | slugify %}
+      <span>
+        <a href="{{ '/categories/' | append: cat_slug | append:'/' | relative_url }}">
+          {{ cat }}
+        </a>
+      </span>
+    {% endfor %}
+
+    <!-- Título del post -->
+    <span>{{ page.title }}</span>
+
+  {% endif %}
+
+</nav>
+
+
     <!-- endof #breadcrumb -->
 
     <button type="button" id="sidebar-trigger" class="btn btn-link">

@@ -2,6 +2,7 @@
 title: "MSSQL Server: Funciones escalares"
 categories: [Bases de Datos Relacionales, "MSSQL Server"]
 tags: [Bases de Datos, "Relacionales", "MSSQL Server"]
+permalink: /sqlserver/funciones-escalares
 ---
 
 En SQL Server, las funciones escalares son rutinas que devuelven un único valor (numérico, texto, fecha, etc.) definido en la cláusula `RETURNS`.
