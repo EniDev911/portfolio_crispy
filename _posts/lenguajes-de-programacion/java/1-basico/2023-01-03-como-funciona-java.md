@@ -3,6 +3,7 @@ title: "Cómo funciona el entorno de Java"
 author: enidev911
 icon: "fa fa-java"
 categories: [Java, "01. Nivel Básico"]
+tags: [Java]
 ---
 
 Java es conocido por su lema __"Write Once, Run Anywhere"__, pero detrás de esa promesa se encuentra la pieza clave: la __Máquina Virtual de Java__ o JVM (_Java Virtual Machine_). En este artículo vamos a ver cómo funciona realmente la JVM y el rol fundamental del __compilador Just-In-Time__ (JIT) en el rendimiento de las aplicaciones Java.

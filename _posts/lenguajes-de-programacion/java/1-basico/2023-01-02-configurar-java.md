@@ -1,14 +1,14 @@
 ---
-title: "Java ♨️ : Cómo configurar Java (Setup Paso a Paso)"
-author: enidev911
+title: "Cómo configurar Java (Setup Paso a Paso)"
 categories: [Java, "01. Nivel Básico"]
+tags: [Java]
 ---
 
 Para comenzar a programar en Java necesitas tener un __JDK__ (Java Development Kit). El JDK incluye todo lo necesario para compilar y ejecutar programas Java: el compilador `javac`, la Máquina Virtual Java (JVM), y otras herramientas útiles.
 
 Según el sistema operativo, vamos a ir viendo el paso a paso para dejar tu entorno listo.
 
-## __En Windows__
+## En Windows
 
 Para windows, necesitas descargar la versión oficial del JDK desde el sitio web de Oracle:
 
@@ -23,11 +23,11 @@ Selecciona la versión que necesites, por ejemplo Java 17 o Java 21 (ambas LTS).
 > Se recomienda instalar una versión __LTS__ (Long-Term Support) de Java para asegurar mayor estabilidad y soporte a largo plazo en tus proyectos.
 {: .prompt-tip }
 
-### __Ejecuta el instalador__
+### Ejecuta el instalador
 
 Una vez descargado, ejecuta el `.exe` y sigue los pasos.
 
-### __Define una variable de entorno__
+### Define una variable de entorno
 
 Agrega una nueva variable:
 
@@ -37,7 +37,7 @@ Agrega una nueva variable:
 Edita la variable `Path` y agrega:
 - `%JAVA_HOME%\bin`
 
-## __En Linux (Ubuntu/Debian)__
+## En Linux (Ubuntu/Debian)
 
 En Linux específicamente en distribuciones basadas en Debian, podemos abrir una nueva terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y luego instalar con `apt`:
 
@@ -65,7 +65,7 @@ javac 17.0.15
 {% endcapture %}
 {% include terminal-wrapper.html content=comprobar_instalacion %}
 
-## __Compilar y ejecutar un programa Java__
+## Compilar y ejecutar un programa Java
 
 Para realizar algunas pruebas, crea un archivo llamado `HolaMundo.java` y agrega el siguiente contenido:
 

@@ -1,15 +1,15 @@
 ---
-title: "Tutorial : Presentaciones con HackMD"
+title: "Presentaciones con HackMD"
 categories: [Tutoriales, Productividad]
 ---
 
-Últimamente he estado experimentando con __HackMD__, una plataforma en línea que permite escribir y compartir documentos en __Markdown__. Lo interesante es que, más allá de escribir notas, también puedes crear excelentes presentaciones.
+Últimamente he estado experimentando con [__HackMD__](https://hackmd.io/){:target="_blank"}, una plataforma en línea que permite escribir y compartir documentos en Markdown. Lo interesante es que, más allá de escribir notas, también puedes crear excelentes presentaciones.
 
-En este artículo comparto lo que he descubierto, por qué lo estoy usando para preparar mis trabajos y charlas técnicas, y además dejaré algunos ejemplos reales que he preparado para que puedas explorar y adaptarlo a tus necesidades. 
+En este artículo comparto lo que he descubierto, por qué lo estoy usando para preparar mis presentaciones y charlas técnicas, y además dejaré algunos ejemplos reales que he preparado para que puedas explorar y adaptarlo a tus necesidades. 
 
-## __¿Qué es HackMD?__
+## ¿Qué es HackMD?
 
-[__HackMD__](https://hackmd.io/){:target='_blank'} es un editor colaborativo de __Markdown__ basado en la web, pensado para facilitar la escritura de contenido técnico y su distribución. Es como una mezcla entre Google Docs y un IDE ligero, pero con soporte completo para Markdown, LaTeX y varias librerías adicionales.
+[__HackMD__](https://hackmd.io/){:target='_blank'} es un editor colaborativo en tiempo real y que usa principalmente el formato [__Markdown__](https://markdown.es/){:target="_blank"} basado en la web, pensado para facilitar la elaboración de documentos con contenido técnico y su distribución. Además, incluye soporte para [LaTeX](https://www.overleaf.com/learn/latex/Tutorials){:target="_blank"} y varias librerías adicionales como [__mermaid__](https://mermaid.js.org/){:target="_blank"} para crear diagramas.
 
 La plataforma fue lanzada originalmente en 2016 por la startup __HackMD Co., Ltd.__, fundada en Taiwán.
 
@@ -19,13 +19,13 @@ Con el paso del tiempo, HackMD se volvió popular entre comunidades open source,
 
 HackMD integra [reveal.js](https://github.com/hakimel/reveal.js/){:target='_blank'} para crear fácilmente presentaciones con una serie de diapositivas dentro de una nota en Markdown.
 
-## __Cambiar a Modo de Diapositivas__
+## Cambiar a modo de diapositivas
 
-Podemos elegir <i class="fa fa-tv"></i> el __Modo de diapositiva__ desde el menú desplegable "Modo" (de forma predeterminada se muestra el <i class="fa fa-eye fa-fw"></i> __Modo de visualización__) en el menú __uso compartido__ en la esquina superior derecha y presiona en __"vista previa"__ para ver su diapositiva.
+La forma de comenzar una nueva presentación basada en Reveal.js es elegir <i class="fa fa-tv"></i> el __Modo de diapositiva__ desde el menú desplegable "Modo" (de forma predeterminada se muestra el <i class="fa fa-eye fa-fw"></i> __Modo de visualización__) en el menú __uso compartido__ en la esquina superior derecha y presiona en __"vista previa"__ para ver la presentación.
 
-![Cambiar a modo Slide](tutoriales/hackmd-cambiar-a-modo-slide.webp){:style='border: 1px solid #ccc'}
+![Cambiar a modo Slide](tutoriales/hackmd-cambiar-a-modo-slide.webp)
 
-### __Crear Diapositivas__
+### Crear Diapositivas
 
 La estructura básica es simple, cada diapositiva regular se separa con un interlineado de tres guiones (`---`) y las diapositivas de sección por un interlineado de cuatro guiones (`----`). Por ejemplo, las diapositivas se escriben de la siguiente manera:
 
@@ -56,7 +56,7 @@ text
 
 ![Escribiendo Slides](tutoriales/hackmd-escribiendo-slides.webp){:style='border: 1px solid #ccc'}
 
-### __Diapositivas Personalizada__
+### Diapositivas personalizada
 
 Cada sección separada por `---` se convierte automáticamente en una __diapositiva__. Reveal.js asigna a cada una de ellas una clase CSS llamada `.slide`. Esta clase se puede usar para __asignar atributos especiales__ como transiciones, alineación, estilos y más.
 
@@ -70,7 +70,7 @@ A continuación, puedes ver algunos de estos atributos especiales:
 | `data-background-video` | Usa un video de fondo                       |
 | `data-auto-animate`     | Activa animaciones automáticas entre slides |
 
-### __Configurar Transiciones__
+### Confugurar transiciones
 
 En HackMD, puedes usar bloques de HTML embebido __antes de cada diapositiva__ para asignarle una transición específica.
 
@@ -87,10 +87,13 @@ Esto es un __comentario HTML especial__ que HackMD y Reveal.js interpretan como 
 4. `fade-in`: la diapositiva __entra__ con un efecto de desvanecimiento.
 5. `zoom-out`: la diapositiva __sale__ con un efecto de alejamiento.
 
+Ejemplo de transición abreviado:
 
-### __Escribir y Resaltar Bloques de Código__
+{% include embed/video.html src="hackmd-zoom-transition.webm" %}
 
-Una de las mayores ventajas de usar HackMD para documentación técnica es su excelente soporte de código fuente. Utiliza la librería de [__Highlight.js__](https://highlightjs.org/){:target='_blank'}, lo que significa que reconoce automáticamente más de 180 lenguajes de programación y los resalta correctamente.
+### Escribir y resaltar bloques de código
+
+HackMD tiene soporte integrado para escribir código fuente. Utiliza la librería de [__Highlight.js__](https://highlightjs.org/){:target='_blank'}, lo que significa que reconoce automáticamente más de 180 lenguajes de programación y los resalta correctamente.
 
 Para comenzar a resaltar código, se debe usar tres backticks (<code class="language-plaintext highlighter-rouge">```</code>) para iniciar y cerrar un bloque de código. Después de los primeros backticks, puedes indicar el lenguaje:
 
@@ -101,3 +104,5 @@ def saludar(nombre):
 ```
 ````
 {: .nolineno }
+
+{% include embed/documents.html src="https://hackmd.io/@mcherrera/presentacion-personal#/13" %}

@@ -77,3 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	  }
 	};
   });
+
+function speakText(text, lang = "en-US") {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang;
+    speechSynthesis.speak(utterance);
+  } else {
+    alert("Your browser does not support speech synthesis.");
+  }
+}
+
