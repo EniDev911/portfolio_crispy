@@ -31,7 +31,7 @@ En SQL Server existen dos tipos de funciones definidas por el usuario:
 
 ## Sintaxis de una función escalar
 
-En términos generales, una función en SQL Server sigue una estructura bastante fija: primero se le asigna un **nombre**, luego se definen los **parámetros de entrada** (si los necesita), se indica el **tipo de dato o tabla que va a devolver**, y finalmente se escribe la **lógica que genera ese resultado**. A continuación, se muestra de forma genérica la sintaxis para definir una función.
+En términos generales, las funciones en SQL Server siguen una estructura bastante fija: primero se le asigna un **nombre**, luego se definen los **parámetros de entrada** (si los necesita), se indica el **tipo de dato o tabla que va a devolver**, y finalmente se escribe la **lógica que genera ese resultado**. A continuación, se muestra de forma genérica la sintaxis para definir una función.
 
 __Sintaxis__:
 
