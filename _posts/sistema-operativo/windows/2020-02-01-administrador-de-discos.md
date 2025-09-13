@@ -11,19 +11,19 @@ El __Administrador de discos__ es una __herramienta del sistema__ incluida en Wi
 > __Importante__: Aunque el Administrador de discos permite __crear__, __borrar__ y __formatear particiones__, esta guía es solo para exploración y aprendizaje. No hagas cambios si no estás seguro, ya que podrías perder datos.
 {: .prompt-warning }
 
-## __Cómo abrir el Administrador de Discos__
+## Cómo abrir el Administrador de Discos
 
 Es muy sencillo, puedes simplemente presionar <kbd>Win</kbd> + <kbd>R</kbd> y escribe lo siguiente: `diskmgmt.msc` y presiona <kbd>Enter</kbd>.
 
 ![abrir el administrador](windows/abrir-diskmgmt.webp){: style="width: 330px"}
 
-### __1. Lista de Vólumenes__
+### 1. Lista de Vólumenes
 
 Una vez abierta la herramienta, verás una lista de cada unidad (por ejemplo `C:`, `D:`, `E:`), su tipo de sistema de archivos (`NTFS`, `FAT32`), capacidad de espacio libre, y su estado.
 
 ![Lista de vólumenes](windows/lista-de-volumenes.webp)
 
-## __2. Vista Gráfica__
+### 2. Vista Gráfica
 
 En esta parte verás los discos físicos representados como __"Disco 0"__, __"Disco 1"__, etc. Cada uno muestra sus particiones como bloques horizontales. Puedes ver lo siguiente:
 
@@ -34,11 +34,11 @@ En cada disco, se puede ver el color que indica lo siguiente:
 - El espacio usado (en azul).
 - El espacio no asignado (en negro).
 
-## __¿Qué es una Partición?__
+## ¿Qué es una Partición?
 
 Una partición es como dividir tu disco en __"secciones"__. Aunque físicamente sea un solo disco, Windows puede tratar cada partición como una unidad independiente (por ejemplo, `C:`, `D:`, `E:`).
 
-### __Crear una nueva partición__
+### Crear una nueva partición
 
 Primero, debes tener un espacio __no asignado__ disponible, luego hacer clic derecho sobre él para seleccionar __"Nuevo volumen Simple"__
 

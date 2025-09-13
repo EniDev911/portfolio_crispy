@@ -1,13 +1,14 @@
 ---
-title: "Jekyll: Usar Archivo de Datos"
+title: "Archivos de Datos"
 categories: [SSG, Jekyll]
 icon: "jekyll"
 image:
   path: posters/jekyll-carpeta-data.webp
   lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbAAAW/bMEUBYJxa/AAD+6nn1h8C8WZROLPLs/enWA+lNeYL/DGgSkj1C2/0HMv+bBrreGn7YIuodvitiqHeb3FrfxlMzLxCgRVXFAAA=
+permalink: /jekyll/archivo-de-datos
 ---
 
-## ¿Para qué sirve la carpeta _data?
+## ¿Para qué sirve la carpeta `_data`?
 
 Es una carpeta especial que Jekyll reconoce automáticamente. Todo lo que pongas ahí queda disponible para que lo uses en cualquier parte del sitio. 
 

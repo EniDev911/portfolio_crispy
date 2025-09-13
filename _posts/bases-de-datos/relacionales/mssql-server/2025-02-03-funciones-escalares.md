@@ -1,5 +1,5 @@
 ---
-title: "MSSQL Server: Funciones escalares"
+title: "SQL Server: Funciones escalares"
 categories: [Bases de Datos Relacionales, "MSSQL Server"]
 tags: [Bases de Datos, "Relacionales", "MSSQL Server"]
 permalink: /sqlserver/funciones-escalares

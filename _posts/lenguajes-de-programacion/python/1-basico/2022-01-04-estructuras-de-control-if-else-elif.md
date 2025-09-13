@@ -1,19 +1,19 @@
 ---
-title: "Python 🐍 : Estructuras Condicionales (IF, ELSE, ELIF)"
-author: enidev911
+title: "Estructuras Condicionales (IF, ELSE, ELIF)"
 categories: [Python, "01. Básico"]
+icon: "python"
 image:
     path: "posters/python-estructuras-de-control.webp"
     lqip: data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJQBibAl4ulhXEuXoAAP7L5f9RXsuXTmYBIKqe0umlxeSVuDuABAFyesqrvpYEF2T2dM/zfWLNzb8mAAA=
 mermaid: true
-permalink: /categorias/python/basico/estructuras-condicionales
+permalink: /python/basico/estructuras-condicionales
 ---
 
 En cualquier lenguaje de programación, las **estructuras de control** son fundamentales. Son las que permiten que un programa tome decisiones, ejecutando diferentes bloques de código según ciertas condiciones y repetir bloques de código ( __bucles__ ).
 
 En este artículo, exploraremos en detalle cómo funcionan las **estructuras condicionales**  **`if`**, **`else`** y **`elif`** y __operadores lógicos__, cómo se utilizan y algunos ejemplos prácticos para ilustrar su uso.
 
-## __¿Qué son las Estructura de Control?__
+## ¿Qué son las Estructura de Control?
 
 Las estructuras de control son __instrucciones que alteran la secuencia natural de ejecucción del código__. En lugar de ejecutar línea por línea de arriba hacia abajo, se puede:
 
@@ -22,7 +22,7 @@ Las estructuras de control son __instrucciones que alteran la secuencia natural 
 - Saltar o continuar iteraciones (**`break`**, **`continue`**)
 - Ignorar instrucciones temporalmente (**`pass`**) 
 
-## __Estructuras de Control Condicional__
+## Estructuras de Control Condicional
 
 Estas estructuras le dicen al programa __qué hacer en función de una condición__. Dependiendo si la condición es **`True`** (verdadera) o **`False`** (falso), el flujo de ejecución del programa cambia.
 
@@ -55,7 +55,7 @@ graph TD
 {: .prompt-info }
 
 
-## __Sintaxis Básica de estructuras de control__
+## Sintaxis Básica
 
 La sintaxis básica de una declaración condicional en Python es la siguiente:
 
@@ -112,7 +112,7 @@ else:
 2. **Segunda Condición (`elif`):** Si la primera condición no se cumple, verifica si `nota` es mayor o igual a 70.
 3. **Condición Final (`else`):** Si ninguna de las condiciones anteriores es verdadera, se ejecuta el bloque bajo `else`.
 
-### __Operadores Lógicos__
+## Operadores Lógicos
 
 Cuando queremos evaluar __más de una condición al mismo tiempo__, utilizamos los __operadores lógicos__. Estos operadores nos permiten construir condiciones más complejas y tomar decisiones más eficientes en nuestros programas.
 
@@ -122,7 +122,7 @@ Python nos proporciona tres operadores lógicos principales:
 - **`or`:** Al menos una de las condiciones debe ser verdadera.
 - **`not`:** Invierte el valor de verdad de la condición.
 
-### __Condiciones Complejas__
+## Condiciones Complejas
 
 Puedes combinar múltiples condiciones usando operadores lógicos como `and`, `or` y `not`:
 
@@ -142,7 +142,7 @@ else:
 - La condición `edad >= 18 and tiene_licencia` se evalúa como verdadera solo si ambas sub-condiciones son verdaderas.
 
 
-### **Condicionales Anidados**
+## Condicionales Anidados
 
 Los condicionales también pueden ser anidados, es decir, tener una estructura `if` dentro de otra:
 

@@ -5,6 +5,7 @@
     id="topbar"
     class="d-flex align-items-center justify-content-between px-lg-3 h-100"
   >
+  {% if page.layout == 'category' or page.layout == 'post' %}
 <nav id="breadcrumb" aria-label="Breadcrumb">
 
   <!-- Raíz "Categorías" -->
@@ -35,7 +36,7 @@
   {% endif %}
 
 </nav>
-
+{% endif %}
 
     <!-- endof #breadcrumb -->
 
@@ -58,6 +59,8 @@
       <i class="fas fa-search fa-fw"></i>
     </button>
 
+    {% if page.layout == 'main' %}
+    {% else %}
     <search class="align-items-center ms-3 ms-lg-0">
       <i class="fas fa-search fa-fw"></i>
       <input
@@ -69,6 +72,7 @@
         placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
       >
     </search>
+    {% endif %}
     <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">
       {{- site.data.locales[include.lang].search.cancel -}}
     </button>
