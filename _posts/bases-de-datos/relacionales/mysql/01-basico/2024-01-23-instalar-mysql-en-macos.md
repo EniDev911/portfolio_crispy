@@ -1,12 +1,10 @@
 ---
-title: "MySQL 🐬 : Instalar en macOS "
-author: enidev911
+title: "Instalar en macOS"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-instalacion-mac.webp
     lqip: data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZwAAWxVRq/jfBzIAAAD+6o2TPtwDHmMtMLGqNV28JUaeMpSE+dN9rSlkweKo/zoYLWo5CQjX6hpuT9oodfcQKIAAAA==
-    alt: "Cómo instalar MySQL en MacOS"
 ---
 
 En este artículo, cubriremos la instalación de MySQL en macOS, cómo configurarlo para que funcione y cómo verificar que la instalación se haya completado correctamente.

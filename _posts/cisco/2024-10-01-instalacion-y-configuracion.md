@@ -6,7 +6,7 @@ tags: ["Packet Tracer", "instalación", "simulación"]
 
 Aprender redes no siempre requiere acondicionar un laboratorio con hardware costoso. Cisco ofrece una herramienta gratuita y poderosa que permite simular redes completas desde tu computadora: **Packet Tracer**. Si estás empezando en el mundo del networking, estudiando una carrera o te estás preparando para certificaciones como CCNA, dominar esta herramienta es clave. En este artículo, cubriremos __cómo instalar y configurar Cisco Packet Tracer__, y te daré algunos consejos para comenzar tu primera red simulada con éxito.
 
-## __¿Qué es Cisco Packet Tracer?__
+## ¿Qué es Cisco Packet Tracer?
 
 Cisco Packet Tracer es una herramienta de simulación de redes desarrollada por Cisco, diseñada para ayudar a estudiantes y profesionales a practicar configuraciones de redes __sin necesidad de hardware físico__. Es ampliamente utilizada en programas de formación como Cisco Networking Academy (NetAcad) y en la preparación para certificaciones como el CCNA.
 

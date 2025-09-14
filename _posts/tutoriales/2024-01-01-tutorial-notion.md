@@ -10,44 +10,52 @@ pin: true
 
 [__Notion__](https://www.notion.com/){:target='_blank'} es una de las herramientas de productividad de más rápido crecimiento en los últimos tiempos. Su __versatibilidad__ y __capacidad para adaptarse a diferentes flujos de trabajo__ han hecho   que muchos usuarios avanzados se enamoren de esta herramienta. Aunque en los últimos años ha enfrentado ciertas limitaciones derivadas de cambios en su modelo de negocio (restricciones en algunas funciones que antes eran gratuitas), sigue siendo una opción muy sólida para organizar información y proyectos.
 
-> __Lo que más me gusta de Notion es que puedo usarlo para crear exactamente la interfaz que necesito para mantenerme al tanto con las cosas importantes de mi día a día__.
+> Lo que más me gusta de Notion es que puedo usarlo para crear exactamente la interfaz que necesito para mantenerme al tanto con las cosas importantes de mi día a día.
+![pagina documentos](notion/pagina-documentos.webp)
 {: .prompt-love }
 
-## __¿Qué es Notion?__
+## Qué es Notion
 
 __Notion es una herramienta todo-en-uno__ que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su capacidad de adaptación permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
 
 ![web oficial Notion](tutoriales/notion-web-oficial-section-3.webp)
 _Página oficial de Notion_
 
-### __¿Es Notion gratuito?__
+### ¿Es Notion gratuito?
 
-Notion es gratuito, pero también ofrece tres planes de pago: **Personal Pro**, **Team** y **Enterprise**. La __versión gratuita__ incluye **páginas** y **bloques ilimitados**, integraciones con otras aplicaciones, espacios de trabajos, entre otras cosas. __Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados__ y un __límite de carga de archivos de 5 MB por archivo__. Sin embargo, __ahora han cambiado su modelo y__, __para mantener bloques ilimitados en el plan gratuito__, __ya no se pueden añadir invitados en los espacios de trabajo__. Si deseas colaborar con otros usuarios, es necesario optar por un plan de pago.
+Notion es gratuito, pero también ofrece [planes de pago](https://www.notion.com/es/pricing){:target="_blank"}: 
 
-## __Ventajas y Desventajas de Notion__
+| Plan           | Precio               | Ideal para...                               |
+| -------------- | -------------------- | ------------------------------------------- |
+| **Gratuito**   | 0 US\$/miembro/mes   | Uso individual, organización personal       |
+| **Plus**       | 10 US\$/miembro/mes  | Profesionales y equipos pequeños            |
+| **Business**   | 20 US\$/miembro/mes  | Empresas en crecimiento (¡recomendado!)     |
+| **Enterprise** | Precio personalizado | Organizaciones grandes, control y seguridad |
 
-Notion es una de las herramientas de productividad más completas del mercado. Sin embargo, como cualquier herramienta, tiene __puntos fuertes y débiles__. A continuación, __analizamos sus ventajas y desventajas__.
+En la siguiente tabla, podemos observar las diferencias entre los planes de Notion.
 
-### __Ventajas__
+| Característica Clave                               | Gratuito |  Plus  | Business | Enterprise |
+| -------------------------------------------------- | :------: | :----: | :------: | :--------: |
+| **Uso personal y organización básica**             |     ✅    |    ✅   |     ✅    |      ✅     |
+| **Colaboración en equipo**                         |     ❌    |    ✅   |     ✅    |      ✅     |
+| **Subida de archivos ilimitada**                   |     ❌    |    ✅   |     ✅    |      ✅     |
+| **Formularios personalizados**                     |     ❌    |    ✅   |     ✅    |      ✅     |
+| **SSO / Seguridad empresarial (SAML, SCIM)**       |     ❌    |    ❌   |     ✅    |      ✅     |
+| **Espacios privados y verificación de dominios**   |     ❌    |    ❌   |     ✅    |      ✅     |
+| **Integraciones exclusivas (GitHub, Figma, etc.)** |     ❌    |    ❌   |     ✅    |      ✅     |
+| **Auditoría, cumplimiento y controles avanzados**  |     ❌    |    ❌   |     ❌    |      ✅     |
+| **IA de Notion incluida**                          |  Prueba  | Prueba |     ✅    |      ✅     |
+| **Sin conservación de datos (LLM)**                |     ❌    |    ❌   |     ❌    |      ✅     |
 
-**1. Plataforma todo en uno**
-: Notion combina funciones de notas, bases de datos, gestión de proyectos y colaboración en un solo espacio, evitando el uso de múltiples aplicaciones.
+### Desventajas del plan gratuito
 
-**2. Alta personalización**
-: Notion permite organizar la información con páginas, bloques, tablas, listas, y bases de datos con distintas vistas (lista, calendario, galería, etc).
-
-**3. Integraciones**
-: Notion destaca por su capacidad de integrarse con una amplia variedad de herramientas, como Google Calendar, Slack, Github y más.
-
-**4. Colaboración en Tiempo Real**
-: Notion ofrece una sólida funcionalidad de colaboración en tiempo real, permitiendo que múltiples usuarios editen una misma página simultáneamente.
-
-### __Desventajas__
-
-Aunque Notion es una herramienta muy versatíl, tiene algunas __limitaciones en su versión gratuita__.
+Revisemos las principales __limitaciones__ de Notion en su versión gratuita.
 
 **1. Límite de Bloques en el Plan Gratuito**
 : Notion permite hasta **1.000 bloques por espacio de trabajo con más de 2 propietarios** en su versión gratuita. Cada texto, imagen, tabla o cualquier elemento cuenta como un bloque.
+
+> Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados.
+{: .prompt-info }
 
 **2. Espacio de Almacenamiento Limitado**
 : En la versión gratuita solo puedes subir archivos de hasta **5 MB por archivo**, lo que puede ser restrictivo para documentos pesados.
@@ -55,7 +63,7 @@ Aunque Notion es una herramienta muy versatíl, tiene algunas __limitaciones en 
 **3. Funcionalidades Avanzadas**
 : Opciones como el historial de versiones, integraciones avanzadas y mayor almacenamiento están bloqueadas en la versión gratuita.
 
-## __Empezando en Notion__
+## Empezando en Notion
 
 Lo primero que se debe hacer es crear una cuenta. Para esto, se debe ingresar a la [página de registro Notion](https://www.notion.so/signup){: target='_blank'}. Una vez allí, selecciona la opción con la cual te quieres registrar:
 
@@ -69,7 +77,7 @@ Una vez creamos una cuenta para usar Notion, la primera vez que iniciamos sesió
 ![Setup notion](tutoriales/notion-custom-1.webp)
 
 
-## __Personalizar Notion__
+## Personalizar Notion
 
 Desde la barra lateral izquierda, en la parte superior, podemos encontrar el botón para ir a la configuraciones.
 
@@ -78,19 +86,17 @@ Desde la barra lateral izquierda, en la parte superior, podemos encontrar el bot
 > Desde las configuraciones, **puedes ajustar las preferencias** como **idioma**, **temas**, **notificaciones**, personalizar **espacios de trabajos y permisos**, etc.
 {: .prompt-info }
 
-### __Cambiar la Apariencia__
+### Cambiar la Apariencia
 
 En **Preferencias** vamos a la sección de **Apariencia** y podemos cambiar entre temas **Oscuro/Claro**:
 
 ![Cambiar de tema](tutoriales/notion-custom-theme.webp)
 
-En las siguientes secciones, vamos a ver sobre lo que es importante en Notion. Uno de los conceptos clave que debes entender para dominar y sacarle el máximo provecho a la plataforma, es la diferencia entre **páginas** y **bloques**
-
-## __Páginas 📄 VS. Bloques 🧩__
+## Páginas y Bloques
 
 En Notion, entender la diferencia entre **páginas** y **bloques** es la clave para organizar tu información de manera eficiente. Aunque pueden parecer similares al principio, cumplen funciones distintas. Por eso, te explicaré estas diferencias.
 
-### __¿Qué son las Páginas en Notion?__
+### Páginas en Notion
 
 Las páginas en Notion son el contenedor principal de información. Puedes pensar en las páginas como documentos en blanco donde agregas contenido, pero también funcionan como **carpetas** porque pueden contener otras páginas dentro. Por ejemplo, si tienes una página llamada "**Trabajo**", dentro de ella podrías tener otras páginas:
 
@@ -99,7 +105,7 @@ _Página como contenedor de otras páginas_
 
 Cada una de esas páginas puede contener más información, incluso otras páginas, creando un sistema jerárquico dentro de la plataforma.
 
-### __¿Qué son los Bloques en Notion?__
+### Bloques en Notion
 
 En notion, **todo es un bloque**. Cada texto, imagen, lista o base de datos o cualquier cosa que agregas dentro de una página es un bloque individual. Si volvemos al ejemplo anterior, dentro de la página "**Trabajo**" ya tenemos varios bloques:
 
@@ -107,27 +113,27 @@ En notion, **todo es un bloque**. Cada texto, imagen, lista o base de datos o cu
 - Cada página dentro de otra ➝ Es un bloque de tipo "página".
 - Saltos de líneas ➝ Es un bloque de texto vácio.
 
-## __Uso de Bloques y Tipos de Bloques__
+La mejor manera de familiarizarse con Notion es probar algunos bloques, simplemente escriba `/` y verá todas las opciones:
 
-Como sabemos, todo en Notion funciona con "bloques", un bloque puede ser texto, imágenes, listas, bases de datos y más. La mejor manera de familiarizarse con Notion es probar algunos bloques, simplemente escriba `/` y verá todas las opciones:
+![Crear un bloque](tutoriales/notion-bloque.gif)
 
-![Crear un bloque](tutoriales/notion-create-a-block.webp)
+## Tipos de Bloques
 
-## __Bloques Comunes__
+Como sabemos, todo en Notion funciona con "bloques", un bloque puede ser texto, imágenes, listas, bases de datos y más.
 
-### __Texto__
+### De Texto
 
 Simple, con opciones de formato (`/h1`, `/bold`, `/citas`, etc):
 
 ![Bloques de texto](tutoriales/notion-using-text-block.webp)
 
-### __Listas__
+### De Listas
 
 Viñetas, numeradas o listas de tareas (`/todo`):
 
 ![Bloques de listas](tutoriales/notion-using-list-block.webp)
 
-### __Imágenes y Videos__
+### De Imágenes y Videos
 
 Adjunta archivos o incrusta enlaces (`/imagen`, `/video`):
 
@@ -136,13 +142,13 @@ Adjunta archivos o incrusta enlaces (`/imagen`, `/video`):
 > Los videos e imágenes que deseas subir desde tu equipo, deben ser menor a **5 MB** usando la versión gratuita.
 {: .prompt-info }
 
-### __Los bloques se pueden transformar__
+## Transforma Bloques
 
 En Notion, todos los bloques se pueden convertir en bloques de otro tipo, para usar, ver o profundizar en esa misma información de una forma distinta:
 
 ![convertir bloques](tutoriales/notion-convert-block.webp)
 
-## __Organizar Bloques__
+## Organizar Bloques
 
 En Notion, podemos organizar la información de muchas maneras, usando páginas, listas, tablas y más. Pero una de las formas más efectivas para estructurar contenido de manera visual es **usando columnas**.
 

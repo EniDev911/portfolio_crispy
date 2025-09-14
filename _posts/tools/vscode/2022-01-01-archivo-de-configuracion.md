@@ -5,7 +5,7 @@ categories: [Kit Tools, VsCode]
 
 El editor de configuración es la interfaz de usuario que permite revisar y modificar los valores de configuración que se almacenan en el archivo setting.json.
 
-## __¿Dónde está el archivo de configuración?__
+## ¿Dónde está el archivo de configuración?
 
 Puedes acceder al archivo de configuración directamente desde VS Code:
 

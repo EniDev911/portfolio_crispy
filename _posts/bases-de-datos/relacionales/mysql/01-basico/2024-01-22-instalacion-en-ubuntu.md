@@ -1,31 +1,30 @@
 ---
-title: "MySQL 🐬 : Instalación en Ubuntu"
-author: enidev911
-description: "Este artículo explicará cómo instalar MySQL versión 8 en una máquina Ubuntu 20.04"
+title: "Instalación en Ubuntu"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 tags: [Bases de Datos, MySQL]
 image:
   path: posters/mysql-instalacion-ubuntu.webp
   lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBhQBD37+nEsZBT2bIAA/uqLY7we9otIo6VE4hK5kLetUTtViPXpgpvzYttrY9gvIaDi5xEVH7zwYWp7jdhO+itEYAAA
-  alt: "Cómo Instalar MySQL en Ubuntu"
 pin: true
 permalink: /mysql/instalacion-en-ubuntu
 ---
 
 En este post, cubriremos la instalación de MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
 
-## __Requisitos Previos__
+## Requisitos Previos
 
 Antes de comenzar, asegurate de tener lo siguiente:
 
-- Una instalación de **Ubuntu** (esta guía es aplicable a versiones **Ubuntu 20.04.4 LTS** y versiones más recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
-- Acceso a una cuenta con privilegios **sudo**.
+- [x] Una instalación de **Ubuntu** (esta guía es aplicable a versiones **Ubuntu 20.04.4 LTS** y versiones más recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
+- [x] Acceso a una cuenta con privilegios **sudo**.
 
-## __Comenzar Instalación__
+## Comenzar Instalación
 
-### __1. Actualizar el Sistema__
+Ahora que hemos confirmado que contamos con todo lo necesario, continuemos con la instalación siguiendo estos pasos:
 
-Es fundamental que el sistema esté actualizado antes de instalar cualquier software. Para asegurarte que cuentas con los últimos paquetes y actualizaciones de seguridad, sigue estos pasos:
+### 1. Actualizar el Sistema
+
+Es fundamental que el sistema esté actualizado antes de instalar cualquier software para asegurarte que cuentas con los últimos paquetes y actualizaciones de seguridad.
 
 Abre una nueva terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y actualiza el índice de paquetes apt con el siguiente comando:
   
@@ -39,7 +38,7 @@ Después, actualiza todos los paquetes instalados con el siguiente comando:
 sudo apt upgrade -y
 ```
 
-### __2. Instalar MySQL__
+### 2. Instalar MySQL
 
 Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados. Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
   
@@ -61,7 +60,7 @@ Con el siguiente comando podemos verificar en qué puerto está corriendo MySQL:
 cat /etc/services | grep mysql
 ```
 
-### __3. Configurar MySQL__
+### 3. Configurar MySQL
 
 En Debian y derivados, el paquete mysql-server incluye el script Perl **`mysql_secure_installation`**, el cual permite mejorar la seguridad de la instalación por defecto. Es recomendable correr este script en todas las instalaciones de servidores MySQL para sistemas en producción. En resumen nos permite:
 
@@ -100,7 +99,7 @@ Luego nos pregunta si queremos recargar la tabla de privilegios. Pondremos si (Y
 ![script de seguridad](mysql/mysql-ubuntu-secure-installation-5.webp)
 
 
-### __4. Configurar Métodos de Autenticación__
+### 4. Configurar métodos de autenticación
 
 En los sistemas Ubuntu con MySQL 5.7 (y versiones posteriores), el usuario `root` de MySQL se configura para la autenticación usando el complemento `auth_socket` de manera predeterminada en lugar de una contraseña. Esto en muchos casos proporciona mayor seguridad y utilidad, pero también puede generar complicaciones cuando deba permitir que un programa externo (como phpMyAdmin) acceda al usuario.
 
@@ -150,7 +149,7 @@ FLUSH PRIVILEGES;
 ```
 {: .nolineno }
 
-### **Paso 5: Privilegios de Usuarios**
+### 5. Privilegios de usuarios
 
 Otra opción recomendada es crear un nuevo usuario administrativo con todos los privilegios y acceso a todas las bases de datos:
 

@@ -1,26 +1,25 @@
 ---
-title: "MySQL 🐬 : Instalar y Configurar desde los Binarios en Windows"
-author: enidev911
+title: "Instalar y Configurar desde los Binarios en Windows"
 description: "Instalar MySQL en Windows **desde los binarios** es una buena opción si deseamos una instalación limpia y controlada de MySQL."
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 tags: [Bases de Datos]
 image:
     path: posters/mysql-instalacion-windows-zip.webp
     lqip: data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbABTAAejVz1+BSCCwAD+6orJ8TNtGqWlCMWHJIyIWC/PVwbuT8qoz/2Hf7zJHK8eFejr6144UmKddNMtKhxEwnBsWf6PkorZGgAA
-    alt: Configurar MySQL desde los Binarios en Windows
 pin: true
 permalink: /mysql/instalacion-desde-binarios
 ---
 
 Existen varias formas de instalar MySQL en Windows, descargando el instalador oficial, mediante paquetes como [XAMP](https://www.apachefriends.org/es/index.html) o [WAMPSERVER](https://www.wampserver.com/){:target='_blank'} o incluso usando contenedores de Docker. Sin embargo instalar MySQL desde los binarios en Windows es una excelente opción para usuarios que desean un mayor control sobre la configuración, evitar software adicional innecesario y comprender mejor su funcionamiento interno. En este post, cubriremos los pasos detallados para lograrlo de manera fácil y efectiva.
 
-## __Requisitos Previos__
+## Requisitos Previos
 
-- Windows 10 o superior.
-- Una cuenta con permisos de administrador.
-- Instalación de [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170){:target='_blank'} actualizada.
+- [x] Windows 10 o superior.
+- [x] Una cuenta con permisos de administrador.
+- [x] Instalación de [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170){:target='_blank'} actualizada.
 
-## __1. Descargar y extraer binarios de MySQL__
+
+## 1. Descargar y extraer binarios de MySQL
 
 - Abrimos el navegador y vamos a la página oficial de descargas de MySQL: <a href="https://dev.mysql.com/downloads/" target="_blank">https://dev.mysql.com/downloads/</a>
 - En la sección de **MySQL Community Server**, selecciona la versión de MySQL a instalar.
@@ -41,15 +40,15 @@ Existen varias formas de instalar MySQL en Windows, descargando el instalador of
   ```
   {: .noheader .fit-content }
 
-## __2. Configurar MySQL__
+## 2. Configurar MySQL
 
-### __Crear la carpeta de datos__
+### Crear la carpeta de datos
 
 - Dentro de la carpeta que descomprimiste los binarios de MySQL, crea una carpeta llamada `data/`.
   - **¿Para qué sirve la carpeta `data/`?** Esta carpeta es donde MySQL almacena todas las bases de datos y sus respectivos archivos de configuración. Aquí se guardan las tablas, índices y cualquier dato que ingreses en MySQL, por lo que es fundamental para el funcionamiento del sistema.
 - La ruta completa sería algo así como `C:\mysql\data`.
 
-### __Crear el archivo de configuración__
+### Crear el archivo de configuración
 
 - En la misma carpeta dónde has extraído los binarios, crea un archivo `my.ini`.
   - **¿Para qué sirve el archivo `my.ini`?** Este archivo de configuración afecta directamente el comportamiento del servidor MySQL. Permite definir ubicaciones de archivos, puertos de conexión y otros parámetros importantes que optimizan el rendimiento.
@@ -59,7 +58,7 @@ Existen varias formas de instalar MySQL en Windows, descargando el instalador of
   ```
   {: .noheader .fit-content}
 
-### __Opciones para el servidor \[mysqld\]__
+### Opciones para el servidor \[mysqld\]
 
 La directiva `[mysqld]` dentro del archivo de configuración, afectan directamente el comportamiento del __servidor MySQL__. Aquí puedes establecer rutas, puertos, motor de almacenamiento, límites de conexión, entre otros parámetros.
 
@@ -78,7 +77,7 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES # Reflas de validación SQL
 ```
 {: .nolineno file="my.ini" }
 
-### __Opciones para los clientes \[client\]__
+### Opciones para los clientes \[client\]
 
 La directiva `[client]` dentro del archivo de configuración, afectan a __todas las herramientas cliente de MySQL__, como `mysql`, `mysqldump`, `mysqladmin`, etc. Aquí puedes configurar valores predeterminados para conexión, como el usuario, puerto o incluso la contraseña (no recomendado):
 
@@ -93,7 +92,7 @@ password=miclave123 # No se recomienda guardar contraseñas aquí
 > Para ver más información y las configuraciones que se pueden definir en estos archivos, revisa este [**artículo**](https://dev.mysql.com/doc/refman/8.4/en/option-files.html){:target='_blank'}
 {: .prompt-tip }
 
-## __Inicializar la base de datos del sistema__
+## Inicializar la base de datos del sistema
 
 Antes de poder iniciar el servidor MySQL por primera vez, es necesario inicializar el directorio de datos. Este proceso configura los archivos básicos necesarios para que MySQL funcione correctamente.
 
@@ -139,7 +138,7 @@ Observamos la consola, donde se muestra el password generado aleatoriamente:
 </div>
 </div>
 
-### __Agregar al path__
+### Agregar al path
 
 - Para ejecutar después el programa cliente de mysql desde cualquier ubicación, debemos incluir el directorio `C:\mysql\bin` a la variable `PATH`.
 - Abrimos la CMD normal (para que sea disponible a nivel de usuario) o como administrador (para que sea disponible a nivel de sistema):
