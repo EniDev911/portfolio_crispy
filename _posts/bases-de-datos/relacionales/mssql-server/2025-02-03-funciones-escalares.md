@@ -1,8 +1,12 @@
 ---
-title: "SQL Server: Funciones escalares"
+title: "Funciones escalares en SQL Server"
 categories: [Bases de Datos Relacionales, "MSSQL Server"]
 tags: [Bases de Datos, "Relacionales", "MSSQL Server"]
+image:
+   path: posters/sql-server-funciones-ecalares.webp
+   lqip: data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAAoAPzmIulOvKSWisAgB4CcJYwCuHBuDM9O4IBSAAPb0pCMXQPNKwFHieDMpwzltavl8Ea1AXfcdri3lpATAAAA=
 permalink: /sqlserver/funciones-escalares
+pin: true
 ---
 
 En SQL Server, las funciones escalares son rutinas que devuelven un único valor (numérico, texto, fecha, etc.) definido en la cláusula `RETURNS`.
@@ -118,11 +122,11 @@ Resultado:
 En Chile, la tasa estándar de IVA es del **19%**. Podemos crear una función escalar que calcule el IVA de un precio neto y retorne su IVA, acorde a la práctica contable:
 
 ```sql
-CREATE FUNCTION dbo.calcularIVA(@precioNeto MONEY)
+CREATE FUNCTION calcularIVA(@precioNeto MONEY)
 RETURNS INT
 AS
 BEGIN
-    RETURN ROUND(@precioNeto * 0.19, 0); -- Calcula el IVA
+    RETURN @precioNeto * 0.19; -- Calcula el IVA
 END
 GO
 ```
@@ -139,5 +143,6 @@ SELECT dbo.calcularIVA(50000) AS IVA;
 | ---- |
 | 9500 |
 
-> Esta función puede ser combinada con otras funciones escalares, por ejemplo para calcular **precio total con IVA** o aplicar **descuentos** en tus consultas SQL.
+> Esta función puede ser combinada con otras funciones escalares, por ejemplo para calcular **precio total con IVA**:
+![Funciones escalares](sqlserver/sql-server-funciones-ecalares-iva-precio-total.webp)
 {: .prompt-tip }

@@ -2,11 +2,12 @@
 title: "Instalación de Python"
 icon: "python"
 description: "Instala Python con facilidad: en **Windows**, usa el instalador oficial; en **macOS**, Homebrew o la web oficial; en **Linux**, el gestor de paquetes."
-categories: [Python, "01. Básico"]
+categories: [Python, "Básico"]
+order: 1
 image:
     path: "posters/python-instalacion.webp"
     lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPzmIulOvKSWisAgB4CcJZgCdAB87I8BCy/pQAgD+oMJm1X2r2TfzZNbTXWf9L+N8znXHbn++k1kUTW1sld+ooGg9QcWvAsCRQ1T95CFRs5YbzhLIwHy1D4MAAAA=
-permalink: /categorias/python/basico/instalacion
+permalink: /python/instalacion
 ---
 
 En esta guía, cubriremos la instalación de Python en **Windows**, **macOS** y **Linux**, usando distintas herramienta. También revisaremos los requisitos del sistema y algunos consejos para una instalación sin problemas.

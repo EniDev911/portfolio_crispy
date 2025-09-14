@@ -5,13 +5,14 @@ tags: [Bases de Datos Relacionales, SQLite]
 image:
   path: posters/dbbrowser-for-sqlite.webp
   lqip: data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBOgAzfTUwCEJ4QAAP6RpW7O3uePDkFph6RURYdw7esdbmIp4it19EOQM4vxOnJ/823k64BxaG30SFFLgSThwyhqihLgAAA=
+permalink: /sqlite/db-browser
 ---
 
 [DB Browser for SQLite](https://sqlitebrowser.org/){:target='_blank'} es un software de código abierto que nos permite administrar, procesar y explorar bases de datos SQLite de forma visual e intuitiva.
 
 Es una herramienta ideal tanto para crear prototipos o estudiantes que empiezan a trabajar con bases de datos. Su interfaz gráfica facilita tareas comunes como crear tablas, insertar datos, ejecutar consultas y visualizar resultados sin necesidad de escribir demasiado código SQL. En este artículo vamos a aprender a cómo usarlo para realizar tareas básicas como crear bases datos, tablas, insertar registros, importar y exportar datos de diferentes fuentes, entre otras cosas.
 
-### __Instalación DB Browser for SQLite__
+## Instalación DB Browser for SQLite
 
 Instalar __DB Browser for SQLite__ es muy sencillo y está disponible para los principales sistemas operativos.
 
@@ -31,7 +32,7 @@ sudo apt install sqlitebrowser
 {% endtab %}
 {% endtabs %}
 
-### __Crear una Base de Datos__
+## Crear una Base de Datos
 
 Ahora, cuando abres el programa y quieres crear una base de datos, solo debes realizar dos pasos:
 
@@ -40,7 +41,7 @@ Ahora, cuando abres el programa y quieres crear una base de datos, solo debes re
 
 ![New database DB Browser](sqlite/db-browser-new-database.webp)
 
-### __Crear una tabla__
+### Crear una tabla
 
 Una vez que hayas creado tu base de datos, puedes comenzar de inmediato creando tu primera tabla. A continuación se muestra un ejemplo de cómo hacerlo:
 
@@ -49,7 +50,7 @@ Una vez que hayas creado tu base de datos, puedes comenzar de inmediato creando 
 1. Establece un nombre para la tabla.
 2. Añadir nuevas columnas para la tabla actual.
 
-### __Añadir Columnas__
+### Añadir Columnas
 
 Cuando das clic en "Add" para agregar una nueva columna, se añadirá el recuadro que permite configurar esa columna. A continuación se muestra un ejemplo:
 
@@ -63,7 +64,7 @@ Cuando terminas de agregar las columnas necesarias, presiona el botón "Ok" para
 2. El código SQL generado en relación a las acciones anteriores.
 3. Al dar clic en aceptar se crea la tabla en el archivo de base de datos.
 
-## __Examinar y Agregar Datos__
+## Examinar y Agregar Datos
 
 Al acceder a la pestaña "Browse Data" (Explorar datos), podremos visualizar los encabezados de las columnas, así como otros elementos relevantes de la tabla, como los registros almacenados:
 
@@ -77,7 +78,7 @@ Una vez editadas las filas con información en cada celda, podemos actualizar la
 
 ![Guardar cambios](sqlite/db-browser-write-changes.webp)
 
-## __Importar datos en DB Browser__
+## Importar datos en DB Browser
 
 Una forma rápida de poblar tablas en DB Browser es utilizando la opción de __importar datos__ desde un archivo externo, como un CSV. Esto permite agregar múltiples registros de manera masiva sin necesidad de escribir cada uno manualmente.
 
@@ -97,7 +98,7 @@ Luego, revisa las opciones que vienen marcadas y ajustala al formato específico
 2. __Vista previa__: muestra los primeros 19-20 registros del archivo para verificar que la estructura sea correcta.
 3. __Resultado__: se crea la tabla con todos los registros contenidos en el archivo CSV.
 
-## __Crear Vistas__
+## Crear Vistas
 
 En caso de que no sepas que es una vista, una vista es simplemente un conjunto de resultados de una consulta almacenada. Una vista es una forma de empaquetar una consulta en un objeto con nombre que se almacena en la base de datos.
 
@@ -118,7 +119,6 @@ Ahora, puedes exportar esta presentación de los datos como una vista:
 Luego, debes asignar un nombre a la vista y esta se creará. Podrás encontrarla como un objeto de tipo "views" almacenado en la base de datos:
 
 ![Vista creada](sqlite/db-browser-view-created.webp)
-
 
 {% include circle-line.html %}
 

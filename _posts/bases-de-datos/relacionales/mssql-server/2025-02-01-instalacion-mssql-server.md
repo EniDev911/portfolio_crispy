@@ -1,7 +1,11 @@
 ---
 title: "Instalar y configurar MSSQL Server"
 categories: [Bases de Datos Relacionales, "MSSQL Server"]
+image:
+   path: posters/instalar-sql-server.webp
+   lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwBACdASoUAAsAPzmEulOvKKWisAgB4CcJbACdMoRwFf/gMkWvJhQJ/EK2DLSAAO8rgizc1oA7jhiJY1T3dHJfSlwzueCDL6Dbh4Ipj71oM3bXXDXOBNOvuvjwNGVAzhUGWFbpWB7AAA==
 tags: [Bases de Datos, "Relacionales"]
+permalink: mssql-server/instalacion
 ---
 
 Microsoft SQL Server es uno de los gestores de bases de datos más utilizados en entornos empresariales y con esto nos referimos a lo siguiente:
@@ -47,7 +51,7 @@ En Windows, SQL Server se integra de forma nativa y su instalador nos ofrece var
 
 ### Configurar una nueva instancia
 
-Una vez instalado, se abrirá el asistente (Centro de instalación de SQL Server 2022). Actúa como un lanzador de asistentes (wizards) que guían paso a paso en distintas operaciones relacionadas con el motor de base de datos y sus herramientas.
+Una vez instalado, se abrirá el asistente (Centro de instalación de SQL Server 2022). Actúa como un lanzador de asistentes (wizards) que guían paso a paso en distintas operaciones relacionadas con el motor de base de datos y sus herramientas. En las opciones que nos muestra el asistente, es precisamente la primera la que nos ayuda a configurar una nueva instancia:
 
 ![Crear una nueva instancia](sqlserver/nueva-instancia.webp)
 
@@ -153,6 +157,6 @@ Ahora podemos conectarnos con el cliente `sqlcmd` usando el siguiente comando:
 {% include circle-line.html %}
 
 La instalación de SQL Server no se reduce a “dar siguiente”.
-Cada entorno —Windows, Linux o macOS— plantea distintas decisiones de configuración: desde elegir la edición correcta hasta definir el modo de autenticación o la forma de desplegar el servidor.
+Cada entorno Windows, Linux o macOS plantea distintas decisiones de configuración: desde elegir la edición correcta hasta definir el modo de autenticación o la forma de desplegar el servidor.
 
 Comprender estos puntos desde el inicio te asegura un entorno más seguro, ordenado y fácil de administrar a futuro.
