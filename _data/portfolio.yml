@@ -108,3 +108,9 @@ certificates:
     url: "https://skillshop.exceedlms.com/student/award/KSH7V7DYqRd2FzUrQBNxTqop"
     image: "/assets/img/certificados/idw_html_css.webp"
     image_base64: "UklGRkgAAABXRUJQVlA4IDwAAADwAgCdASoUAA8APzmGulOvKSWisAgB4CcJaQAAetCIAAD+7jl7MUF6MOWb6X6/AMHGms7m+90FQAAAAAA="
+
+  - title: "Generation"
+    description: "Desarollador Full Stack Jr - Java"
+    url: "/assets/certificados/full-stack-java_generation.pdf"
+    image: "/assets/img/certificados/fullstack-java-generation.webp"
+    image_base64: "UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAA8APzmEuVOvKKWisAgB4CcJagCw7B0+jBlzeh4DCyGAAN9WC0zbkjvK8sgw+bjK296IWeyYd4QcRLIXzu79Wjq1wGgqsDpw/xUd+GE60IyOfBV22WfxV2s3+tfL6iYaJouMZA/EXNZQAAA="
