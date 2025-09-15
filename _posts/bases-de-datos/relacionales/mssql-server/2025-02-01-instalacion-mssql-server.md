@@ -1,10 +1,10 @@
 ---
 title: "Instalar y configurar MSSQL Server"
-categories: [Bases de Datos Relacionales, "MSSQL Server"]
+categories: [Bases de Datos Relacionales, "SQL Server"]
 image:
    path: posters/instalar-sql-server.webp
    lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwBACdASoUAAsAPzmEulOvKKWisAgB4CcJbACdMoRwFf/gMkWvJhQJ/EK2DLSAAO8rgizc1oA7jhiJY1T3dHJfSlwzueCDL6Dbh4Ipj71oM3bXXDXOBNOvuvjwNGVAzhUGWFbpWB7AAA==
-tags: [Bases de Datos, "Relacionales"]
+tags: [Bases de Datos, "SQL"]
 permalink: mssql-server/instalacion
 ---
 

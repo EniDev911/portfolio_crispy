@@ -193,7 +193,7 @@ Este instalador incluye los siguientes programas:
 
 Este instalador puede ejecutarse en modo gráfico, por la línea de comandos o de instalación silenciosa.
 
-### **Instalar con Homebrew**
+### Instalar con Homebrew
 
 Si no tienes [**Homebrew**](https://brew.sh/){: target='_blank' } instalado en tu sistema, debes instalarlo primero. Homebrew es un gestor de paquetes para macOS que facilita la instalación de software.
 
@@ -223,13 +223,6 @@ brew install postgresql
 
 Homebrew descargará e instalará PostgreSQL en el sistema. Este proceso puede tardar algunos minitos dependiendo de la conexión a Internet.
 
-#### **Iniciar PostgreSQL**
-
-Una vez instalado, podemos iniciar PostgreSQL usando `brew services`:
-
-```terminal
-brew services start postgresql
-```
 
 Esto iniciará el servidor PostgreSQL y lo hará correr en segundo plano como un servicio del sistema.
 

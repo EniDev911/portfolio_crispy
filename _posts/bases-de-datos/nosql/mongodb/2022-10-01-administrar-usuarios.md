@@ -1,7 +1,8 @@
 ---
-title: "MongoDB: Gestión de usuarios y seguridad"
-icon: mongodb
+title: "Gestión de usuarios y seguridad"
+icon: mongo
 categories: ["Bases de datos NOSQL", "MongoDB"]
+permalink: mongo/administrar-usuarios
 ---
 
 La seguridad es un pilar fundamental en cualquier base de datos. En MongoDB, la gestión de usuarios y roles permite controlar quién puede acceder y qué acciones puede realizar sobre los datos. MongoDB utiliza un sistema __basado en roles__ que facilita la administración de permisos.

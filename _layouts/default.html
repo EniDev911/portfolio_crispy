@@ -14,7 +14,7 @@ layout: compress
   {% include head.html %}
   <body>
     {% include sidebar.html lang=lang %}
-    <div id="main-wrapper" class="d-flex justify-content-center">
+    <div id="main-wrapper" class="d-flex justify-content-centers">
       <div class="container d-flex flex-column px-xxl-5">
         {% include topbar.html lang=lang %}
         <div class="row flex-grow-1">
@@ -31,6 +31,9 @@ layout: compress
               {% if page.layout == 'post' %}
                 {% include_cached update-list.html lang=lang %}
                 {% include_cached trending-tags.html lang=lang %}
+              {% else %}
+              <div class="">
+              </div>
               {% endif %}
             </div>
 

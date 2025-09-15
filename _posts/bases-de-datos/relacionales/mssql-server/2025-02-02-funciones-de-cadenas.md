@@ -1,7 +1,7 @@
 ---
 title: "Funciones de cadena en SQL Server"
-categories: [Bases de Datos Relacionales, "MSSQL Server"]
-tags: [Bases de Datos, "Relacionales"]
+categories: [Bases de Datos Relacionales, "SQL Server"]
+tags: [Bases de Datos, "SQL"]
 image:
    path: posters/sqlserver-funciones-de-cadenas.webp
    lqip: data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAAoAPzmIulOvKSWisAgB4CcJYwCuHBuDM9O4IBSAAPb0pCMXQPNKwFHieDMpwzltavl8Ea1AXfcdri3lpATAAAA=
@@ -251,9 +251,9 @@ Reemplazar espacios por guiones:
 
 ```sql
 SELECT 
-    actor_name,
-    REPLACE(actor_name, ' ', '-') AS personaje_con_guiones,
-    REPLACE(character_name, ' ', '_') AS nombre_con_guion_bajo
+  actor_name,
+  REPLACE(actor_name, ' ', '-') AS personaje_con_guiones,
+  REPLACE(character_name, ' ', '_') AS nombre_con_guion_bajo
 FROM Cast;
 ```
 {: .nolineno }

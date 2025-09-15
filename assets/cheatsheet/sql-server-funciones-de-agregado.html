@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones de Agregado en SQL Server</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .sql-post {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .post-header {
+            background: linear-gradient(135deg, #005a8e 0%, #00365a 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .post-title {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .post-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .post-content {
+            padding: 30px;
+        }
+        
+        .intro {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f0f7ff;
+            border-left: 4px solid #005a8e;
+            border-radius: 4px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            color: #005a8e;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .function-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #005a8e;
+            page-break-inside: avoid;
+        }
+        
+        .function-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .function-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e6f2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #005a8e;
+        }
+        
+        .function-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #005a8e;
+        }
+        
+        .function-desc {
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            page-break-inside: avoid;
+        }
+        
+        .sql-keyword {
+            color: #f92672;
+        }
+        
+        .sql-function {
+            color: #66d9ef;
+        }
+        
+        .sql-string {
+            color: #a6e22e;
+        }
+        
+        .sql-comment {
+            color: #75715e;
+        }
+        
+        .use-case {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #00bcd4;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+        
+        .use-case-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #005a8e;
+        }
+        
+        .best-practices {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #ff9800;
+            page-break-inside: avoid;
+        }
+        
+        .best-practices-title {
+            font-size: 1.3rem;
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+        
+        .best-practices-list {
+            padding-left: 20px;
+        }
+        
+        .best-practices-list li {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 1.8rem;
+            }
+            
+            .post-content {
+                padding: 20px;
+            }
+        }
+        
+        /* Estilos para impresión */
+        @media print {
+            @page {
+                margin: 1cm;
+                size: portrait;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            .sql-post {
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .post-header {
+                background: #005a8e !important;
+                color: white !important;
+                padding: 20px;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .post-title {
+                font-size: 20pt;
+            }
+            
+            .post-subtitle {
+                font-size: 12pt;
+            }
+            
+            .post-content {
+                padding: 20px 0;
+            }
+            
+            .intro {
+                background: #f0f7ff !important;
+                border-left: 4px solid #005a8e;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .section {
+                margin-bottom: 25px;
+            }
+            
+            .section-title {
+                color: #005a8e;
+                font-size: 16pt;
+                border-bottom: 1px solid #ccc;
+            }
+            
+            .function-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                border-left: 4px solid #005a8e;
+                page-break-inside: avoid;
+            }
+            
+            .function-icon {
+                background: #e6f2ff !important;
+                color: #005a8e !important;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .function-name {
+                color: #005a8e;
+            }
+            
+            .code-block {
+                background: #f5f5f5 !important;
+                color: #333 !important;
+                border: 1px solid #ddd;
+                font-size: 10pt;
+                page-break-inside: avoid;
+                overflow-wrap: break-word;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .sql-keyword {
+                color: #900 !important;
+                font-weight: bold;
+            }
+            
+            .sql-function {
+                color: #009 !important;
+                font-weight: bold;
+            }
+            
+            .sql-string {
+                color: #070 !important;
+            }
+            
+            .sql-comment {
+                color: #666 !important;
+                font-style: italic;
+            }
+            
+            .use-case {
+                background: #f9f9f9 !important;
+                border-left: 3px solid #00bcd4;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .use-case-title {
+                color: #005a8e;
+            }
+            
+            .best-practices {
+                background: #fff9e6 !important;
+                border-left: 4px solid #ff9800;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .best-practices-title {
+                color: #e65100;
+            }
+            
+            .print-btn-container {
+                display: none;
+            }
+            
+            a {
+                color: #005a8e;
+                text-decoration: underline;
+            }
+            
+            /* Evitar que se corten elementos entre páginas */
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid;
+            }
+            
+            pre, blockquote {
+                page-break-inside: avoid;
+            }
+            
+            ul, ol, dl {
+                page-break-before: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sql-post">
+        <div class="post-header">
+            <h1 class="post-title">Funciones de Agregado en SQL Server</h1>
+            <p class="post-subtitle">Cheatsheet</p>
+        </div>
+        
+        <div class="post-content">
+            <div class="intro">
+                Las funciones de agregado en SQL Server son herramientas esenciales para realizar cálculos sobre conjuntos de datos, permitiendo resumir información y obtener métricas valiosas para la toma de decisiones.
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Funciones Básicas de Agregado</h2>
+                
+                <div class="function-card">
+                    <div class="function-header">
+                        <div class="function-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="function-name">COUNT()</h3>
+                    </div>
+                    <p class="function-desc">
+                        Cuenta el número de filas o valores no nulos en un conjunto de datos.
+                    </p>
+                    <div class="code-block">
+                        <span class="sql-keyword">SELECT</span> <span class="sql-function">COUNT</span>(*) <span class="sql-keyword">AS</span> TotalClientes<br>
+                        <span class="sql-keyword">FROM</span> Clientes;<br><br>
+                        
+                        <span class="sql-keyword">SELECT</span> <span class="sql-function">COUNT</span>(Email) <span class="sql-keyword">AS</span> ClientesConEmail<br>
+                        <span class="sql-keyword">FROM</span> Clientes;
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-title">Caso de uso:</div>
+                        <p>Determinar cuántos clientes tienen información de contacto completa para una campaña de marketing.</p>
+                    </div>
+                </div>
+                
+                <div class="function-card">
+                    <div class="function-header">
+                        <div class="function-icon">
+                            <i class="fas fa-sum"></i>
+                        </div>
+                        <h3 class="function-name">SUM()</h3>
+                    </div>
+                    <p class="function-desc">
+                        Calcula la suma total de los valores en una columna numérica.
+                    </p>
+                    <div class="code-block">
+                        <span class="sql-keyword">SELECT</span> <span class="sql-function">SUM</span>(Ventas) <span class="sql-keyword">AS</span> VentasTotales<br>
+                        <span class="sql-keyword">FROM</span> Pedidos<br>
+                        <span class="sql-keyword">WHERE</span> YEAR(Fecha) = 2023;
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-title">Caso de uso:</div>
+                        <p>Calcular los ingresos totales generados en el último trimestre para el reporte financiero.</p>
+                    </div>
+                </div>
+                
+                <div class="function-card">
+                    <div class="function-header">
+                        <div class="function-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="function-name">AVG()</h3>
+                    </div>
+                    <p class="function-desc">
+                        Calcula el valor promedio de una columna numérica, ignorando valores NULL.
+                    </p>
+                    <div class="code-block">
+                        <span class="sql-keyword">SELECT</span> <span class="sql-function">AVG</span>(Precio) <span class="sql-keyword">AS</span> PrecioPromedio<br>
+                        <span class="sql-keyword">FROM</span> Productos<br>
+                        <span class="sql-keyword">WHERE</span> CategoriaID = 5;
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-title">Caso de uso:</div>
+                        <p>Determinar el ticket promedio de compra por cliente para ajustar estrategias de precios.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Funciones Avanzadas de Agregado</h2>
+                
+                <div class="function-card">
+                    <div class="function-header">
+                        <div class="function-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <h3 class="function-name">MAX()</h3>
+                    </div>
+                    <p class="function-desc">
+                        Devuelve el valor máximo de una columna.
+                    </p>
+                    <div class="code-block">
+                        <span class="sql-keyword">SELECT</span> <span class="sql-function">MAX</span>(FechaNacimiento) <span class="sql-keyword">AS</span> ClienteMasJoven<br>
+                        <span class="sql-keyword">FROM</span> Clientes;
+                    </div>
+                </div>
+                
+                <div class="function-card">
+                    <div class="function-header">
+                        <div class="function-icon">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <h3 class="function-name">MIN()</h3>
+                    </div>
+                    <p class="function-desc">
+                        Devuelve el valor mínimo de una columna.
+                    </p>
+                    <div class="code-block">
+                        <span class="sql-keyword">SELECT</span> <span class="sql-function">MIN</span>(Precio) <span class="sql-keyword">AS</span> ProductoMasBarato<br>
+                        <span class="sql-keyword">FROM</span> Productos;
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Agrupación de Datos con GROUP BY</h2>
+                <p>Las funciones de agregado muestran todo su potencial cuando se combinan con la cláusula GROUP BY, permitiendo agrupar resultados por categorías.</p>
+                
+                <div class="code-block">
+                    <span class="sql-comment">-- Ventas totales por categoría de producto</span><br>
+                    <span class="sql-keyword">SELECT</span> CategoriaID, <span class="sql-function">SUM</span>(Ventas) <span class="sql-keyword">AS</span> VentasTotales<br>
+                    <span class="sql-keyword">FROM</span> Productos<br>
+                    <span class="sql-keyword">GROUP BY</span> CategoriaID<br>
+                    <span class="sql-keyword">ORDER BY</span> VentasTotales <span class="sql-keyword">DESC</span>;
+                </div>
+                
+                <div class="code-block">
+                    <span class="sql-comment">-- Número de pedidos por cliente y año</span><br>
+                    <span class="sql-keyword">SELECT</span> ClienteID, YEAR(Fecha) <span class="sql-keyword">AS</span> Año, <span class="sql-function">COUNT</span>(*) <span class="sql-keyword">AS</span> TotalPedidos<br>
+                    <span class="sql-keyword">FROM</span> Pedidos<br>
+                    <span class="sql-keyword">GROUP BY</span> ClienteID, YEAR(Fecha)<br>
+                    <span class="sql-keyword">HAVING</span> <span class="sql-function">COUNT</span>(*) > 5;
+                </div>
+            </div>
+            
+            <div class="best-practices">
+                <h3 class="best-practices-title">Buenas Prácticas</h3>
+                <ul class="best-practices-list">
+                    <li>Utiliza <strong>COUNT(1)</strong> en lugar de <strong>COUNT(*)</strong> para mejor rendimiento en tablas grandes</li>
+                    <li>Considera el uso de <strong>FILTER</strong> o <strong>WHERE</strong> para excluir valores nulos antes de aplicar agregaciones</li>
+                    <li>Para promedios, ten en cuenta cómo los valores nulos pueden afectar tus resultados</li>
+                    <li>Usa <strong>GROUP BY</strong> junto con <strong>HAVING</strong> para filtrar resultados agregados</li>
+                    <li>Considera el uso de índices en columnas frecuentemente usadas en cláusulas GROUP BY</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
