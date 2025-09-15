@@ -10,7 +10,7 @@ Aprender redes no siempre requiere acondicionar un laboratorio con hardware cost
 
 Cisco Packet Tracer es una herramienta de simulación de redes desarrollada por Cisco, diseñada para ayudar a estudiantes y profesionales a practicar configuraciones de redes __sin necesidad de hardware físico__. Es ampliamente utilizada en programas de formación como Cisco Networking Academy (NetAcad) y en la preparación para certificaciones como el CCNA.
 
-## 💻 __Requisitos del sistema__
+## Requisitos del sistema
 
 Antes de instalar, asegúrate de que tu equipo cumple con los requisitos mínimos:
 
@@ -18,7 +18,7 @@ Antes de instalar, asegúrate de que tu equipo cumple con los requisitos mínimo
 - **RAM:** 4 GB mínimo (recomendado: 8 GB)  
 - **Espacio en disco:** 1 GB libre  
 
-### __Paso 1: Descarga de Cisco Packet Tracer__
+### 1. Descarga de Cisco Packet Tracer
 
 1. Ve a [netacad.com](https://www.netacad.com/){:target='_blank'}.
 2. Crea una cuenta gratuita o inicia sesión si ya tienes una.
@@ -31,7 +31,7 @@ Antes de instalar, asegúrate de que tu equipo cumple con los requisitos mínimo
 
 ![Descargar cpt para tu plataforma](cisco/descarga-cpt-plataforma.webp)
 
-### __Paso 2: Instalación__
+### 2. Instalación
 
 **En Windows:**
 
@@ -46,7 +46,7 @@ Antes de instalar, asegúrate de que tu equipo cumple con los requisitos mínimo
 2. Arrastra el icono de Packet Tracer a la carpeta Aplicaciones.
 3. Abre la aplicación (puede pedirte permiso de seguridad).
 
-### __Paso 3: Primeros pasos en Packet Tracer__
+## Primeros pasos en Packet Tracer
 
 1. Inicia sesión con tu cuenta de NetAcad.
 2. Verás una interfaz con varios dispositivos (routers, switches, PCs).

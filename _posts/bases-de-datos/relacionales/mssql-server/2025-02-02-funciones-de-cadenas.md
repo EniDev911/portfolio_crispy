@@ -2,9 +2,11 @@
 title: "Funciones de cadena en SQL Server"
 categories: [Bases de Datos Relacionales, "MSSQL Server"]
 tags: [Bases de Datos, "Relacionales"]
+image:
+   path: posters/sqlserver-funciones-de-cadenas.webp
+   lqip: data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAAoAPzmIulOvKSWisAgB4CcJYwCuHBuDM9O4IBSAAPb0pCMXQPNKwFHieDMpwzltavl8Ea1AXfcdri3lpATAAAA=
 permalink: /sqlserver/funciones-de-cadenas
 ---
-
 
 En SQL Server, las funciones de cadena permiten manipular valores basados en cadenas de texto (incluyendo texto y alfanuméricos). También conocidas como "Funciones escalares de cadena", las funciones de cadena toman uno o más valores de cadenas de texto como argumento y devuelven un valor de cadena modificado.
 

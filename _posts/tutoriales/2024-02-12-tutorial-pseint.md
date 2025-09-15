@@ -1,24 +1,26 @@
 ---
-title: "Tutorial: PSeInt y Aprender a Escribir Pseudocódigo"
+title: "PSeInt y Aprender a Escribir Pseudocódigo"
 categories: [Tutoriales, "Programación"]
 mermaid: true
+permalink: 'programacion/pseint'
 ---
 
-
-## __¿Qué es PSeInt?__
+## ¿Qué es PSeInt?
 
 PSeInt es un programa diseñado para aprender y practicar programación utilizando [pseudocódigo](https://es.wikipedia.org/wiki/Pseudoc%C3%B3digo){:target='_blank'}. Es muy útil para iniciarse en la lógica de programación sin necesidad de conocer un lenguaje de programación complejo. El pseudocódigo es una forma de describir algoritmos usando un lenguaje cercano al humano, con estructuras y convenciones de programación simples.
 
-### __¿Por qué usar PSeInt?__
+### ¿Por qué usar PSeInt?
 
 PSeInt te ayuda a:
-- Entender la lógica detrás de los algoritmos.
-- Escribir y visualizar algoritmos sin tener que preocuparte por la sintaxis específica de un lenguaje de programación.
-- Aprender **conceptos fundamentales de programación**, como condicionales, bucles, y variables.
+- [x] Entender la lógica detrás de los algoritmos.
+- [x] Escribir y visualizar algoritmos sin tener que preocuparte por la sintaxis específica de un lenguaje de programación.
+- [x] Aprender **conceptos fundamentales de programación**, como condicionales, bucles, y variables.
 
-## __Comenzar con PSeInt Paso a Paso__
+## Instalación PSeInt
 
-### __Paso 1: Descargar e Instalar PSeInt__
+PSeInt lo puedes conseguir desde su sitio web oficial, siguiendo unos sencillos pasos:
+
+### 1. Descargar PSeInt
 
 1. **Descargar PSeInt:**
    - Ve al sitio de descargas de PSeInt: [https://pseint.sourceforge.io](https://pseint.sourceforge.io){:target='_blank'}.
@@ -31,7 +33,7 @@ PSeInt te ayuda a:
 3. **Abrir el programa:**
    - Después de la instalación, abre PSeInt desde el acceso directo que se crea en tu escritorio o desde el menú de inicio.
 
-### __Paso 2: Conocer su Interfaz__
+### 2. Conocer su Interfaz
 
 La interfaz de PSeInt es sencilla e intuitiva, al abrir PSeInt, encontraremos varios elementos comunes en su interfaz:
 
@@ -46,7 +48,7 @@ La interfaz de PSeInt es sencilla e intuitiva, al abrir PSeInt, encontraremos va
 
 ![interfaz superior](tutoriales/pseint-interfaz1.webp)
 
-### __Paso 3: Crear un Nuevo Algoritmo en PSeInt__
+### 3. Crear un Nuevo Algoritmo en PSeInt
 
 1. **Iniciar un nuevo archivo:**
    - Cuando abras PSeInt, selecciona **Archivo** en la barra de menú y luego haz clic en **Nuevo** para crear un nuevo algoritmo.

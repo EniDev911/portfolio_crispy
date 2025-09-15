@@ -1,11 +1,23 @@
 ---
-title: "Webpack: Introducción"
+title: "Introducción a Webpack"
 categories: ["Desarrollo Web", "Webpack"]
+permalink: webpack/introduccion
 ---
 
 ## ¿Qué es Webpack?
 
 **Webpack** es un empaquetador (*bundler*) de módulos. En términos sencillos, es una herramienta que toma todos los recursos de una aplicación web (JavaScript, CSS, Imágenes, etc.) y los agrupa en un solo archivo (o varios archivos optimizados) para ser usados en el navegador. Webpack no solo empaqueta archivos, sino que también permite realizar tareas de transformación y optimización de esos archivos, como la transpilación de JavaScript con Babel, la minificación de código y la inyección de recursos estáticos como imágenes y fuentes.
+
+### Instalar Webpack
+
+Para crear un proyecto que use Webpack, podemos crear un directorio e instalar las dependencias:
+
+```terminal
+mkdir intro-webpack
+cd intro-webpack
+npm init -y
+npm install webpack webpack-cli --save-dev
+```
 
 ### Conceptos Básicos de Webpack
 
@@ -26,19 +38,9 @@ Para entender cómo funciona Webpack, hay varios conceptos clave que debemos con
 **Output**
 : Es donde Webpack coloca los archivos finales después de haberlos empaquetado. Puedes especificar el nombre y la estructura de los archivos de salida.
 
-### Empezar con Webpack
-
-A continuación vamos a ver el flujo básico para comenzar con Webpack en un proyecto.
-
-Iniciamos un nuevo proyecto y creamos un package.json de manera automática con valores predeterminados:
-
-```terminal
-npm i -D webpack webpack-cli
-```
-
 #### Configurar Webpack
 
-Creamos un archivo `webpack.config.js` en el directorio raíz del proyecto. Este archivo contiene todas las reglas y configuraciones para que Webpack empaquete los archivos de la manera que necesites.
+Creamos un archivo `webpack.config.js` en el directorio raíz del proyecto. Este archivo contiene todas las reglas y configuraciones para que Webpack pueda empaquetar los archivos de la manera que necesites.
 
 Un archivo `webpack.config.js` básico puede lucir de la siguiente manera:
 
@@ -83,8 +85,6 @@ Para facilitar la ejecución de Webpack desde la terminal, podemos agregar algun
 },
 ```
 {: .nolineno file="package.json" }
-
----
 
 ### Loaders
 

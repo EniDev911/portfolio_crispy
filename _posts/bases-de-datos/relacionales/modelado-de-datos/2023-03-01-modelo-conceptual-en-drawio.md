@@ -7,6 +7,7 @@ image:
   lqip: data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAAsAPzleyV8vI6qmGAHgJwllAFR+h6II8uS+US1roSAA/t6sJSnrDFEQXY+jDrxAUFNqlpB4KOMJ1Y6TI6kLqW4HrwOy7QAAAA==
 categories: [Bases de Datos Relacionales, "Modelado de Datos"]
 tags: [Bases de Datos, "Modelado de Datos"]
+permalink: modelado-de-datos/modelo-conceptual-con-drawio
 ---
 
 ## ¿Qué entendemos por Modelo Conceptual?

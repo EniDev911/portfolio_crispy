@@ -20,17 +20,17 @@ Enter ".help" for usage hints.
 
 {% include terminal-wrapper.html content=example1 %}
 
-## __¿Qué es la línea de comandos para SQLite3?__
+## ¿Qué es la línea de comandos para SQLite3?
 
 La **interfaz de línea de comandos** (_Command Line Interface_) es un programa que permite interactuar con bases de datos SQLite mediante comandos SQL.
 
 Este programa está disponible para los principales sistemas operativos ( Windows, macOS y Linux ) y puede ser descargado gratuitamente desde su [__sitio web oficial__](https://www.sqlite.org/download.html){:target='_blank'}
 
-### __Instalar el Programa__
+### Instalar el Programa
 
 La instalación de SQLite3 es sencilla y varía ligeramente dependiendo del sistema operativo:
 
-#### __En Windows__
+#### En Windows
 
 1. Ve al sitio oficial de SQLite: [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
 2. Descarga el archivo **"sqlite-tools"** correspondiente a tu sistema (por ejemplo, `sqlite-tools-win32-x86`).
@@ -40,18 +40,17 @@ La instalación de SQLite3 es sencilla y varía ligeramente dependiendo del sist
 > __Opcional__: Agrega la ruta de SQLite a las variables de entorno para poder usarlo desde cualquier ubicación del sistema.
 {: .prompt-info }
 
-#### __En macOS__
+#### En macOS
 
 Puedes instalar SQLite fácilmente usando Homebrew:
 
-```bash
+```terminal
 brew install sqlite
 ```
-{: .nolineno }
 
 Luego, ejecuta el comando `sqlite3` en la terminal para comenzar.
 
-#### __En Linux ( Debian/Ubuntu )__
+#### En Linux ( Debian/Ubuntu )
 
 En la mayoría de las distribuciones Linux, SQLite está disponible en los repositorios oficiales:
 
@@ -63,7 +62,7 @@ sudo apt install sqlite3
 
 Después, solo debes escribir `sqlite3` en la terminal para iniciar la herramienta.
 
-## __¿Qué podemos hacer con la línea de comandos de SQLite3?__
+## ¿Qué podemos hacer con la línea de comandos de SQLite3?
 
 Una vez iniciado el programa `sqlite3`, puedes revisar diversas operaciones sobre bases de datos SQLite, tales como:
 
@@ -74,7 +73,7 @@ Una vez iniciado el programa `sqlite3`, puedes revisar diversas operaciones sobr
 - Ejecutar archivos `.sql` que contengan múltiples instrucciones.
 - Usar comandos internos especiales ( comienzan con `.` ) para facilitar la gestión y visualización de datos.
 
-### __Crear y abrir Bases de Datos__
+### Crear y abrir Bases de Datos
 
 Para crear una base de datos, debes abrir una nueva __Terminal__ o ventana de __símbolo del sistema__ ( CMD ) y escribir el nombre del programa seguido del nombre del archivo de base de datos:
 
@@ -96,7 +95,7 @@ sqlite>
 
 Ahora puedes ejecutar instrucciones SQL.
 
-### __Crear Tablas__
+### Crear Tablas
 
 Ahora en la **sesión interactiva** ejecutamos una sentencia SQL para crear una tabla sencilla de ejemplo:
 
@@ -110,7 +109,7 @@ CREATE TABLE usuarios (id INT, nombre TEXT);
 
 ![sqlite crear una base de datos](sqlite/create-filedb.webp)
 
-### __Insertar Datos__
+### Insertar Datos
 
 Ahora puedes crear nuevos registros:
 
@@ -134,7 +133,7 @@ sqlite> INSERT INTO usuarios (id, nombre)
 {% endtab %}
 {% endtabs %}
 
-### __Consultar información__
+### Consultar información
 
 Para ver los registros existentes con el comando `SELECT`:
 
@@ -155,7 +154,7 @@ sqlite> SELECT * FROM usuarios;
 {% endtab %}
 {% endtabs %}
 
-### __Actualizar Registros__
+### Actualizar Registros
 
 Modificar datos existentes con el comando `UPDATE`:
 
@@ -174,7 +173,7 @@ sqlite> UPDATE usuarios SET nombre = 'alonso' WHERE nombre = 'marcelo';
 {% endtab %}
 {% endtabs %}
 
-### __Eliminar Registros__
+### Eliminar Registros
 
 Borrar registros específicos:
 
