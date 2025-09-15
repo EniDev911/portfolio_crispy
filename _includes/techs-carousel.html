@@ -5,29 +5,31 @@
   <div class="carousel-line line-left">
     <div class="carousel-track">
       {% for tech in techs_left %}
-       <div class="tech-icon {{ tech }}">
+       <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
         {% include techs/{{ tech }}.svg %}
        </div>
       {% endfor %}
       {% for tech in techs_left %}
-       <div class="tech-icon {{ tech }}">
+       <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
         {% include techs/{{ tech }}.svg %}
        </div>
       {% endfor %}
     </div>
   </div>
- <div class="carousel-title-wrapper">
-    <h2 class="carousel-title">HABILIDADES</h2>
+
+  <div class="carousel-title-wrapper">
+    <h2 class="carousel-title" id="dynamic-title">...</h2>
   </div>
+
   <div class="carousel-line line-right">
     <div class="carousel-track">
       {% for tech in techs_right %}
-       <div class="tech-icon {{ tech }}">
+       <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
         {% include techs/{{ tech }}.svg %}
        </div>
       {% endfor %}
       {% for tech in techs_right %}
-       <div class="tech-icon {{ tech }}">
+       <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
         {% include techs/{{ tech }}.svg %}
        </div>
       {% endfor %}
@@ -46,50 +48,54 @@
 }
 
 .carousel-title-wrapper {
-  position: relative;
-  width: 100%;
   text-align: center;
-  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .carousel-title {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--text-color, currentColor);
+  font-size: 1.8rem;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin: 0;
-  padding: 0.5rem 1rem;
-  position: relative;
+  letter-spacing: 3px;
+  padding: 1rem 2rem;
+  border-radius: 12px;
   display: inline-block;
+  background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(59,130,246,0.15));
+  border: 1px solid rgba(59,130,246,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  animation: fade-in 1s ease, floatUpDown 3s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .carousel-title {
+    background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(14,165,233,0.1));
+    border-color: rgba(59,130,246,0.2);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .carousel-line {
   display: flex;
   flex-wrap: nowrap;
-  width: 100%;
   white-space: nowrap;
   gap: 2rem;
-}
-.carousel-line svg {
-  width: 50px;
-  height: 50px;
-  opacity: 0.85;
-  filter: grayscale(100%) brightness(0.8);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-
-@media (max-width: 768px) {
-  .carousel-wrapper {
-    gap: 1rem;
-  }
-
-  .carousel-line img,
-  .carousel-line svg {
-    width: 40px;
-    height: 40px;
-  }
 }
 
 .carousel-track {
@@ -113,25 +119,62 @@
   100% { transform: translateX(0); }
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.85;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.85;
-  }
+.tech-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon svg {
+  width: 50px;
+  height: 50px;
+  opacity: 0.85;
+  filter: grayscale(100%) brightness(0.8);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .tech-icon:hover svg {
   animation: pulse 0.6s ease-in-out;
-  filter: drop-shadow(0 0 5px rgba(var(--tech-glow), 0.3));
+  filter: drop-shadow(0 0 5px rgba(100, 200, 255, 0.4));
 }
 
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.85; }
+}
 
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    gap: 1rem;
+  }
+
+  .carousel-line svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+}
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.getElementById("dynamic-title");
+  const defaultTitle = "...";
+  const icons = document.querySelectorAll(".tech-icon");
+
+  icons.forEach(icon => {
+    icon.addEventListener("mouseenter", () => {
+      const techName = icon.getAttribute("data-tech");
+      title.textContent = techName;
+    });
+    icon.addEventListener("mouseleave", () => {
+      title.textContent = defaultTitle;
+    });
+  });
+});
+</script>
