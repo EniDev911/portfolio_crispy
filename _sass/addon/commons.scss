@@ -918,7 +918,7 @@
 
     #topbar-wrapper {
       height: $topbar-height;
-      background-color: var(--topbar-bg);
+      background-color: var(--main-bg);
     }
 
     #topbar {
@@ -1260,6 +1260,7 @@
 
   #topbar {
     @extend %full-width;
+    background-color: var(--topbar-bg);
   }
 
   #main-wrapper > .container {
