@@ -42,7 +42,10 @@ GO
 ```
 {: .nolineno }
 
-Una vez que hemos creado la función escalar, podemos verlas y explorarlas de dos maneras:
+> Ojo, si tienes instrucciones antes de la creación de la función, **se debe anteponer `GO`** para separar los lotes de ejecución, de lo contrario el script fallará.
+{: .prompt-warning }
+
+
 
 **1. En SQL Server Management Studio (SSMS):**
 
